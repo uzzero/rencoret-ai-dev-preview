@@ -372,48 +372,49 @@
 /* Raketen-Animation */
 .rocket-animation {
     position: relative;
-    width: 90px;
-    height: 90px;
+    width: 88px;
+    height: 88px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.rocket-stack {
+    position: relative;
+    width: 66px;
+    height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(45deg);
+    transform-origin: center;
+    animation: rocketMove 4s infinite ease-in-out;
+}
+
 .rocket {
-    width: 60px;
-    height: 60px;
+    width: 56px;
+    height: 56px;
     color: var(--primary-color);
     position: relative;
     z-index: 2;
-    transform: rotate(45deg);
-    animation: rocketMove 4s infinite ease-in-out;
 }
 
 @keyframes rocketMove {
     0%, 100% {
-        transform: rotate(45deg) translateY(0);
+        transform: rotate(45deg) translate3d(0, 0, 0);
     }
     50% {
-        transform: rotate(45deg) translateY(-10px);
+        transform: rotate(45deg) translate3d(-5px, -5px, 0);
     }
 }
 
 .rocket-flames {
     position: absolute;
-    bottom: 23px;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
+    left: 8px;
+    bottom: 8px;
+    width: 22px;
+    height: 22px;
     z-index: 1;
-    animation: rocketFlameMove 4s infinite ease-in-out;
-}
-
-@keyframes rocketFlameMove {
-    0%, 100% {
-        transform: translateX(-50%) rotate(45deg) translateY(0);
-    }
-    50% {
-        transform: translateX(-50%) rotate(45deg) translateY(-10px);
-    }
 }
 
 .flame {
@@ -597,6 +598,16 @@
     .idea-bulb, .rocket {
         width: 40px;
         height: 40px;
+    }
+
+    .rocket-animation {
+        width: 72px;
+        height: 72px;
+    }
+
+    .rocket-stack {
+        width: 52px;
+        height: 52px;
     }
 }
 
@@ -808,6 +819,20 @@ html[data-theme="light"] .timeline::after {
     border: 1px solid var(--glass-border) !important;
     box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7),
                 0 0 40px rgba(144, 84, 247, 0.25) !important;
+}
+
+.process--apple .timeline-decoration.is-visible,
+.process--apple .timeline-decoration.visible {
+    transform: translateX(-50%) translateY(0) !important;
+}
+
+.process--apple .timeline-end {
+    left: 50%;
+    bottom: -76px;
+}
+
+.process--apple .timeline-end .rocket-animation {
+    transform: translateX(1px);
 }
 
 @media (max-width: 768px) {

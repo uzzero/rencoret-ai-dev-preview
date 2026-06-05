@@ -88,8 +88,9 @@ function initMobileCarousel() {
     
     // Carousel Update
     function updateCarousel() {
-        // Jedes Bild ist 100% breit, also verschieben wir um currentSlide * 100%
-        carouselInstance.track.style.transform = `translateX(-${carouselInstance.currentSlide * 100}%)`;
+        const slideWidth = carouselInstance.container.clientWidth;
+        const offset = carouselInstance.currentSlide * slideWidth;
+        carouselInstance.track.style.setProperty('transform', `translate3d(-${offset}px, 0, 0)`, 'important');
         
         // Update dots
         carouselInstance.dots.forEach((dot, i) => {
@@ -230,6 +231,11 @@ function initMobileCarousel() {
     
     // Initial setup
     updateCarousel();
+
+    window.addEventListener('resize', () => {
+        clearTimeout(carouselInstance.resizeTimeout);
+        carouselInstance.resizeTimeout = setTimeout(updateCarousel, 120);
+    }, { signal });
     
     // IntersectionObserver für Viewport-Erkennung
     const observerOptions = {

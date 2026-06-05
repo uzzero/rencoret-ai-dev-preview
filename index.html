@@ -1200,6 +1200,39 @@
                 window.languageManager.updatePageContent();
             }
 
+            // Gemeinsamer Scroll-Lock für Mobile-Menü und Modals
+            (function initRencoretScrollLock() {
+                if (window.rencoretLockScroll && window.rencoretUnlockScroll) return;
+
+                var lockCount = 0;
+                var lockedScrollY = 0;
+
+                window.rencoretLockScroll = function () {
+                    lockCount += 1;
+                    if (lockCount > 1) return;
+
+                    lockedScrollY = window.scrollY || window.pageYOffset || 0;
+                    document.documentElement.classList.add('rencoret-scroll-locked');
+                    document.body.classList.add('rencoret-scroll-locked');
+                    document.body.style.top = '-' + lockedScrollY + 'px';
+                };
+
+                window.rencoretUnlockScroll = function () {
+                    lockCount = Math.max(0, lockCount - 1);
+                    if (lockCount > 0) return;
+
+                    document.documentElement.classList.remove('rencoret-scroll-locked');
+                    document.body.classList.remove('rencoret-scroll-locked');
+                    document.body.style.removeProperty('top');
+                    window.scrollTo(0, lockedScrollY);
+                };
+
+                window.rencoretForceUnlockScroll = function () {
+                    lockCount = 1;
+                    window.rencoretUnlockScroll();
+                };
+            })();
+
             // Mobile menu functionality
             var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
             var mobileMenu = document.querySelector('.mobile-menu');
@@ -1208,11 +1241,15 @@
 
             if (mobileMenuToggle && mobileMenu && mobileMenuOverlay) {
                 function closeMobileMenu() {
+                    if (!mobileMenu.classList.contains('active')) return;
+
                     mobileMenuToggle.classList.remove('active');
                     mobileMenu.classList.remove('active');
                     mobileMenuOverlay.classList.remove('active');
                     mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
+                    if (window.rencoretUnlockScroll) {
+                        window.rencoretUnlockScroll();
+                    }
                 }
 
                 // Toggle mobile menu
@@ -1225,7 +1262,9 @@
                         mobileMenu.classList.add('active');
                         mobileMenuOverlay.classList.add('active');
                         mobileMenuToggle.setAttribute('aria-expanded', 'true');
-                        document.body.style.overflow = 'hidden';
+                        if (window.rencoretLockScroll) {
+                            window.rencoretLockScroll();
+                        }
                     }
                 });
 
@@ -1582,7 +1621,7 @@
                 <span class="eyebrow" data-i18n="about.heading">Über uns</span>
                 <h2 class="display-xl about__heading">
                     <span class="display-line" data-i18n="about.heading.line1">Schnell. Fokussiert.</span>
-                    <span class="display-line display-line--accent" data-i18n="about.heading.line2">Made in Germany.</span>
+                    <span class="display-line display-line--accent" data-i18n="about.heading.line2">Made in Germany. Built for Europe.</span>
                 </h2>
                 <p class="lede" data-i18n="about.paragraph1">
                     RENCORET AI ist Ihr Experte für schnelle und effiziente MVP-Entwicklung mit
@@ -1593,6 +1632,11 @@
                     Unser Team vereint tiefes KI-Fachwissen mit agiler App-Entwicklung,
                     um Ihnen einen entscheidenden Wettbewerbsvorteil zu verschaffen.
                 </p>
+                <div class="about__trust-row" aria-label="RENCORET AI Trust Signale">
+                    <span data-i18n="about.trust.germany">🇩🇪 Made in Germany</span>
+                    <span data-i18n="about.trust.eu">🇪🇺 EU-ready</span>
+                    <span data-i18n="about.trust.privacy">DSGVO / Data Privacy</span>
+                </div>
             </div>
 
             <div class="about__intro-visual" data-motion="reveal">
@@ -1602,7 +1646,7 @@
         <div class="team-photo team-photo-1">
             <picture>
                 <source srcset="img/about/about-1.webp" type="image/webp">
-                <img src="img/about/about-1.jpg" alt="Team RENCORET AI">
+                <img src="img/about/about-1.png" alt="Team RENCORET AI">
             </picture>
         </div>
         <div class="team-photo team-photo-3">
@@ -1638,6 +1682,7 @@
         <span class="dot" data-slide="4"></span>
     </div>
 </div>
+
             </div>
         </div>
 
@@ -1766,19 +1811,22 @@
                                 <!-- Animierte Rakete am Ende der Timeline -->
                     <div class="timeline-decoration timeline-end">
                         <div class="rocket-animation">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rocket">
-                                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
-                                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
-                                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
-                                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
-                            </svg>
-                            <div class="rocket-flames">
-                                <div class="flame flame1"></div>
-                                <div class="flame flame2"></div>
-                                <div class="flame flame3"></div>
+                            <div class="rocket-stack">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" class="rocket">
+                                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                                    <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                                    <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                                    <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                                </svg>
+                                <div class="rocket-flames">
+                                    <div class="flame flame1"></div>
+                                    <div class="flame flame2"></div>
+                                    <div class="flame flame3"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
         </div>
     </div>
 </section>
@@ -1935,7 +1983,7 @@
 
             <article class="project-showcase project-showcase--text-right" data-motion="reveal">
                 <div class="project-showcase__visual">
-                    <div class="phone-frame" data-tilt>
+                    <div class="phone-frame phone-frame--mealply" data-tilt>
                         <div class="phone-frame__notch" aria-hidden="true"></div>
                         <div class="phone-frame__screen">
                             <picture>
@@ -2296,101 +2344,66 @@
     <!-- Modal Dialog Functionality -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // Alle Details-Buttons auswählen
             const detailsButtons = document.querySelectorAll('.details-button');
 
-            // Event-Listener für jeden Button hinzufügen
-            detailsButtons.forEach(button => {
-                button.addEventListener('click', function () {
-                    // Projekt-ID aus data-attribute holen
-                    const projectId = this.getAttribute('data-project');
-                    // Entsprechendes Modal öffnen
-                    const modal = document.getElementById(`modal-${projectId}`);
-                    if (modal) {
-                        // Modal aktivieren
-                        modal.classList.add('active');
-
-                        // Scrolling im Body deaktivieren, aber Modal-Scrolling aktivieren
-                        document.body.style.overflow = 'hidden';
-
-                        // Sicherstellen, dass der Modal-Container und -Body scrollbar sind
-                        modal.style.overflowY = 'auto';
-
-                        // Modal-Body finden und Scrolling aktivieren
-                        const modalBody = modal.querySelector('.modal-body');
-                        if (modalBody) {
-                            modalBody.style.overflowY = 'auto';
-                            modalBody.style.webkitOverflowScrolling = 'touch';
-                        }
-
-                        // Modal an Bildschirmgröße anpassen
-                        positionModalForMobile(modal);
-                    }
-                });
-            });
-
-            // Funktion zur korrekten Positionierung auf Mobilgeräten
-            function positionModalForMobile(modal) {
-                if (!modal) return;
-
-                const modalContent = modal.querySelector('.modal-content');
-                if (!modalContent) return;
-
-                // Auf Mobilgeräten
-                if (window.innerWidth <= 576) {
-                    // Sicherstellen, dass das Modal nicht zu hoch ist
-                    modalContent.style.maxHeight = '85vh';
-                    modalContent.style.margin = '15px auto';
-
-                    // Scrollposition zurücksetzen
-                    setTimeout(() => {
-                        modalContent.scrollTop = 0;
-                        const modalBody = modal.querySelector('.modal-body');
-                        if (modalBody) modalBody.scrollTop = 0;
-                    }, 100);
-                }
-                // Auf Tablets
-                else if (window.innerWidth <= 768) {
-                    modalContent.style.maxHeight = '90vh';
-                    modalContent.style.margin = '20px auto';
-                }
-                // Auf Desktop
-                else {
-                    modalContent.style.maxHeight = '85vh';
-                    modalContent.style.margin = 'auto';
+            function resetModalScroll(modal) {
+                const modalBody = modal.querySelector('.modal-body');
+                if (modalBody) {
+                    modalBody.scrollTop = 0;
                 }
             }
 
-            // Schließen-Buttons für die Modals
-            const closeButtons = document.querySelectorAll('.modal-close, .modal-overlay');
-            closeButtons.forEach(button => {
+            function openModal(modal) {
+                if (modal.classList.contains('active')) return;
+
+                modal.classList.add('active');
+                resetModalScroll(modal);
+
+                if (window.rencoretLockScroll) {
+                    window.rencoretLockScroll();
+                } else {
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeModal(modal) {
+                if (!modal.classList.contains('active')) return;
+
+                modal.classList.remove('active');
+
+                if (window.rencoretUnlockScroll) {
+                    window.rencoretUnlockScroll();
+                } else {
+                    document.body.style.overflow = '';
+                }
+            }
+
+            detailsButtons.forEach(button => {
                 button.addEventListener('click', function () {
-                    // Übergeordnetes Modal finden und schließen
-                    const modal = this.closest('.modal-container');
+                    const projectId = this.getAttribute('data-project');
+                    const modal = document.getElementById(`modal-${projectId}`);
                     if (modal) {
-                        modal.classList.remove('active');
-                        // Scrolling im Body wieder aktivieren
-                        document.body.style.overflow = '';
+                        openModal(modal);
                     }
                 });
             });
 
-            // Schließen mit Escape-Taste
+            const closeButtons = document.querySelectorAll('.modal-close, .modal-overlay');
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const modal = this.closest('.modal-container');
+                    if (modal) {
+                        closeModal(modal);
+                    }
+                });
+            });
+
             document.addEventListener('keydown', function (event) {
                 if (event.key === 'Escape') {
                     const activeModal = document.querySelector('.modal-container.active');
                     if (activeModal) {
-                        activeModal.classList.remove('active');
-                        document.body.style.overflow = '';
+                        closeModal(activeModal);
                     }
-                }
-            });
-
-            // Bei Größenänderung aktives Modal neu positionieren
-            window.addEventListener('resize', function () {
-                const activeModal = document.querySelector('.modal-container.active');
-                if (activeModal) {
-                    positionModalForMobile(activeModal);
                 }
             });
         });
@@ -2620,46 +2633,15 @@
 
                 if (isTouchLayout) {
                     document.body.style.minHeight = '100%';
-                } else if (!document.querySelector('.mobile-menu.active') && !document.querySelector('.modal-container.active')) {
+                } else if (!document.body.classList.contains('rencoret-scroll-locked') && !document.querySelector('.mobile-menu.active') && !document.querySelector('.modal-container.active')) {
                     document.body.style.removeProperty('overflow');
                 }
 
-                // Spezielle Behandlung für Modals
-                const modalContainers = document.querySelectorAll('.modal-container');
                 const modalBodies = document.querySelectorAll('.modal-body');
-                const modalContents = document.querySelectorAll('.modal-content');
-
-                // Explizit die Modal-Elemente für Scrolling konfigurieren
-                modalContainers.forEach(container => {
-                    container.style.overflowY = 'auto';
-                    container.style.maxHeight = '100vh';
-                    container.style.overscrollBehavior = 'contain';
-                });
 
                 modalBodies.forEach(body => {
-                    body.style.overflowY = 'auto';
                     body.style.webkitOverflowScrolling = 'touch';
-                    body.style.maxHeight = 'calc(85vh - 80px)';
                 });
-
-                modalContents.forEach(content => {
-                    content.style.overflowY = 'hidden'; // Verhindert doppelte Scrollbars
-                    content.style.display = 'flex';
-                    content.style.flexDirection = 'column';
-                });
-
-                // Aktive Modals besonders behandeln
-                const activeModal = document.querySelector('.modal-container.active');
-                if (activeModal) {
-                    activeModal.style.overflowY = 'auto';
-                    activeModal.style.display = 'flex';
-
-                    const activeBody = activeModal.querySelector('.modal-body');
-                    if (activeBody) {
-                        activeBody.style.overflowY = 'auto';
-                        activeBody.style.webkitOverflowScrolling = 'touch';
-                    }
-                }
 
                 // Spezielle Anpassungen für bestimmte Elemente
                 const projektSektion = document.getElementById('projekte');

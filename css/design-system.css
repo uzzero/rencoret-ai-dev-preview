@@ -54,6 +54,19 @@ body {
     color: var(--text-color);
 }
 
+html.rencoret-scroll-locked,
+body.rencoret-scroll-locked {
+    overflow: hidden !important;
+    overscroll-behavior: none;
+}
+
+body.rencoret-scroll-locked {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+}
+
 /* Initial loader fallback should now also be black */
 html[data-theme="dark"] body,
 html[data-theme="light"] body {
@@ -261,6 +274,10 @@ body > header .container {
     padding: 0;
 }
 
+body > header .logo {
+    margin-left: clamp(10px, 1.1vw, 18px);
+}
+
 body > header .logo a {
     display: flex;
     align-items: center;
@@ -331,6 +348,7 @@ body > header nav ul li a::after {
         left: auto !important;
         transform: none !important;
         flex: 0 0 auto;
+        margin-left: 8px;
     }
 
     body > header .logo-svg,
@@ -577,6 +595,7 @@ footer {
         height: 52px !important;
         flex: none;
         min-width: 0;
+        margin-left: 0;
     }
 
     body > header .logo a {
