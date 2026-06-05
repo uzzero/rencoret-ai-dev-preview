@@ -1,5 +1,11 @@
 /* Footer Section - Navigation and Contact Links */
 
+@property --ai-angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
 /* Main Footer Element */
 footer {
     background-color: var(--footer-background);
@@ -105,6 +111,94 @@ footer::before {
     color: var(--footer-text-color);
 }
 
+.footer-credit {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    max-width: 100%;
+    margin: 14px auto 0;
+    color: var(--footer-text-color);
+    font-size: 0.78rem;
+    line-height: 1.6;
+    opacity: 0.72;
+}
+
+.rencoret-glow {
+    --ai-angle: 0deg;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 1 auto;
+    border-radius: 999px;
+    padding: 1px;
+    color: #ffffff;
+    text-decoration: none;
+    background: conic-gradient(from var(--ai-angle),
+            rgba(255, 140, 66, 0.28),
+            #FF8C42,
+            #9054F7,
+            rgba(144, 84, 247, 0.28),
+            #FF8C42);
+    isolation: isolate;
+    animation: ai-spin 4s linear infinite;
+    transition: transform 0.22s ease, filter 0.22s ease;
+}
+
+.rencoret-glow::before {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    z-index: -1;
+    border-radius: inherit;
+    background: conic-gradient(from var(--ai-angle),
+            rgba(255, 140, 66, 0.42),
+            rgba(144, 84, 247, 0.46),
+            rgba(255, 140, 66, 0.42));
+    filter: blur(10px);
+    opacity: 0.42;
+    pointer-events: none;
+    animation: ai-spin 4s linear infinite;
+}
+
+.rencoret-glow:hover {
+    transform: scale(1.05);
+    filter: brightness(1.08);
+}
+
+.rencoret-glow:focus-visible {
+    outline: 2px solid rgba(255, 255, 255, 0.68);
+    outline-offset: 4px;
+}
+
+.ai-glow-inner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: inherit;
+    padding: 4px 9px;
+    background: #050505;
+    color: rgba(255, 255, 255, 0.86);
+    line-height: 1.15;
+    white-space: nowrap;
+}
+
+@keyframes ai-spin {
+    to {
+        --ai-angle: 360deg;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .rencoret-glow,
+    .rencoret-glow::before {
+        animation: none;
+    }
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
     footer {
@@ -125,6 +219,16 @@ footer::before {
     .footer-links,
     .footer-contact {
         margin-bottom: 20px;
+    }
+
+    .footer-credit {
+        gap: 5px 6px;
+        max-width: 26ch;
+        font-size: 0.74rem;
+    }
+
+    .ai-glow-inner {
+        padding: 4px 8px;
     }
     
     footer {
