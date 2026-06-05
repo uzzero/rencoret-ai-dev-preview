@@ -258,7 +258,7 @@ body > header {
     right: auto !important;
     width: min(calc(100% - 48px), 1280px) !important;
     transform: translateX(-50%) !important;
-    padding: 10px 16px;
+    padding: 10px 18px 10px clamp(24px, 1.8vw, 34px);
     background: rgba(255, 255, 255, 0.075) !important;
     backdrop-filter: blur(22px) saturate(150%);
     -webkit-backdrop-filter: blur(22px) saturate(150%);
@@ -272,13 +272,14 @@ body > header .container {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: clamp(14px, 2vw, 28px);
+    gap: 0;
     max-width: none;
     padding: 0;
 }
 
 body > header .logo {
-    margin-left: clamp(8px, 1vw, 14px);
+    flex: 0 0 auto;
+    margin-left: 0;
 }
 
 body > header .logo a {
@@ -297,19 +298,24 @@ body > header .logo-fallback {
 body > header nav {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-left: auto;
+    justify-content: space-between;
+    gap: clamp(12px, 1.1vw, 18px);
+    flex: 1 1 auto;
+    margin-left: clamp(44px, 5vw, 84px);
     min-width: 0;
 }
 
 body > header .language-selector {
-    margin-left: 8px;
+    flex: 0 0 auto;
+    margin-left: 0;
 }
 
 body > header nav ul {
     display: flex;
     align-items: center;
-    gap: 0;
+    justify-content: space-between;
+    flex: 1 1 auto;
+    gap: clamp(2px, 0.35vw, 7px);
     min-width: 0;
 }
 
@@ -321,7 +327,7 @@ body > header nav ul li a {
     display: inline-flex;
     align-items: center;
     min-height: 36px;
-    padding: 0 8px;
+    padding: 0 clamp(6px, 0.45vw, 9px);
     border-radius: var(--radius-pill);
     font-size: 0.72rem;
     letter-spacing: 0.06em;
@@ -343,11 +349,11 @@ body > header nav ul li a::after {
 @media (min-width: 1181px) and (max-width: 1320px) {
     body > header {
         width: min(calc(100% - 40px), 1180px) !important;
-        padding: 10px 14px;
+        padding: 10px 12px 10px 22px;
     }
 
     body > header .container {
-        gap: 16px;
+        gap: 0;
     }
 
     body > header .logo {
@@ -355,7 +361,7 @@ body > header nav ul li a::after {
         left: auto !important;
         transform: none !important;
         flex: 0 0 auto;
-        margin-left: 8px;
+        margin-left: 0;
     }
 
     body > header .logo-svg,
@@ -364,8 +370,10 @@ body > header nav ul li a::after {
     }
 
     body > header nav {
+        justify-content: space-between;
         gap: 8px;
-        margin: 0;
+        flex: 1 1 auto;
+        margin: 0 0 0 28px;
         padding: 0;
         width: auto;
         min-width: 0;
@@ -375,6 +383,8 @@ body > header nav ul li a::after {
 
     body > header nav ul {
         display: flex !important;
+        justify-content: space-between;
+        flex: 1 1 auto;
         gap: 0;
         min-width: 0;
     }
