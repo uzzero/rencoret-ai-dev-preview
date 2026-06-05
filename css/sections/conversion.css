@@ -155,8 +155,8 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: clamp(12px, 2vw, 18px);
-    min-height: clamp(250px, 28vw, 390px);
+    gap: clamp(14px, 2vw, 24px);
+    min-height: clamp(260px, 28vw, 390px);
     margin: 0 0 clamp(42px, 6vw, 86px);
     padding: clamp(28px, 5vw, 60px);
     border: 1px solid var(--glass-border);
@@ -179,61 +179,54 @@ body {
 }
 
 .tool-logo {
-    --logo-color: rgba(255, 255, 255, 0.72);
+    --logo-opacity: 0.9;
+    --logo-width: 104px;
+    --logo-height: 42px;
     position: relative;
     z-index: 1;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    min-height: 54px;
-    padding: 13px 17px;
-    color: var(--logo-color);
+    justify-content: center;
+    width: clamp(82px, 8vw, 118px);
+    min-height: 66px;
+    padding: 16px 20px;
     border: 1px solid rgba(255, 255, 255, 0.09);
-    border-radius: var(--radius-pill);
-    background: rgba(255, 255, 255, 0.045);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.04);
     box-shadow: 0 16px 36px -26px rgba(0, 0, 0, 0.9);
     animation: toolFloat 8s ease-in-out infinite;
     animation-delay: var(--float-delay, 0s);
 }
 
 .tool-logo:nth-child(3n) {
-    --logo-color: rgba(255, 255, 255, 0.88);
+    --logo-opacity: 1;
     transform: translateY(-10px);
 }
 
 .tool-logo:nth-child(4n) {
-    --logo-color: rgba(255, 255, 255, 0.58);
+    --logo-opacity: 0.78;
     transform: translateY(8px);
 }
 
 .tool-logo--large {
-    padding: 16px 22px;
+    --logo-width: 118px;
+    --logo-height: 44px;
+    width: clamp(96px, 9vw, 134px);
 }
 
 .tool-logo--wide {
-    padding-inline: 22px;
+    --logo-width: 148px;
+    --logo-height: 42px;
+    width: clamp(132px, 12vw, 176px);
 }
 
-.tool-logo__mark {
-    width: 28px;
-    height: 28px;
-    flex: 0 0 28px;
-    background: currentColor;
-    -webkit-mask: var(--tool-logo) center / contain no-repeat;
-            mask: var(--tool-logo) center / contain no-repeat;
-}
-
-.tool-logo--large .tool-logo__mark {
-    width: 34px;
-    height: 34px;
-    flex-basis: 34px;
-}
-
-.tool-logo span:last-child {
-    color: currentColor;
-    font-size: 0.9rem;
-    font-weight: 600;
-    white-space: nowrap;
+.tool-logo__image {
+    display: block;
+    width: min(100%, var(--logo-width));
+    height: var(--logo-height);
+    object-fit: contain;
+    opacity: var(--logo-opacity);
+    filter: grayscale(1) brightness(0) invert(1) contrast(1.18) drop-shadow(0 0 18px rgba(255, 255, 255, 0.16));
 }
 
 @keyframes toolFloat {
@@ -517,15 +510,18 @@ body {
     }
 
     .tool-logo {
-        min-height: 48px;
-        padding: 11px 14px;
+        width: clamp(74px, 24vw, 104px);
+        min-height: 56px;
+        padding: 13px 15px;
+        border-radius: 20px;
     }
 
-    .tool-logo__mark,
-    .tool-logo--large .tool-logo__mark {
-        width: 24px;
-        height: 24px;
-        flex-basis: 24px;
+    .tool-logo--wide {
+        width: clamp(108px, 36vw, 150px);
+    }
+
+    .tool-logo__image {
+        height: 34px;
     }
 
     .case-summary div {

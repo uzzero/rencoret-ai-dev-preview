@@ -1207,14 +1207,44 @@
                     document.body.style.top = '-' + lockedScrollY + 'px';
                 };
 
-                window.rencoretUnlockScroll = function () {
+                function restoreScrollPosition(scrollY) {
+                    var htmlScrollBehavior = document.documentElement.style.scrollBehavior;
+                    var bodyScrollBehavior = document.body.style.scrollBehavior;
+
+                    document.documentElement.style.scrollBehavior = 'auto';
+                    document.body.style.scrollBehavior = 'auto';
+                    window.scrollTo({ top: scrollY, left: 0, behavior: 'auto' });
+
+                    if (window.rencoretLenis && typeof window.rencoretLenis.scrollTo === 'function') {
+                        window.rencoretLenis.scrollTo(scrollY, { immediate: true, force: true });
+                    }
+
+                    if (window.ScrollTrigger) {
+                        window.ScrollTrigger.update();
+                        window.ScrollTrigger.refresh();
+                    }
+
+                    window.requestAnimationFrame(function () {
+                        document.documentElement.style.scrollBehavior = htmlScrollBehavior;
+                        document.body.style.scrollBehavior = bodyScrollBehavior;
+                    });
+                }
+
+                window.rencoretRestoreScrollPosition = restoreScrollPosition;
+
+                window.rencoretUnlockScroll = function (restoreScrollY) {
                     lockCount = Math.max(0, lockCount - 1);
                     if (lockCount > 0) return;
 
+                    var scrollY = typeof restoreScrollY === 'number' ? restoreScrollY : lockedScrollY;
                     document.documentElement.classList.remove('rencoret-scroll-locked');
                     document.body.classList.remove('rencoret-scroll-locked');
                     document.body.style.removeProperty('top');
-                    window.scrollTo(0, lockedScrollY);
+                    restoreScrollPosition(scrollY);
+
+                    window.requestAnimationFrame(function () {
+                        restoreScrollPosition(scrollY);
+                    });
                 };
 
                 window.rencoretForceUnlockScroll = function () {
@@ -1707,22 +1737,21 @@
         </div>
 
         <div class="tool-cloud" aria-label="Häufige Technologie-Bausteine" data-motion="reveal">
-            <!-- Real SVG logo assets are stored locally in src/img/tools and rendered monochrome by CSS masks. -->
-            <span class="tool-logo tool-logo--large" style="--tool-logo: url('/img/tools/flutter.svg'); --float-delay: 0s;" aria-label="Flutter"><span class="tool-logo__mark" aria-hidden="true"></span><span>Flutter</span></span>
-            <span class="tool-logo" style="--tool-logo: url('/img/tools/firebase.svg'); --float-delay: -1.2s;" aria-label="Firebase"><span class="tool-logo__mark" aria-hidden="true"></span><span>Firebase</span></span>
-            <span class="tool-logo tool-logo--wide" style="--tool-logo: url('/img/tools/googlecloud.svg'); --float-delay: -2.4s;" aria-label="Google Cloud"><span class="tool-logo__mark" aria-hidden="true"></span><span>Google Cloud</span></span>
-            <span class="tool-logo" style="--tool-logo: url('/img/tools/langchain.svg'); --float-delay: -0.7s;" aria-label="LangChain"><span class="tool-logo__mark" aria-hidden="true"></span><span>LangChain</span></span>
-            <span class="tool-logo" style="--tool-logo: url('/img/tools/langgraph.svg'); --float-delay: -1.8s;" aria-label="LangGraph"><span class="tool-logo__mark" aria-hidden="true"></span><span>LangGraph</span></span>
-            <span class="tool-logo tool-logo--large" style="--tool-logo: url('/img/tools/openai.svg'); --float-delay: -3s;" aria-label="OpenAI"><span class="tool-logo__mark" aria-hidden="true"></span><span>OpenAI</span></span>
-            <span class="tool-logo" style="--tool-logo: url('/img/tools/googlegemini.svg'); --float-delay: -1.4s;" aria-label="Gemini"><span class="tool-logo__mark" aria-hidden="true"></span><span>Gemini</span></span>
-            <span class="tool-logo" style="--tool-logo: url('/img/tools/anthropic.svg'); --float-delay: -2.1s;" aria-label="Anthropic"><span class="tool-logo__mark" aria-hidden="true"></span><span>Anthropic</span></span>
-            <span class="tool-logo" style="--tool-logo: url('/img/tools/postgresql.svg'); --float-delay: -0.2s;" aria-label="PostgreSQL"><span class="tool-logo__mark" aria-hidden="true"></span><span>PostgreSQL</span></span>
-            <span class="tool-logo" style="--tool-logo: url('/img/tools/pinecone.svg'); --float-delay: -2.7s;" aria-label="Pinecone"><span class="tool-logo__mark" aria-hidden="true"></span><span>Pinecone</span></span>
-            <span class="tool-logo" style="--tool-logo: url('/img/tools/qdrant.svg'); --float-delay: -1.6s;" aria-label="Qdrant"><span class="tool-logo__mark" aria-hidden="true"></span><span>Qdrant</span></span>
-            <span class="tool-logo" style="--tool-logo: url('/img/tools/weaviate.svg'); --float-delay: -3.4s;" aria-label="Weaviate"><span class="tool-logo__mark" aria-hidden="true"></span><span>Weaviate</span></span>
-            <span class="tool-logo" style="--tool-logo: url('/img/tools/langsmith.svg'); --float-delay: -0.9s;" aria-label="LangSmith"><span class="tool-logo__mark" aria-hidden="true"></span><span>LangSmith</span></span>
-            <span class="tool-logo" style="--tool-logo: url('/img/tools/sentry.svg'); --float-delay: -2.9s;" aria-label="Sentry"><span class="tool-logo__mark" aria-hidden="true"></span><span>Sentry</span></span>
-            <span class="tool-logo tool-logo--wide" style="--tool-logo: url('/img/tools/githubactions.svg'); --float-delay: -1.1s;" aria-label="GitHub Actions"><span class="tool-logo__mark" aria-hidden="true"></span><span>GitHub Actions</span></span>
+            <span class="tool-logo tool-logo--large" style="--float-delay: 0s;" aria-label="Flutter"><img class="tool-logo__image" src="img/tools/flutter.svg" alt="" width="96" height="40"></span>
+            <span class="tool-logo" style="--float-delay: -1.2s;" aria-label="Firebase"><img class="tool-logo__image" src="img/tools/firebase.svg" alt="" width="88" height="40"></span>
+            <span class="tool-logo" style="--float-delay: -2.4s;" aria-label="Google Cloud"><img class="tool-logo__image" src="img/tools/googlecloud.svg" alt="" width="88" height="40"></span>
+            <span class="tool-logo" style="--float-delay: -0.7s;" aria-label="LangChain"><img class="tool-logo__image" src="img/tools/langchain.svg" alt="" width="88" height="40"></span>
+            <span class="tool-logo" style="--float-delay: -1.8s;" aria-label="LangGraph"><img class="tool-logo__image" src="img/tools/langgraph.svg" alt="" width="88" height="40"></span>
+            <span class="tool-logo tool-logo--large" style="--float-delay: -3s;" aria-label="OpenAI"><img class="tool-logo__image" src="img/tools/openai.svg" alt="" width="96" height="40"></span>
+            <span class="tool-logo" style="--float-delay: -1.4s;" aria-label="Gemini"><img class="tool-logo__image" src="img/tools/googlegemini.svg" alt="" width="88" height="40"></span>
+            <span class="tool-logo" style="--float-delay: -2.1s;" aria-label="Anthropic"><img class="tool-logo__image" src="img/tools/anthropic.svg" alt="" width="88" height="40"></span>
+            <span class="tool-logo" style="--float-delay: -0.2s;" aria-label="PostgreSQL"><img class="tool-logo__image" src="img/tools/postgresql.svg" alt="" width="88" height="40"></span>
+            <span class="tool-logo tool-logo--wide" style="--float-delay: -2.7s;" aria-label="Pinecone"><img class="tool-logo__image" src="img/tools/pinecone.svg" alt="" width="132" height="40"></span>
+            <span class="tool-logo" style="--float-delay: -1.6s;" aria-label="Qdrant"><img class="tool-logo__image" src="img/tools/qdrant.svg" alt="" width="88" height="40"></span>
+            <span class="tool-logo tool-logo--wide" style="--float-delay: -3.4s;" aria-label="Weaviate"><img class="tool-logo__image" src="img/tools/weaviate.svg" alt="" width="132" height="40"></span>
+            <span class="tool-logo tool-logo--wide" style="--float-delay: -0.9s;" aria-label="LangSmith"><img class="tool-logo__image" src="img/tools/langsmith.svg" alt="" width="132" height="40"></span>
+            <span class="tool-logo" style="--float-delay: -2.9s;" aria-label="Sentry"><img class="tool-logo__image" src="img/tools/sentry.svg" alt="" width="88" height="40"></span>
+            <span class="tool-logo tool-logo--wide" style="--float-delay: -1.1s;" aria-label="GitHub Actions"><img class="tool-logo__image" src="img/tools/githubactions.svg" alt="" width="132" height="40"></span>
         </div>
 
         <div class="stack-category-grid" data-motion="stagger">
@@ -2167,7 +2196,7 @@
                         <span class="tag-pill" data-i18n="projects.lebenszeichen.tag.result">Ergebnis: 20k+ Kontakte</span>
                     </div>
                     <div class="btn-row project-showcase__actions">
-                        <button class="cta-button details-button" data-project="lebenszeichen" data-i18n="projects.details_button">Details anzeigen</button>
+                        <button type="button" class="cta-button details-button" data-project="lebenszeichen" data-i18n="projects.details_button">Details anzeigen</button>
                     </div>
                 </div>
                 <div class="project-showcase__visual">
@@ -2224,7 +2253,7 @@
                         <span class="tag-pill" data-i18n="projects.ikigami.tag.result">Ergebnis: 44 Tage Sprint</span>
                     </div>
                     <div class="btn-row project-showcase__actions">
-                        <button class="cta-button details-button" data-project="ikigami" data-i18n="projects.details_button">Details anzeigen</button>
+                        <button type="button" class="cta-button details-button" data-project="ikigami" data-i18n="projects.details_button">Details anzeigen</button>
                     </div>
                 </div>
             </article>
@@ -2257,7 +2286,7 @@
                         <span class="tag-pill" data-i18n="projects.intown.tag.result">Ergebnis: Akquiriert</span>
                     </div>
                     <div class="btn-row project-showcase__actions">
-                        <button class="cta-button details-button" data-project="intown" data-i18n="projects.details_button">Details anzeigen</button>
+                        <button type="button" class="cta-button details-button" data-project="intown" data-i18n="projects.details_button">Details anzeigen</button>
                     </div>
                 </div>
                 <div class="project-showcase__visual">
@@ -2313,7 +2342,7 @@
                         <span class="tag-pill" data-i18n="projects.mealply.tag.integration">Integration: Einkaufslisten</span>
                     </div>
                     <div class="btn-row project-showcase__actions">
-                        <button class="cta-button details-button" data-project="mealply" data-i18n="projects.details_button">Details anzeigen</button>
+                        <button type="button" class="cta-button details-button" data-project="mealply" data-i18n="projects.details_button">Details anzeigen</button>
                     </div>
                 </div>
             </article>
@@ -2818,6 +2847,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const detailsButtons = document.querySelectorAll('.details-button');
+            let activeModalTrigger = null;
 
             function resetModalScroll(modal) {
                 const modalBody = modal.querySelector('.modal-body');
@@ -2826,9 +2856,31 @@
                 }
             }
 
-            function openModal(modal) {
+            function restorePageScroll(scrollY) {
+                if (window.rencoretRestoreScrollPosition) {
+                    window.rencoretRestoreScrollPosition(scrollY);
+                    return;
+                }
+
+                const htmlScrollBehavior = document.documentElement.style.scrollBehavior;
+                const bodyScrollBehavior = document.body.style.scrollBehavior;
+
+                document.documentElement.style.scrollBehavior = 'auto';
+                document.body.style.scrollBehavior = 'auto';
+                window.scrollTo({ top: scrollY, left: 0, behavior: 'auto' });
+
+                window.requestAnimationFrame(function () {
+                    document.documentElement.style.scrollBehavior = htmlScrollBehavior;
+                    document.body.style.scrollBehavior = bodyScrollBehavior;
+                });
+            }
+
+            function openModal(modal, trigger) {
                 if (modal.classList.contains('active')) return;
 
+                const currentScrollY = window.scrollY || window.pageYOffset || 0;
+                activeModalTrigger = trigger || document.activeElement;
+                modal.dataset.restoreScrollY = String(currentScrollY);
                 modal.classList.add('active');
                 resetModalScroll(modal);
 
@@ -2842,13 +2894,26 @@
             function closeModal(modal) {
                 if (!modal.classList.contains('active')) return;
 
+                const restoreScrollY = Number(modal.dataset.restoreScrollY || window.scrollY || window.pageYOffset || 0);
+                const triggerToRestore = activeModalTrigger;
                 modal.classList.remove('active');
+                delete modal.dataset.restoreScrollY;
+                activeModalTrigger = null;
 
                 if (window.rencoretUnlockScroll) {
-                    window.rencoretUnlockScroll();
+                    window.rencoretUnlockScroll(restoreScrollY);
                 } else {
                     document.body.style.overflow = '';
+                    restorePageScroll(restoreScrollY);
                 }
+
+                window.requestAnimationFrame(function () {
+                    restorePageScroll(restoreScrollY);
+
+                    if (triggerToRestore && typeof triggerToRestore.focus === 'function') {
+                        triggerToRestore.focus({ preventScroll: true });
+                    }
+                });
             }
 
             detailsButtons.forEach(button => {
@@ -2856,7 +2921,7 @@
                     const projectId = this.getAttribute('data-project');
                     const modal = document.getElementById(`modal-${projectId}`);
                     if (modal) {
-                        openModal(modal);
+                        openModal(modal, this);
                     }
                 });
             });

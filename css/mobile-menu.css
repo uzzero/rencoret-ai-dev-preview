@@ -254,7 +254,7 @@
 }
 
 /* Media Queries */
-@media (max-width: 1024px) {
+@media (max-width: 1180px) {
     .mobile-menu-toggle {
         display: flex;
     }
@@ -350,7 +350,7 @@
 }
 
 /* Apple-style compact mobile sheet */
-@media (max-width: 1024px) {
+@media (max-width: 1180px) {
     .mobile-menu-toggle {
         width: 34px;
         height: 34px;
