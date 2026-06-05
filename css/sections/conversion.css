@@ -151,87 +151,117 @@ body {
 
 .tool-cloud {
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(112px, 1fr));
+    justify-items: center;
     align-items: center;
-    gap: clamp(14px, 2vw, 24px);
-    min-height: clamp(260px, 28vw, 390px);
+    gap: clamp(12px, 1.7vw, 22px);
+    min-height: 0;
     margin: 0 0 clamp(42px, 6vw, 86px);
-    padding: clamp(28px, 5vw, 60px);
-    border: 1px solid var(--glass-border);
-    border-radius: clamp(28px, 5vw, 48px);
+    padding: clamp(30px, 4.8vw, 66px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: clamp(28px, 4vw, 44px);
     background:
-        radial-gradient(circle at 20% 30%, rgba(255, 140, 66, 0.16), transparent 36%),
-        radial-gradient(circle at 78% 62%, rgba(144, 84, 247, 0.2), transparent 40%),
-        rgba(255, 255, 255, 0.025);
+        linear-gradient(135deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.018) 38%, rgba(144, 84, 247, 0.1)),
+        radial-gradient(circle at 14% 18%, rgba(255, 140, 66, 0.18), transparent 34%),
+        radial-gradient(circle at 78% 74%, rgba(144, 84, 247, 0.22), transparent 42%),
+        rgba(255, 255, 255, 0.018);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.09),
+        inset 0 -70px 120px rgba(0, 0, 0, 0.14),
+        0 34px 90px -54px rgba(0, 0, 0, 0.92);
+    isolation: isolate;
     overflow: hidden;
 }
 
 .tool-cloud::before {
     content: "";
     position: absolute;
-    inset: 12%;
-    border-radius: 50%;
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    filter: blur(1px);
+    inset: 0;
+    z-index: 0;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 92px 92px;
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    opacity: 0.18;
+    pointer-events: none;
+}
+
+.tool-cloud::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    z-index: 0;
+    border-radius: inherit;
+    background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.14), transparent 24%, transparent 70%, rgba(144, 84, 247, 0.14)),
+        radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.07), transparent 40%);
+    mix-blend-mode: screen;
+    opacity: 0.68;
     pointer-events: none;
 }
 
 .tool-logo {
-    --logo-opacity: 0.9;
-    --logo-width: 104px;
-    --logo-height: 42px;
+    --logo-opacity: 0.94;
+    --logo-width: 64px;
+    --logo-height: 64px;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: clamp(82px, 8vw, 118px);
-    min-height: 66px;
-    padding: 16px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.09);
+    width: clamp(118px, 8.5vw, 154px);
+    min-height: clamp(90px, 7vw, 106px);
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.105);
     border-radius: 24px;
-    background: rgba(255, 255, 255, 0.04);
-    box-shadow: 0 16px 36px -26px rgba(0, 0, 0, 0.9);
-    animation: toolFloat 8s ease-in-out infinite;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.092), rgba(255, 255, 255, 0.026)),
+        rgba(255, 255, 255, 0.035);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.12),
+        0 20px 44px -30px rgba(0, 0, 0, 0.95);
+    transform: translateY(var(--logo-offset, 0));
+    animation: toolFloat 9s ease-in-out infinite;
     animation-delay: var(--float-delay, 0s);
 }
 
 .tool-logo:nth-child(3n) {
     --logo-opacity: 1;
-    transform: translateY(-10px);
+    --logo-offset: -6px;
 }
 
 .tool-logo:nth-child(4n) {
-    --logo-opacity: 0.78;
-    transform: translateY(8px);
+    --logo-opacity: 0.88;
+    --logo-offset: 7px;
 }
 
-.tool-logo--large {
-    --logo-width: 118px;
-    --logo-height: 44px;
-    width: clamp(96px, 9vw, 134px);
+.tool-logo--feature {
+    --logo-width: 72px;
+    --logo-height: 72px;
+    width: clamp(130px, 9.4vw, 166px);
+    min-height: clamp(98px, 7.8vw, 116px);
 }
 
 .tool-logo--wide {
-    --logo-width: 148px;
-    --logo-height: 42px;
-    width: clamp(132px, 12vw, 176px);
+    --logo-width: 172px;
+    --logo-height: 64px;
+    width: clamp(176px, 13.5vw, 222px);
 }
 
 .tool-logo__image {
     display: block;
     width: min(100%, var(--logo-width));
-    height: var(--logo-height);
+    height: min(var(--logo-height), 74px);
     object-fit: contain;
     opacity: var(--logo-opacity);
-    filter: grayscale(1) brightness(0) invert(1) contrast(1.18) drop-shadow(0 0 18px rgba(255, 255, 255, 0.16));
+    filter: grayscale(1) brightness(0) invert(1) contrast(1.16) drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
 }
 
 @keyframes toolFloat {
     0%, 100% { translate: 0 0; }
-    50% { translate: 0 -10px; }
+    50% { translate: 0 -7px; }
 }
 
 .stack-category-grid {
@@ -504,24 +534,41 @@ body {
     }
 
     .tool-cloud {
-        justify-content: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         min-height: 0;
-        padding: 22px;
+        gap: 10px;
+        padding: 18px;
     }
 
     .tool-logo {
-        width: clamp(74px, 24vw, 104px);
-        min-height: 56px;
-        padding: 13px 15px;
+        --logo-width: 52px;
+        --logo-height: 52px;
+        flex: 0 1 calc(33.333% - 10px);
+        width: auto;
+        min-width: 92px;
+        min-height: 78px;
+        padding: 13px;
         border-radius: 20px;
     }
 
+    .tool-logo--feature {
+        --logo-width: 58px;
+        --logo-height: 58px;
+        min-height: 82px;
+    }
+
     .tool-logo--wide {
-        width: clamp(108px, 36vw, 150px);
+        --logo-width: 132px;
+        --logo-height: 48px;
+        flex-basis: calc(50% - 10px);
+        min-width: 138px;
     }
 
     .tool-logo__image {
-        height: 34px;
+        width: min(100%, var(--logo-width));
+        height: min(var(--logo-height), 58px);
     }
 
     .case-summary div {
@@ -535,5 +582,16 @@ body {
 
     .faq-answer {
         padding: 0 20px 20px;
+    }
+}
+
+@media (max-width: 420px) {
+    .tool-logo {
+        flex-basis: calc(50% - 5px);
+        min-width: 0;
+    }
+
+    .tool-logo--wide {
+        flex-basis: 100%;
     }
 }
