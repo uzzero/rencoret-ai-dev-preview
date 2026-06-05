@@ -60,11 +60,12 @@
 }
 
 .services__showcase-frame {
+    --showcase-frame-radius: var(--radius-card);
     position: relative;
     z-index: 1;
     width: 100%;
     aspect-ratio: 1672 / 941;
-    border-radius: var(--radius-card);
+    border-radius: var(--showcase-frame-radius);
     overflow: hidden;
     background: var(--surface-1);
     border: 1px solid var(--glass-border);
@@ -73,6 +74,18 @@
         inset 0 1px 0 rgba(255, 255, 255, 0.045);
     transform-style: preserve-3d;
     will-change: transform;
+    isolation: isolate;
+    clip-path: inset(0 round var(--showcase-frame-radius));
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.services__showcase-frame picture {
+    position: absolute;
+    inset: 0;
+    display: block;
+    overflow: hidden;
+    border-radius: inherit;
+    z-index: 2;
 }
 
 .services__showcase-frame img {
@@ -126,18 +139,31 @@
 }
 
 .feature-block__visual-frame {
+    --feature-visual-radius: var(--radius-card);
     position: relative;
     width: 100%;
     aspect-ratio: 4 / 3;
-    border-radius: var(--radius-card);
+    border-radius: var(--feature-visual-radius);
     overflow: hidden;
-    background: var(--surface-1);
+    background: #000000;
     border: 1px solid var(--glass-border);
     box-shadow:
         0 40px 80px -20px rgba(0, 0, 0, 0.7),
         inset 0 1px 0 rgba(255, 255, 255, 0.04);
     transform-style: preserve-3d;
     will-change: transform;
+    isolation: isolate;
+    clip-path: inset(0 round var(--feature-visual-radius));
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+.feature-block__visual-frame picture {
+    position: absolute;
+    inset: 0;
+    display: block;
+    overflow: hidden;
+    border-radius: inherit;
+    z-index: 2;
 }
 
 .feature-block__visual-frame img {
@@ -239,9 +265,23 @@
         margin-right: -9px;
     }
 
-    .services__showcase-frame {
+    .services__showcase,
+    .feature-block__visual {
         border-radius: 20px;
+        background-color: #000000;
     }
 
-    .feature-block__visual-frame { aspect-ratio: 5 / 4; }
+    .services__showcase::before,
+    .feature-block__visual::before {
+        opacity: 0;
+    }
+
+    .services__showcase-frame {
+        --showcase-frame-radius: 20px;
+    }
+
+    .feature-block__visual-frame {
+        --feature-visual-radius: 20px;
+        aspect-ratio: 5 / 4;
+    }
 }
