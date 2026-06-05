@@ -113,6 +113,14 @@ var translations = {
         "projects.intown.modal.description1": "Innovative Voting-App, die es Nutzer:innen ermöglicht, ihre Wunschangebote für verschiedene Restaurants in ihrer Stadt zu nominieren und darüber abzustimmen. Die App verbindet Gastronomie und Community durch demokratische Entscheidungsprozesse.",
         "projects.intown.modal.description2": "Dieses erfolgreiche Projekt wurde von der Sparkasse Bielefeld und Google gefördert und später akquiriert. Die Plattform ermöglichte es Restaurants, ihre Bekanntheit zu steigern und Nutzern, neue Lokale zu entdecken – ein Win-win für die lokale Gastronomie.",
 
+        // Mealply Project
+        "projects.mealply.title": "Mealply",
+        "projects.mealply.subtitle": "AI-Rezepte & Meal Planning",
+        "projects.mealply.brief": "AI-App für personalisierte Rezeptideen, Wochenplanung und smarte Einkaufslisten - damit gesunde Mahlzeiten einfacher geplant und gekocht werden",
+        "projects.mealply.modal.description1": "Mealply macht gesunde, abwechslungsreiche Mahlzeiten planbar: Nutzer:innen wählen Zutaten, Ernährungsvorlieben und Kochzeit aus und erhalten passende AI-Rezeptvorschläge.",
+        "projects.mealply.modal.description2": "Die App kombiniert 10.000+ Rezeptideen, gespeicherte Favoriten, Wochenplanung und automatische Einkaufslisten. Chef Intelligence unterstützt dabei, Kochpläne schneller zu erstellen und den Einkauf strukturierter vorzubereiten.",
+        "projects.mealply.modal.cta": "Im App Store öffnen",
+
         // Testimonials Section
         "testimonials.heading": "Kundenstimmen",
         "testimonials.eyebrow": "Kundenstimmen",
@@ -279,6 +287,14 @@ var translations = {
         "projects.intown.modal.description1": "Innovative voting app that allows users to nominate and vote on their desired offerings for various restaurants in their city. The app connects gastronomy and community through democratic decision-making processes.",
         "projects.intown.modal.description2": "This successful project was funded by Sparkasse Bielefeld and Google and later acquired. The platform enabled restaurants to increase their visibility and users to discover new venues – a win-win for local gastronomy.",
 
+        // Mealply Project
+        "projects.mealply.title": "Mealply",
+        "projects.mealply.subtitle": "AI Recipes & Meal Planning",
+        "projects.mealply.brief": "AI app for personalized recipe ideas, weekly meal planning, and smart grocery lists - making healthy meals easier to plan and cook",
+        "projects.mealply.modal.description1": "Mealply helps users plan healthy, varied meals: they choose ingredients, diet preferences, and cooking time, then receive personalized AI recipe suggestions.",
+        "projects.mealply.modal.description2": "The app combines 10,000+ recipe ideas, saved favorites, weekly planning, and automatic grocery lists. Chef Intelligence helps create cooking plans faster and prepare shopping more clearly.",
+        "projects.mealply.modal.cta": "Open App Store",
+
         // Testimonials Section
         "testimonials.heading": "Testimonials",
         "testimonials.eyebrow": "Testimonials",
@@ -444,6 +460,14 @@ var translations = {
         "projects.intown.brief": "Aplicación de votación para ofertas gastronómicas locales – más de 150 restaurantes y 15,000 usuarios en Bielefeld",
         "projects.intown.modal.description1": "Aplicación de votación innovadora que permite a los usuarios nominar y votar sus ofertas deseadas para varios restaurantes en su ciudad. La aplicación conecta gastronomía y comunidad a través de procesos de decisión democráticos.",
         "projects.intown.modal.description2": "Este exitoso proyecto fue financiado por Sparkasse Bielefeld y Google y posteriormente adquirido. La plataforma permitió a los restaurantes aumentar su visibilidad y a los usuarios descubrir nuevos lugares – un beneficio mutuo para la gastronomía local.",
+
+        // Mealply Project
+        "projects.mealply.title": "Mealply",
+        "projects.mealply.subtitle": "Recetas con IA y meal planning",
+        "projects.mealply.brief": "App de IA para ideas de recetas personalizadas, planificación semanal y listas de compra inteligentes - para cocinar comidas saludables con menos esfuerzo",
+        "projects.mealply.modal.description1": "Mealply ayuda a planificar comidas saludables y variadas: los usuarios eligen ingredientes, preferencias alimentarias y tiempo de cocción, y reciben sugerencias de recetas con IA.",
+        "projects.mealply.modal.description2": "La app combina más de 10,000 ideas de recetas, favoritos guardados, planificación semanal y listas de compra automáticas. Chef Intelligence ayuda a crear planes de cocina más rápido y preparar la compra con más claridad.",
+        "projects.mealply.modal.cta": "Abrir App Store",
 
         // Testimonials Section
         "testimonials.heading": "Testimonios",
