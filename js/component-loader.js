@@ -22,10 +22,15 @@
         // Section components
         'hero': 'components/sections/hero.html',
         'services': 'components/sections/services.html',
+        'deliverables': 'components/sections/deliverables.html',
+        'tech-stack': 'components/sections/tech-stack.html',
         'about': 'components/sections/about.html',
         'process': 'components/sections/process.html',
+        'trust': 'components/sections/trust.html',
+        'offers': 'components/sections/offers.html',
         'projects': 'components/sections/projects.html',
         'testimonials': 'components/sections/testimonials.html',
+        'faq': 'components/sections/faq.html',
         'contact': 'components/sections/contact.html',
 
         // Shared components

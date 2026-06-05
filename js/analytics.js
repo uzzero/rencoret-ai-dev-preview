@@ -12,7 +12,8 @@
     const config = {
         ga4: {
             measurementId: 'G-BG44F505XG', // Production GA4 Measurement ID
-            enabled: false
+            enabled: false,
+            loaded: false
         },
         linkedin: {
             partnerId: '7724138', // Production LinkedIn Partner ID
@@ -137,7 +138,7 @@
             config.ga4.enabled = true;
             config.linkedin.enabled = true;
 
-            // GA4 is already loaded in HTML, just enable tracking
+            loadGA4();
             initializeLinkedIn();
             trackPageView();
         },
@@ -179,6 +180,30 @@
             }
         }
     };
+
+    function loadGA4() {
+        if (!config.ga4.enabled) return;
+        if (!config.ga4.measurementId.match(/^G-[A-Z0-9]+$/)) return;
+
+        window['ga-disable-' + config.ga4.measurementId] = false;
+
+        if (config.ga4.loaded) return;
+
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(config.ga4.measurementId)}`;
+        document.head.appendChild(script);
+
+        if (window.gtag) {
+            gtag('js', new Date());
+            gtag('config', config.ga4.measurementId, {
+                anonymize_ip: true,
+                cookie_flags: 'SameSite=Strict;Secure'
+            });
+        }
+
+        config.ga4.loaded = true;
+    }
 
     // Initialize LinkedIn Insight Tag
     function initializeLinkedIn() {
@@ -291,30 +316,32 @@
 
     // Track contact form interactions
     function setupFormTracking() {
-        const contactForm = document.getElementById('contact-form');
+        const contactForm = document.getElementById('contact-form') || document.getElementById('contactForm');
         if (!contactForm) return;
 
         let formStarted = false;
 
         // Track form view
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    trackEvent('form_view', {
-                        form_name: 'contact_form',
-                        form_location: 'contact_section'
-                    });
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        trackEvent('form_view', {
+                            form_name: 'contact_form',
+                            form_location: 'contact_section'
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
 
-        observer.observe(contactForm);
+            observer.observe(contactForm);
+        }
 
         // Track form start
         contactForm.addEventListener('focus', (event) => {
             const target = event.target;
-            if (!formStarted && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) {
+            if (!formStarted && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT')) {
                 formStarted = true;
                 trackEvent('form_start', {
                     form_name: 'contact_form',
@@ -352,7 +379,7 @@
         });
 
         // Track "Projekt starten" buttons specifically
-        document.querySelectorAll('a[href="#contact"], button[onclick*="contact"]').forEach(button => {
+        document.querySelectorAll('a[href="#kontakt"], a[href="#contact"], button[onclick*="contact"], button[onclick*="kontakt"]').forEach(button => {
             button.addEventListener('click', function () {
                 trackEvent('start_project_click', {
                     button_text: this.textContent.trim(),
@@ -397,7 +424,7 @@
     // Track project modal interactions
     function setupProjectTracking() {
         // Track modal opens
-        document.querySelectorAll('[data-modal], .project-card').forEach(element => {
+        document.querySelectorAll('[data-modal], .project-card, .details-button[data-project]').forEach(element => {
             element.addEventListener('click', function () {
                 const projectTitle = this.querySelector('h3')?.textContent ||
                     this.getAttribute('data-project') ||

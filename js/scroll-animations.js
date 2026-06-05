@@ -141,6 +141,18 @@ document.addEventListener('DOMContentLoaded', function() {
     // Funktion zur Animation der Zahlen
     function animateNumbers() {
         const statItems = document.querySelectorAll('.stat-number');
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        
+        statItems.forEach(item => {
+            const finalValue = item.getAttribute('data-final');
+            if (finalValue) {
+                item.textContent = finalValue;
+            }
+        });
+        
+        if (reduceMotion || !('IntersectionObserver' in window)) {
+            return;
+        }
         
         // Erstelle einen Observer für die Statistik-Elemente
         const statsObserver = new IntersectionObserver((entries) => {
@@ -150,7 +162,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     entry.target.classList.add('animated');
                     
                     // Zielwert aus dem data-target Attribut holen
-                    const target = parseInt(entry.target.getAttribute('data-target'));
+                    const target = parseInt(entry.target.getAttribute('data-target'), 10);
+                    const finalValue = entry.target.getAttribute('data-final') || entry.target.textContent;
+                    
+                    if (!Number.isFinite(target)) {
+                        return;
+                    }
                     
                     // Aktuelle Zahl (startet bei 0)
                     let current = 0;
@@ -189,6 +206,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         if (current >= target) {
                             current = target;
                             clearInterval(counter);
+                            entry.target.textContent = finalValue;
+                            return;
                         }
                         
                         // Anzeige aktualisieren - speziell formatiert für große Zahlen
