@@ -1,0 +1,184 @@
+/* Services Section Styles */
+.services {
+    background-color: var(--dark-color);
+    padding: 100px 0;
+}
+
+.services h2 {
+    margin-bottom: 60px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.service-card {
+    /* Hintergrundfarbe entfernt, damit Theme-Variablen verwendet werden */
+    padding: 40px 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transform-origin: center bottom;
+    --visibility: 0;
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(148, 139, 207, 0.1);
+    border-radius: 50%;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.service-icon svg {
+    width: 40px;
+    height: 40px;
+    stroke: var(--primary-color);
+    transition: stroke 0.3s ease, transform 0.3s ease;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 0;
+    background: linear-gradient(to bottom, #ff8c42, #9054f7);
+    transition: height 0.3s ease;
+}
+
+/* ===== DESKTOP-ANIMATIONS (nur auf Desktop-Geräten) ===== */
+@media (min-width: 769px) {
+    .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        border-color: rgba(148, 139, 207, 0.2);
+    }
+    
+    .service-card:hover::before {
+        height: 100%;
+    }
+    
+    .service-card:hover .service-icon {
+        transform: scale(1.1);
+        background: linear-gradient(135deg, var(--card-hover-gradient-start), var(--card-hover-gradient-end));
+    }
+    
+    .service-card:hover .service-icon svg {
+        stroke: #ffffff;
+        transform: scale(1.1);
+        animation: pulse 2s infinite;
+    }
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.service-card p {
+    color: var(--text-light);
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ===== MOBILE-ANIMATIONS (nur auf mobilen Geräten) ===== */
+@media (max-width: 768px) {
+    .service-card {
+        padding: 30px 20px;
+        /* Für Scroll-Animation basierend auf Sichtbarkeit */
+        transform: translateY(calc((1 - var(--visibility)) * 20px));
+        opacity: calc(0.5 + (var(--visibility) * 0.5));
+        transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .service-card.is-visible {
+        box-shadow: 0 calc(var(--visibility) * 10px) calc(var(--visibility) * 25px) rgba(0, 0, 0, 0.2);
+        border-color: rgba(148, 139, 207, 0.2);
+    }
+    
+    .service-icon {
+        width: 70px;
+        height: 70px;
+        transition: transform 0.5s ease, background 0.5s ease;
+    }
+    
+    .service-card.is-visible .service-icon {
+        transform: scale(calc(1 + (var(--visibility) * 0.1)));
+        background: linear-gradient(135deg, var(--card-hover-gradient-start), var(--card-hover-gradient-end));
+    }
+    
+    .service-icon svg {
+        width: 35px;
+        height: 35px;
+        transition: stroke 0.5s ease, transform 0.5s ease;
+    }
+    
+    .service-card.is-visible .service-icon svg {
+        stroke: #ffffff;
+        animation: pulse 2s infinite;
+    }
+    
+    .service-card::before {
+        transition: height 0.8s ease;
+    }
+    
+    .service-card.is-visible::before {
+        /* Streifen proportional zur Sichtbarkeit wachsen lassen */
+        height: calc(var(--visibility) * 100%);
+    }
+}
+
+@media (max-width: 576px) {
+    .services-grid {
+        gap: 20px;
+    }
+    
+    .service-card {
+        padding: 25px 15px;
+    }
+    
+    .service-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .service-icon svg {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .service-card h3 {
+        font-size: 1.3rem;
+    }
+}

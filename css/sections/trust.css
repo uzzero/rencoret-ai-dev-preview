@@ -1,0 +1,106 @@
+/* =====================================================
+   TRUST SECTION
+   Dark Apple-style security stage with generated visual.
+   ===================================================== */
+
+.trust.trust--apple {
+    background-color: #000000;
+    padding: clamp(110px, 13vw, 190px) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.trust__glow {
+    width: 70vw;
+    height: 70vw;
+    max-width: 920px;
+    max-height: 920px;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.36;
+}
+
+.trust-stage {
+    position: relative;
+    z-index: 2;
+    min-height: min(820px, 92vh);
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    align-items: center;
+    gap: clamp(36px, 6vw, 90px);
+    border-radius: clamp(28px, 4vw, 56px);
+    padding: clamp(28px, 4.4vw, 72px);
+    background:
+        radial-gradient(circle at 10% 10%, rgba(255, 140, 66, 0.10), transparent 36%),
+        radial-gradient(circle at 90% 80%, rgba(144, 84, 247, 0.13), transparent 42%),
+        rgba(255, 255, 255, 0.032);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 40px 90px -35px rgba(0, 0, 0, 0.82);
+    overflow: hidden;
+}
+
+.trust-stage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(255,255,255,0.06), transparent 28%);
+    opacity: 0.5;
+}
+
+.trust-stage__copy,
+.trust-stage__visual {
+    position: relative;
+    z-index: 2;
+}
+
+.trust-stage__heading {
+    margin: 0 0 28px;
+    max-width: 11ch;
+}
+
+.trust-stage__copy .lede {
+    margin: 0;
+}
+
+.trust-stage__visual {
+    min-width: 0;
+    perspective: 1600px;
+}
+
+.trust-stage__visual img {
+    display: block;
+    width: 120%;
+    max-width: none;
+    height: auto;
+    margin-left: -4%;
+    border-radius: clamp(18px, 2.4vw, 34px);
+    filter: drop-shadow(0 70px 90px rgba(0, 0, 0, 0.72));
+    transform: rotateX(4deg) rotateY(-5deg);
+    transform-origin: center;
+}
+
+@media (max-width: 900px) {
+    .trust-stage {
+        min-height: auto;
+        grid-template-columns: 1fr;
+    }
+
+    .trust-stage__heading {
+        max-width: 12ch;
+    }
+
+    .trust-stage__visual img {
+        width: 100%;
+        margin-left: 0;
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .trust-stage {
+        padding: 28px 20px;
+        border-radius: 28px;
+    }
+}

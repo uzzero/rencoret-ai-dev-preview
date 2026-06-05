@@ -1,0 +1,295 @@
+/* =====================================================
+   HERO – Dark Apple-Style
+   Pitch-black, massive 2-line headline, floating mockup,
+   glow auras, soft tagline footer.
+   ===================================================== */
+
+.hero.hero--apple {
+    background-color: #000000;
+    color: var(--text-color);
+    text-align: center;
+    padding: clamp(104px, 12vh, 148px) 0 clamp(64px, 8vh, 104px);
+    position: relative;
+    overflow: hidden;
+    min-height: auto;
+    height: auto;
+    display: block;
+}
+
+.hero.hero--apple::before,
+.hero.hero--apple::after {
+    content: none;
+}
+
+.hero__glow-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero__glow {
+    position: absolute;
+    width: clamp(420px, 55vw, 880px);
+    height: clamp(420px, 55vw, 880px);
+    opacity: 0.5;
+}
+
+.hero__glow--tl {
+    top: -25%;
+    left: -15%;
+}
+
+.hero__glow--br {
+    bottom: -30%;
+    right: -15%;
+}
+
+/* keep existing oval shapes but soften them and push to background */
+.hero.hero--apple .oval-shapes {
+    position: absolute;
+    inset: 0;
+}
+
+.hero.hero--apple .oval-shape {
+    opacity: 0.18;
+    filter: blur(80px);
+}
+
+.hero__inner {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hero.hero--apple .hero__headline {
+    margin: 8px 0 24px;
+    max-width: min(1040px, 100%);
+    text-align: center;
+    font-size: clamp(4rem, 7vw, 5.4rem);
+    line-height: 1.06;
+    text-wrap: balance;
+}
+
+.hero__headline .display-line {
+    display: block;
+}
+
+.hero__lede {
+    text-align: center;
+    margin: 0 auto 36px;
+    max-width: 720px;
+    color: var(--text-light);
+    font-size: 1.125rem;
+}
+
+.hero__cta-row {
+    justify-content: center;
+    margin-bottom: clamp(42px, 5.5vw, 76px);
+}
+
+/* Hero visual ------------------------------------------------ */
+.hero__visual {
+    position: relative;
+    width: min(100%, 900px);
+    max-width: 68vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    perspective: 1600px;
+}
+
+.hero__visual-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    border-radius: clamp(20px, 2.4vw, 36px);
+    overflow: visible;
+    transform: rotateX(4deg) rotateZ(0deg);
+    will-change: transform;
+}
+
+.hero__visual-img {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 60px 80px rgba(0, 0, 0, 0.7));
+    border-radius: inherit;
+    background: transparent;
+}
+
+/* Show the placeholder only if the image fails to load */
+.hero__placeholder {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    display: none;
+    aspect-ratio: auto;
+}
+
+.hero__visual-frame.is-missing-image .hero__placeholder {
+    display: flex;
+}
+
+.hero__visual-frame.is-missing-image .hero__visual-img {
+    display: none;
+}
+
+/* Glow auras around the mockup */
+.hero__visual-glow {
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    filter: blur(110px);
+    pointer-events: none;
+}
+
+.hero__visual-glow--a {
+    width: 60%;
+    height: 70%;
+    background: var(--glow-orange);
+    bottom: -10%;
+    left: -8%;
+    opacity: 0.65;
+}
+
+.hero__visual-glow--b {
+    width: 60%;
+    height: 70%;
+    background: var(--glow-purple);
+    top: -10%;
+    right: -8%;
+    opacity: 0.6;
+}
+
+/* Floating animation for the visual */
+@media (prefers-reduced-motion: no-preference) {
+    .hero__visual-frame {
+        animation: heroFloat 9s ease-in-out infinite;
+    }
+}
+
+@keyframes heroFloat {
+    0%, 100% { transform: rotateX(4deg) translateY(0); }
+    50%      { transform: rotateX(4deg) translateY(-10px); }
+}
+
+/* Tagline */
+.hero__tagline {
+    margin-top: clamp(34px, 4.5vw, 60px);
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero.hero--apple {
+        padding: 112px 0 64px;
+        min-height: auto;
+    }
+
+    .hero.hero--apple .hero__headline {
+        max-width: min(680px, 100%);
+        line-height: 1.08;
+        font-size: clamp(3rem, 11vw, 4.25rem);
+    }
+
+    .hero__cta-row {
+        margin-bottom: 42px;
+    }
+
+    .hero__visual {
+        max-width: 92vw;
+        width: 100%;
+    }
+
+    .hero__visual-frame {
+        transform: none;
+    }
+
+    @keyframes heroFloat {
+        0%, 100% { transform: translateY(0); }
+        50%      { transform: translateY(-6px); }
+    }
+}
+
+@media (max-width: 640px) {
+    .hero.hero--apple {
+        padding: 104px 0 56px;
+    }
+
+    .hero.hero--apple .eyebrow {
+        max-width: 28ch;
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        line-height: 1.45;
+        white-space: normal;
+    }
+
+    .hero.hero--apple .hero__headline {
+        max-width: 100%;
+        line-height: 1.08;
+        font-size: clamp(2.6rem, 12vw, 3.35rem);
+    }
+
+    .hero__lede {
+        max-width: 25ch;
+        margin-bottom: 28px;
+        font-size: 0.95rem;
+    }
+
+    .hero__cta-row {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero__cta-row .cta-button,
+    .hero__cta-row .btn-ghost {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .hero__visual {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero.hero--apple .hero__headline {
+        max-width: min(10ch, 100%);
+    }
+
+    .hero__lede {
+        max-width: 23ch;
+    }
+
+    .hero__visual-frame {
+        aspect-ratio: 16 / 11;
+        overflow: hidden;
+        border-radius: 18px;
+    }
+
+    .hero__visual-img {
+        object-fit: cover;
+    }
+}
+
+/* Override legacy .hero rules from styles.css */
+.hero.hero--apple h1.hero__headline {
+    color: #ffffff;
+}
+
+.hero.hero--apple .tagline {
+    color: var(--text-muted);
+}

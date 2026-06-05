@@ -1,0 +1,759 @@
+/* Projects Section - Modal and Project Card Styles */
+
+.section-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    color: var(--text-light);
+}
+
+/* Projekt-Sektion Fix */
+#projekte, 
+#projekte .container,
+.projects-slider,
+.project-card {
+    overflow: visible !important;
+    overflow-y: visible !important;
+    overflow-x: visible !important;
+    max-height: none !important;
+    contain: none !important;
+    transform: none !important;
+}
+
+/* App Screenshot Styling */
+.app-screenshot-container {
+    margin: 15px 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app-screenshot {
+    position: relative;
+    width: 280px;
+    height: 168px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.app-screenshot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+/* Projekte Styling */
+.projects-slider {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.project-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+}
+
+.project-brief {
+    flex-grow: 1;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    text-align: center;
+    color: var(--text-light);
+}
+
+.card-action {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Aktuelle Projektkarten */
+.project-card {
+    position: relative;
+    width: 100%;
+    background-color: var(--secondary-background);
+    border-radius: 16px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    overflow: visible !important;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    height: auto;
+    min-height: 380px;
+    contain: none !important;
+}
+
+.project-card .app-screenshot {
+    width: 220px;
+    height: 132px;
+}
+
+.project-card .project-brief {
+    font-size: 0.95rem;
+    margin: 10px 0;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px var(--shadow-color);
+}
+
+.project-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.card-action {
+    margin-top: auto;
+    padding-top: 20px;
+    text-align: center;
+}
+
+/* Details Button Styling */
+.details-button {
+    display: inline-block;
+    background-color: var(--cta-button-bg);
+    color: var(--cta-button-text);
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.details-button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end), var(--gradient-start));
+    z-index: -2;
+    border-radius: 34px;
+    background-size: 300%;
+    animation: borderAnimation 6s linear infinite;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.details-button::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 60%);
+    opacity: 0.2;
+    border-radius: 30px;
+    transition: opacity 0.3s ease;
+}
+
+.details-button:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1.8px;
+}
+
+.details-button:hover::before {
+    opacity: 1;
+}
+
+.details-button:hover::after {
+    opacity: 0.6;
+}
+
+.details-button:active {
+    transform: translateY(-1px) scale(0.98);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes borderAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Modal Styles */
+.modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    overflow-y: auto;
+    padding: 20px 0;
+}
+
+.modal-container.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+}
+
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    margin: auto;
+    background-color: var(--secondary-background);
+    border-radius: 20px;
+    padding: 0;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3), 0 0 30px rgba(148, 139, 207, 0.3);
+    z-index: 2001;
+    transform: translateY(20px);
+    animation: modalAppear 0.4s ease forwards;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.modal-header {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+    background-color: var(--secondary-background);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom: 1px solid rgba(150, 150, 150, 0.1);
+    z-index: 5;
+}
+
+.modal-body {
+    padding: 20px 30px 30px;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+    overscroll-behavior: contain;
+}
+
+@keyframes modalAppear {
+    to {
+        transform: translateY(0);
+    }
+}
+
+.modal-close {
+    font-size: 30px;
+    background-color: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    z-index: 2002;
+}
+
+.modal-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
+    transform: rotate(90deg);
+}
+
+.modal-content h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.modal-content p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: var(--text-light);
+}
+
+.modal-content .app-screenshot-container {
+    margin: 20px auto;
+}
+
+.modal-content .app-screenshot {
+    width: 280px;
+    height: 280px;
+}
+
+.modal-content .app-screenshot img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.modal-action {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.modal-action .cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    text-decoration: none;
+}
+
+/* Scrollbar für Modals */
+.modal-body::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+    background: rgba(150, 150, 150, 0.1);
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
+
+/* Mobile Anpassungen */
+@media (max-width: 768px) {
+    .app-screenshot {
+        width: 240px;
+        height: 144px;
+    }
+    
+    .project-card {
+        min-height: 350px;
+        padding: 20px;
+    }
+    
+    .project-card .app-screenshot {
+        width: 200px;
+        height: 120px;
+    }
+    
+    .modal-container {
+        padding: 15px;
+        align-items: flex-start;
+        overflow-y: scroll;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-height: 90vh;
+        margin: 20px auto;
+    }
+    
+    .modal-content h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .modal-content .app-screenshot {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .modal-body {
+        max-height: calc(80vh - 120px);
+    }
+}
+
+@media (max-width: 576px) {
+    .app-screenshot {
+        width: 200px;
+        height: 120px;
+    }
+    
+    .project-card {
+        min-height: 320px;
+        padding: 15px;
+    }
+    
+    .project-card h3 {
+        font-size: 1.5rem;
+    }
+    
+    .project-card .project-title {
+        font-size: 1.1rem;
+    }
+    
+    .project-card .app-screenshot {
+        width: 180px;
+        height: 108px;
+    }
+    
+    .modal-container {
+        padding: 10px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        max-height: 85vh;
+        margin: 15px auto;
+        border-radius: 15px;
+    }
+    
+    .modal-content h3 {
+        font-size: 1.6rem;
+    }
+    
+    .modal-content .app-screenshot {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .modal-body {
+        padding: 15px 20px 20px;
+        max-height: calc(75vh - 100px);
+    }
+    
+    .modal-header {
+        padding: 10px 15px;
+    }
+}
+/* =====================================================
+   DARK APPLE-STYLE PROJECT SHOWCASES
+   ===================================================== */
+
+.projects.projects--apple {
+    background-color: #000000 !important;
+    padding: clamp(120px, 14vw, 200px) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.projects--apple .projects__glow {
+    position: absolute;
+    width: 60vw;
+    max-width: 800px;
+    height: 60vw;
+    max-height: 800px;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.projects--apple .projects__glow--a { top: 5%; left: -20%; }
+.projects--apple .projects__glow--b { bottom: 5%; right: -20%; }
+
+.projects--apple .container-wide {
+    position: relative;
+    z-index: 2;
+}
+
+.projects--apple .projects__intro {
+    max-width: 720px;
+    margin-bottom: clamp(80px, 10vw, 130px);
+    text-align: left;
+}
+
+.projects--apple .projects__heading {
+    margin: 0 0 28px;
+    text-align: left;
+}
+
+.projects--apple .projects__intro .lede {
+    margin: 0;
+    text-align: left;
+}
+
+.project-stack {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(80px, 11vw, 160px);
+}
+
+.project-showcase {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: clamp(40px, 6vw, 90px);
+}
+
+.project-showcase--text-right .project-showcase__content { order: 2; }
+.project-showcase--text-right .project-showcase__visual  { order: 1; }
+
+.project-showcase__content {
+    max-width: 560px;
+}
+
+.project-showcase__eyebrow {
+    margin-bottom: 14px;
+}
+
+.project-showcase__title {
+    margin: 0 0 22px;
+    color: #ffffff;
+    text-align: left;
+}
+
+.project-showcase__desc {
+    color: var(--text-light);
+    font-size: 1.075rem;
+    line-height: 1.6;
+    margin: 0 0 6px;
+}
+
+.project-showcase__actions {
+    margin-top: 28px;
+}
+
+.project-showcase__visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    perspective: 1400px;
+}
+
+/* Phone frame --------------------------------------------- */
+.phone-frame {
+    position: relative;
+    width: clamp(260px, 30vw, 360px);
+    aspect-ratio: 9 / 18;
+    border-radius: 44px;
+    background:
+        linear-gradient(180deg, #1a1a1a 0%, #050505 100%);
+    padding: 14px;
+    box-shadow:
+        0 60px 100px -20px rgba(0, 0, 0, 0.85),
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        inset 0 0 0 1.5px rgba(255, 255, 255, 0.04);
+    transform: rotate(-4deg);
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+}
+
+.project-showcase--text-right .phone-frame {
+    transform: rotate(4deg);
+}
+
+.phone-frame--landscape {
+    aspect-ratio: 16 / 10;
+    width: clamp(380px, 45vw, 560px);
+    border-radius: 24px;
+    transform: rotate(-2deg);
+}
+
+.project-showcase--text-right .phone-frame--landscape {
+    transform: rotate(2deg);
+}
+
+.phone-frame__notch {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 26px;
+    background: #000;
+    border-radius: 0 0 14px 14px;
+    z-index: 3;
+}
+
+.phone-frame--landscape .phone-frame__notch {
+    display: none;
+}
+
+.phone-frame__screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 32px;
+    overflow: hidden;
+    background: #050505;
+    position: relative;
+    z-index: 2;
+}
+
+.phone-frame--landscape .phone-frame__screen {
+    border-radius: 14px;
+}
+
+.phone-frame__screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.phone-frame__glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.phone-frame__glow--orange {
+    background: var(--glow-orange);
+    width: 130%;
+    height: 70%;
+    top: 60%;
+    left: -15%;
+    opacity: 0.7;
+}
+
+.phone-frame__glow--purple {
+    background: var(--glow-purple);
+    width: 130%;
+    height: 70%;
+    top: -10%;
+    left: -15%;
+    opacity: 0.7;
+}
+
+.phone-frame__glow--mix {
+    background:
+        radial-gradient(circle at 30% 30%, var(--glow-orange) 0%, transparent 60%),
+        radial-gradient(circle at 70% 70%, var(--glow-purple) 0%, transparent 60%);
+    width: 130%;
+    height: 130%;
+    top: -15%;
+    left: -15%;
+    opacity: 0.65;
+}
+
+@media (hover: hover) {
+    .phone-frame:hover {
+        transform: rotate(-2deg) translateY(-8px) scale(1.02);
+    }
+    .project-showcase--text-right .phone-frame:hover {
+        transform: rotate(2deg) translateY(-8px) scale(1.02);
+    }
+    .phone-frame--landscape:hover {
+        transform: rotate(-1deg) translateY(-8px) scale(1.02);
+    }
+    .project-showcase--text-right .phone-frame--landscape:hover {
+        transform: rotate(1deg) translateY(-8px) scale(1.02);
+    }
+}
+
+/* CTA-button ".details-button" inside Dark Apple project showcases */
+.projects--apple .cta-button.details-button {
+    text-transform: none;
+    letter-spacing: 0.01em;
+    padding: 16px 32px;
+    font-size: 0.96rem;
+}
+
+@media (max-width: 900px) {
+    .project-showcase,
+    .project-showcase--text-right {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .project-showcase--text-right .project-showcase__content { order: 2; }
+    .project-showcase--text-right .project-showcase__visual  { order: 1; }
+
+    .project-showcase__content { max-width: 100%; }
+
+    .phone-frame { transform: rotate(-2deg); }
+    .project-showcase--text-right .phone-frame { transform: rotate(2deg); }
+    .phone-frame--landscape { width: 100%; max-width: 480px; }
+}
+
+@media (max-width: 480px) {
+    .phone-frame { width: 70%; max-width: 280px; }
+    .phone-frame__notch { width: 90px; height: 22px; }
+}
+
+@media (max-width: 768px) {
+    .projects.projects--apple {
+        padding: 88px 0;
+    }
+
+    .projects--apple .projects__intro {
+        margin-bottom: 48px;
+    }
+
+    .projects--apple .projects__heading {
+        font-size: clamp(2.5rem, 12vw, 3.25rem);
+        line-height: 1.08;
+    }
+
+    .project-stack {
+        gap: 72px;
+    }
+
+    .project-showcase,
+    .project-showcase--text-right {
+        gap: 24px;
+    }
+
+    .project-showcase__title {
+        font-size: 2rem;
+        line-height: 1.06;
+        margin-bottom: 14px;
+    }
+
+    .project-showcase__desc {
+        font-size: 1rem;
+    }
+
+    .project-showcase__actions {
+        margin-top: 22px;
+    }
+
+    .phone-frame {
+        width: min(76vw, 260px);
+        border-radius: 34px;
+        padding: 10px;
+        transform: none !important;
+    }
+
+    .phone-frame--landscape {
+        width: 100%;
+        max-width: 340px;
+        border-radius: 20px;
+    }
+
+    .phone-frame__screen {
+        border-radius: 25px;
+    }
+
+    .phone-frame--landscape .phone-frame__screen {
+        border-radius: 12px;
+    }
+}

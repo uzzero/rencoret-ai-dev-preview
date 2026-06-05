@@ -1,0 +1,104 @@
+/* Verhindert horizontalen Overflow auf der gesamten Seite */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Unterstrich für Menüpunkte */
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 3px;
+    margin-top: 1px; /* Reduzierter Abstand zwischen Text und Unterstrich */
+    background: linear-gradient(45deg, #ff8c42, #9054f7);
+    transition: width 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    border-radius: 1.5px;
+    position: relative;
+    z-index: 100;
+}
+
+/* Entfernt die Outline beim Fokus und den Standard-Unterstrich */
+nav ul li a {
+    outline: none !important;
+    text-decoration: none !important;
+    -webkit-tap-highlight-color: transparent; /* Entfernt den Highlight-Effekt auf iOS */
+}
+
+nav ul li a:focus {
+    outline: none !important;
+    box-shadow: none !important;
+    text-decoration: none !important;
+    border: none !important;
+}
+
+/* Entfernt den blauen Umriss in Firefox */
+nav ul li a::-moz-focus-inner {
+    border: 0;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    opacity: 0.8;
+}
+
+nav ul li a[aria-current="page"]::after {
+    width: 100%;
+    opacity: 1;
+}
+
+nav ul li a.scrolled-active::after {
+    width: 100% !important;
+    opacity: 1 !important;
+    /* Animation entfernt */
+}
+
+/* Zusätzliche Stile für aktive Menüpunkte */
+nav ul li a.scrolled-active {
+    color: var(--primary-color) !important;
+    font-weight: 600 !important;
+    transform: translateY(-2px);
+    transition: transform 0.3s ease, color 0.3s ease, font-weight 0.2s ease;
+}
+
+/* Animation für das Unterstrich-Element - nur bei Hover/Klick verwenden */
+@keyframes pulseGradient {
+    0%, 100% {
+        opacity: 0.7;
+        box-shadow: 0 0 5px rgba(255, 140, 66, 0.3);
+        width: 95%;
+        margin-left: 2.5%;
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 8px rgba(144, 84, 247, 0.5);
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+/* Zusätzliche Animation für den aktiven Bereich beim Scrollen */
+@keyframes activeMenuPulse {
+    0%, 100% {
+        transform: translateY(-2px);
+    }
+    50% {
+        transform: translateY(-1px);
+    }
+}
+
+/* Mobile Anpassung für Unterstrich */
+@media (max-width: 768px) {
+    nav ul li a::after {
+        height: 2px; /* Dünnerer Unterstrich auf Mobilgeräten */
+        margin-top: 1px; /* Leichter Abstand zwischen Text und Unterstrich */
+    }
+}
+
+@media (max-width: 576px) {
+    nav ul li a::after {
+        height: 1.5px; /* Noch dünnerer Unterstrich auf kleinen Mobilgeräten */
+        margin-top: 1px;
+    }
+} 

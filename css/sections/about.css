@@ -1,0 +1,189 @@
+/* =========================================
+   ABOUT – Dark Apple-style
+   ========================================= */
+
+.about.about--apple {
+    background-color: #000000 !important;
+    padding: clamp(120px, 14vw, 200px) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.about--apple::before,
+.about--apple::after {
+    content: none;
+}
+
+.about--apple .about__glow {
+    position: absolute;
+    width: 70vw;
+    max-width: 900px;
+    height: 70vw;
+    max-height: 900px;
+    opacity: 0.4;
+}
+
+.about--apple .about__glow--a {
+    top: -10%;
+    right: -25%;
+}
+
+.about--apple .container-wide {
+    position: relative;
+    z-index: 2;
+}
+
+.about--apple .about__intro {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: clamp(40px, 6vw, 90px);
+    margin-bottom: clamp(80px, 10vw, 130px);
+}
+
+.about--apple .about__heading {
+    margin: 0 0 28px;
+    text-align: left;
+}
+
+.about--apple .about__intro-text .lede {
+    margin: 0 0 18px;
+    color: var(--text-light);
+    text-align: left;
+}
+
+.about--apple .about__lede-secondary {
+    color: var(--text-muted);
+}
+
+.about--apple .about__intro-visual {
+    position: relative;
+}
+
+.about--apple .team-photos-container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 540px;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.7);
+}
+
+.about--apple .team-photos-container::before {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.about--apple .carousel-track,
+.about--apple .team-photo > * {
+    border-radius: var(--radius-card);
+}
+
+.about--apple .team-photo img {
+    border-radius: var(--radius-card);
+}
+
+.about--apple .carousel-dots {
+    bottom: -30px;
+}
+
+/* Stats strip ---------------------------------------------- */
+.about--apple .stats-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 2.4vw, 40px);
+    margin-top: clamp(40px, 5vw, 60px);
+}
+
+.about--apple .stats-strip .stat-item {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-card);
+    padding: clamp(28px, 3vw, 48px) clamp(20px, 2.6vw, 36px);
+    text-align: left;
+    box-shadow: 0 20px 40px -24px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    flex: none;
+    min-width: 0;
+}
+
+.about--apple .stats-strip .stat-item::before {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    opacity: 0.7;
+}
+
+.about--apple .stats-strip .stat-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--glass-border-strong);
+    background: var(--glass-bg-strong);
+}
+
+.about--apple .stats-strip .stat-number {
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+            color: transparent;
+    margin: 0;
+    letter-spacing: 0;
+    display: inline-block;
+}
+
+.about--apple .stats-strip .stat-suffix {
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+            color: transparent;
+    line-height: 1;
+    display: inline-block;
+}
+
+.about--apple .stats-strip .stat-label {
+    margin-top: 18px;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    line-height: 1.45;
+}
+
+.about--apple .stats-footnote {
+    margin-top: 28px;
+    text-align: center;
+}
+
+.about--apple .stats-footnote p {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .about--apple .about__intro {
+        grid-template-columns: 1fr;
+    }
+
+    .about--apple .stats-strip {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .about--apple .stats-strip .stat-item {
+        padding: 28px 22px;
+    }
+}

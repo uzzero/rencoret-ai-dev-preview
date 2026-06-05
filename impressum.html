@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <title>Impressum - RENCORET AI</title>
+    <meta name="description" content="Impressum von RENCORET AI - App & KI Entwicklung in Schloß Holte-Stukenbrock.">
+    <meta name="author" content="RENCORET AI">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Impressum - RENCORET AI">
+    <meta property="og:description"
+        content="Impressum von RENCORET AI - App & KI Entwicklung in Schloß Holte-Stukenbrock.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rencoret.eu/impressum.html">
+    <link rel="canonical" href="https://rencoret.eu/impressum.html">
+
+    <!-- Critical CSS inline -->
+    <style>
+        /* Critical CSS für Above-the-fold Inhalte */
+        :root {
+            --primary-color: #948bcf;
+            --secondary-color: #121212;
+            --accent-color: #ff8c42;
+            --light-color: #f8f9fa;
+            --dark-color: #0a0a0a;
+            --text-color: #f8f9fa;
+            --text-light: #b0b0b0;
+            --font-main: 'Inter', sans-serif;
+            --gradient-start: #ff8c42;
+            --gradient-end: #9054f7;
+            /* Light Mode (Standard) */
+            --background-color: #f8f9fa;
+            --secondary-background: #ffffff;
+            --text-color: #212121;
+            --text-light: #424242;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --header-background: rgba(255, 255, 255, 0.9);
+            --hero-heading-color: #212121;
+            --hero-subtext-color: #424242;
+            --tagline-color: #555555;
+            --logo-invert: 100%;
+            --cta-button-text: #ffffff;
+            --cta-button-bg: #6a5cb8;
+            --oval-opacity: 0.5;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212;
+                --secondary-background: #1e1e1e;
+                --text-color: #f8f9fa;
+                --text-light: #b0b0b0;
+                --shadow-color: rgba(0, 0, 0, 0.3);
+                --header-background: rgba(10, 10, 10, 0.8);
+                --hero-heading-color: #f8f9fa;
+                --hero-subtext-color: #b0b0b0;
+                --tagline-color: #b0b0b0;
+                --logo-invert: 0%;
+                --cta-button-text: #ffffff;
+                --cta-button-bg: #948bcf;
+                --oval-opacity: 0.3;
+            }
+        }
+
+        [data-theme="dark"] {
+            --background-color: #121212;
+            --secondary-background: #1e1e1e;
+            --text-color: #f8f9fa;
+            --text-light: #b0b0b0;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --header-background: rgba(10, 10, 10, 0.8);
+            --hero-heading-color: #f8f9fa;
+            --hero-subtext-color: #b0b0b0;
+            --tagline-color: #b0b0b0;
+            --logo-invert: 0%;
+            --cta-button-text: #ffffff;
+            --cta-button-bg: #948bcf;
+            --oval-opacity: 0.3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--header-background);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            color: var(--light-color);
+            text-decoration: none;
+            display: block;
+        }
+
+        .logo-svg {
+            width: 220px;
+            height: 75px;
+            display: block;
+            transition: filter 0.5s ease;
+        }
+
+        /* Logo-Anzeige je nach Modus */
+        /* Im Light Mode (Standard) */
+        .dark-mode-logo {
+            display: none !important;
+        }
+
+        .light-mode-logo {
+            display: block !important;
+        }
+
+        /* Überschreibe die Standardeinstellungen je nach System-Farbschema */
+        @media (prefers-color-scheme: dark) {
+            body:not([data-theme="light"]) .dark-mode-logo {
+                display: block !important;
+            }
+
+            body:not([data-theme="light"]) .light-mode-logo {
+                display: none !important;
+            }
+        }
+
+        /* Explizite Theme-Einstellungen durch den Toggle-Button */
+        [data-theme="dark"] .dark-mode-logo {
+            display: block !important;
+        }
+
+        [data-theme="dark"] .light-mode-logo {
+            display: none !important;
+        }
+
+        [data-theme="light"] .dark-mode-logo {
+            display: none !important;
+        }
+
+        [data-theme="light"] .light-mode-logo {
+            display: block !important;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a[aria-current="page"] {
+            color: var(--primary-color);
+        }
+
+        .legal {
+            background-color: var(--secondary-background);
+            padding-bottom: 80px;
+        }
+
+        .legal h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--hero-heading-color);
+        }
+
+        .legal h2 {
+            font-size: 1.8rem;
+            margin: 30px 0 15px;
+            color: var(--hero-heading-color);
+        }
+
+        .legal p {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .legal a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .legal a:hover {
+            text-decoration: underline;
+        }
+
+        /* Theme Toggle Button Styling */
+        .theme-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Responsive Anpassungen */
+        @media (max-width: 768px) {
+            .legal h1 {
+                font-size: 2rem;
+            }
+
+            header .container {
+                flex-direction: column;
+            }
+
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .legal h1 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            nav ul li {
+                margin: 5px 8px;
+            }
+        }
+    </style>
+
+    <!-- Asynchrones Laden der CSS-Dateien -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    </noscript>
+
+    <link rel="preload" href="css/styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="css/styles.css">
+    </noscript>
+
+    <link rel="preload" href="css/theme.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="css/theme.css">
+    </noscript>
+
+    <link rel="preload" href="css/print.css" as="print" media="print" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="css/print.css" media="print">
+    </noscript>
+
+    <!-- Preload-Polyfill für ältere Browser -->
+    <script>
+        !function (n) { "use strict"; n.loadCSS || (n.loadCSS = function () { }); var t = loadCSS.relpreload = {}; if (t.support = function () { var e; try { e = n.document.createElement("link").relList.supports("preload") } catch (t) { e = !1 } return function () { return e } }(), t.bindMediaToggle = function (t) { var e = t.media || "all"; function a() { t.addEventListener ? t.removeEventListener("load", a) : t.attachEvent && t.detachEvent("onload", a), t.setAttribute("onload", null), t.media = e } t.addEventListener ? t.addEventListener("load", a) : t.attachEvent && t.attachEvent("onload", a), setTimeout(function () { t.rel = "stylesheet", t.media = "only x" }), setTimeout(a, 3e3) }, t.poly = function () { if (!t.support()) for (var e = n.document.getElementsByTagName("link"), a = 0; a < e.length; a++) { var o = e[a]; "preload" !== o.rel || "style" !== o.getAttribute("as") || o.getAttribute("data-loadcss") || (o.setAttribute("data-loadcss", !0), t.bindMediaToggle(o)) } }, !t.support()) { t.poly(); var e = n.setInterval(t.poly, 500); n.addEventListener ? n.addEventListener("load", function () { t.poly(), n.clearInterval(e) }) : n.attachEvent && n.attachEvent("onload", function () { t.poly(), n.clearInterval(e) }) } "undefined" != typeof exports ? exports.loadCSS = loadCSS : n.loadCSS = loadCSS }("undefined" != typeof global ? global : this);
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+</head>
+
+<body>
+    <div id="cookie-banner" class="cookie-banner">
+        <p>Diese Website verwendet Cookies, um Ihnen die bestmögliche Erfahrung zu bieten. Durch die Nutzung unserer
+            Website stimmen Sie der Verwendung von Cookies gemäß unserer <a
+                href="datenschutz.html">Datenschutzerklärung</a> zu.</p>
+        <div class="cookie-buttons">
+            <button id="accept-cookies">Akzeptieren</button>
+            <button id="reject-cookies">Ablehnen</button>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html" title="RENCORET AI - Startseite">
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo" class="logo-svg dark-mode-logo">
+                    <img src="img/logo-extended-light.svg" alt="RENCORET AI MVP APPS Logo"
+                        class="logo-svg light-mode-logo">
+                </a>
+            </div>
+            <nav aria-label="Hauptnavigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#leistungen">Leistungen</a></li>
+                    <li><a href="index.html#ueber-uns">Über uns</a></li>
+                    <li><a href="index.html#projekte">Projekte</a></li>
+                    <li><a href="index.html#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="legal">
+        <div class="container">
+            <h1>Impressum</h1>
+
+            <h2>Angaben gemäß § 5 TMG</h2>
+            <p>
+                RENCORET AI GmbH<br>
+                Gerkens Hof 9<br>
+                33758 Schloß Holte-Stukenbrock
+            </p>
+
+            <h2>Kontakt</h2>
+            <p>
+                E-Mail: <a href="mailto:ricardo@rencoret.dev">ricardo@rencoret.dev</a>
+            </p>
+
+            <h2>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
+            <p>
+                RENCORET AI GmbH<br>
+                Gerkens Hof 9<br>
+                33758 Schloß Holte-Stukenbrock
+            </p>
+
+            <h2>Streitschlichtung</h2>
+            <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a
+                    href="https://ec.europa.eu/consumers/odr/" target="_blank">https://ec.europa.eu/consumers/odr/</a>.
+            </p>
+            <p>Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+            <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+                Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+            <h2>Haftung für Inhalte</h2>
+            <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den
+                allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht
+                verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu
+                forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+            <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen
+                bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis
+                einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden
+                wir diese Inhalte umgehend entfernen.</p>
+
+            <h2>Haftung für Links</h2>
+            <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben.
+                Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der
+                verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die
+                verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft.
+                Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.</p>
+            <p>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer
+                Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links
+                umgehend entfernen.</p>
+
+            <h2>Urheberrecht</h2>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen
+                Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der
+                Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
+                Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+            <p>Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter
+                beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine
+                Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden
+                von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>RENCORET AI</h3>
+                    <p>App & KI Entwicklung</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="impressum.html">Impressum</a></li>
+                        <li><a href="datenschutz.html">Datenschutz</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Kontakt</h4>
+                    <p>ricardo@rencoret.dev</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 RENCORET AI GmbH. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button class="theme-toggle" id="theme-toggle" aria-label="Farbschema umschalten">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+    </button>
+
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+
+    <!-- Skript zur dynamischen Anpassung des Abstands -->
+    <script>
+        // Funktion zur Berechnung und Anwendung des Abstands
+        function adjustHeaderSpacing() {
+            const header = document.querySelector('header');
+            const legalSection = document.querySelector('.legal');
+
+            if (header && legalSection) {
+                // Header-Höhe + extra Abstand für Lesbarkeit
+                const headerHeight = header.offsetHeight;
+                const extraSpace = 40; // Extra Abstand in Pixeln
+
+                // Setze das padding-top basierend auf der Header-Höhe
+                legalSection.style.paddingTop = (headerHeight + extraSpace) + 'px';
+            }
+        }
+
+        // Führe die Anpassung beim Laden der Seite aus
+        document.addEventListener('DOMContentLoaded', adjustHeaderSpacing);
+
+        // Führe die Anpassung auch bei Änderung der Fenstergröße aus
+        window.addEventListener('resize', adjustHeaderSpacing);
+
+        // Zusätzliche Anpassung nach einer kurzen Verzögerung, um sicherzustellen, 
+        // dass alle Ressourcen geladen sind
+        window.addEventListener('load', function () {
+            setTimeout(adjustHeaderSpacing, 100);
+        });
+    </script>
+</body>
+
+</html>

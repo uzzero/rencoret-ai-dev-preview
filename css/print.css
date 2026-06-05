@@ -1,0 +1,65 @@
+/* Print-spezifische Styles */
+@media print {
+    body {
+        background-color: white !important;
+        color: black !important;
+    }
+    
+    /* Verstecke nicht relevante Elemente */
+    .theme-toggle,
+    .cookie-banner {
+        display: none !important;
+    }
+    
+    /* Verbessere die Lesbarkeit von Links */
+    a {
+        color: black !important;
+        text-decoration: underline;
+    }
+    
+    /* Stelle sicher, dass Hintergründe und Texte gut lesbar sind */
+    .hero, .services, .about, .projects, .contact {
+        background-color: white !important;
+        color: black !important;
+        padding: 20px 0 !important;
+    }
+    
+    /* Optimiere Bilder */
+    img {
+        max-width: 100% !important;
+    }
+    
+    /* Optimiere Footer */
+    footer {
+        background-color: white !important;
+        color: black !important;
+        border-top: 1px solid #ccc;
+    }
+    
+    /* Verhindere Seitenumbrüche innerhalb wichtiger Elemente */
+    h1, h2, h3, h4, h5, h6, p {
+        page-break-inside: avoid;
+    }
+    
+    /* Stelle sicher, dass jeder Abschnitt auf einer neuen Seite beginnt */
+    section {
+        page-break-before: always;
+    }
+    
+    /* Entferne Animationen und Effekte */
+    * {
+        animation: none !important;
+        transition: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* Stelle sicher, dass die Tabellenzellen nicht umgebrochen werden */
+    td, th {
+        padding: 5px;
+    }
+    
+    /* Stelle sicher, dass die Seite nicht bei Bildern oder Tabellen umgebrochen wird */
+    img, table {
+        page-break-inside: avoid;
+    }
+} 

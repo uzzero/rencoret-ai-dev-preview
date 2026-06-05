@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <style id="initial-theme">
+        html {
+            background-color: #121212;
+        }
+
+        body {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        html.loaded body {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+    <title>Die Barriere ist gebrochen | RENCORET AI - AI MVP Apps für Founder</title>
+    <meta name="description"
+        content="Früher brauchtest du ein Tech-Team und 100.000€. Im AI-Zeitalter brauchst du nur deine Idee – und uns. Baue deine App in Wochen, nicht Jahren.">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Die Barriere ist gebrochen | RENCORET AI">
+    <meta property="og:description"
+        content="Früher brauchtest du ein Tech-Team und 100.000€. Im AI-Zeitalter brauchst du nur deine Idee – und uns.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rencoret.eu/founder">
+    <meta property="og:image" content="https://rencoret.eu/img/meta/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="RENCORET AI">
+    <meta property="og:locale" content="de_DE">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Die Barriere ist gebrochen | RENCORET AI">
+    <meta name="twitter:description"
+        content="Früher brauchtest du ein Tech-Team und 100.000€. Im AI-Zeitalter brauchst du nur deine Idee – und uns.">
+    <meta name="twitter:image" content="https://rencoret.eu/img/meta/og-image.png">
+
+    <link rel="canonical" href="https://rencoret.eu/founder">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "MVP App Development",
+      "provider": {
+        "@type": "Organization",
+        "name": "RENCORET AI",
+        "url": "https://rencoret.eu"
+      },
+      "name": "AI-Powered MVP Development for Founders",
+      "description": "Rapid development of Minimum Viable Products (MVPs) using AI technologies, enabling founders to launch in weeks instead of months.",
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/InStock"
+      },
+      "areaServed": ["DE", "AT", "CH"]
+    }
+    </script>
+
+    <!-- Google Consent Mode v2 -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied'
+        });
+    </script>
+
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BG44F505XG"></script>
+    <script>
+        gtag('js', new Date());
+        gtag('config', 'G-BG44F505XG', {
+            anonymize_ip: true,
+            cookie_flags: 'SameSite=Strict;Secure',
+            page_title: 'Founder Landing Page',
+            content_group: 'landing_pages'
+        });
+    </script>
+
+    <!-- Critical CSS -->
+    <style>
+        :root {
+            --primary-color: #948bcf;
+            --secondary-color: #121212;
+            --accent-color: #ff8c42;
+            --background-color: #121212;
+            --secondary-background: #1e1e1e;
+            --text-color: #f8f9fa;
+            --text-light: #b0b0b0;
+            --font-main: 'Inter', sans-serif;
+            --gradient-start: #ff8c42;
+            --gradient-end: #9054f7;
+            --header-background: rgba(10, 10, 10, 0.8);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+            scrollbar-width: none !important;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: none !important;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header - Minimal */
+        header {
+            background-color: var(--header-background);
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo a {
+            display: block;
+        }
+
+        .logo-svg {
+            width: 200px;
+            height: 68px;
+            display: block;
+        }
+
+        /* Hero - Founder Specific */
+        .hero-founder {
+            background-color: var(--secondary-background);
+            background-image: linear-gradient(to bottom, rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.85)), url('img/hero-founder.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-founder .oval-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .hero-founder .oval-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            opacity: 0.3;
+            filter: blur(30px);
+        }
+
+        .hero-founder .oval-shape:nth-child(1) {
+            width: 40vmin;
+            height: 25vmin;
+            top: 25%;
+            left: 60%;
+        }
+
+        .hero-founder .oval-shape:nth-child(2) {
+            width: 35vmin;
+            height: 20vmin;
+            top: 60%;
+            left: 30%;
+        }
+
+        .hero-founder .oval-shape:nth-child(3) {
+            width: 25vmin;
+            height: 35vmin;
+            top: 40%;
+            left: 45%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+        }
+
+        .hero-headline {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            line-height: 1.1;
+            background: linear-gradient(90deg, #f8f9fa, #948bcf);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subheadline {
+            font-size: 1.4rem;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: #fff;
+            padding: 20px 60px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 140, 66, 0.4);
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /* Trust Indicators */
+        .trust-section {
+            padding: 60px 20px;
+            background-color: var(--background-color);
+            text-align: center;
+        }
+
+        .trust-headline {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .trust-items {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .trust-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 5px;
+        }
+
+        /* Value Proposition */
+        .value-section {
+            padding: 80px 20px;
+            background-color: var(--secondary-background);
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .value-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .value-text {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 20px;
+            background-color: var(--background-color);
+        }
+
+        .contact-headline {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-subheadline {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--secondary-background);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-color);
+            font-size: 1rem;
+            font-family: var(--font-main);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: #fff;
+            padding: 18px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 140, 66, 0.3);
+        }
+
+        .form-privacy {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .form-privacy a {
+            color: var(--primary-color);
+        }
+
+        /* Footer - Minimal */
+        .footer-minimal {
+            padding: 40px 20px;
+            background-color: var(--secondary-background);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-copyright {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: 2.5rem;
+            }
+
+            .hero-subheadline {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                padding: 18px 40px;
+                font-size: 1rem;
+            }
+
+            .trust-items {
+                gap: 30px;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-headline {
+                font-size: 2rem;
+            }
+
+            .hero-subheadline {
+                font-size: 1rem;
+            }
+        }
+    </style>
+
+    <!-- Preconnect Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <script>
+        (function () {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            if (document.readyState === 'interactive' || document.readyState === 'complete') {
+                document.documentElement.classList.add('loaded');
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+                document.documentElement.classList.add('loaded');
+            });
+        })();
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="/" title="RENCORET AI">
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo" class="logo-svg">
+                </a>
+            </div>
+            <nav style="margin-left: auto;">
+                <a href="/"
+                    style="color: var(--text-color); text-decoration: none; font-weight: 500; display: flex; align-items: center; gap: 8px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    Zur Startseite
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-founder">
+            <div class="oval-shapes">
+                <div class="oval-shape"></div>
+                <div class="oval-shape"></div>
+                <div class="oval-shape"></div>
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-headline">Die Barriere ist gebrochen.</h1>
+                <p class="hero-subheadline">Früher brauchtest du ein Tech-Team und 100.000€. Im AI-Zeitalter brauchst du
+                    nur deine Idee – und uns. Baue deine App in Wochen, nicht Jahren.</p>
+                <a href="#kontakt" class="cta-button">Starten.</a>
+            </div>
+        </section>
+
+        <!-- Trust Indicators -->
+        <section class="trust-section">
+            <p class="trust-headline">Warum jetzt der perfekte Moment ist</p>
+            <div class="trust-items">
+                <div class="trust-item">
+                    <div class="trust-number">10x</div>
+                    <div class="trust-label">Schnellere Entwicklung mit AI</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number">90%</div>
+                    <div class="trust-label">Weniger Kosten vs. klassisch</div>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-number">4-8</div>
+                    <div class="trust-label">Wochen bis zum MVP</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Value Proposition -->
+        <section class="value-section">
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">💡</div>
+                    <h3 class="value-title">Deine Idee, deine App</h3>
+                    <p class="value-text">Du hast die Vision. Wir haben die AI-Tools und das Know-how, um sie in
+                        Rekordzeit umzusetzen.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3 class="value-title">MVP in Wochen</h3>
+                    <p class="value-text">Kein Warten auf Investoren. Kein riesiges Team. In 4-8 Wochen hast du eine
+                        funktionierende App.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🚀</div>
+                    <h3 class="value-title">Bereit für den Markt</h3>
+                    <p class="value-text">Nicht nur ein Prototyp – eine echte App, die du Investoren zeigen und Nutzern
+                        geben kannst.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="kontakt">
+            <h2 class="contact-headline">Lass uns starten.</h2>
+            <p class="contact-subheadline">Erzähl mir von deiner Idee. Ich melde mich innerhalb von 24 Stunden.</p>
+
+            <form action="https://send.pageclip.co/O4rROlZ18F7D3ZSvNSHbRGRPf3DmGdqJ/founder-leads"
+                class="pageclip-form contact-form" method="post" id="founder-contact-form">
+                <div class="form-group">
+                    <label for="name">Dein Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Max Mustermann">
+                </div>
+                <div class="form-group">
+                    <label for="email">Deine E-Mail</label>
+                    <input type="email" id="email" name="email" required placeholder="max@startup.de">
+                </div>
+                <div class="form-group">
+                    <label for="idea">Deine App-Idee (kurz & knapp)</label>
+                    <textarea id="idea" name="idea" required placeholder="Eine App, die..."></textarea>
+                </div>
+                <input type="hidden" name="source" value="founder_landing_page">
+                <input type="hidden" name="utm_source" id="utm_source">
+                <input type="hidden" name="utm_medium" id="utm_medium">
+                <input type="hidden" name="utm_campaign" id="utm_campaign">
+                <input type="hidden" name="utm_content" id="utm_content">
+                <button type="submit" class="form-submit pageclip-form__submit">
+                    <span>Jetzt starten</span>
+                </button>
+                <p class="form-privacy">Mit dem Absenden stimmst du unserer <a
+                        href="/datenschutz.html">Datenschutzerklärung</a> zu.</p>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-minimal">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="footer-links" style="margin-bottom: 20px;">
+                <a href="/">Zurück zur Hauptseite</a>
+                <a href="/impressum.html">Impressum</a>
+                <a href="/datenschutz.html">Datenschutz</a>
+            </div>
+            <div class="footer-contact" style="margin-bottom: 20px; color: var(--text-light); text-align: center;">
+                <a href="mailto:ricardo@rencoret.dev"
+                    style="color: var(--text-light); text-decoration: none;">ricardo@rencoret.dev</a>
+            </div>
+            <p class="footer-copyright">© 2026 RENCORET AI GmbH. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <!-- Pageclip -->
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+
+    <!-- UTM Parameter Capture -->
+    <script>
+        (function () {
+            // Capture UTM parameters
+            const params = new URLSearchParams(window.location.search);
+            const utmFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+
+            utmFields.forEach(field => {
+                const value = params.get(field);
+                const input = document.getElementById(field);
+                if (input && value) {
+                    input.value = value;
+                }
+            });
+
+            // Store in sessionStorage for cross-page tracking
+            const campaignData = {
+                utm_source: params.get('utm_source') || 'direct',
+                utm_medium: params.get('utm_medium') || '',
+                utm_campaign: params.get('utm_campaign') || '',
+                utm_content: params.get('utm_content') || '',
+                landing_page: '/founder',
+                timestamp: new Date().toISOString()
+            };
+
+            if (params.get('utm_source')) {
+                sessionStorage.setItem('campaign_data', JSON.stringify(campaignData));
+            }
+
+            // Track page view with campaign data
+            if (window.gtag) {
+                gtag('event', 'landing_page_view', {
+                    page_type: 'founder',
+                    ...campaignData
+                });
+            }
+        })();
+
+        // Track form submission
+        document.getElementById('founder-contact-form').addEventListener('submit', function () {
+            if (window.gtag) {
+                const campaignData = JSON.parse(sessionStorage.getItem('campaign_data') || '{}');
+                gtag('event', 'generate_lead', {
+                    event_category: 'conversion',
+                    event_label: 'founder_landing_page',
+                    landing_page: '/founder',
+                    ...campaignData
+                });
+            }
+
+            // LinkedIn conversion tracking
+            if (window.lintrk) {
+                lintrk('track', { conversion_id: '22644914' });
+            }
+        });
+    </script>
+
+    <!-- Analytics & LinkedIn -->
+    <script src="js/analytics.js" defer></script>
+
+    <!-- Cookie Consent Banner -->
+    <link rel="stylesheet" href="css/cookie-banner.css">
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <p>Wir verwenden Cookies und Tracking-Technologien, um Ihre Erfahrung zu verbessern und den Erfolg unserer
+                LinkedIn-Kampagnen zu messen. Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies
+                gemäß unserer <a href="datenschutz.html">Datenschutzerklärung</a> zu.</p>
+            <div class="cookie-buttons">
+                <button id="reject-cookies" class="cookie-btn cookie-btn-reject">Ablehnen</button>
+                <button id="accept-cookies" class="cookie-btn cookie-btn-accept">Akzeptieren</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

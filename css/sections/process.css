@@ -1,0 +1,893 @@
+/* Process Section Styles */
+.process {
+    background-color: var(--secondary-background);
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+}
+
+.process::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(var(--primary-color-rgb), 0.05) 0%, rgba(var(--accent-color-rgb), 0.05) 100%);
+    z-index: 1;
+}
+
+.process h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.process .section-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 120px;
+    color: var(--text-light);
+    position: relative;
+    z-index: 2;
+}
+
+/* Timeline Container */
+.timeline {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 0 80px; /* Erhöhter Abstand nach unten */
+    z-index: 2;
+}
+
+/* Vertikale Linie in der Mitte */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background: #948bcf;
+    top: 20px; /* Begrenzt die Linie nach oben */
+    bottom: 20px; /* Begrenzt die Linie nach unten */
+    left: 50%;
+    margin-left: -1px;
+    z-index: 1;
+}
+
+/* Animierter Punkt, der entlang der Timeline wandert - deaktiviert */
+.timeline-tracker {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    transform: translateX(-50%);
+    z-index: 1;
+    pointer-events: none;
+    display: none; /* Tracker ausblenden */
+}
+
+.tracker-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(135deg, #ff8c42, #9054f7);
+    border-radius: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 0 15px rgba(255, 140, 66, 0.8), 0 0 25px rgba(144, 84, 247, 0.5);
+    opacity: 0;
+    transition: opacity 0.5s ease, box-shadow 0.5s ease;
+    animation: pulse-glow 2s infinite alternate;
+    top: 0;
+    display: none; /* Tracker-Punkt ausblenden */
+}
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 140, 66, 0.7), 0 0 15px rgba(144, 84, 247, 0.4);
+        transform: translateX(-50%) translateY(-50%) scale(0.9);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255, 140, 66, 0.9), 0 0 30px rgba(144, 84, 247, 0.6);
+        transform: translateX(-50%) translateY(-50%) scale(1.1);
+    }
+}
+
+.tracker-dot.visible {
+    opacity: 0; /* Auch im sichtbaren Zustand ausblenden */
+    display: none;
+}
+
+/* Einzelne Timeline-Items */
+.timeline-item {
+    padding: 20px 35px;
+    position: relative;
+    width: 50%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    margin-bottom: 30px;
+}
+
+/* Wenn das Element sichtbar wird */
+.timeline-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Linke Seite */
+.timeline-item.left {
+    left: 0;
+}
+
+.timeline-item.left::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    right: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--secondary-background);
+    z-index: 3;
+}
+
+/* Rechte Seite */
+.timeline-item.right {
+    left: 50%;
+}
+
+.timeline-item.right::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent var(--secondary-background) transparent transparent;
+    z-index: 3;
+}
+
+/* Inhalt der Timeline */
+.timeline-content {
+    padding: 20px;
+    background: var(--secondary-background);
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 2;
+    border: 1px solid rgba(148, 139, 207, 0.1);
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px var(--shadow-color);
+    border-color: rgba(148, 139, 207, 0.2);
+}
+
+.timeline-content h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: var(--text-color);
+}
+
+.timeline-content p {
+    color: var(--text-light);
+    margin-bottom: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Step-Titel */
+.timeline-step {
+    font-weight: bold;
+    margin-bottom: 12px;
+    color: #948bcf;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.95rem;
+}
+
+/* Timeline-Icon */
+.timeline-icon {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #ff8c42 0%, #9054f7 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgba(148, 139, 207, 0.3);
+}
+
+.timeline-icon svg {
+    width: 28px;
+    height: 28px;
+    color: white;
+}
+
+/* Timeline-Dekorationen (Glühbirne und Rakete) */
+.timeline-decoration {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    background-color: var(--secondary-background);
+    border-radius: 50%;
+    border: 2px solid rgba(148, 139, 207, 0.3);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-decoration.visible {
+    opacity: 1;
+}
+
+.timeline-start {
+    top: -95px; /* Reduzierter Abstand zum Timeline-Beginn */
+    transform: translateX(-50%) translateY(0);
+    left: 50%;
+    margin-top: 0;
+    background-color: var(--secondary-background);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-start.visible {
+    transform: translateX(-50%) translateY(0);
+}
+
+.timeline-end {
+    bottom: -80px; /* Geringerer Abstand nach unten zum Timeline-Ende */
+    transform: translateX(-50%) translateY(0);
+    left: 50%;
+    margin-bottom: 0;
+}
+
+.timeline-end.visible {
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Glühbirnen-Animation */
+.idea-animation {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.idea-bulb {
+    width: 60px;
+    height: 60px;
+    color: var(--primary-color);
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 0 8px rgba(var(--primary-color-rgb), 0.6));
+    animation: bulbGlow 3s infinite alternate;
+}
+
+@keyframes bulbGlow {
+    0% {
+        color: var(--primary-color);
+        filter: drop-shadow(0 0 5px rgba(var(--primary-color-rgb), 0.4));
+    }
+    100% {
+        color: var(--accent-color);
+        filter: drop-shadow(0 0 12px rgba(var(--accent-color-rgb), 0.8));
+    }
+}
+
+.idea-rays {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.ray {
+    position: absolute;
+    background: linear-gradient(to right, #ff8c42, #9054f7);
+    border-radius: 2px;
+    opacity: 0;
+    transform-origin: center;
+    animation: rayFade 3s infinite;
+}
+
+.ray1, .ray4 {
+    width: 20px;
+    height: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.ray1 {
+    left: -10px;
+    animation-delay: 0.2s;
+}
+
+.ray4 {
+    right: -10px;
+    animation-delay: 0.8s;
+}
+
+.ray2, .ray5 {
+    width: 2px;
+    height: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.ray2 {
+    top: -10px;
+    animation-delay: 0.4s;
+}
+
+.ray5 {
+    bottom: -10px;
+    animation-delay: 1s;
+}
+
+.ray3, .ray6 {
+    width: 15px;
+    height: 2px;
+}
+
+.ray3 {
+    top: 25%;
+    left: -5px;
+    transform: rotate(-45deg);
+    animation-delay: 0.6s;
+}
+
+.ray6 {
+    bottom: 25%;
+    right: -5px;
+    transform: rotate(-45deg);
+    animation-delay: 1.2s;
+}
+
+@keyframes rayFade {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.8) translateY(-50%);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2) translateY(-50%);
+    }
+}
+
+/* Raketen-Animation */
+.rocket-animation {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.rocket {
+    width: 60px;
+    height: 60px;
+    color: var(--primary-color);
+    position: relative;
+    z-index: 2;
+    transform: rotate(45deg);
+    animation: rocketMove 4s infinite ease-in-out;
+}
+
+@keyframes rocketMove {
+    0%, 100% {
+        transform: rotate(45deg) translateY(0);
+    }
+    50% {
+        transform: rotate(45deg) translateY(-10px);
+    }
+}
+
+.rocket-flames {
+    position: absolute;
+    bottom: 23px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    z-index: 1;
+    animation: rocketFlameMove 4s infinite ease-in-out;
+}
+
+@keyframes rocketFlameMove {
+    0%, 100% {
+        transform: translateX(-50%) rotate(45deg) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) rotate(45deg) translateY(-10px);
+    }
+}
+
+.flame {
+    position: absolute;
+    border-radius: 50% 0 50% 50%;
+    transform-origin: top right;
+    opacity: 0.8;
+    filter: blur(2px);
+    animation: flameFlicker 0.5s infinite alternate;
+}
+
+.flame1 {
+    width: 12px;
+    height: 12px;
+    background: #ff5722;
+    bottom: 0;
+    right: 0;
+    animation-delay: 0.1s;
+}
+
+.flame2 {
+    width: 8px;
+    height: 8px;
+    background: #ffeb3b;
+    bottom: 2px;
+    right: 2px;
+    animation-delay: 0.2s;
+}
+
+.flame3 {
+    width: 5px;
+    height: 5px;
+    background: #fff;
+    bottom: 3px;
+    right: 3px;
+    animation-delay: 0.3s;
+}
+
+@keyframes flameFlicker {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0.9;
+    }
+}
+
+/* Responsive Anpassungen für die Timeline */
+@media (max-width: 768px) {
+    .process {
+        padding: 80px 0 150px; /* Mehr Platz nach unten */
+    }
+    
+    .timeline {
+        padding: 150px 0 200px; /* Erhöht den Abstand oben und unten */
+        margin-bottom: 0; /* Entfernt zusätzlichen Rand unten */
+    }
+    
+    .timeline::after {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20px; /* Begrenzt die Linie nach oben */
+        bottom: 20px; /* Begrenzt die Linie nach unten */
+        z-index: 1;
+    }
+    
+    .timeline-tracker {
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 20px;
+        padding-right: 20px;
+        z-index: 2;
+        position: relative;
+    }
+    
+    .timeline-item.right {
+        left: 0;
+    }
+    
+    .timeline-item.left::before,
+    .timeline-item.right::before {
+        display: none;
+    }
+    
+    .timeline-decoration {
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+    }
+    
+    .timeline-start {
+        top: -95px; /* Reduzierter Abstand zum Timeline-Beginn */
+        transform: translateX(-50%) translateY(0);
+        margin-top: 0;
+        z-index: 5;
+        background-color: var(--secondary-background);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .timeline-end {
+        bottom: -80px; /* Geringerer Abstand nach unten zum Timeline-Ende */
+        transform: translateX(-50%) translateY(0);
+        z-index: 10; /* Höherer z-index, um sicherzustellen, dass die Rakete über anderen Elementen liegt */
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .process {
+        padding: 60px 0 150px; /* Noch mehr Abstand nach unten */
+    }
+    
+    .timeline {
+        padding: 150px 0 200px; /* Noch mehr Abstand oben und unten */
+        margin-bottom: 0;
+    }
+    
+    .timeline::after {
+        left: 50%;
+        transform: translateX(-50%);
+        top: 20px; /* Begrenzt die Linie nach oben */
+        bottom: 20px; /* Begrenzt die Linie nach unten */
+        z-index: 1;
+    }
+    
+    .timeline-tracker {
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+    
+    .timeline-decoration {
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 3;
+        width: 70px;
+        height: 70px;
+    }
+    
+    .timeline-item {
+        padding-left: 15px;
+        padding-right: 15px;
+        position: relative;
+        z-index: 2;
+    }
+    
+    .timeline-item.left::before,
+    .timeline-item.right::before {
+        display: none;
+    }
+    
+    .timeline-start {
+        left: 50%;
+        top: -95px; /* Reduzierter Abstand zum Timeline-Beginn */
+        transform: translateX(-50%) translateY(0);
+        margin-top: 0;
+        z-index: 5;
+        background-color: var(--secondary-background);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .timeline-end {
+        left: 50%;
+        bottom: -80px; /* Geringerer Abstand nach unten zum Timeline-Ende */
+        transform: translateX(-50%) translateY(0);
+        z-index: 10; /* Höherer z-index, um sicherzustellen, dass die Rakete über anderen Elementen liegt */
+        margin-bottom: 0;
+    }
+    
+    .timeline-end.visible {
+        opacity: 1; /* Explizit auf 1 setzen, um sicherzustellen, dass die Rakete sichtbar ist */
+    }
+    
+    .idea-bulb, .rocket {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .process.process--apple {
+        padding: 88px 0;
+    }
+
+    .process--apple .process__intro {
+        margin-bottom: 44px;
+    }
+
+    .process--apple .process__heading {
+        font-size: clamp(2.5rem, 12vw, 3.25rem);
+        line-height: 1.08;
+    }
+
+    .process--apple .process__intro .lede {
+        font-size: 1rem;
+    }
+
+    .process--apple .timeline {
+        max-width: 100%;
+        padding: 0 0 8px;
+    }
+
+    .process--apple .timeline::after {
+        left: 22px;
+        top: 0;
+        bottom: 0;
+        transform: none;
+        margin-left: 0;
+    }
+
+    .process--apple .timeline-item,
+    .process--apple .timeline-item.left,
+    .process--apple .timeline-item.right {
+        left: 0;
+        width: 100%;
+        margin-bottom: 28px;
+        padding: 0 0 0 52px;
+        opacity: 1;
+        transform: none;
+    }
+
+    .process--apple .timeline-item::after {
+        content: "";
+        position: absolute;
+        top: 28px;
+        left: 15px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        box-shadow: 0 0 24px rgba(144, 84, 247, 0.45);
+        z-index: 3;
+    }
+
+    .process--apple .timeline-item.left::before,
+    .process--apple .timeline-item.right::before,
+    .process--apple .timeline-decoration {
+        display: none;
+    }
+
+    .process--apple .timeline-content {
+        padding: 22px 20px;
+        border-radius: 22px;
+    }
+
+    .process--apple .timeline-content h3 {
+        font-size: 1.45rem;
+        line-height: 1.12;
+    }
+
+    .process--apple .timeline-content p {
+        font-size: 0.98rem;
+        line-height: 1.55;
+    }
+
+    .process--apple .timeline-icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Sicherstellen, dass die Farben im Light-Modus korrekt sind */
+html[data-theme="light"] .timeline-icon {
+    background: linear-gradient(135deg, #ff8c42 0%, #9054f7 100%);
+}
+
+html[data-theme="light"] .timeline::after {
+    background: #948bcf;
+}
+
+/* =====================================================
+   DARK APPLE OVERRIDES – Process section
+   ===================================================== */
+
+.process.process--apple {
+    background-color: #000000 !important;
+    padding: clamp(120px, 14vw, 200px) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.process--apple::before {
+    content: none;
+}
+
+.process--apple .process__glow {
+    position: absolute;
+    width: 70vw;
+    max-width: 800px;
+    height: 70vw;
+    max-height: 800px;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.process--apple .process__glow--a { top: 10%; left: -25%; }
+.process--apple .process__glow--b { bottom: 10%; right: -25%; }
+
+.process--apple .container-wide {
+    position: relative;
+    z-index: 2;
+}
+
+.process--apple .process__intro {
+    max-width: 720px;
+    margin-bottom: clamp(72px, 9vw, 130px);
+}
+
+.process--apple .process__heading {
+    margin: 0 0 28px;
+    text-align: left;
+}
+
+.process--apple .process__intro .lede {
+    margin: 0;
+    text-align: left;
+}
+
+/* Make timeline center-line a soft gradient */
+.process--apple .timeline::after {
+    background: linear-gradient(180deg,
+        rgba(255, 140, 66, 0)   0%,
+        rgba(255, 140, 66, 0.6) 12%,
+        rgba(144, 84, 247, 0.6) 88%,
+        rgba(144, 84, 247, 0)   100%) !important;
+    bottom: -36px;
+    width: 2px;
+    box-shadow: 0 0 20px rgba(144, 84, 247, 0.4);
+}
+
+/* Glass-card timeline content */
+.process--apple .timeline-content {
+    background: var(--glass-bg) !important;
+    border: 1px solid var(--glass-border) !important;
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-radius: var(--radius-card);
+    padding: 28px 30px;
+    box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.7) !important;
+}
+
+.process--apple .timeline-content:hover {
+    background: var(--glass-bg-strong) !important;
+    border-color: var(--glass-border-strong) !important;
+    transform: translateY(-4px);
+    box-shadow: 0 40px 80px -24px rgba(0, 0, 0, 0.85) !important;
+}
+
+.process--apple .timeline-content h3 {
+    color: #ffffff;
+    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0;
+    font-size: 1.5rem;
+}
+
+.process--apple .timeline-content p {
+    color: var(--text-light);
+}
+
+.process--apple .timeline-step {
+    color: transparent;
+    background: linear-gradient(90deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+            background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 600;
+    font-size: 0.78rem;
+}
+
+/* Match the speech-bubble triangles to the new glass surface */
+.process--apple .timeline-item.left::before {
+    border-color: transparent transparent transparent rgba(255, 255, 255, 0.06);
+}
+
+.process--apple .timeline-item.right::before {
+    border-color: transparent rgba(255, 255, 255, 0.06) transparent transparent;
+}
+
+/* Decorations get glass surface too */
+.process--apple .timeline-decoration {
+    background-color: var(--surface-1) !important;
+    border: 1px solid var(--glass-border) !important;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7),
+                0 0 40px rgba(144, 84, 247, 0.25) !important;
+}
+
+@media (max-width: 768px) {
+    .process.process--apple {
+        padding: 88px 0;
+    }
+
+    .process--apple .process__intro {
+        margin-bottom: 44px;
+    }
+
+    .process--apple .process__heading {
+        font-size: clamp(2.5rem, 12vw, 3.25rem);
+        line-height: 1.08;
+    }
+
+    .process--apple .process__intro .lede {
+        font-size: 1rem;
+    }
+
+    .process--apple .timeline {
+        max-width: 100%;
+        padding: 0 0 8px;
+    }
+
+    .process--apple .timeline::after {
+        left: 22px;
+        top: 0;
+        bottom: 0;
+        transform: none;
+        margin-left: 0;
+    }
+
+    .process--apple .timeline-item,
+    .process--apple .timeline-item.left,
+    .process--apple .timeline-item.right {
+        left: 0;
+        width: 100%;
+        margin-bottom: 28px;
+        padding: 0 0 0 52px;
+        opacity: 1;
+        transform: none;
+    }
+
+    .process--apple .timeline-item::after {
+        content: "";
+        position: absolute;
+        top: 28px;
+        left: 15px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+        box-shadow: 0 0 24px rgba(144, 84, 247, 0.45);
+        z-index: 3;
+    }
+
+    .process--apple .timeline-item.left::before,
+    .process--apple .timeline-item.right::before,
+    .process--apple .timeline-decoration {
+        display: none;
+    }
+
+    .process--apple .timeline-content {
+        padding: 22px 20px;
+        border-radius: 22px;
+    }
+
+    .process--apple .timeline-content h3 {
+        font-size: 1.45rem;
+        line-height: 1.12;
+    }
+
+    .process--apple .timeline-content p {
+        font-size: 0.98rem;
+        line-height: 1.55;
+    }
+
+    .process--apple .timeline-icon {
+        width: 50px;
+        height: 50px;
+    }
+}

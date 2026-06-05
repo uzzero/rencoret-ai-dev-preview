@@ -1,0 +1,486 @@
+/* Theme Styles - nur Dark Mode */
+:root {
+    /* Dark Mode (Standard) - alle Light Mode Variablen entfernt */
+    --background-color: #121212;
+    --secondary-background: #1e1e1e;
+    --text-color: #f8f9fa;
+    --text-light: #b0b0b0;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --header-background: rgba(10, 10, 10, 0.8);
+    --footer-background: #0a0a0a;
+    --card-background: #1e1e1e;
+    --primary-color: #948bcf;
+    --primary-color-rgb: 148, 139, 207;
+    --accent-color: #ff8c42;
+    --accent-color-rgb: 255, 140, 66;
+    --gradient-start: #ff8c42;
+    --gradient-end: #9054f7;
+    --form-background: #1e1e1e;
+    --form-border: #333333;
+    --button-text: #ffffff;
+    --transition-time: 0.5s;
+    --hero-heading-color: #f8f9fa;
+    --hero-subtext-color: #b0b0b0;
+    --tagline-color: #b0b0b0;
+    --logo-invert: 0%;
+    --cta-button-text: #ffffff;
+    --cta-button-bg: #948bcf;
+    --oval-opacity: 0.3;
+    --section-title-color: #f8f9fa;
+    --footer-text-color: #f8f9fa;
+    --footer-link-color: #b0b0b0;
+    --contact-card-bg: #1e1e1e;
+    --contact-card-shadow: rgba(0, 0, 0, 0.3);
+    --contact-card-border: #333333;
+    --card-hover-gradient-start: #ff8c42;
+    --card-hover-gradient-end: #9054f7;
+    --service-hover-shadow: rgba(0, 0, 0, 0.7);
+    --client-logo-invert: 100%;
+    --client-logo-brightness: 120%;
+}
+
+/* System-Präferenz für Dark Mode nicht mehr benötigt, da wir immer Dark Mode verwenden */
+
+/* Dark Mode - explizit über data-theme aktiviert - behält die Standardeinstellungen bei */
+html[data-theme="dark"] {
+    --background-color: #121212;
+    --secondary-background: #1e1e1e;
+    --text-color: #f8f9fa;
+    --text-light: #b0b0b0;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --header-background: rgba(10, 10, 10, 0.8);
+    --footer-background: #0a0a0a;
+    --card-background: #1e1e1e;
+    --primary-color: #948bcf;
+    --primary-color-rgb: 148, 139, 207;
+    --accent-color: #ff8c42;
+    --accent-color-rgb: 255, 140, 66;
+    --gradient-start: #ff8c42;
+    --gradient-end: #9054f7;
+    --form-background: #1e1e1e;
+    --form-border: #333333;
+    --button-text: #ffffff;
+    --hero-heading-color: #f8f9fa;
+    --hero-subtext-color: #b0b0b0;
+    --tagline-color: #b0b0b0;
+    --logo-invert: 0%;
+    --cta-button-text: #ffffff;
+    --cta-button-bg: #948bcf;
+    --oval-opacity: 0.3;
+    --section-title-color: #f8f9fa;
+    --footer-text-color: #f8f9fa;
+    --footer-link-color: #b0b0b0;
+    --contact-card-bg: #1e1e1e;
+    --contact-card-shadow: rgba(0, 0, 0, 0.3);
+    --contact-card-border: #333333;
+    --card-hover-gradient-start: #ff8c42;
+    --card-hover-gradient-end: #9054f7;
+    --service-hover-shadow: rgba(0, 0, 0, 0.7);
+    --client-logo-invert: 100%;
+    --client-logo-brightness: 120%;
+}
+
+/* Light Mode - explizit über data-theme aktiviert - entfernt, da wir nur Dark Mode verwenden */
+
+/* Übergangseffekte für Theme-Wechsel */
+body {
+    transition: 
+        background-color var(--transition-time) ease,
+        color var(--transition-time) ease;
+    /* Verhindern von horizontalem Scrollen durch Transformationen */
+    overflow-x: hidden;
+}
+
+/* Light Mode Anpassungen */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+header {
+    background-color: var(--header-background);
+    box-shadow: 0 2px 10px var(--shadow-color);
+}
+
+/* Logo-Anpassung für Farbmodi */
+.logo img.logo-svg {
+    transition: filter var(--transition-time) ease;
+}
+
+/* Kundenlogos im Dark Mode besser sichtbar machen */
+.client-logos .logo-container img {
+    filter: grayscale(100%) invert(var(--client-logo-invert)) brightness(var(--client-logo-brightness));
+    transition: filter var(--transition-time) ease, opacity var(--transition-time) ease;
+}
+
+.client-logos .logo-container:hover img {
+    filter: grayscale(0) invert(0) brightness(100%);
+}
+
+.hero {
+    background-color: var(--secondary-background);
+    color: var(--text-color);
+}
+
+.hero-heading {
+    color: var(--hero-heading-color);
+}
+
+.hero p {
+    color: var(--hero-subtext-color);
+}
+
+.tagline {
+    color: var(--tagline-color);
+}
+
+.cta-button {
+    background-color: var(--cta-button-bg);
+    color: var(--cta-button-text);
+}
+
+.hero .oval-shape {
+    opacity: var(--oval-opacity);
+}
+
+.services, .about, .projects, .contact {
+    background-color: var(--background-color);
+}
+
+/* Globale Regel für alle Abschnittstitel */
+section h2, 
+.services h2, 
+.about h2, 
+.projects h2, 
+.contact h2 {
+    color: var(--section-title-color) !important;
+}
+
+.service-card, .project-card {
+    background-color: var(--card-background);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    color: var(--text-color);
+    border: 1px solid var(--form-border);
+}
+
+/* Service-Karten spezifische Styling-Anpassungen für hellen/dunklen Modus */
+.service-icon {
+    background: rgba(var(--primary-color-rgb, 106, 92, 184), 0.1);
+}
+
+.service-icon svg {
+    stroke: var(--primary-color);
+}
+
+.service-card:hover .service-icon {
+    /* Verwende die definierten Variablen */
+    background: linear-gradient(135deg, var(--card-hover-gradient-start), var(--card-hover-gradient-end));
+}
+
+.service-card h3 {
+    color: var(--primary-color);
+}
+
+.service-card p {
+    color: var(--text-light);
+}
+
+/* Footer-Anpassungen mit höherer Spezifität */
+html body footer {
+    background-color: var(--footer-background);
+    color: var(--footer-text-color);
+}
+
+html body footer h3, 
+html body footer h4 {
+    color: var(--footer-text-color);
+}
+
+html body .footer-logo p {
+    color: var(--text-light);
+}
+
+html body .footer-links a {
+    color: var(--footer-link-color);
+}
+
+html body .footer-links a:hover {
+    color: var(--primary-color);
+}
+
+html body .footer-contact p {
+    color: var(--footer-text-color);
+}
+
+html body .copyright p {
+    color: var(--footer-text-color);
+}
+
+/* Kontaktabschnitt Anpassungen */
+.contact-info {
+    background-color: var(--contact-card-bg);
+    box-shadow: 0 5px 15px var(--contact-card-shadow);
+    border: 1px solid var(--contact-card-border);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.contact-form {
+    background-color: var(--contact-card-bg);
+    box-shadow: 0 5px 15px var(--contact-card-shadow);
+    border: 1px solid var(--contact-card-border);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    background-color: var(--form-background);
+    border: 1px solid var(--form-border);
+    color: var(--text-color);
+}
+
+/* Verbessere die mobile Darstellung */
+@media (max-width: 576px) {
+    /* Allgemeine Container-Anpassung */
+    .container {
+        padding: 0 15px;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    
+    /* Verhindere, dass Inhalte über den Container hinausragen */
+    section {
+        overflow-x: hidden;
+        width: 100%;
+        overflow-y: visible; /* Wichtig: nur horizontal begrenzen */
+    }
+    
+    /* Entferne potentielle unerwünschte Scrollbars */
+    .services-grid,
+    .project-card,
+    .service-card,
+    .projects-slider,
+    .modal-content {
+        overflow: visible;
+    }
+    
+    /* Anpassung für Servicekarten */
+    .services-grid {
+        grid-gap: 15px;
+    }
+    
+    .service-card {
+        padding: 15px;
+    }
+    
+    /* Anpassung für Projektkarten */
+    .projects-slider {
+        gap: 20px;
+    }
+    
+    .project-card {
+        margin-bottom: 15px;
+    }
+    
+    /* Optimierte Animation für Mobile */
+    .fade-in-left, 
+    .fade-in-right {
+        transform: translateY(20px); /* Statt seitlicher Animation nur nach oben animieren */
+    }
+    
+    .fade-in-left.visible, 
+    .fade-in-right.visible {
+        transform: translateY(0);
+    }
+}
+
+/* Anpassungen für Navigationslinks */
+nav ul li a {
+    color: var(--text-color);
+}
+
+nav ul li a:hover, 
+nav ul li a[aria-current="page"] {
+    color: var(--primary-color);
+}
+
+/* Verbesserte Spezifität für Abschnittsüberschriften */
+body:not([data-theme="dark"]) .services h2,
+body:not([data-theme="dark"]) .about h2,
+body:not([data-theme="dark"]) .projects h2,
+body:not([data-theme="dark"]) .contact h2,
+body:not([data-theme="dark"]) section h2 {
+    color: var(--section-title-color) !important;
+    text-shadow: none !important;
+}
+
+body[data-theme="dark"] .services h2,
+body[data-theme="dark"] .about h2,
+body[data-theme="dark"] .projects h2,
+body[data-theme="dark"] .contact h2,
+body[data-theme="dark"] section h2 {
+    color: var(--section-title-color) !important;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Scrollgesteuerte Animation: Einblendeffekte */
+
+/* Grundlegende Einstellungen für alle Fade-in-Elemente */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform;
+}
+
+/* Zustand wenn Element sichtbar wird */
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Varianten der Fade-in-Animation */
+.fade-in-left {
+  transform: translateX(-50px);
+}
+
+.fade-in-right {
+  transform: translateX(50px);
+}
+
+.fade-in-up {
+  transform: translateY(30px);
+}
+
+.fade-in-down {
+  transform: translateY(-30px);
+}
+
+/* Anpassungen für mobile Geräte - sanftere Transformationen */
+@media (max-width: 768px) {
+  .fade-in-left {
+    transform: translateX(-30px);
+  }
+  
+  .fade-in-right {
+    transform: translateX(30px);
+  }
+  
+  .fade-in-up {
+    transform: translateY(20px);
+  }
+  
+  .fade-in-down {
+    transform: translateY(-20px);
+  }
+}
+
+/* Zustand wenn Element sichtbar wird (für alle Varianten) */
+.fade-in-left.visible,
+.fade-in-right.visible,
+.fade-in-up.visible,
+.fade-in-down.visible {
+  opacity: 1;
+  transform: translate(0);
+}
+
+/* Verzögerte Animationen für gestaffelte Effekte */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Verschiedene Animationsgeschwindigkeiten */
+.duration-fast { transition-duration: 0.5s; }
+.duration-slow { transition-duration: 1.2s; }
+
+/* Vermeidung von Animationen bei reduzierter Bewegung */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Kontaktformular-Anpassungen */
+.contact-form label {
+    color: var(--text-color);
+}
+
+.pageclip-form__submit {
+    background-color: var(--primary-color);
+    color: var(--button-text);
+}
+
+/* Globale Fixes für unerwünschte Scrollbars */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    max-width: 100vw;
+}
+
+.projects-slider, 
+.timeline,
+.modal-body,
+.service-card,
+.project-card,
+.contact-form,
+.contact-info {
+    /* Keine horizontalen Scrollbars */
+    overflow-x: visible;
+}
+
+/* Spezielle Anpassungen für den Prozess-Bereich */
+.process .timeline {
+    overflow: visible;
+}
+
+.timeline-item {
+    overflow: visible;
+}
+
+.timeline-content {
+    overflow: visible;
+}
+
+/* Modale Dialoge auf Mobilgeräten verbessern */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-height: 80vh;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .modal-body {
+        padding: 15px;
+    }
+}
+
+/* Für kleine Touch-Geräte */
+@media (max-width: 576px) and (hover: none) {
+    /* Entferne alle horizontalen Transformationen auf Touch-Geräten */
+    .fade-in-left, 
+    .fade-in-right {
+        transform: translateY(15px);  /* Nur vertikale Bewegung */
+    }
+    
+    /* Vermeide Overflows bei Timeline-Elementen */
+    .timeline-item.left,
+    .timeline-item.right {
+        width: 100%;
+        overflow: visible;
+    }
+    
+    /* Container-Elemente nicht zu breit machen */
+    .container {
+        box-sizing: border-box;
+        width: 100%;
+    }
+} 

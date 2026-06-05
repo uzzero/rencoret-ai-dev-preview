@@ -1,0 +1,16 @@
+# robots.txt für rencoret.eu
+User-agent: *
+Allow: /
+
+# Sitemap-Angabe
+Sitemap: https://rencoret.eu/sitemap.xml
+
+# Disallow technische Verzeichnisse
+Disallow: /cgi-bin/
+Disallow: /search
+Disallow: /temp/
+Disallow: /admin/
+
+# CSS und JS sollten crawlbar sein für SEO
+# Disallow: /css/
+# Disallow: /js/

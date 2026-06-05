@@ -1,0 +1,2718 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <!-- Sofortiger Hintergrund-Style um weißen Bildschirm zu vermeiden -->
+    <style id="initial-theme">
+        html {
+            background-color: #f8f9fa;
+            /* Light Mode Default */
+        }
+
+        @media (prefers-color-scheme: dark) {
+            html {
+                background-color: #121212;
+                /* Dark Mode */
+            }
+        }
+
+        html[data-theme="dark"] {
+            background-color: #121212;
+            /* Explizit Dark Mode */
+        }
+
+        html[data-theme="light"] {
+            background-color: #f8f9fa;
+            /* Explizit Light Mode */
+        }
+
+        /* Verberge den Body bis zur vollständigen Ladung, um ein Flackern zu vermeiden */
+        body {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        html.loaded body {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+    <title>RENCORET AI - App & KI Entwicklung | Maßgeschneiderte Lösungen</title>
+    <meta name="description"
+        content="Spezialist für moderne App-Entwicklung und KI-Lösungen in Schloß Holte-Stukenbrock. Maßgeschneiderte Entwicklung für Ihr Unternehmen mit Fokus auf Innovation und Qualität.">
+    <meta name="keywords"
+        content="App Entwicklung, KI Entwicklung, Künstliche Intelligenz, Software Entwicklung, Mobile Apps, Webentwicklung, Schloß Holte-Stukenbrock">
+    <meta name="author" content="RENCORET AI">
+    <meta name="robots" content="index, follow">
+
+    <!-- Search Engine Verification -->
+    <!-- TODO: Ersetze DEIN_GOOGLE_CODE mit dem Code aus Google Search Console (HTML-Tag-Methode) -->
+    <meta name="google-site-verification" content="DEIN_GOOGLE_CODE">
+    <!-- TODO: Ersetze DEIN_BING_CODE mit dem Code aus Bing Webmaster Tools (HTML-Meta-Tag) -->
+    <meta name="msvalidate.01" content="DEIN_BING_CODE">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="RENCORET AI - App &amp; KI Entwicklung">
+    <meta property="og:description"
+        content="Spezialist für moderne App-Entwicklung und KI-Lösungen. Maßgeschneiderte Entwicklung für Ihr Unternehmen.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://rencoret.eu">
+    <meta property="og:image" content="https://rencoret.eu/img/meta/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="RENCORET AI">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RENCORET AI - App &amp; KI Entwicklung">
+    <meta name="twitter:description"
+        content="Spezialist für moderne App-Entwicklung und KI-Lösungen. Maßgeschneiderte Entwicklung für Ihr Unternehmen.">
+    <meta name="twitter:image" content="https://rencoret.eu/img/meta/og-image.png">
+
+    <link rel="canonical" href="https://rencoret.eu">
+
+    <!-- Hreflang Tags -->
+    <link rel="alternate" hreflang="de" href="https://rencoret.eu/">
+    <link rel="alternate" hreflang="en" href="https://rencoret.eu/?lang=en">
+    <link rel="alternate" hreflang="es" href="https://rencoret.eu/?lang=es">
+    <link rel="alternate" hreflang="x-default" href="https://rencoret.eu/">
+
+    <!-- Preconnect Hints -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["Organization", "ProfessionalService"],
+          "@id": "https://rencoret.eu/#organization",
+          "name": "RENCORET AI",
+          "url": "https://rencoret.eu",
+          "logo": "https://rencoret.eu/img/logo-extended.svg",
+          "image": "https://rencoret.eu/img/meta/og-image.png",
+          "description": "AI-Powered MVP App-Entwicklung für Startups und Mittelstand in Europa. In 4-8 Wochen von der Idee zur fertigen App.",
+          "priceRange": "€€€",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Schloß Holte-Stukenbrock",
+            "addressRegion": "Nordrhein-Westfalen",
+            "postalCode": "33758",
+            "addressCountry": "DE"
+          },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "51.8667",
+            "longitude": "8.6167"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "ricardo@rencoret.dev",
+            "contactType": "customer service",
+            "availableLanguage": ["German", "English", "Spanish"]
+          },
+          "sameAs": [
+            "https://www.linkedin.com/company/rencoret",
+            "https://www.linkedin.com/in/ricardo-rencoret/"
+          ],
+          "areaServed": {
+            "@type": "Place",
+            "name": "Europe"
+          },
+          "knowsLanguage": ["de", "en", "es"],
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "App Development Services",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "AI MVP App Development",
+                  "description": "Rapid MVP development using AI-powered tools. From idea to working app in 4-8 weeks."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "KI-Strategieberatung für den Mittelstand",
+                  "description": "Strategic AI consulting for mid-market companies to optimize processes and gain competitive advantage."
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Custom App & Software Development",
+                  "description": "Maßgeschneiderte App- und Software-Entwicklung mit modernsten Technologien."
+                }
+              }
+            ]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://rencoret.eu/#website",
+          "url": "https://rencoret.eu",
+          "name": "RENCORET AI",
+          "inLanguage": ["de", "en", "es"],
+          "publisher": {
+             "@id": "https://rencoret.eu/#organization"
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Google Consent Mode v2 - MUSS VOR gtag.js kommen -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+
+        // Consent default: denied (DSGVO-konform)
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied'
+        });
+    </script>
+
+    <!-- Google Analytics 4 - Nach Consent Mode -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BG44F505XG"></script>
+    <script>
+        gtag('js', new Date());
+        gtag('config', 'G-BG44F505XG', {
+            anonymize_ip: true,
+            cookie_flags: 'SameSite=Strict;Secure'
+        });
+    </script>
+
+    <!-- Critical CSS inline -->
+    <style>
+        /* Optimierte CSS-Datei - Ungenutzte Stile entfernt */
+
+        /* Critical CSS für Above-the-fold Inhalte */
+        :root {
+            --primary-color: #948bcf;
+            --secondary-color: #121212;
+            --accent-color: #ff8c42;
+            --light-color: #f8f9fa;
+            --dark-color: #0a0a0a;
+            --text-color: #f8f9fa;
+            --text-light: #b0b0b0;
+            --font-main: 'Inter', sans-serif;
+            --gradient-start: #ff8c42;
+            --gradient-end: #9054f7;
+            --gradient-start-rgb: 255, 140, 66;
+            --gradient-end-rgb: 144, 84, 247;
+            --link-color: #6a5cb8;
+            --link-hover-color: #ff8c42;
+            /* Light Mode (Standard) */
+            --background-color: #f8f9fa;
+            --secondary-background: #ffffff;
+            --text-color: #212121;
+            --text-light: #424242;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --header-background: rgba(255, 255, 255, 0.9);
+            --hero-heading-color: #212121;
+            --hero-subtext-color: #424242;
+            --tagline-color: #555555;
+            --logo-invert: 100%;
+            --cta-button-text: #ffffff;
+            --cta-button-bg: #6a5cb8;
+            --oval-opacity: 0.5;
+        }
+
+        /* Farbverlauf für Hero-Überschrift "MVP-App" */
+        .gradient-text {
+            background: linear-gradient(90deg, #6366F1, #EC4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            display: inline-block;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background-color: #121212;
+                --secondary-background: #1e1e1e;
+                --text-color: #f8f9fa;
+                --text-light: #b0b0b0;
+                --shadow-color: rgba(0, 0, 0, 0.3);
+                --header-background: rgba(10, 10, 10, 0.8);
+                --hero-heading-color: #f8f9fa;
+                --hero-subtext-color: #b0b0b0;
+                --tagline-color: #b0b0b0;
+                --logo-invert: 0%;
+                --cta-button-text: #ffffff;
+                --cta-button-bg: #948bcf;
+                --oval-opacity: 0.3;
+                --link-color: #b69df8;
+                --link-hover-color: #ff9c5d;
+            }
+        }
+
+        html[data-theme="dark"] {
+            --background-color: #121212;
+            --secondary-background: #1e1e1e;
+            --text-color: #f8f9fa;
+            --text-light: #b0b0b0;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --header-background: rgba(10, 10, 10, 0.8);
+            --hero-heading-color: #f8f9fa;
+            --hero-subtext-color: #b0b0b0;
+            --tagline-color: #b0b0b0;
+            --logo-invert: 0%;
+            --cta-button-text: #ffffff;
+            --cta-button-bg: #948bcf;
+            --oval-opacity: 0.3;
+            --link-color: #b69df8;
+            --link-hover-color: #ff9c5d;
+        }
+
+        html[data-theme="light"] {
+            --background-color: #f8f9fa;
+            --secondary-background: #ffffff;
+            --text-color: #212121;
+            --text-light: #424242;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --header-background: rgba(255, 255, 255, 0.9);
+            --hero-heading-color: #212121;
+            --hero-subtext-color: #424242;
+            --tagline-color: #555555;
+            --logo-invert: 100%;
+            --cta-button-text: #ffffff;
+            --cta-button-bg: #6a5cb8;
+            --oval-opacity: 0.5;
+            --link-color: #6a5cb8;
+            --link-hover-color: #ff8c42;
+            /* Explizite Gradient-Farben, die mit dem Dark-Modus übereinstimmen */
+            --gradient-start: #ff8c42;
+            --gradient-end: #9054f7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Globaler Schutz gegen horizontalen Overflow, ohne Desktop-Scroll zu blockieren */
+        html,
+        body {
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            width: 100% !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            scrollbar-width: auto;
+            -ms-overflow-style: auto;
+        }
+
+        html {
+            overflow-y: auto !important;
+        }
+
+        body {
+            overflow-x: hidden !important;
+            overflow-y: visible !important;
+        }
+
+        html::-webkit-scrollbar,
+        body::-webkit-scrollbar {
+            display: initial;
+            width: initial;
+            background: initial;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            line-height: 1.6;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Sicherstellen, dass Sektionen nicht breiter als der Viewport sind */
+        section {
+            max-width: 100vw;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--header-background);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+            /* Verhindert Scrollbars im Header */
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo a {
+            color: var(--light-color);
+            text-decoration: none;
+            display: block;
+        }
+
+        .logo-svg {
+            width: 220px;
+            height: 75px;
+            display: block;
+            transition: filter 0.5s ease;
+        }
+
+        /* Ensure logo maintains proper size */
+        .logo {
+            flex-shrink: 0;
+        }
+
+        .logo a {
+            display: block;
+            width: 220px;
+            height: 75px;
+        }
+
+        /* Logo-Anzeige - Nur das Dark-Mode-Logo anzeigen */
+        .light-mode-logo {
+            display: none !important;
+            /* Nie anzeigen, da wir nur Dark Mode verwenden */
+        }
+
+        .dark-mode-logo {
+            display: block !important;
+            /* Immer anzeigen, da wir nur Dark Mode verwenden */
+        }
+
+        /* Dark Mode (System-Einstellung) Erkennung komplett entfernt */
+
+        /* Explizite Theme-Einstellungen - nur Dark Mode beibehalten */
+        html[data-theme="dark"] .light-mode-logo {
+            display: none !important;
+        }
+
+        html[data-theme="dark"] .dark-mode-logo {
+            display: block !important;
+        }
+
+        /* Light Mode CSS-Regeln komplett entfernt */
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-shrink: 0;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            border-bottom: none;
+        }
+
+        nav ul li a:hover,
+        nav ul li a[aria-current="page"] {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background-color: var(--secondary-background);
+            color: var(--text-color);
+            text-align: center;
+            padding: 0 0 120px;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-heading {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: var(--hero-heading-color);
+            position: relative;
+            z-index: 10;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            color: var(--hero-subtext-color);
+            position: relative;
+            z-index: 10;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--cta-button-bg);
+            color: var(--cta-button-text);
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+            z-index: 10;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                margin-top: 0;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            nav ul {
+                justify-content: center;
+                flex-wrap: wrap;
+                margin-right: 10px;
+            }
+
+            nav ul li {
+                margin: 0 10px 5px;
+            }
+
+            .hero-heading {
+                font-size: 2.5rem;
+            }
+
+            /* Header-Anpassungen für Tablets */
+            header {
+                overflow: hidden;
+            }
+
+            nav {
+                width: 100%;
+                overflow: visible;
+            }
+        }
+
+        @media (max-width: 576px) {
+
+            /* Nur overflow-y verhindern, overflow-x erlauben für Menü */
+            header {
+                max-height: none;
+                /* Verhindert Höhenbegrenzung */
+            }
+
+            /* Logo-Anpassungen für kleinere Bildschirme */
+            .logo-svg {
+                width: 200px;
+                /* Größeres Logo (vorher 180px) */
+                height: 70px;
+                /* Höhere Höhe (vorher 60px) */
+            }
+
+            .logo a {
+                width: 200px;
+                height: 70px;
+            }
+
+            header .container {
+                width: 100%;
+                padding: 0 15px;
+                max-height: none;
+                /* Verhindert Höhenbegrenzung */
+            }
+
+            nav {
+                width: 100%;
+                overflow: visible;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+                overflow: visible;
+                padding-bottom: 5px;
+                /* Extra Platz am unteren Rand */
+                margin-bottom: 10px;
+            }
+
+            nav ul li {
+                margin: 5px 8px;
+            }
+
+            .hero-heading {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            section {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+        /* Theme Toggle Button Styling */
+        .theme-toggle-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            overflow: visible;
+            pointer-events: auto;
+            margin: 0;
+            padding: 0;
+            box-sizing: content-box;
+            background: transparent;
+            contain: layout style;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        /* Verhindert, dass Theme-Toggle Button Scrollbars verursacht */
+        .theme-toggle {
+            position: relative;
+            /* Statt fixed, weil Container bereits fixed ist */
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 10px var(--shadow-color);
+            transition: background-color 0.3s ease;
+            margin: 0;
+            /* Entfernt unerwünschte Margins */
+            padding: 0;
+            /* Entfernt unerwünschte Paddings */
+            transform: translateZ(0);
+            /* Hardware-Beschleunigung */
+            will-change: transform;
+            /* Optimiert Rendering */
+            contain: layout style;
+            /* Verbessert Performance */
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Projekt-Karten Styling */
+        .project-logo {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .project-logo img {
+            max-width: 180px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .project-logo img:hover {
+            transform: scale(1.05);
+        }
+
+
+
+        /* Neon-Tags für Projekttechnologien */
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
+            justify-content: center;
+        }
+
+        .tag {
+            position: relative;
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: inline-block;
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            opacity: 0.7;
+            z-index: -1;
+        }
+
+        html[data-theme="dark"] .tag {
+            box-shadow: 0 0 15px rgba(255, 140, 66, 0.35), 0 0 30px rgba(144, 84, 247, 0.25);
+        }
+
+        html[data-theme="light"] .tag {
+            box-shadow: 0 0 12px rgba(255, 140, 66, 0.25), 0 0 24px rgba(144, 84, 247, 0.15);
+        }
+
+        .tag:hover {
+            transform: translateY(-3px);
+        }
+
+        html[data-theme="dark"] .tag:hover {
+            box-shadow: 0 0 20px rgba(255, 140, 66, 0.5), 0 0 40px rgba(144, 84, 247, 0.4);
+        }
+
+        html[data-theme="light"] .tag:hover {
+            box-shadow: 0 0 15px rgba(255, 140, 66, 0.4), 0 0 30px rgba(144, 84, 247, 0.3);
+        }
+
+        /* Logo-spezifische Styles */
+        html[data-theme="dark"] .project-logo img[src*="ikigami"] {
+            background-color: white;
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+            filter: brightness(1.5) contrast(1.2);
+        }
+
+        .project-logo img[src*="intown_logo"] {
+            max-height: 80px;
+            width: auto;
+        }
+
+        html[data-theme="light"] .project-logo img[src*="intown_logo"] {
+            background-color: #fe0d40;
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        html[data-theme="dark"] .project-logo img[src*="intown_logo"] {
+            background-color: #fe0d40;
+            border-radius: 12px;
+            padding: 10px;
+            box-shadow: 0 0 25px rgba(254, 13, 64, 0.4);
+        }
+
+        .project-logo img[src*="lebenszeichen-app"] {
+            margin: 10px;
+        }
+
+        /* Link-Stile */
+        a {
+            color: var(--link-color);
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        a:hover,
+        a:focus {
+            color: var(--link-hover-color);
+            text-decoration: underline;
+        }
+
+        .form-group a {
+            color: var(--link-color);
+            text-decoration: underline;
+            font-weight: 600;
+            border-bottom: 1px solid var(--link-color);
+            padding-bottom: 1px;
+        }
+
+        .form-group a:hover,
+        .form-group a:focus {
+            color: var(--link-hover-color);
+            border-bottom-color: var(--link-hover-color);
+        }
+
+
+
+        /* Animierte Hintergrundform (oval-shape Klassen im Gebrauch) */
+        .hero .oval-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            overflow: hidden;
+        }
+
+        .hero .oval-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            opacity: var(--oval-opacity);
+            filter: blur(30px);
+            will-change: transform;
+        }
+
+        .hero .oval-shape:nth-child(1) {
+            width: 40vmin;
+            height: 25vmin;
+            top: 25%;
+            left: 60%;
+        }
+
+        .hero .oval-shape:nth-child(2) {
+            width: 35vmin;
+            height: 20vmin;
+            top: 60%;
+            left: 30%;
+        }
+
+        .hero .oval-shape:nth-child(3) {
+            width: 25vmin;
+            height: 35vmin;
+            top: 40%;
+            left: 45%;
+        }
+
+        /* Tagline-Element im Hero-Bereich */
+        .hero .tagline {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 40px;
+            color: var(--tagline-color);
+            font-weight: 400;
+        }
+
+        /* Kundenlogos-Bereich Styling */
+        .client-logos {
+            padding: 40px 0;
+            background-color: var(--secondary-background);
+            overflow: hidden;
+            /* Verhindert horizontales Scrollen */
+        }
+
+        .client-logos h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .logo-slider-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+            /* Verhindert horizontales Scrollen */
+        }
+
+        .logo-slider {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            /* Erlaubt Umbruch auf mobilen Geräten */
+            gap: 20px;
+            padding: 10px 0;
+        }
+
+        .logo-container {
+            padding: 15px;
+            text-align: center;
+            min-width: 120px;
+            /* Mindestbreite für Logos */
+            max-width: 180px;
+            /* Maximale Breite für Logos */
+        }
+
+        .logo-container img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(1) opacity(0.7);
+            transition: filter 0.3s ease, transform 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            filter: grayscale(0) opacity(1);
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .logo-slider {
+                justify-content: center;
+            }
+
+            .logo-container {
+                padding: 10px;
+                min-width: 100px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .client-logos {
+                padding: 30px 0;
+            }
+
+            .logo-container {
+                min-width: 80px;
+                max-width: 120px;
+            }
+        }
+
+
+        /* Beim Scrollen zur Ankerposition */
+        html {
+            scroll-padding-top: 150px;
+            /* Extra Platz für den Header */
+        }
+
+        /* CEO-Profil Styling */
+        .ceo-profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            background-color: var(--secondary-background);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .ceo-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 60px;
+            object-fit: cover;
+            margin-right: 20px;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .ceo-details {
+            flex: 1;
+        }
+
+        .ceo-details h4 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .ceo-title {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .ceo-profile {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .ceo-image {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+
+        /* Neues Kontakt-Container Layout */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 40px;
+            margin-top: 30px;
+        }
+
+        .ceo-profile-container {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: stretch;
+        }
+
+        .contact-form {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .ceo-profile {
+            display: flex;
+            align-items: center;
+            background-color: var(--secondary-background);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            height: auto;
+            margin-top: 0;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            border-bottom: 1px solid rgba(150, 150, 150, 0.2);
+            padding-bottom: 20px;
+            margin-bottom: 10px;
+        }
+
+        .contact-info>div {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        @media (max-width: 768px) {
+            .ceo-profile {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+
+            .ceo-image {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .ceo-profile-container {
+                width: 100%;
+            }
+
+            .contact-form {
+                width: 100%;
+            }
+        }
+
+        /* Anpassungen für mobile Geräte - CEO-Profil und Kontaktformular zusammenfassen */
+        @media (max-width: 576px) {
+            .contact-container {
+                flex-direction: column;
+            }
+
+            .ceo-profile-container,
+            .contact-form {
+                width: 100%;
+            }
+
+            /* CEO-Profil in Kontaktformular integrieren - nur auf Mobile */
+            .ceo-profile {
+                border-radius: 16px 16px 0 0;
+                margin-bottom: 0;
+                box-shadow: 0 5px 15px var(--shadow-color);
+            }
+
+            .contact-form {
+                border-radius: 0 0 16px 16px;
+                margin-top: -1px;
+            }
+
+            /* Optionale Verbesserung des visuellen Zusammenhangs */
+            .ceo-profile,
+            .contact-form {
+                border: 1px solid rgba(150, 150, 150, 0.1);
+            }
+        }
+    </style>
+
+    <!-- Asynchrones Laden der CSS-Dateien -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        as="style">
+    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="css/theme.css" as="style">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@500;600;700;800&display=swap">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/language-selector.css">
+    <link rel="stylesheet" href="css/mobile-menu.css?v=dark-apple-20260509-2">
+    <link rel="stylesheet" href="css/sections/hero.css?v=dark-apple-20260509-2">
+    <link rel="stylesheet" href="css/sections/client-logos.css?v=dark-apple-20260509-2">
+    <link rel="stylesheet" href="css/sections/services.css">
+    <link rel="stylesheet" href="css/sections/feature-blocks.css?v=dark-apple-20260509-2">
+    <link rel="stylesheet" href="css/sections/about.css?v=dark-apple-20260509-2">
+    <link rel="stylesheet" href="css/sections/process.css?v=dark-apple-20260509-2">
+    <link rel="stylesheet" href="css/sections/trust.css?v=dark-apple-20260509-2">
+    <link rel="stylesheet" href="css/sections/projects.css?v=dark-apple-20260509-2">
+    <link rel="stylesheet" href="css/sections/testimonials.css?v=dark-apple-20260509-2">
+    <link rel="stylesheet" href="css/sections/contact.css?v=dark-apple-20260509-2">
+    <link rel="stylesheet" href="css/sections/footer.css">
+    <link rel="stylesheet" href="css/cookie-banner.css">
+    <link rel="stylesheet" href="css/design-system.css?v=dark-apple-20260509-2">
+
+    <!-- Preload-Polyfill für ältere Browser entfernen, da wir nicht mehr preload verwenden -->
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- Inline-Script für sofortige Theme-Anwendung und Layout-Fixierung -->
+    <script>
+        (function () {
+            // Sofortige Dark-Mode Anwendung - vor allen anderen Skripten ausführen
+            // Wir ignorieren den gespeicherten Theme und System-Präferenz
+            // und setzen immer Dark Mode als Standard
+            document.documentElement.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+
+            // Optimierte Darstellung - Body wird erst angezeigt, wenn HTML geladen ist
+            document.addEventListener('DOMContentLoaded', function () {
+                document.documentElement.classList.add('loaded');
+            });
+
+            // Für noch schnellere Anzeige, falls DOMContentLoaded bereits ausgelöst wurde
+            if (document.readyState === 'interactive' || document.readyState === 'complete') {
+                document.documentElement.classList.add('loaded');
+            }
+        })();
+    </script>
+
+    <!-- Load translations before page load -->
+    <script src="js/translations.js?v=dark-apple-20260509-2"></script>
+
+    <!-- Language Selector Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Language selector dropdown functionality
+            var languageSelector = document.querySelector('.language-selector');
+            var currentLanguage = document.querySelector('.current-language');
+
+            if (languageSelector && currentLanguage) {
+                currentLanguage.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    languageSelector.classList.toggle('active');
+                    currentLanguage.setAttribute('aria-expanded', languageSelector.classList.contains('active') ? 'true' : 'false');
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function (e) {
+                    if (!languageSelector.contains(e.target)) {
+                        languageSelector.classList.remove('active');
+                        currentLanguage.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') {
+                        languageSelector.classList.remove('active');
+                        currentLanguage.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+
+            // Initialize translations
+            if (window.languageManager) {
+                window.languageManager.updatePageContent();
+            }
+
+            // Mobile menu functionality
+            var mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            var mobileMenu = document.querySelector('.mobile-menu');
+            var mobileMenuOverlay = document.querySelector('.mobile-menu-overlay');
+            var mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
+
+            if (mobileMenuToggle && mobileMenu && mobileMenuOverlay) {
+                function closeMobileMenu() {
+                    mobileMenuToggle.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    mobileMenuOverlay.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                }
+
+                // Toggle mobile menu
+                mobileMenuToggle.addEventListener('click', function () {
+                    var isOpen = mobileMenu.classList.contains('active');
+                    if (isOpen) {
+                        closeMobileMenu();
+                    } else {
+                        mobileMenuToggle.classList.add('active');
+                        mobileMenu.classList.add('active');
+                        mobileMenuOverlay.classList.add('active');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'true');
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
+
+                // Close mobile menu when clicking overlay
+                mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+                // Close mobile menu when clicking links
+                for (var i = 0; i < mobileMenuLinks.length; i++) {
+                    mobileMenuLinks[i].addEventListener('click', closeMobileMenu);
+                }
+
+                // Close button functionality
+                var mobileMenuClose = document.querySelector('.mobile-menu-close');
+                if (mobileMenuClose) {
+                    mobileMenuClose.addEventListener('click', closeMobileMenu);
+                }
+
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                        closeMobileMenu();
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Theme Toggle Script - nicht mehr nötig, da immer Dark Mode -->
+    <!-- <script src="js/theme-toggle.js"></script> -->
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="/" title="RENCORET AI - Startseite">
+                    <!-- Aktuelle Logos mit Farbverlauf -->
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo" class="logo-svg dark-mode-logo">
+                    <img src="img/logo-extended-light.svg" alt="RENCORET AI MVP APPS Logo"
+                        class="logo-svg light-mode-logo">
+                </a>
+            </div>
+            <nav aria-label="Hauptnavigation">
+                <ul>
+                    <li><a href="/" aria-current="page" title="RENCORET AI - Startseite" data-i18n="nav.home">Home</a>
+                    </li>
+                    <li><a href="#leistungen" data-i18n="nav.services">Leistungen</a></li>
+                    <li><a href="#ueber-uns" data-i18n="nav.about">Über uns</a></li>
+                    <li><a href="#prozess" data-i18n="nav.process">Prozess</a></li>
+                    <li><a href="#projekte" data-i18n="nav.projects">Projekte</a></li>
+                    <li><a href="#kundenstimmen" data-i18n="nav.testimonials">Kundenstimmen</a></li>
+                    <li><a href="#kontakt" data-i18n="nav.contact">Kontakt</a></li>
+                </ul>
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <button type="button" class="current-language" aria-haspopup="true" aria-expanded="false">🇩🇪 DE</button>
+                    <div class="language-dropdown">
+                        <a href="#" class="language-option active" data-lang="de">🇩🇪 Deutsch</a>
+                        <a href="#" class="language-option" data-lang="en">🇬🇧 English</a>
+                        <a href="#" class="language-option" data-lang="es">🇪🇸 Español</a>
+                    </div>
+                </div>
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle" aria-label="Menu öffnen" aria-controls="mobile-menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+        <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <a href="/" class="mobile-menu-logo" title="RENCORET AI - Startseite">
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo">
+                </a>
+                <button class="mobile-menu-close" aria-label="Menü schließen">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <ul>
+                <li><a href="/" aria-current="page" data-i18n="nav.home">Home</a></li>
+                <li><a href="#leistungen" data-i18n="nav.services">Leistungen</a></li>
+                <li><a href="#ueber-uns" data-i18n="nav.about">Über uns</a></li>
+                <li><a href="#prozess" data-i18n="nav.process">Prozess</a></li>
+                <li><a href="#projekte" data-i18n="nav.projects">Projekte</a></li>
+                <li><a href="#kundenstimmen" data-i18n="nav.testimonials">Kundenstimmen</a></li>
+                <li><a href="#kontakt" data-i18n="nav.contact">Kontakt</a></li>
+            </ul>
+            
+            <div class="mobile-language-section">
+                <div class="mobile-language-title" data-i18n="nav.language">Sprache</div>
+                <div class="mobile-language-options">
+                    <a href="#" class="mobile-language-option active" data-lang="de">
+                        <span class="mobile-language-flag">🇩🇪</span>
+                        <span>Deutsch</span>
+                    </a>
+                    <a href="#" class="mobile-language-option" data-lang="en">
+                        <span class="mobile-language-flag">🇬🇧</span>
+                        <span>English</span>
+                    </a>
+                    <a href="#" class="mobile-language-option" data-lang="es">
+                        <span class="mobile-language-flag">🇪🇸</span>
+                        <span>Español</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <main>
+        <section class="hero hero--apple">
+    <div class="hero__glow-layer" aria-hidden="true">
+        <span class="glow-aura glow-aura--orange hero__glow hero__glow--tl" data-motion="parallax" data-depth="-0.18"></span>
+        <span class="glow-aura glow-aura--purple hero__glow hero__glow--br" data-motion="parallax" data-depth="0.12"></span>
+        <div class="oval-shapes">
+            <div class="oval-shape"></div>
+            <div class="oval-shape"></div>
+            <div class="oval-shape"></div>
+        </div>
+    </div>
+
+    <div class="container-wide hero__inner">
+        <span class="eyebrow" data-motion="reveal" data-i18n="hero.eyebrow">90-Tage MVP · KI · Made in Germany</span>
+
+        <h1 class="hero__headline display-xxl" data-motion="reveal">
+            <span class="display-line" data-i18n="hero.heading.line1">Aus Ideen entsteht KI.</span>
+            <span class="display-line display-line--accent" data-i18n="hero.heading.line2">In 90 Tagen marktreif.</span>
+        </h1>
+
+        <p class="hero__lede lede" data-motion="reveal" data-i18n="hero.subheading">
+            Wir entwickeln Ihren KI-Prototypen schnell und effizient – maßgeschneidert,
+            produktionsreif und bereit für Investoren und Markterprobung.
+        </p>
+
+        <div class="hero__cta-row btn-row" data-motion="reveal">
+            <a href="#kontakt" class="cta-button" data-i18n="hero.cta">MVP jetzt starten</a>
+            <a href="#prozess" class="btn-ghost" data-i18n="hero.secondary_cta">Prozess ansehen</a>
+        </div>
+
+        <div class="hero__visual" data-motion="reveal">
+            <div class="hero__visual-frame" data-tilt>
+                <picture>
+                    <source srcset="img/generated/home/hero-product-stage.webp" type="image/webp">
+                    <img src="img/generated/home/hero-product-stage.png"
+                         alt="RENCORET KI-App-Dashboard als dunkles Laptop-, Tablet- und Smartphone-Mockup"
+                         class="hero__visual-img"
+                         loading="eager"
+                         fetchpriority="high"
+                         width="1586"
+                         height="992"
+                         onerror="this.parentElement.parentElement.classList.add('is-missing-image')">
+                </picture>
+                <div class="ai-image-placeholder hero__placeholder" aria-hidden="true">
+                    <span>RENCORET PRODUCT STAGE</span>
+                </div>
+                <span class="hero__visual-glow hero__visual-glow--a" aria-hidden="true" data-motion="parallax" data-depth="0.08"></span>
+                <span class="hero__visual-glow hero__visual-glow--b" aria-hidden="true" data-motion="parallax" data-depth="-0.06"></span>
+            </div>
+        </div>
+
+        <div class="hero__tagline tagline" data-motion="reveal" data-i18n="hero.tagline">
+            VON DER IDEE ZUM MARKTREIFEN PRODUKT IN NUR 90 TAGEN
+        </div>
+    </div>
+</section>
+
+
+        <section class="client-logos client-logos--apple" aria-label="Kunden und Partner">
+    <div class="container-wide">
+        <h2 class="client-logos__heading" data-i18n="clients.heading">Vertraut von Mittelstand &amp; Foundern</h2>
+        <div class="logo-slider-container">
+            <div class="logo-slider">
+                <div class="logo-container">
+                    <img src="img/clients/dhl_group_logo.svg" alt="DHL Group Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container">
+                    <img src="img/clients/sparkasse_logo.svg" alt="Sparkasse Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container">
+                    <img src="img/clients/stiftung_solidaritaet_logo.svg" alt="Stiftung Solidarität Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container">
+                    <img src="img/clients/dmg_mori_logo.svg" alt="DMG MORI Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container">
+                    <img src="img/clients/diebold_nixdorf_logo.svg" alt="Diebold Nixdorf Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/dhl_group_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/sparkasse_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/stiftung_solidaritaet_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/dmg_mori_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/diebold_nixdorf_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <section id="leistungen" class="services services--apple" data-motion="stagger">
+    <span class="glow-aura glow-aura--orange services__glow services__glow--a" aria-hidden="true"></span>
+    <span class="glow-aura glow-aura--purple services__glow services__glow--b" aria-hidden="true"></span>
+
+    <div class="container-wide">
+        <div class="services__intro" data-motion="reveal">
+            <span class="eyebrow" data-i18n="services.eyebrow">Was wir bauen</span>
+            <h2 class="display-xl services__heading">
+                <span class="display-line" data-i18n="services.heading.line1">Engineering Exzellenz.</span>
+                <span class="display-line display-line--accent" data-i18n="services.heading.line2">Für alles, was Sie brauchen.</span>
+            </h2>
+            <p class="lede" data-i18n="services.intro">
+                Drei klar geschnittene Leistungen, die Ihr KI-Produkt von der Idee zum
+                marktreifen MVP bringen – schnell, fokussiert, produktionsreif.
+            </p>
+        </div>
+
+        <div class="services__showcase" data-motion="reveal">
+            <div class="services__showcase-frame" data-tilt>
+                <picture>
+                    <source srcset="img/generated/home/engineering-excellence-stage.webp" type="image/webp">
+                    <img src="img/generated/home/engineering-excellence-stage.png"
+                         alt="Produkt-UI-Frame für Engineering Exzellenz mit Code Review, Quality Gates, Sprint Health und Deployment Pipeline"
+                         loading="lazy"
+                         width="1672"
+                         height="941">
+                </picture>
+            </div>
+        </div>
+
+        <div class="feature-stack">
+            <article class="feature-block feature-block--text-left" data-motion="reveal">
+                <div class="feature-block__content">
+                    <h3 class="display-md feature-block__title" data-i18n="services.ai_mvp.title">Schnelle KI-MVP-Entwicklung.</h3>
+                    <p class="feature-block__desc" data-i18n="services.ai_mvp.description">
+                        Ihr voll funktionsfähiger KI-Prototyp in unter 3 Monaten – bereit für Nutzer,
+                        Investoren oder die erste Markterprobung. Cross-Platform für maximale Reichweite.
+                    </p>
+                    <div class="tag-row" aria-label="MVP-Entwicklung Schwerpunkte">
+                        <span class="tag-pill">iOS &amp; Android</span>
+                        <span class="tag-pill">Web App</span>
+                        <span class="tag-pill">90 Tage Sprint</span>
+                        <span class="tag-pill">Investor-ready</span>
+                    </div>
+                </div>
+                <div class="feature-block__visual">
+                    <div class="feature-block__visual-frame" data-tilt>
+                        <picture>
+                            <source srcset="img/generated/home/feature-mvp-development.webp" type="image/webp">
+                            <img src="img/generated/home/feature-mvp-development.png"
+                                 alt="Laptop- und Smartphone-Mockup mit MVP-Code, App-Vorschau und Deployment-Pipeline"
+                                 loading="lazy"
+                                 width="1448"
+                                 height="1086"
+                                 onerror="this.parentElement.parentElement.classList.add('is-missing-image')">
+                        </picture>
+                        <div class="ai-image-placeholder feature-block__placeholder" aria-hidden="true">
+                            <span>FEATURE · MVP DEVELOPMENT</span>
+                        </div>
+                        <span class="feature-block__glow feature-block__glow--orange" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feature-block feature-block--text-right" data-motion="reveal">
+                <div class="feature-block__content">
+                    <h3 class="display-md feature-block__title" data-i18n="services.ai_integration.title">KI-Integration nach Maß.</h3>
+                    <p class="feature-block__desc" data-i18n="services.ai_integration.description">
+                        Maßgeschneiderte KI-Funktionen für Ihren MVP – ob Chatbot, Bildanalyse,
+                        Empfehlungssysteme oder Automatisierung. DSGVO-konform und auf Ihre Geschäftsziele zugeschnitten.
+                    </p>
+                    <div class="tag-row" aria-label="KI-Integration Schwerpunkte">
+                        <span class="tag-pill">LLMs &amp; RAG</span>
+                        <span class="tag-pill">Computer Vision</span>
+                        <span class="tag-pill">Automatisierung</span>
+                        <span class="tag-pill">DSGVO-konform</span>
+                    </div>
+                </div>
+                <div class="feature-block__visual">
+                    <div class="feature-block__visual-frame" data-tilt>
+                        <picture>
+                            <source srcset="img/generated/home/feature-ai-integration.webp" type="image/webp">
+                            <img src="img/generated/home/feature-ai-integration.png"
+                                 alt="Tablet- und Laptop-Mockup mit KI-Chat, RAG-Datenquellen, Automationen und DSGVO-Status"
+                                 loading="lazy"
+                                 width="1448"
+                                 height="1086"
+                                 onerror="this.parentElement.parentElement.classList.add('is-missing-image')">
+                        </picture>
+                        <div class="ai-image-placeholder feature-block__placeholder" aria-hidden="true">
+                            <span>FEATURE · AI INTEGRATION</span>
+                        </div>
+                        <span class="feature-block__glow feature-block__glow--purple" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="feature-block feature-block--text-left" data-motion="reveal">
+                <div class="feature-block__content">
+                    <h3 class="display-md feature-block__title" data-i18n="services.mvp_strategy.title">MVP-Strategie &amp; Skalierung.</h3>
+                    <p class="feature-block__desc" data-i18n="services.mvp_strategy.description">
+                        Umfassende Beratung zur MVP-Definition, Priorisierung der Features und
+                        Skalierungsstrategie. Wir begleiten Sie vom ersten Prototyp bis zur marktreifen Lösung.
+                    </p>
+                    <div class="tag-row" aria-label="Strategie Schwerpunkte">
+                        <span class="tag-pill">Discovery Workshops</span>
+                        <span class="tag-pill">Feature-Roadmap</span>
+                        <span class="tag-pill">Go-to-Market</span>
+                        <span class="tag-pill">Scaling</span>
+                    </div>
+                </div>
+                <div class="feature-block__visual">
+                    <div class="feature-block__visual-frame" data-tilt>
+                        <picture>
+                            <source srcset="img/generated/home/feature-strategy-scale.webp" type="image/webp">
+                            <img src="img/generated/home/feature-strategy-scale.png"
+                                 alt="Tablet-Mockup mit MVP-Roadmap, Feature-Priorisierung, Validierungs-KPIs und Health Score"
+                                 loading="lazy"
+                                 width="1448"
+                                 height="1086"
+                                 onerror="this.parentElement.parentElement.classList.add('is-missing-image')">
+                        </picture>
+                        <div class="ai-image-placeholder feature-block__placeholder" aria-hidden="true">
+                            <span>FEATURE · STRATEGY &amp; SCALE</span>
+                        </div>
+                        <span class="feature-block__glow feature-block__glow--mix" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+
+        <section id="ueber-uns" class="about about--apple">
+    <span class="glow-aura glow-aura--purple about__glow about__glow--a" aria-hidden="true"></span>
+
+    <div class="container-wide">
+        <div class="about__intro">
+            <div class="about__intro-text" data-motion="reveal">
+                <span class="eyebrow" data-i18n="about.heading">Über uns</span>
+                <h2 class="display-xl about__heading">
+                    <span class="display-line" data-i18n="about.heading.line1">Schnell. Fokussiert.</span>
+                    <span class="display-line display-line--accent" data-i18n="about.heading.line2">Made in Germany.</span>
+                </h2>
+                <p class="lede" data-i18n="about.paragraph1">
+                    RENCORET AI ist Ihr Experte für schnelle und effiziente MVP-Entwicklung mit
+                    KI-Integration. Mit unserer bewährten Methodik bringen wir Ihre KI-App in nur
+                    90 Tagen auf den Markt – ohne Kompromisse bei Qualität und Funktionalität.
+                </p>
+                <p class="lede about__lede-secondary" data-i18n="about.paragraph2">
+                    Unser Team vereint tiefes KI-Fachwissen mit agiler App-Entwicklung,
+                    um Ihnen einen entscheidenden Wettbewerbsvorteil zu verschaffen.
+                </p>
+            </div>
+
+            <div class="about__intro-visual" data-motion="reveal">
+                <!-- Team Bilder Animation -->
+<div class="team-photos-container">
+    <div class="carousel-track">
+        <div class="team-photo team-photo-1">
+            <picture>
+                <source srcset="img/about/about-1.webp" type="image/webp">
+                <img src="img/about/about-1.jpg" alt="Team RENCORET AI">
+            </picture>
+        </div>
+        <div class="team-photo team-photo-3">
+            <picture>
+                <source srcset="img/about/about-2.webp" type="image/webp">
+                <img src="img/about/about-2.jpg" alt="Team RENCORET AI">
+            </picture>
+        </div>
+        <div class="team-photo team-photo-2">
+            <picture>
+                <source srcset="img/about/about-3.webp" type="image/webp">
+                <img src="img/about/about-3.jpg" alt="Team RENCORET AI">
+            </picture>
+        </div>
+        <div class="team-photo team-photo-4">
+            <picture>
+                <source srcset="img/about/about-4.webp" type="image/webp">
+                <img src="img/about/about-4.jpg" alt="Team RENCORET AI">
+            </picture>
+        </div>
+        <div class="team-photo team-photo-5">
+            <picture>
+                <source srcset="img/about/about-5.webp" type="image/webp">
+                <img src="img/about/about-5.png" alt="Team RENCORET AI">
+            </picture>
+        </div>
+    </div>
+    <div class="carousel-dots">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+        <span class="dot" data-slide="3"></span>
+        <span class="dot" data-slide="4"></span>
+    </div>
+</div>
+            </div>
+        </div>
+
+        <div class="stats-strip" data-motion="stagger">
+                                <div class="stat-item fade-in fade-in-up ">
+                        <div class="stat-number" data-target="50">0</div>
+                        <span class="stat-suffix">+</span>
+                        <div class="stat-label" data-i18n="about.stat1.label">Erfolgreich umgesetzte MVPs</div>
+                    </div>
+                                <div class="stat-item fade-in fade-in-up ">
+                        <div class="stat-number" data-target="35">0</div>
+                        <span class="stat-suffix">%</span>
+                        <div class="stat-label" data-i18n="about.stat2.label">Kostenersparnis vs. traditionelle Entwicklung</div>
+                    </div>
+                                <div class="stat-item fade-in fade-in-up ">
+                        <div class="stat-number" data-target="500000">0</div>
+                        <span class="stat-suffix">+</span>
+                        <div class="stat-label" data-i18n="about.stat3.label">Erreichte Nutzer mit unseren MVPs</div>
+                    </div>
+        </div>
+
+        <div class="stats-footnote" data-motion="reveal">
+            <p data-i18n="about.footnote">* Die Kostenersparnis basiert auf Angeboten, die unsere Kunden von anderen App-Entwicklungsanbietern erhalten haben</p>
+        </div>
+    </div>
+</section>
+
+
+        <section id="prozess" class="process process--apple">
+    <span class="glow-aura glow-aura--orange process__glow process__glow--a" aria-hidden="true"></span>
+    <span class="glow-aura glow-aura--purple process__glow process__glow--b" aria-hidden="true"></span>
+
+    <div class="container-wide">
+        <div class="process__intro" data-motion="reveal">
+            <span class="eyebrow" data-i18n="process.eyebrow">90-Tage Prozess</span>
+            <h2 class="display-xl process__heading">
+                <span class="display-line" data-i18n="process.heading.line1">Vier Phasen.</span>
+                <span class="display-line display-line--accent" data-i18n="process.heading.line2">Ein marktreifer MVP.</span>
+            </h2>
+            <p class="lede" data-i18n="process.intro">
+                Unser bewährter 4-Phasen-Prozess bringt Ihre KI-App in nur 90 Tagen
+                von der Idee zum funktionierenden Prototyp.
+            </p>
+        </div>
+
+        <div class="timeline" data-motion="stagger">
+            <div class="timeline-tracker" aria-hidden="true">
+                <div class="tracker-dot"></div>
+            </div>
+
+                                <!-- Animierte Glühbirne am Anfang der Timeline -->
+                    <div class="timeline-decoration timeline-start">
+                        <div class="idea-animation">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="idea-bulb">
+                                <path d="M9 18h6"></path>
+                                <path d="M10 22h4"></path>
+                                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-2.26c1.81-1.27 3-3.36 3-5.74a7 7 0 0 0-7-7z"></path>
+                            </svg>
+                            <div class="idea-rays">
+                                <div class="ray ray1"></div>
+                                <div class="ray ray2"></div>
+                                <div class="ray ray3"></div>
+                                <div class="ray ray4"></div>
+                                <div class="ray ray5"></div>
+                                <div class="ray ray6"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                                <!-- Timeline Item Template -->
+                    <div class="timeline-item left fade-in fade-in-right ">
+                        <div class="timeline-content">
+                            <div class="timeline-step" data-i18n="process.step1.week">Woche 1-2</div>
+                            <div class="timeline-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                                </svg>
+                            </div>
+                            <h3 data-i18n="process.step1.title">Konzeption & Feature-Priorisierung</h3>
+                            <p data-i18n="process.step1.description">Im ersten Schritt definieren wir gemeinsam die Kernfunktionen Ihres MVPs und identifizieren die KI-Features mit dem höchsten Mehrwert. Wir erstellen einen detaillierten Projektplan mit klaren Meilensteinen für die 90-Tage-Entwicklung und fokussieren uns auf die 20% der Features, die 80% des Wertes liefern.</p>
+                        </div>
+                    </div>
+
+                                <!-- Timeline Item Template -->
+                    <div class="timeline-item right fade-in fade-in-left ">
+                        <div class="timeline-content">
+                            <div class="timeline-step" data-i18n="process.step2.week">Woche 3-4</div>
+                            <div class="timeline-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle>
+                                </svg>
+                            </div>
+                            <h3 data-i18n="process.step2.title">Prototyping & KI-Modellauswahl</h3>
+                            <p data-i18n="process.step2.description">In dieser Phase erstellen wir interaktive Prototypen und wählen die optimalen KI-Modelle für Ihre Anwendung. Sie erhalten einen testbaren Design-Prototypen, während wir parallel die technische Architektur und KI-Integration vorbereiten. Ihr Feedback fließt direkt in die Entwicklung ein.</p>
+                        </div>
+                    </div>
+
+                                <!-- Timeline Item Template -->
+                    <div class="timeline-item left fade-in fade-in-right ">
+                        <div class="timeline-content">
+                            <div class="timeline-step" data-i18n="process.step3.week">Woche 5-10</div>
+                            <div class="timeline-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline><line x1="15" y1="9" x2="9" y2="15"></line>
+                                </svg>
+                            </div>
+                            <h3 data-i18n="process.step3.title">Agile Entwicklung & KI-Training</h3>
+                            <p data-i18n="process.step3.description">Mit kurzen, zweiwöchigen Sprints entwickeln wir Ihren MVP und trainieren die KI-Komponenten. Nach jedem Sprint erhalten Sie eine testbare Version mit neuen Funktionen. Wir setzen auf modernste Technologien und implementieren kontinuierliches Feedback, um den MVP optimal auf Ihre Zielgruppe auszurichten.</p>
+                        </div>
+                    </div>
+
+                                <!-- Timeline Item Template -->
+                    <div class="timeline-item right fade-in fade-in-left ">
+                        <div class="timeline-content">
+                            <div class="timeline-step" data-i18n="process.step4.week">Woche 11-12</div>
+                            <div class="timeline-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                </svg>
+                            </div>
+                            <h3 data-i18n="process.step4.title">Finalisierung & Marktstart</h3>
+                            <p data-i18n="process.step4.description">In den letzten zwei Wochen führen wir umfassende Tests durch, optimieren die Leistung und bereiten den Launch vor. Ihr MVP wird produktionsreif gemacht und mit Messinstrumenten für Nutzer-Feedback ausgestattet. Wir erstellen eine Roadmap für zukünftige Entwicklungen und unterstützen Sie beim erfolgreichen Marktstart.</p>
+                        </div>
+                    </div>
+
+                                <!-- Animierte Rakete am Ende der Timeline -->
+                    <div class="timeline-decoration timeline-end">
+                        <div class="rocket-animation">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rocket">
+                                <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path>
+                                <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path>
+                                <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+                                <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+                            </svg>
+                            <div class="rocket-flames">
+                                <div class="flame flame1"></div>
+                                <div class="flame flame2"></div>
+                                <div class="flame flame3"></div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+    </div>
+</section>
+
+
+        <section id="vertrauen" class="trust trust--apple">
+    <span class="glow-aura glow-aura--mix trust__glow" aria-hidden="true"></span>
+
+    <div class="container-wide">
+        <div class="trust-stage" data-motion="pin">
+            <div class="trust-stage__copy" data-motion="reveal">
+                <span class="eyebrow" data-i18n="trust.eyebrow">Sicherheit &amp; Betrieb</span>
+                <h2 class="display-xl trust-stage__heading">
+                    <span class="display-line" data-i18n="trust.heading.line1">Gebaut für Vertrauen.</span>
+                    <span class="display-line display-line--accent" data-i18n="trust.heading.line2">Bereit für echte Nutzer.</span>
+                </h2>
+                <p class="lede" data-i18n="trust.intro">
+                    Ihre KI-App wird nicht nur eindrucksvoll inszeniert, sondern sauber
+                    vorbereitet: DSGVO, Rollenrechte, Monitoring und eine Architektur,
+                    die den ersten Wachstumsschub aushält.
+                </p>
+                <div class="tag-row" aria-label="Trust Schwerpunkte">
+                    <span class="tag-pill">DSGVO</span>
+                    <span class="tag-pill">Secure Deployment</span>
+                    <span class="tag-pill">Monitoring</span>
+                    <span class="tag-pill">Skalierbare Architektur</span>
+                </div>
+            </div>
+
+            <div class="trust-stage__visual" data-motion="reveal">
+                <picture>
+                    <source srcset="img/generated/home/privacy-trust-stage.webp" type="image/webp">
+                    <img src="img/generated/home/privacy-trust-stage.png"
+                         alt="Operations-Dashboard-Mockup mit Rollenrechten, Audit-Log, Monitoring und DSGVO-Signalen"
+                         loading="lazy"
+                         width="1672"
+                         height="941">
+                </picture>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+        <section id="projekte" class="projects projects--apple">
+    <span class="glow-aura glow-aura--orange projects__glow projects__glow--a" aria-hidden="true"></span>
+    <span class="glow-aura glow-aura--purple projects__glow projects__glow--b" aria-hidden="true"></span>
+
+    <div class="container-wide">
+        <div class="projects__intro" data-motion="reveal">
+            <span class="eyebrow" data-i18n="projects.eyebrow">Live im Einsatz</span>
+            <h2 class="display-xl projects__heading">
+                <span class="display-line" data-i18n="projects.heading.line1">MVPs.</span>
+                <span class="display-line display-line--accent" data-i18n="projects.heading.line2">Die echte Kunden bewegen.</span>
+            </h2>
+            <p class="lede" data-i18n="projects.intro">
+                Erfolgreiche KI-MVPs, die wir in unter 3 Monaten für unsere Kunden entwickelt haben
+                und die zu marktreifen, produktiven Anwendungen gewachsen sind.
+            </p>
+        </div>
+
+        <div class="project-stack">
+            <article class="project-showcase project-showcase--text-left" data-motion="reveal">
+                <div class="project-showcase__content">
+                    <span class="eyebrow project-showcase__eyebrow" data-i18n="projects.lebenszeichen.subtitle">Sicherheit für Alleinlebende</span>
+                    <h3 class="display-md project-showcase__title" data-i18n="projects.lebenszeichen.title">Lebenszeichen-App</h3>
+                    <p class="project-showcase__desc" data-i18n="projects.lebenszeichen.brief">
+                        Sicherheitslösung für alleinlebende Menschen mit automatischem Notfallsystem –
+                        bereits über 20.000 miteinander verbundene Kontakte in ganz Europa.
+                    </p>
+                    <div class="tag-row">
+                        <span class="tag-pill">Mobile App</span>
+                        <span class="tag-pill">Notfall-Automation</span>
+                        <span class="tag-pill">20k+ Kontakte</span>
+                    </div>
+                    <div class="btn-row project-showcase__actions">
+                        <button class="cta-button details-button" data-project="lebenszeichen" data-i18n="projects.details_button">Details anzeigen</button>
+                    </div>
+                </div>
+                <div class="project-showcase__visual">
+                    <div class="phone-frame" data-tilt>
+                        <div class="phone-frame__notch" aria-hidden="true"></div>
+                        <div class="phone-frame__screen">
+                            <picture>
+                                <source srcset="img/projects/lebenszeichen-app.webp" type="image/webp">
+                                <img src="img/projects/lebenszeichen-app.jpg.jpeg" alt="Lebenszeichen-App Screenshot" loading="lazy">
+                            </picture>
+                        </div>
+                        <span class="phone-frame__glow phone-frame__glow--orange" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-showcase project-showcase--text-right" data-motion="reveal">
+                <div class="project-showcase__visual">
+                    <div class="phone-frame" data-tilt>
+                        <div class="phone-frame__notch" aria-hidden="true"></div>
+                        <div class="phone-frame__screen">
+                            <picture>
+                                <source srcset="img/projects/ikigami-app.webp" type="image/webp">
+                                <img src="img/projects/ikigami-app.png" alt="Ikigami App Screenshot" loading="lazy">
+                            </picture>
+                        </div>
+                        <span class="phone-frame__glow phone-frame__glow--purple" aria-hidden="true"></span>
+                    </div>
+                </div>
+                <div class="project-showcase__content">
+                    <span class="eyebrow project-showcase__eyebrow" data-i18n="projects.ikigami.subtitle">Die App für Highperformer</span>
+                    <h3 class="display-md project-showcase__title" data-i18n="projects.ikigami.title">Ikigami</h3>
+                    <p class="project-showcase__desc" data-i18n="projects.ikigami.brief">
+                        Ein KI-basierter persönlicher Mentor von Dr. Miriam von Felbert –
+                        intelligente Begleitung auf dem Weg zum eigenen Ikigai.
+                    </p>
+                    <div class="tag-row">
+                        <span class="tag-pill">AI Mentor</span>
+                        <span class="tag-pill">44 Tage Sprint</span>
+                        <span class="tag-pill">Consumer App</span>
+                    </div>
+                    <div class="btn-row project-showcase__actions">
+                        <button class="cta-button details-button" data-project="ikigami" data-i18n="projects.details_button">Details anzeigen</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-showcase project-showcase--text-left" data-motion="reveal">
+                <div class="project-showcase__content">
+                    <span class="eyebrow project-showcase__eyebrow" data-i18n="projects.intown.subtitle">Demokratische Gastro-Plattform</span>
+                    <h3 class="display-md project-showcase__title" data-i18n="projects.intown.title">InTown</h3>
+                    <p class="project-showcase__desc" data-i18n="projects.intown.brief">
+                        Voting-App für lokale Gastronomieangebote – über 150 Restaurants und
+                        15.000 Nutzer in Bielefeld.
+                    </p>
+                    <div class="tag-row">
+                        <span class="tag-pill">Voting Platform</span>
+                        <span class="tag-pill">15k Nutzer</span>
+                        <span class="tag-pill">Akquiriert</span>
+                    </div>
+                    <div class="btn-row project-showcase__actions">
+                        <button class="cta-button details-button" data-project="intown" data-i18n="projects.details_button">Details anzeigen</button>
+                    </div>
+                </div>
+                <div class="project-showcase__visual">
+                    <div class="phone-frame phone-frame--landscape" data-tilt>
+                        <div class="phone-frame__screen">
+                            <picture>
+                                <source srcset="img/projects/intown-app.webp" type="image/webp">
+                                <img src="img/projects/intown-app.png" alt="InTown App Screenshot" loading="lazy">
+                            </picture>
+                        </div>
+                        <span class="phone-frame__glow phone-frame__glow--mix" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Projekt-Modals -->
+<div class="modal-container" id="modal-lebenszeichen">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="modal-close" aria-label="Modal schließen">&times;</button>
+        </div>
+        <div class="modal-body">
+            <h3 data-i18n="projects.lebenszeichen.title">Lebenszeichen-App</h3>
+            <div class="app-screenshot-container">
+                <div class="app-screenshot">
+                    <img src="https://lebenszeichen-app.de/wp-content/uploads/2022/08/5-funktionen-1.png" alt="Lebenszeichen-App Screenshot" loading="lazy">
+                </div>
+            </div>
+            <p data-i18n="projects.lebenszeichen.modal.description1">Mobile App für die Stiftung Solidarität, die alleinlebenden Menschen mehr Sicherheit bietet. Die App ermöglicht das Senden eines täglichen Lebenszeichens und benachrichtigt automatisch Notfallkontakte, wenn dieses ausbleibt.</p>
+            <p data-i18n="projects.lebenszeichen.modal.description2">Besonders innovativ: Ein hochentwickeltes System, das im Notfall einen computergesteuerten Anruf beim Notruf 112 absetzt und automatisch alle relevanten Informationen wie Standort und persönliche Daten übermittelt. Bereits über 15.000 Nutzer:innen in ganz Europa vertrauen auf die Lebenszeichen-App.</p>
+        </div>
+        <div class="modal-action">
+            <a href="https://lebenszeichen-app.de/" target="_blank" rel="noopener" class="cta-button" data-i18n="projects.lebenszeichen.modal.cta">Zur Website</a>
+        </div>
+    </div>
+</div>
+
+<div class="modal-container" id="modal-ikigami">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="modal-close" aria-label="Modal schließen">&times;</button>
+        </div>
+        <div class="modal-body">
+            <h3 data-i18n="projects.ikigami.title">Ikigami</h3>
+            <div class="app-screenshot-container">
+                <div class="app-screenshot">
+                    <img src="https://ikigami.de/wp-content/uploads/2024/10/3-1.png" alt="Ikigami App Screenshot" loading="lazy">
+                </div>
+            </div>
+            <p data-i18n="projects.ikigami.modal.description1">Innovative App, die als persönlicher Mentor in der Hosentasche dient und Nutzer:innen dabei unterstützt, ihren Lebenssinn – ihr Ikigai – zu entdecken und zu verfolgen. Entwickelt von Dr. Miriam von Felbert.</p>
+            <p data-i18n="projects.ikigami.modal.description2">Durch die Kombination von Meditation, reflektierenden Fragen und Künstlicher Intelligenz begleitet Ikigami insbesondere High Performer auf ihrer Reise zu sich selbst. Die App bietet meditative Pausen, intuitive Bedienung, Speicherung von Erkenntnissen und einen Navigator zur Selbstfindung.</p>
+        </div>
+        <div class="modal-action">
+            <a href="https://ikigami.de/" target="_blank" rel="noopener" class="cta-button" data-i18n="projects.ikigami.modal.cta">Zur Website</a>
+        </div>
+    </div>
+</div>
+
+<div class="modal-container" id="modal-intown">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+        <div class="modal-header">
+            <button class="modal-close" aria-label="Modal schließen">&times;</button>
+        </div>
+        <div class="modal-body">
+            <h3 data-i18n="projects.intown.title">InTown</h3>
+            <div class="app-screenshot-container">
+                <div class="app-screenshot">
+                    <img src="https://www.hsbi.de/media/fachbereiche/wirtschaft/forschung/cfe/cfe_intown_artikelbild.png?height=1080&width=1920" alt="InTown App Screenshot" loading="lazy">
+                </div>
+            </div>
+            <p data-i18n="projects.intown.modal.description1">Innovative Voting-App, die es Nutzer:innen ermöglicht, ihre Wunschangebote für verschiedene Restaurants in ihrer Stadt zu nominieren und darüber abzustimmen. Die App verbindet Gastronomie und Community durch demokratische Entscheidungsprozesse.</p>
+            <p data-i18n="projects.intown.modal.description2">Dieses erfolgreiche Projekt wurde von der Sparkasse Bielefeld und Google gefördert und später akquiriert. Die Plattform ermöglichte es Restaurants, ihre Bekanntheit zu steigern und Nutzern, neue Lokale zu entdecken – ein Win-win für die lokale Gastronomie.</p>
+        </div>
+    </div>
+</div>
+
+
+        <section id="kundenstimmen" class="testimonials testimonials--apple">
+    <span class="glow-aura glow-aura--mix testimonials__glow" aria-hidden="true"></span>
+
+    <div class="container-wide">
+        <div class="testimonials__intro" data-motion="reveal">
+            <span class="eyebrow" data-i18n="testimonials.eyebrow">Kundenstimmen</span>
+            <h2 class="display-xl testimonials__heading">
+                <span class="display-line" data-i18n="testimonials.heading.line1">Gute Produkte.</span>
+                <span class="display-line display-line--accent" data-i18n="testimonials.heading.line2">Gute Zusammenarbeit.</span>
+            </h2>
+        </div>
+
+        <div class="testimonial-rail" data-motion="stagger">
+            <article class="testimonial-card">
+                <div class="testimonial-card__quote-mark" aria-hidden="true">&ldquo;</div>
+                <p class="testimonial-card__text" data-i18n="testimonials.franz.quote">
+                    Die Zusammenarbeit mit RENCORET AI hat unsere Erwartungen weit übertroffen.
+                    Durch ihre maßgeschneiderte KI-Lösung konnten wir unsere Prozesse deutlich
+                    effizienter gestalten.
+                </p>
+                <div class="testimonial-card__author">
+                    <div class="testimonial-card__avatar">
+                        <picture>
+                            <source srcset="img/testimonials/franz-schaible.webp" type="image/webp">
+                            <img src="img/testimonials/franz-schaible.png" alt="Franz Schaible" loading="lazy">
+                        </picture>
+                    </div>
+                    <div>
+                        <h4 data-i18n="testimonials.franz.name">Franz Schaible</h4>
+                        <p class="testimonial-card__role">
+                            <span data-i18n="testimonials.franz.position">Vorstandsvorsitzender</span>
+                            ·
+                            <span data-i18n="testimonials.franz.company">Stiftung Solidarität</span>
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="testimonial-card">
+                <div class="testimonial-card__quote-mark" aria-hidden="true">&ldquo;</div>
+                <p class="testimonial-card__text" data-i18n="testimonials.jacob.quote">
+                    Mit RENCORET AI haben wir einen zuverlässigen Partner gefunden, der innovative
+                    Cloud-basierte Lösungen entwickelt. Ihre Expertise in der Verbindung von KI
+                    und nutzerfreundlichen Interfaces bietet echten Mehrwert.
+                </p>
+                <div class="testimonial-card__author">
+                    <div class="testimonial-card__avatar">
+                        <picture>
+                            <source srcset="img/testimonials/jacob-floetotto.webp" type="image/webp">
+                            <img src="img/testimonials/jacob-floetotto.png" alt="Jacob Flötotto" loading="lazy">
+                        </picture>
+                    </div>
+                    <div>
+                        <h4 data-i18n="testimonials.jacob.name">Jacob Flötotto</h4>
+                        <p class="testimonial-card__role">
+                            <span data-i18n="testimonials.jacob.position">Industry Lead Mittelstand</span>
+                            ·
+                            <span data-i18n="testimonials.jacob.company">Google Cloud</span>
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="testimonial-card testimonial-card--wide">
+                <div class="testimonial-card__quote-mark" aria-hidden="true">&ldquo;</div>
+                <p class="testimonial-card__text" data-i18n="testimonials.miriam.quote">
+                    Vom ersten Gedanken zur fertigen App in nur 44 Tagen – ein wahrer Sprint,
+                    getragen von klarem Fokus und tiefem Verständnis. Was mich besonders beeindruckt
+                    hat, war nicht nur die Geschwindigkeit der Umsetzung, sondern die Fähigkeit,
+                    meine Idee in ihrer Tiefe zu erfassen und in eine stabile, elegante App zu übersetzen.
+                </p>
+                <div class="testimonial-card__author">
+                    <div class="testimonial-card__avatar">
+                        <picture>
+                            <source srcset="img/testimonials/miriam-von-felbert.webp" type="image/webp">
+                            <img src="img/testimonials/miriam-von-felbert.png" alt="Dr. Miriam von Felbert" loading="lazy">
+                        </picture>
+                    </div>
+                    <div>
+                        <h4 data-i18n="testimonials.miriam.name">Dr. Miriam von Felbert</h4>
+                        <p class="testimonial-card__role">
+                            <span data-i18n="testimonials.miriam.position">Gründerin</span>
+                            ·
+                            <span data-i18n="testimonials.miriam.company">Ikigami</span>
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+
+        <section id="kontakt" class="contact contact--apple">
+    <span class="glow-aura glow-aura--orange contact__glow contact__glow--a" aria-hidden="true"></span>
+    <span class="glow-aura glow-aura--purple contact__glow contact__glow--b" aria-hidden="true"></span>
+
+    <div class="container-wide">
+        <div class="contact__final-cta" data-motion="reveal">
+            <span class="eyebrow" data-i18n="contact.eyebrow">Bereit zum Start?</span>
+            <h2 class="display-xxl contact__final-heading">
+                <span class="display-line" data-i18n="contact.heading.line1">Bauen Sie Ihren MVP.</span>
+                <span class="display-line display-line--accent" data-i18n="contact.heading.line2">Starten Sie heute.</span>
+            </h2>
+            <p class="lede contact__final-lede" data-i18n="contact.intro">
+                Erzählen Sie uns von Ihrer Idee – wir melden uns innerhalb von 24 Stunden mit
+                einem ersten 90-Tage-Plan.
+            </p>
+        </div>
+
+        <div class="contact-grid" data-motion="reveal">
+            <aside class="contact-card contact-card--ceo">
+                <div class="ceo-profile">
+                    <div class="ceo-profile__avatar">
+                        <picture>
+                            <source srcset="img/team/ricardo-rencoret.webp" type="image/webp">
+                            <img src="img/team/ricardo-rencoret.jpg" alt="Ricardo Rencoret Nicolás, CEO" loading="lazy">
+                        </picture>
+                    </div>
+                    <div class="ceo-profile__meta">
+                        <h3 data-i18n="contact.ceo.name">Ricardo Rencoret Nicolás</h3>
+                        <p class="ceo-profile__title" data-i18n="contact.ceo.title">CEO &amp; Founder</p>
+                        <p class="ceo-profile__bio" data-i18n="contact.ceo.bio">
+                            Ihr direkter Ansprechpartner für strategische MVP-Entwicklung
+                            und KI-Integration.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-card__details" itemscope itemtype="http://schema.org/LocalBusiness">
+                    <meta itemprop="name" content="RENCORET AI">
+                    <meta itemprop="url" content="https://rencoret.eu">
+                    <meta itemprop="sameAs" content="https://www.linkedin.com/company/rencoret-ai">
+
+                    <div class="contact-card__detail">
+                        <span class="contact-card__detail-label" data-i18n="contact.email.heading">E-Mail</span>
+                        <a href="mailto:ricardo@rencoret.dev" itemprop="email">ricardo@rencoret.dev</a>
+                    </div>
+                    <div class="contact-card__detail">
+                        <span class="contact-card__detail-label" data-i18n="contact.address.heading">Adresse</span>
+                        <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                            <span itemprop="streetAddress">Gerkens Hof 9</span><br>
+                            <span itemprop="postalCode">33758</span> <span itemprop="addressLocality">Schloß Holte-Stukenbrock</span><br>
+                            <span itemprop="addressCountry">Deutschland</span>
+                        </address>
+                    </div>
+                </div>
+            </aside>
+
+            <div class="contact-card contact-card--form">
+                <h3 class="contact-card__title" data-i18n="contact.form.heading">90-Tage-MVP starten</h3>
+                <form id="contactForm" name="contact" method="post"
+                      action="https://send.pageclip.co/rmZeWRkkpJosrWQBvXmyUqtzTkLkeDll" class="pageclip-form">
+                    <div class="form-group">
+                        <label for="name" data-i18n="contact.form.name">Name</label>
+                        <input type="text" id="name" name="name" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-i18n="contact.form.email">E-Mail</label>
+                        <input type="email" id="email" name="email" required aria-required="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone" data-i18n="contact.form.phone">Telefonnummer (optional)</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="contact.form.message">Beschreiben Sie kurz Ihre MVP-Idee</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group form-group--checkbox">
+                        <input type="checkbox" id="datenschutz" name="datenschutz" required>
+                        <label for="datenschutz">Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme zu.</label>
+                    </div>
+                    <button type="submit" class="cta-button pageclip-form__submit">
+                        <span data-i18n="contact.form.submit">Kostenlose MVP-Beratung anfordern</span>
+                    </button>
+                </form>
+
+                <div class="form-success-overlay" id="formSuccessOverlay">
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="confetti"></div>
+                    <div class="form-success-content">
+                        <div class="success-checkmark">
+                            <svg viewBox="0 0 100 100">
+                                <circle class="checkmark-circle" cx="50" cy="50" r="48" />
+                                <path class="checkmark-check" d="M30 50 L45 65 L70 35" />
+                            </svg>
+                        </div>
+                        <h3 class="success-title" data-i18n="contact.success.title">Vielen Dank, <span id="successName"></span>!</h3>
+                        <p class="success-message" data-i18n="contact.success.message">Ihre Anfrage wurde erfolgreich gesendet.</p>
+                        <div class="success-next-steps" data-i18n="contact.success.nextsteps">Wir melden uns innerhalb von 24 Stunden bei Ihnen.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    </main>
+
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>RENCORET AI</h3>
+                <p data-i18n="footer.tagline">App & KI Entwicklung</p>
+            </div>
+            <div class="footer-links">
+                <h4 data-i18n="footer.links.heading">Links</h4>
+                <ul>
+                    <li><a href="impressum.html" data-i18n="footer.links.imprint">Impressum</a></li>
+                    <li><a href="datenschutz.html" data-i18n="footer.links.privacy">Datenschutz</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4 data-i18n="footer.contact.heading">Kontakt</h4>
+                <p>ricardo@rencoret.dev</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p data-i18n="footer.copyright">&copy; 2026 RENCORET AI GmbH. Alle Rechte vorbehalten.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Haupt-Skripte -->
+    <script src="vendor/gsap/gsap.min.js"></script>
+    <script src="vendor/gsap/ScrollTrigger.min.js"></script>
+    <script src="vendor/lenis/lenis.min.js"></script>
+    <script src="js/motion.js?v=dark-apple-20260509-2"></script>
+    <script src="js/scroll-animations.js"></script>
+    <script src="js/carousel.js"></script>
+    <script src="js/navigation.js?v=dark-apple-20260509-2"></script>
+
+    <!-- Modal Dialog Functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Alle Details-Buttons auswählen
+            const detailsButtons = document.querySelectorAll('.details-button');
+
+            // Event-Listener für jeden Button hinzufügen
+            detailsButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Projekt-ID aus data-attribute holen
+                    const projectId = this.getAttribute('data-project');
+                    // Entsprechendes Modal öffnen
+                    const modal = document.getElementById(`modal-${projectId}`);
+                    if (modal) {
+                        // Modal aktivieren
+                        modal.classList.add('active');
+
+                        // Scrolling im Body deaktivieren, aber Modal-Scrolling aktivieren
+                        document.body.style.overflow = 'hidden';
+
+                        // Sicherstellen, dass der Modal-Container und -Body scrollbar sind
+                        modal.style.overflowY = 'auto';
+
+                        // Modal-Body finden und Scrolling aktivieren
+                        const modalBody = modal.querySelector('.modal-body');
+                        if (modalBody) {
+                            modalBody.style.overflowY = 'auto';
+                            modalBody.style.webkitOverflowScrolling = 'touch';
+                        }
+
+                        // Modal an Bildschirmgröße anpassen
+                        positionModalForMobile(modal);
+                    }
+                });
+            });
+
+            // Funktion zur korrekten Positionierung auf Mobilgeräten
+            function positionModalForMobile(modal) {
+                if (!modal) return;
+
+                const modalContent = modal.querySelector('.modal-content');
+                if (!modalContent) return;
+
+                // Auf Mobilgeräten
+                if (window.innerWidth <= 576) {
+                    // Sicherstellen, dass das Modal nicht zu hoch ist
+                    modalContent.style.maxHeight = '85vh';
+                    modalContent.style.margin = '15px auto';
+
+                    // Scrollposition zurücksetzen
+                    setTimeout(() => {
+                        modalContent.scrollTop = 0;
+                        const modalBody = modal.querySelector('.modal-body');
+                        if (modalBody) modalBody.scrollTop = 0;
+                    }, 100);
+                }
+                // Auf Tablets
+                else if (window.innerWidth <= 768) {
+                    modalContent.style.maxHeight = '90vh';
+                    modalContent.style.margin = '20px auto';
+                }
+                // Auf Desktop
+                else {
+                    modalContent.style.maxHeight = '85vh';
+                    modalContent.style.margin = 'auto';
+                }
+            }
+
+            // Schließen-Buttons für die Modals
+            const closeButtons = document.querySelectorAll('.modal-close, .modal-overlay');
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Übergeordnetes Modal finden und schließen
+                    const modal = this.closest('.modal-container');
+                    if (modal) {
+                        modal.classList.remove('active');
+                        // Scrolling im Body wieder aktivieren
+                        document.body.style.overflow = '';
+                    }
+                });
+            });
+
+            // Schließen mit Escape-Taste
+            document.addEventListener('keydown', function (event) {
+                if (event.key === 'Escape') {
+                    const activeModal = document.querySelector('.modal-container.active');
+                    if (activeModal) {
+                        activeModal.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                }
+            });
+
+            // Bei Größenänderung aktives Modal neu positionieren
+            window.addEventListener('resize', function () {
+                const activeModal = document.querySelector('.modal-container.active');
+                if (activeModal) {
+                    positionModalForMobile(activeModal);
+                }
+            });
+        });
+    </script>
+
+    <!-- Skript zur dynamischen Anpassung des Hero-Abstands -->
+    <script>
+        // Funktion zur Berechnung und Anwendung des Abstands - nur Window-Resize überwachen
+        function adjustHeroSpacing() {
+            const header = document.querySelector('header');
+            const heroSection = document.querySelector('.hero');
+
+            if (header && heroSection) {
+                if (heroSection.classList.contains('hero--apple')) {
+                    heroSection.style.removeProperty('padding-top');
+                    heroSection.style.removeProperty('min-height');
+                    heroSection.style.removeProperty('height');
+                    return;
+                }
+
+                // Header-Höhe + extra Abstand für Lesbarkeit
+                const headerHeight = header.offsetHeight;
+                // Für mobile Geräte einen etwas größeren Abstand
+                const extraSpace = window.innerWidth < 768 ? 30 : 40;
+
+                // Setze das padding-top basierend auf der Header-Höhe
+                heroSection.style.paddingTop = (headerHeight + extraSpace) + 'px';
+
+                // Wenn der Abstand zu groß wird, reduziere die min-height
+                if (window.innerWidth < 576) {
+                    heroSection.style.minHeight = 'calc(100vh - 40px)';
+                } else {
+                    heroSection.style.minHeight = '100vh';
+                }
+            }
+        }
+
+        // Führe die Anpassung nur bei Änderung der Fenstergröße aus
+        window.addEventListener('resize', adjustHeroSpacing);
+        // Beim Laden der Seite auch einmal ausführen
+        window.addEventListener('load', adjustHeroSpacing);
+    </script>
+
+    <!-- Strukturierte Daten für Suchmaschinen -->
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "name": "RENCORET AI",
+        "url": "https://rencoret.eu",
+        "logo": "https://rencoret.eu/img/logo-extended.svg",
+        "sameAs": [
+            "https://www.linkedin.com/company/rencoret-ai",
+            "https://github.com/rencoret-ai"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "ricardo@rencoret.dev",
+            "contactType": "customer service"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Gerkens Hof 9",
+            "addressLocality": "Schloß Holte-Stukenbrock",
+            "postalCode": "33758",
+            "addressCountry": "DE"
+        },
+        "description": "Spezialist für moderne App-Entwicklung und KI-Lösungen in Schloß Holte-Stukenbrock. Maßgeschneiderte Entwicklung für Ihr Unternehmen mit Fokus auf Innovation und Qualität."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://rencoret.eu"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Leistungen",
+                "item": "https://rencoret.eu/#leistungen"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Über uns",
+                "item": "https://rencoret.eu/#ueber-uns"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Prozess",
+                "item": "https://rencoret.eu/#prozess"
+            },
+            {
+                "@type": "ListItem",
+                "position": 5,
+                "name": "Projekte",
+                "item": "https://rencoret.eu/#projekte"
+            },
+            {
+                "@type": "ListItem",
+                "position": 6,
+                "name": "Kundenstimmen",
+                "item": "https://rencoret.eu/#kundenstimmen"
+            },
+            {
+                "@type": "ListItem",
+                "position": 7,
+                "name": "Kontakt",
+                "item": "https://rencoret.eu/#kontakt"
+            }
+        ]
+    }
+    </script>
+
+    <!-- Pageclip -->
+    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+
+    <!-- Custom Form Success Handler -->
+    <script>
+        // Wait for Pageclip to be loaded
+        window.addEventListener('load', function () {
+            const form = document.querySelector('.pageclip-form');
+            const overlay = document.getElementById('formSuccessOverlay');
+            const successNameSpan = document.getElementById('successName');
+
+            if (form) {
+                // Listen for Pageclip success event
+                form.addEventListener('submit', function (e) {
+                    // Get the name from the form
+                    const nameInput = document.getElementById('name');
+                    const nameValue = nameInput ? nameInput.value.split(' ')[0] : '';
+
+                    // Store the name for later use
+                    if (nameValue) {
+                        sessionStorage.setItem('formSubmitterName', nameValue);
+                    }
+                });
+
+                // Pageclip triggers a 'success' class on the form after successful submission
+                // We'll use MutationObserver to detect when this happens
+                const observer = new MutationObserver(function (mutations) {
+                    mutations.forEach(function (mutation) {
+                        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                            if (form.classList.contains('pageclip-form--submitting')) {
+                                // Form is being submitted
+                                console.log('Form submitting...');
+                            } else if (form.classList.contains('pageclip-form--success')) {
+                                // Form submission successful
+                                showSuccessOverlay();
+                            }
+                        }
+                    });
+                });
+
+                observer.observe(form, {
+                    attributes: true,
+                    attributeFilter: ['class']
+                });
+
+                function showSuccessOverlay() {
+                    // Get the stored name
+                    const submitterName = sessionStorage.getItem('formSubmitterName') || '';
+
+                    // Update the success message with the name
+                    if (successNameSpan && submitterName) {
+                        successNameSpan.textContent = submitterName;
+                    } else if (successNameSpan) {
+                        // If no name, hide the comma and space
+                        const titleElement = successNameSpan.parentElement;
+                        if (titleElement) {
+                            // Update the data-i18n to version without name placeholder
+                            titleElement.setAttribute('data-i18n', 'contact.success.title.generic');
+                            // Update text immediately
+                            const currentLang = localStorage.getItem('language') || 'de';
+                            const translations = window.translations || {};
+                            if (translations[currentLang] && translations[currentLang]['contact.success.title.generic']) {
+                                titleElement.textContent = translations[currentLang]['contact.success.title.generic'];
+                            }
+                        }
+                    }
+
+                    // Show the overlay with animation
+                    if (overlay) {
+                        overlay.classList.add('active');
+
+                        // Track successful form submission
+                        if (window.gtag) {
+                            gtag('event', 'form_success', {
+                                event_category: 'contact',
+                                event_label: 'MVP_consultation_request'
+                            });
+                        }
+                    }
+
+                    // Clear the stored name
+                    sessionStorage.removeItem('formSubmitterName');
+                }
+            }
+        });
+    </script>
+
+    <!-- Fix für mobile Scrollprobleme -->
+    <script>
+        // Sofort ausführbare Funktion für schnellere Initialisierung
+        (function () {
+            // Fix für iOS Scrollprobleme
+            function fixIOSScrolling() {
+                const isTouchLayout = window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768;
+
+                // Verhindert horizontales Überlaufen, ohne Desktop-Scrolling zu begrenzen
+                document.documentElement.style.removeProperty('height');
+                document.body.style.removeProperty('height');
+                document.body.style.removeProperty('min-height');
+                document.body.style.maxWidth = '100%';
+                document.documentElement.style.maxWidth = '100%';
+
+                document.documentElement.style.overflowX = 'hidden';
+                document.body.style.overflowX = 'hidden';
+
+                if (isTouchLayout) {
+                    document.body.style.minHeight = '100%';
+                } else if (!document.querySelector('.mobile-menu.active') && !document.querySelector('.modal-container.active')) {
+                    document.body.style.removeProperty('overflow');
+                }
+
+                // Spezielle Behandlung für Modals
+                const modalContainers = document.querySelectorAll('.modal-container');
+                const modalBodies = document.querySelectorAll('.modal-body');
+                const modalContents = document.querySelectorAll('.modal-content');
+
+                // Explizit die Modal-Elemente für Scrolling konfigurieren
+                modalContainers.forEach(container => {
+                    container.style.overflowY = 'auto';
+                    container.style.maxHeight = '100vh';
+                    container.style.overscrollBehavior = 'contain';
+                });
+
+                modalBodies.forEach(body => {
+                    body.style.overflowY = 'auto';
+                    body.style.webkitOverflowScrolling = 'touch';
+                    body.style.maxHeight = 'calc(85vh - 80px)';
+                });
+
+                modalContents.forEach(content => {
+                    content.style.overflowY = 'hidden'; // Verhindert doppelte Scrollbars
+                    content.style.display = 'flex';
+                    content.style.flexDirection = 'column';
+                });
+
+                // Aktive Modals besonders behandeln
+                const activeModal = document.querySelector('.modal-container.active');
+                if (activeModal) {
+                    activeModal.style.overflowY = 'auto';
+                    activeModal.style.display = 'flex';
+
+                    const activeBody = activeModal.querySelector('.modal-body');
+                    if (activeBody) {
+                        activeBody.style.overflowY = 'auto';
+                        activeBody.style.webkitOverflowScrolling = 'touch';
+                    }
+                }
+
+                // Spezielle Anpassungen für bestimmte Elemente
+                const projektSektion = document.getElementById('projekte');
+                if (projektSektion) {
+                    projektSektion.style.overflow = 'visible';
+                    projektSektion.style.maxHeight = 'none';
+                }
+
+                // Header-Anpassung für mobile Geräte
+                const header = document.querySelector('header');
+                const nav = document.querySelector('nav');
+                const headerContainer = document.querySelector('header .container');
+
+                if (window.innerWidth <= 576) {
+                    // Auf kleinen Geräten Header-Anpassungen
+                    if (header) {
+                        header.style.overflow = '';
+                        header.style.maxHeight = 'none';
+                    }
+
+                    // Navigationseinstellungen für kleine Geräte
+                    if (nav) {
+                        nav.style.maxHeight = 'none';
+                        nav.style.overflow = 'visible';
+                    }
+
+                    // Container-Einstellungen
+                    if (headerContainer) {
+                        headerContainer.style.maxHeight = 'none';
+                    }
+                } else {
+                    // Auf größeren Geräten
+                    if (header) {
+                        header.style.overflow = 'hidden';
+                    }
+                }
+
+                // Verhindern, dass der Theme-Toggle Button Scrollbars erzeugt
+                const themeToggle = document.querySelector('.theme-toggle');
+                if (themeToggle) {
+                    themeToggle.style.transform = 'translateZ(0)';
+                    themeToggle.style.willChange = 'transform';
+                    themeToggle.style.contain = 'layout style';
+                    themeToggle.style.margin = '0';
+                    themeToggle.style.padding = '0';
+                }
+            }
+
+            // Fix sofort ausführen
+            fixIOSScrolling();
+
+            // Auch bei Größenänderung ausführen
+            window.addEventListener('resize', fixIOSScrolling);
+
+            // Einmalig nach DOMContentLoaded ausführen
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', fixIOSScrolling);
+            }
+        })();
+    </script>
+
+    <!-- Optimierte Seiteninitialisierung -->
+    <script>
+        // DOMContentLoaded abwarten, damit alle Elemente verfügbar sind
+        document.addEventListener('DOMContentLoaded', function () {
+            // Body sofort sichtbar machen
+            document.documentElement.classList.add('loaded');
+
+            // Kein Theme-Toggle mehr erzeugen, da wir immer im Dark Mode bleiben
+
+            // Initialisiere alle wichtigen Layout-Anpassungen
+            adjustHeroSpacing();
+
+            // Force translation update after a short delay
+            setTimeout(() => {
+                if (window.languageManager) {
+                    window.languageManager.updatePageContent();
+                    window.languageManager.updateLanguageSelector();
+                }
+            }, 200);
+        });
+
+        // Für noch schnellere initiale Anzeige
+        if (document.readyState === 'interactive' || document.readyState === 'complete') {
+            document.documentElement.classList.add('loaded');
+        }
+    </script>
+
+    <!-- Analytics & Tracking -->
+    <script src="js/analytics.js" defer></script>
+
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <p>Wir verwenden Cookies und Tracking-Technologien, um Ihre Erfahrung zu verbessern und den Erfolg unserer
+                LinkedIn-Kampagnen zu messen. Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies
+                gemäß unserer <a href="datenschutz.html">Datenschutzerklärung</a> zu.</p>
+            <div class="cookie-buttons">
+                <button id="reject-cookies" class="cookie-btn cookie-btn-reject">Ablehnen</button>
+                <button id="accept-cookies" class="cookie-btn cookie-btn-accept">Akzeptieren</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

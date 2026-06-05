@@ -1,0 +1,109 @@
+/* =========================================
+   CLIENT LOGOS – Dark Apple-style minimal marquee
+   ========================================= */
+
+.client-logos.client-logos--apple {
+    background-color: #000000 !important;
+    padding: clamp(40px, 6vw, 80px) 0 clamp(40px, 6vw, 80px);
+    text-align: center;
+    position: relative;
+    z-index: 5;
+    overflow: hidden;
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.client-logos--apple .client-logos__heading {
+    text-align: center;
+    margin: 0 0 28px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+}
+
+.client-logos--apple .logo-slider-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
+            mask-image: linear-gradient(90deg, transparent 0%, #000 14%, #000 86%, transparent 100%);
+}
+
+.client-logos--apple::before,
+.client-logos--apple::after {
+    display: none;
+}
+
+.client-logos--apple .logo-slider {
+    display: flex;
+    align-items: center;
+    animation: logoScroll 80s linear infinite;
+    width: max-content;
+    gap: clamp(72px, 8vw, 122px);
+    padding: 0 30px;
+    margin: 5px auto;
+}
+
+.client-logos--apple .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 72px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.86;
+}
+
+.client-logos--apple .logo-container img {
+    width: clamp(132px, 10vw, 166px);
+    max-width: none;
+    max-height: 58px;
+    object-fit: contain;
+    filter: grayscale(100%) invert(1) brightness(1.28);
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.client-logos--apple .logo-container:hover {
+    opacity: 1;
+}
+
+.client-logos--apple .logo-container:hover img {
+    filter: grayscale(0) brightness(1);
+}
+
+.client-logos--apple .logo-slider:hover {
+    animation-play-state: paused;
+}
+
+@keyframes logoScroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+    .client-logos.client-logos--apple {
+        padding: 50px 0;
+    }
+
+    .client-logos--apple .logo-slider {
+        gap: 64px;
+        animation-duration: 64s;
+    }
+
+    .client-logos--apple .logo-container {
+        height: 58px;
+    }
+
+    .client-logos--apple .logo-container img {
+        width: 132px;
+        max-height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .client-logos--apple .logo-slider {
+        gap: 52px;
+    }
+}
