@@ -612,18 +612,34 @@
     position: relative;
     width: clamp(260px, 30vw, 360px);
     aspect-ratio: 9 / 19.5;
-    border-radius: 44px;
+    border-radius: clamp(38px, 4.2vw, 54px);
     background:
-        linear-gradient(180deg, #1a1a1a 0%, #050505 100%);
-    padding: 14px;
+        linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0) 18%),
+        linear-gradient(180deg, #1b1b1d 0%, #030304 100%);
+    padding: clamp(13px, 1.2vw, 18px);
     box-shadow:
-        0 60px 100px -20px rgba(0, 0, 0, 0.85),
-        0 0 0 1px rgba(255, 255, 255, 0.08),
-        inset 0 0 0 1.5px rgba(255, 255, 255, 0.04);
+        0 62px 100px -22px rgba(0, 0, 0, 0.88),
+        0 0 0 1px rgba(255, 255, 255, 0.12),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.16),
+        inset 0 -18px 34px rgba(0, 0, 0, 0.5);
     transform: rotate(-4deg);
     transform-style: preserve-3d;
     transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     will-change: transform;
+    isolation: isolate;
+}
+
+.phone-frame:not(.phone-frame--landscape)::before {
+    content: "";
+    position: absolute;
+    inset: 4px;
+    z-index: 1;
+    border-radius: calc(clamp(38px, 4.2vw, 54px) - 3px);
+    pointer-events: none;
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    box-shadow:
+        inset 0 0 0 1px rgba(0, 0, 0, 0.58),
+        inset 0 2px 8px rgba(255, 255, 255, 0.06);
 }
 
 .project-showcase--text-right .phone-frame {
@@ -634,6 +650,13 @@
     aspect-ratio: 16 / 10;
     width: clamp(380px, 45vw, 560px);
     border-radius: 24px;
+    background:
+        linear-gradient(180deg, #1a1a1a 0%, #050505 100%);
+    padding: 14px;
+    box-shadow:
+        0 60px 100px -20px rgba(0, 0, 0, 0.85),
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        inset 0 0 0 1.5px rgba(255, 255, 255, 0.04);
     transform: rotate(-2deg);
 }
 
@@ -643,14 +666,17 @@
 
 .phone-frame__notch {
     position: absolute;
-    top: 14px;
+    top: clamp(17px, 1.45vw, 22px);
     left: 50%;
     transform: translateX(-50%);
-    width: 110px;
-    height: 26px;
+    width: clamp(58px, 28%, 88px);
+    height: clamp(15px, 2vw, 21px);
     background: #000;
-    border-radius: 0 0 14px 14px;
-    z-index: 3;
+    border-radius: 999px;
+    z-index: 4;
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.025),
+        0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
 .phone-frame--landscape .phone-frame__notch {
@@ -660,11 +686,14 @@
 .phone-frame__screen {
     width: 100%;
     height: 100%;
-    border-radius: 32px;
+    border-radius: clamp(27px, 3.2vw, 39px);
     overflow: hidden;
     background: #050505;
     position: relative;
     z-index: 2;
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+        inset 0 0 22px rgba(0, 0, 0, 0.22);
 }
 
 .phone-frame--landscape .phone-frame__screen {
@@ -677,6 +706,15 @@
     object-fit: cover;
     display: block;
     transform-origin: center;
+}
+
+.phone-frame:not(.phone-frame--landscape) .phone-frame__screen {
+    background: #ffffff;
+}
+
+.phone-frame:not(.phone-frame--landscape) .phone-frame__screen img {
+    object-fit: contain;
+    background: #ffffff;
 }
 
 .phone-frame--mealply .phone-frame__screen {
@@ -716,10 +754,10 @@
 }
 
 .case-card__visual.phone-frame {
-    width: min(58%, 220px);
+    width: min(64%, 238px);
     margin: 0 auto;
-    border-radius: 34px;
-    padding: 10px;
+    border-radius: 38px;
+    padding: 12px;
     transform: none;
 }
 
@@ -727,6 +765,7 @@
     width: 100%;
     max-width: 300px;
     border-radius: 20px;
+    padding: 10px;
 }
 
 .case-card__content {
@@ -894,7 +933,7 @@
 
 @media (max-width: 480px) {
     .phone-frame { width: 70%; max-width: 280px; }
-    .phone-frame__notch { width: 90px; height: 22px; }
+    .phone-frame__notch { width: clamp(54px, 28%, 78px); height: 16px; }
 }
 
 @media (max-width: 768px) {
@@ -937,7 +976,7 @@
     .phone-frame {
         width: min(76vw, 260px);
         border-radius: 34px;
-        padding: 10px;
+        padding: 12px;
         transform: none !important;
     }
 
@@ -945,6 +984,7 @@
         width: 100%;
         max-width: 340px;
         border-radius: 20px;
+        padding: 10px;
     }
 
     .phone-frame__screen {
