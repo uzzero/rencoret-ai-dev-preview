@@ -87,9 +87,28 @@ footer::before {
     transition: all 0.3s ease;
 }
 
-.footer-links ul li a:hover {
+.footer-links ul li a:hover,
+.footer-cookie-button:hover {
     color: var(--primary-color);
     opacity: 1;
+}
+
+.footer-cookie-button {
+    padding: 0;
+    color: var(--footer-link-color);
+    background: transparent;
+    border: 0;
+    font: inherit;
+    line-height: inherit;
+    text-align: left;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-cookie-button:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
 }
 
 /* Footer Contact */

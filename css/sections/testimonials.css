@@ -63,6 +63,11 @@
     grid-column: 1 / -1;
 }
 
+.testimonial-card--featured {
+    grid-column: 1 / -1;
+    padding: clamp(42px, 5vw, 72px);
+}
+
 .testimonial-card:hover {
     background: var(--glass-bg-strong);
     border-color: var(--glass-border-strong);
@@ -112,6 +117,14 @@
     line-height: 1.5;
 }
 
+.testimonial-card--featured .testimonial-card__text {
+    max-width: 820px;
+    font-size: clamp(1.85rem, 3.5vw, 3.4rem);
+    line-height: 1.08;
+    font-weight: 650;
+    letter-spacing: 0;
+}
+
 .testimonial-card__author {
     display: flex;
     align-items: center;
@@ -158,6 +171,9 @@
         grid-template-columns: 1fr;
     }
     .testimonial-card--wide {
+        grid-column: auto;
+    }
+    .testimonial-card--featured {
         grid-column: auto;
     }
 }

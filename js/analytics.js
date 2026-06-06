@@ -178,6 +178,19 @@
                 banner.style.cssText = 'display: none !important;';
                 banner.classList.remove('visible');
             }
+        },
+
+        showPreferences() {
+            const banner = document.getElementById('cookie-banner');
+            if (!banner) return;
+
+            banner.style.cssText = 'display: block !important; position: fixed !important; bottom: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; transform: none !important;';
+            window.requestAnimationFrame(() => {
+                banner.classList.add('visible');
+                const rejectBtn = document.getElementById('reject-cookies');
+                const acceptBtn = document.getElementById('accept-cookies');
+                (rejectBtn || acceptBtn || banner).focus?.({ preventScroll: true });
+            });
         }
     };
 
@@ -481,6 +494,7 @@
     function initializeCookieBanner() {
         const acceptBtn = document.getElementById('accept-cookies');
         const rejectBtn = document.getElementById('reject-cookies');
+        const settingsBtn = document.getElementById('cookie-settings');
 
         if (acceptBtn) {
             acceptBtn.addEventListener('click', (e) => {
@@ -498,6 +512,13 @@
                 e.stopPropagation();
                 cookieConsent.setConsent(false);
                 cookieConsent.hideBanner();
+            });
+        }
+
+        if (settingsBtn) {
+            settingsBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                cookieConsent.showPreferences();
             });
         }
 

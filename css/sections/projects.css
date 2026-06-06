@@ -533,6 +533,11 @@
     gap: clamp(80px, 11vw, 160px);
 }
 
+.project-gallery {
+    display: grid;
+    gap: clamp(48px, 7vw, 96px);
+}
+
 .project-showcase {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -573,6 +578,33 @@
     display: flex;
     justify-content: center;
     perspective: 1400px;
+}
+
+.project-showcase--featured {
+    min-height: min(820px, 92vh);
+    padding: clamp(26px, 4vw, 64px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: clamp(28px, 4vw, 50px);
+    background:
+        radial-gradient(circle at 18% 18%, rgba(255, 140, 66, 0.11), transparent 34%),
+        radial-gradient(circle at 82% 76%, rgba(144, 84, 247, 0.18), transparent 40%),
+        rgba(255, 255, 255, 0.026);
+    box-shadow: 0 42px 100px -60px rgba(0, 0, 0, 0.94);
+    overflow: hidden;
+}
+
+.project-showcase--featured .project-showcase__content {
+    max-width: 620px;
+}
+
+.project-showcase--featured .project-showcase__title {
+    font-size: clamp(3rem, 5.2vw, 5.8rem);
+    line-height: 0.96;
+}
+
+.project-showcase--featured .project-showcase__desc {
+    max-width: 34ch;
+    font-size: clamp(1.1rem, 1.55vw, 1.35rem);
 }
 
 /* Phone frame --------------------------------------------- */
@@ -655,6 +687,99 @@
     object-fit: contain;
     object-position: center top;
     background: #ffffff;
+}
+
+.phone-frame--featured {
+    width: clamp(300px, 32vw, 430px);
+    transform: rotate(-3deg);
+}
+
+.project-supporting-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(18px, 2.2vw, 28px);
+}
+
+.case-card {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 24px;
+    min-height: 100%;
+    padding: clamp(24px, 2.6vw, 34px);
+    border: 1px solid rgba(255, 255, 255, 0.105);
+    border-radius: min(var(--radius-card), 30px);
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.062), rgba(255, 255, 255, 0.018)),
+        rgba(255, 255, 255, 0.026);
+    box-shadow: 0 30px 74px -48px rgba(0, 0, 0, 0.92);
+    overflow: hidden;
+}
+
+.case-card__visual.phone-frame {
+    width: min(58%, 220px);
+    margin: 0 auto;
+    border-radius: 34px;
+    padding: 10px;
+    transform: none;
+}
+
+.case-card__visual.phone-frame--landscape {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 20px;
+}
+
+.case-card__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.case-card__content .eyebrow {
+    margin-bottom: 12px;
+}
+
+.case-card h3 {
+    color: #ffffff;
+    font-size: clamp(1.45rem, 2vw, 2rem);
+    line-height: 1.08;
+    margin: 0 0 12px;
+}
+
+.case-card p {
+    color: var(--text-light);
+    line-height: 1.55;
+    margin: 0 0 18px;
+}
+
+.case-card__metric {
+    display: block;
+    color: rgba(255, 255, 255, 0.86);
+    font-weight: 650;
+    line-height: 1.4;
+    margin: auto 0 22px;
+}
+
+.details-button--quiet {
+    margin-top: auto;
+    text-transform: none;
+    letter-spacing: 0.01em;
+    padding: 10px 0;
+    border-radius: 0;
+    background: transparent;
+    color: #ffffff;
+    box-shadow: none;
+}
+
+.details-button--quiet::before,
+.details-button--quiet::after {
+    content: none;
+}
+
+.details-button--quiet:hover {
+    transform: none;
+    box-shadow: none;
+    color: var(--gradient-start);
 }
 
 .phone-frame__screen picture {
@@ -747,6 +872,24 @@
     .phone-frame { transform: rotate(-2deg); }
     .project-showcase--text-right .phone-frame { transform: rotate(2deg); }
     .phone-frame--landscape { width: 100%; max-width: 480px; }
+
+    .project-showcase--featured {
+        min-height: auto;
+    }
+
+    .project-supporting-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .case-card {
+        grid-template-columns: minmax(120px, 0.34fr) minmax(0, 1fr);
+        grid-template-rows: auto;
+        align-items: center;
+    }
+
+    .case-card__visual.phone-frame {
+        width: min(100%, 180px);
+    }
 }
 
 @media (max-width: 480px) {
@@ -810,5 +953,24 @@
 
     .phone-frame--landscape .phone-frame__screen {
         border-radius: 12px;
+    }
+}
+
+@media (max-width: 620px) {
+    .project-showcase--featured {
+        padding: 28px 20px;
+        border-radius: 28px;
+    }
+
+    .project-showcase--featured .project-showcase__title {
+        font-size: clamp(2.5rem, 13vw, 3.4rem);
+    }
+
+    .case-card {
+        grid-template-columns: 1fr;
+    }
+
+    .case-card__visual.phone-frame {
+        width: 58%;
     }
 }
