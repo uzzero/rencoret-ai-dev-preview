@@ -980,6 +980,12 @@
         transform: none !important;
     }
 
+    .phone-frame--featured {
+        width: min(86vw, 330px);
+        max-width: 330px;
+        border-radius: 38px;
+    }
+
     .phone-frame--landscape {
         width: 100%;
         max-width: 340px;
@@ -1012,5 +1018,12 @@
 
     .case-card__visual.phone-frame {
         width: 58%;
+    }
+}
+
+@media (max-width: 480px) {
+    .phone-frame--featured {
+        width: min(82vw, 310px);
+        max-width: 310px;
     }
 }
