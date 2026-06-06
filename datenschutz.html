@@ -318,6 +318,8 @@
         <link rel="stylesheet" href="css/theme.css">
     </noscript>
 
+    <link rel="stylesheet" href="css/cookie-banner.css">
+
     <link rel="preload" href="css/print.css" as="print" media="print" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet" href="css/print.css" media="print">
@@ -336,13 +338,15 @@
 </head>
 
 <body>
-    <div id="cookie-banner" class="cookie-banner">
-        <p>Diese Website verwendet Cookies und Tracking-Technologien. Nicht notwendiges Tracking laden wir erst nach
-            Ihrer aktiven Zustimmung. Details finden Sie in dieser <a
-                href="datenschutz.html">Datenschutzerklärung</a>.</p>
-        <div class="cookie-buttons">
-            <button id="accept-cookies">Akzeptieren</button>
-            <button id="reject-cookies">Ablehnen</button>
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <p>Diese Website verwendet Cookies und Tracking-Technologien. Nicht notwendiges Tracking laden wir erst nach
+                Ihrer aktiven Zustimmung. Details finden Sie in dieser <a
+                    href="datenschutz.html">Datenschutzerklärung</a>.</p>
+            <div class="cookie-buttons">
+                <button id="reject-cookies" class="cookie-btn cookie-btn-reject" type="button">Ablehnen</button>
+                <button id="accept-cookies" class="cookie-btn cookie-btn-accept" type="button">Akzeptieren</button>
+            </div>
         </div>
     </div>
 
@@ -459,7 +463,8 @@
                 in die Übertragung personenbezogener Daten in Drittstaaten erfolgt die Datenverarbeitung außerdem auf
                 Grundlage von Art. 49 Abs. 1 lit. a DSGVO. Sofern Sie in die Speicherung von Cookies oder in den Zugriff
                 auf Informationen in Ihr Endgerät (z. B. via Device-Fingerprinting) eingewilligt haben, erfolgt die
-                Datenverarbeitung zusätzlich auf Grundlage von § 25 Abs. 1 TTDSG. Die Einwilligung ist jederzeit
+                Datenverarbeitung zusätzlich auf Grundlage von § 25 Abs. 1 Telekommunikation-Digitale-Dienste-Datenschutz-Gesetz
+                (TDDDG). Die Einwilligung ist jederzeit
                 widerrufbar. Sind Ihre Daten zur Vertragserfüllung oder zur Durchführung vorvertraglicher Maßnahmen
                 erforderlich, verarbeiten wir Ihre Daten auf Grundlage des Art. 6 Abs. 1 lit. b DSGVO. Des Weiteren
                 verarbeiten wir Ihre Daten, sofern diese zur Erfüllung einer rechtlichen Verpflichtung erforderlich sind
@@ -722,6 +727,18 @@
         </svg>
     </button>
 
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied'
+        });
+    </script>
+    <script src="js/analytics.js" defer></script>
     <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
 
     <!-- Skript zur dynamischen Anpassung des Abstands -->
