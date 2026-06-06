@@ -8,10 +8,10 @@
     background-color: #000000;
     color: var(--text-color);
     text-align: center;
-    padding: clamp(104px, 12vh, 148px) 0 clamp(64px, 8vh, 104px);
+    padding: clamp(96px, 10vh, 128px) 0 0;
     position: relative;
     overflow: hidden;
-    min-height: auto;
+    min-height: 92svh;
     height: auto;
     display: block;
 }
@@ -63,14 +63,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: calc(92svh - clamp(96px, 10vh, 128px));
 }
 
 .hero.hero--apple .hero__headline {
-    margin: 8px 0 24px;
-    max-width: min(1040px, 100%);
+    margin: 10px 0 24px;
+    max-width: min(1120px, 100%);
     text-align: center;
-    font-size: clamp(4rem, 7vw, 5.4rem);
-    line-height: 1.06;
+    font-size: clamp(4rem, 7.2vw, 6.4rem);
+    line-height: 1;
     text-wrap: balance;
 }
 
@@ -80,23 +81,23 @@
 
 .hero__lede {
     text-align: center;
-    margin: 0 auto 36px;
-    max-width: 720px;
+    margin: 0 auto 26px;
+    max-width: 760px;
     color: var(--text-light);
     font-size: 1.125rem;
 }
 
 .hero__cta-row {
     justify-content: center;
-    margin-bottom: clamp(42px, 5.5vw, 76px);
+    margin-bottom: 0;
 }
 
 /* Hero visual ------------------------------------------------ */
 .hero__visual {
     position: relative;
-    width: min(100%, 900px);
-    max-width: 68vw;
-    margin: 0 auto;
+    width: 100vw;
+    max-width: none;
+    margin: clamp(8px, 1.6vw, 22px) 0 clamp(18px, 2.6vw, 34px);
     display: flex;
     justify-content: center;
     perspective: 1600px;
@@ -105,23 +106,39 @@
 .hero__visual-frame {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 10;
-    border-radius: clamp(20px, 2.4vw, 36px);
-    overflow: visible;
-    transform: rotateX(4deg) rotateZ(0deg);
+    aspect-ratio: 16 / 9;
+    border-radius: 0;
+    overflow: hidden;
+    transform: none;
     will-change: transform;
+    isolation: isolate;
 }
 
 .hero__visual-img {
     position: relative;
     z-index: 2;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    width: 112%;
+    height: 112%;
+    margin: -3.5% -6%;
+    object-fit: cover;
+    object-position: 52% 56%;
     image-rendering: auto;
-    filter: drop-shadow(0 60px 80px rgba(0, 0, 0, 0.7));
+    filter: none;
     border-radius: inherit;
     background: transparent;
+    transform-origin: center bottom;
+}
+
+.hero__visual-frame::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: 4;
+    pointer-events: none;
+    background:
+        linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 12%, rgba(0, 0, 0, 0) 86%, #000000 100%),
+        linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 18%, rgba(0, 0, 0, 0) 80%, #000000 100%),
+        radial-gradient(ellipse 74% 68% at 55% 56%, rgba(0, 0, 0, 0) 54%, rgba(0, 0, 0, 0.28) 76%, #000000 100%);
 }
 
 /* Show the placeholder only if the image fails to load */
@@ -171,13 +188,13 @@
 /* Floating animation for the visual */
 @media (prefers-reduced-motion: no-preference) {
     .hero__visual-frame {
-        animation: heroFloat 9s ease-in-out infinite;
+        animation: heroFloat 12s ease-in-out infinite;
     }
 }
 
 @keyframes heroFloat {
-    0%, 100% { transform: rotateX(4deg) translateY(0); }
-    50%      { transform: rotateX(4deg) translateY(-10px); }
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
 }
 
 /* Tagline */
@@ -192,23 +209,18 @@
 /* Responsive */
 @media (max-width: 768px) {
     .hero.hero--apple {
-        padding: 112px 0 64px;
+        padding: 112px 0 0;
         min-height: auto;
     }
 
     .hero.hero--apple .hero__headline {
         max-width: min(680px, 100%);
-        line-height: 1.08;
-        font-size: clamp(3rem, 11vw, 4.25rem);
-    }
-
-    .hero__cta-row {
-        margin-bottom: 42px;
+        line-height: 1;
+        font-size: clamp(2.85rem, 10vw, 4rem);
     }
 
     .hero__visual {
-        max-width: 92vw;
-        width: 100%;
+        width: 100vw;
     }
 
     .hero__visual-frame {
@@ -236,12 +248,12 @@
 
     .hero.hero--apple .hero__headline {
         max-width: 100%;
-        line-height: 1.08;
-        font-size: clamp(2.6rem, 12vw, 3.35rem);
+        line-height: 1.03;
+        font-size: clamp(2.35rem, 10.6vw, 3.1rem);
     }
 
     .hero__lede {
-        max-width: 25ch;
+        max-width: 29ch;
         margin-bottom: 28px;
         font-size: 0.95rem;
     }
@@ -262,7 +274,7 @@
     }
 
     .hero__visual {
-        width: min(108vw, 520px);
+        width: 100vw;
         max-width: none;
     }
 }
@@ -277,14 +289,17 @@
     }
 
     .hero__visual-frame {
-        aspect-ratio: 16 / 10;
-        overflow: visible;
+        aspect-ratio: 4 / 3;
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        overflow: hidden;
         border-radius: 0;
     }
 
     .hero__visual-img {
-        object-fit: contain;
-        filter: drop-shadow(0 32px 48px rgba(0, 0, 0, 0.68));
+        object-fit: cover;
+        object-position: 58% 54%;
     }
 }
 

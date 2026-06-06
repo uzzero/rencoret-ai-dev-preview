@@ -123,6 +123,25 @@
             });
         });
 
+        gsap.utils.toArray('[data-motion="stage-scale"]').forEach((stage) => {
+            const media = stage.querySelector('img, video') || stage;
+
+            gsap.fromTo(media,
+                { scale: 1.035, yPercent: 2 },
+                {
+                    scale: 0.995,
+                    yPercent: -1.5,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: stage.closest('section') || stage,
+                        start: 'top bottom',
+                        end: 'bottom top',
+                        scrub: true
+                    }
+                }
+            );
+        });
+
         ScrollTrigger.matchMedia({
             '(min-width: 992px)': () => {
                 gsap.utils.toArray('[data-motion="pin"]').forEach((el) => {
@@ -149,6 +168,26 @@
                             ease: 'none',
                             scrollTrigger: {
                                 trigger: block,
+                                start: 'top bottom',
+                                end: 'bottom top',
+                                scrub: true
+                            }
+                        }
+                    );
+                });
+
+                gsap.utils.toArray('.project-showcase').forEach((showcase) => {
+                    const visual = showcase.querySelector('.phone-frame');
+                    if (!visual) return;
+
+                    gsap.fromTo(visual,
+                        { yPercent: 9, scale: 0.96 },
+                        {
+                            yPercent: -7,
+                            scale: 1,
+                            ease: 'none',
+                            scrollTrigger: {
+                                trigger: showcase,
                                 start: 'top bottom',
                                 end: 'bottom top',
                                 scrub: true

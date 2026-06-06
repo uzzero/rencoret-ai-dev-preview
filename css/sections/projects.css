@@ -512,7 +512,7 @@
 }
 
 .projects--apple .projects__intro {
-    max-width: 720px;
+    max-width: 800px;
     margin-bottom: clamp(80px, 10vw, 130px);
     text-align: left;
 }
@@ -644,6 +644,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    transform-origin: center;
 }
 
 .phone-frame--mealply .phone-frame__screen {

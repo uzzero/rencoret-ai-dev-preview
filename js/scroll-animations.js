@@ -1,6 +1,6 @@
 /**
  * Scrollgesteuerte Einblendeffekte mit IntersectionObserver
- * 
+ *
  * Diese Datei implementiert einen eleganten Einblendeffekt für Elemente,
  * die mit der Klasse 'fade-in' markiert sind, sobald sie im Viewport sichtbar werden.
  */
@@ -8,7 +8,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Alle Elemente mit der Klasse 'fade-in' auswählen
   const fadeElements = document.querySelectorAll('.fade-in');
-  
+
   // IntersectionObserver konfigurieren
   const options = {
     // Element als sichtbar betrachten, wenn es zu mindestens 10% im Viewport ist
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Optional: Offset für früheres/späteres Auslösen der Animation
     rootMargin: '0px 0px -50px 0px'
   };
-  
+
   // IntersectionObserver erstellen
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
@@ -24,14 +24,14 @@ document.addEventListener('DOMContentLoaded', () => {
       if (entry.isIntersecting) {
         // Die Klasse 'visible' hinzufügen, um die Animation auszulösen
         entry.target.classList.add('visible');
-        
-        // Optional: Beobachtung für dieses Element beenden, 
+
+        // Optional: Beobachtung für dieses Element beenden,
         // da es nur einmal eingeblendet werden soll
         observer.unobserve(entry.target);
       }
     });
   }, options);
-  
+
   // Alle fade-in Elemente beobachten
   fadeElements.forEach(element => {
     observer.observe(element);
@@ -52,35 +52,35 @@ window.addEventListener('load', () => {
 document.addEventListener('DOMContentLoaded', function() {
     // Prüfen, ob wir uns auf einem mobilen Gerät befinden (vereinfachte Erkennung)
     const isMobile = window.innerWidth < 768;
-    
+
     if (isMobile) {
         // Alle Service-Karten auswählen
         const serviceCards = document.querySelectorAll('.service-card');
-        
+
         // Observer erstellen, der prüft, ob Elemente im Viewport sind
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 // Sanften Übergang berechnen
                 // Diese Formel sorgt für eine natürlichere Animation
                 let visibilityRatio = 0;
-                
+
                 if (entry.intersectionRatio > 0) {
                     // Exponentielles Mapping für ein sanfteres Gefühl
                     // Diese Funktion macht die Animation zu Beginn langsamer und am Ende schneller
                     visibilityRatio = Math.pow(entry.intersectionRatio, 0.7);
-                    
+
                     // Wenn mehr als 15% sichtbar, füge Klasse hinzu
                     if (entry.intersectionRatio > 0.15 && !entry.target.classList.contains('is-visible')) {
                         entry.target.classList.add('is-visible');
-                        
+
                         // Kleine Verzögerung zwischen den aufeinanderfolgenden Karten hinzufügen
                         const cards = Array.from(serviceCards);
                         const currentIndex = cards.indexOf(entry.target);
-                        
+
                         // Finde alle sichtbaren Karten mit niedrigerem Index
-                        const visibleCardsBelow = cards.slice(0, currentIndex).filter(card => 
+                        const visibleCardsBelow = cards.slice(0, currentIndex).filter(card =>
                             card.classList.contains('is-visible'));
-                            
+
                         // Nur verzögern, wenn es Karten davor gibt
                         if (visibleCardsBelow.length > 0) {
                             // Setze kurz ein niedriges Verhältnis und erhöhe es dann
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         setTimeout(() => {
                             const newValue = currentVisibility * (1 - (i / fadeSteps));
                             entry.target.style.setProperty('--visibility', newValue.toString());
-                            
+
                             // Klasse nur beim letzten Schritt entfernen
                             if (i === fadeSteps) {
                                 entry.target.classList.remove('is-visible');
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
             rootMargin: '-5% 0px', // Erst starten, wenn die Karte zu 5% im Viewport ist
             threshold: Array.from({ length: 21 }, (_, i) => i * 0.05) // 21 Schritte von 0 bis 1 in 0.05-Schritten
         });
-        
+
         // Jede Karte überwachen
         serviceCards.forEach(card => {
             // Initialisierung der CSS-Variable
@@ -125,53 +125,53 @@ document.addEventListener('DOMContentLoaded', function() {
             observer.observe(card);
         });
     }
-    
+
     // Reagiere auf Fenstergrößenänderungen
     window.addEventListener('resize', function() {
         const currentIsMobile = window.innerWidth < 768;
-        
+
         // Wenn sich der Status ändert (von mobile zu desktop oder umgekehrt)
         if (currentIsMobile !== isMobile) {
             // Seite neu laden, um Observer zu aktualisieren
             location.reload();
         }
     });
-    
+
     // Animation der Zahlen im Über uns-Bereich
     // Funktion zur Animation der Zahlen
     function animateNumbers() {
         const statItems = document.querySelectorAll('.stat-number');
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        
+
         statItems.forEach(item => {
             const finalValue = item.getAttribute('data-final');
             if (finalValue) {
                 item.textContent = finalValue;
             }
         });
-        
+
         if (reduceMotion || !('IntersectionObserver' in window)) {
             return;
         }
-        
+
         // Erstelle einen Observer für die Statistik-Elemente
         const statsObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
                     // Markiere als bereits animiert
                     entry.target.classList.add('animated');
-                    
+
                     // Zielwert aus dem data-target Attribut holen
                     const target = parseInt(entry.target.getAttribute('data-target'), 10);
                     const finalValue = entry.target.getAttribute('data-final') || entry.target.textContent;
-                    
+
                     if (!Number.isFinite(target)) {
                         return;
                     }
-                    
+
                     // Aktuelle Zahl (startet bei 0)
                     let current = 0;
-                    
+
                     // Formatierungsfunktion für große Zahlen
                     const formatNumber = (num) => {
                         if (num >= 1000000) {
@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                         return num.toString();
                     };
-                    
+
                     // Spezielle Behandlung für verschiedene Zahlengrößen
                     let step, interval;
                     if (target >= 100000) {
@@ -197,11 +197,11 @@ document.addEventListener('DOMContentLoaded', function() {
                         step = 1;
                         interval = 50; // Langsamer aktualisieren (alle 50ms)
                     }
-                    
+
                     // Animation starten
                     const counter = setInterval(() => {
                         current += step;
-                        
+
                         // Nicht über den Zielwert hinaus
                         if (current >= target) {
                             current = target;
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             entry.target.textContent = finalValue;
                             return;
                         }
-                        
+
                         // Anzeige aktualisieren - speziell formatiert für große Zahlen
                         if (target >= 10000) {
                             entry.target.textContent = formatNumber(current);
@@ -224,16 +224,16 @@ document.addEventListener('DOMContentLoaded', function() {
             rootMargin: '-10% 0px',
             threshold: 0.3 // Animation starten, wenn 30% des Elements sichtbar sind
         });
-        
+
         // Alle Zahlen-Elemente beobachten
         statItems.forEach(item => {
             statsObserver.observe(item);
         });
     }
-    
+
     // Zahlenanimation initialisieren
     animateNumbers();
-    
+
     // Timeline-Animation für den Prozess-Bereich
     function animateTimeline() {
         const timelineItems = document.querySelectorAll('.timeline-item');
@@ -241,10 +241,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const timelineSection = document.querySelector('.process');
         const timelineTracker = document.querySelector('.timeline-tracker');
         const trackerDot = document.querySelector('.tracker-dot');
-        
+
         // Wenn keine Timeline-Items vorhanden sind, beenden
         if (timelineItems.length === 0) return;
-        
+
         // Observer für Timeline-Items
         const timelineObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Verzögerung basierend auf der Position des Elements
                     const items = Array.from(timelineItems);
                     const currentIndex = items.indexOf(entry.target);
-                    
+
                     // Verzögerung für sequentielle Animation
                     setTimeout(() => {
                         entry.target.classList.add('visible');
@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', function() {
             rootMargin: '-10% 0px',
             threshold: 0.2 // Animation starten, wenn 20% des Elements sichtbar sind
         });
-        
+
         // Observer für Dekorationen (Glühbirne und Rakete)
         const decorationObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -280,17 +280,17 @@ document.addEventListener('DOMContentLoaded', function() {
             rootMargin: '0px',
             threshold: 0.5 // Animation starten, wenn 50% des Elements sichtbar sind
         });
-        
+
         // Alle Timeline-Items beobachten
         timelineItems.forEach(item => {
             timelineObserver.observe(item);
         });
-        
+
         // Alle Dekorationen beobachten
         timelineDecorations.forEach(decoration => {
             decorationObserver.observe(decoration);
         });
-        
+
         // Timeline-Sektion beobachten für den Tracker-Punkt
         if (timelineSection && timelineTracker && trackerDot) {
             const timelineSectionObserver = new IntersectionObserver((entries) => {
@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Tracker-Punkt sofort sichtbar machen und am Anfang positionieren
                         trackerDot.style.top = '0%';
                         trackerDot.classList.add('visible');
-                        
+
                         // Nach kurzer Verzögerung die Position aktualisieren
                         setTimeout(() => {
                             updateTrackerPosition();
@@ -312,20 +312,20 @@ document.addEventListener('DOMContentLoaded', function() {
             }, {
                 threshold: 0.1 // Aktivieren, wenn mindestens 10% der Timeline sichtbar sind
             });
-            
+
             timelineSectionObserver.observe(timelineSection);
         }
-        
+
         // Funktion zur Aktualisierung der Position des Tracker-Punkts
         function updateTrackerPosition() {
             if (!timelineSection || !timelineTracker || !trackerDot) return;
-            
+
             const timelineBounds = timelineSection.getBoundingClientRect();
             const timelineHeight = timelineTracker.offsetHeight;
-            
+
             // Berechne, wie weit der Benutzer durch die Timeline gescrollt hat
             let scrollPercentage = 0;
-            
+
             // Wenn die Timeline im Viewport ist
             if (timelineBounds.top <= window.innerHeight && timelineBounds.bottom >= 0) {
                 // Vereinfachte und robustere Berechnung
@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const timelineTopRelativeToViewport = timelineBounds.top;
                 const timelineBottomRelativeToViewport = timelineBounds.bottom;
                 const viewportHeight = window.innerHeight;
-                
+
                 // Wenn die Timeline gerade beginnt, in den Viewport zu scrollen
                 if (timelineBottomRelativeToViewport <= viewportHeight && timelineTopRelativeToViewport >= viewportHeight) {
                     scrollPercentage = 0; // Anfang der Timeline
@@ -347,14 +347,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Berechne den Prozentsatz basierend auf der Position der Timeline
                     const totalScrollDistance = timelineHeight + viewportHeight;
                     const scrolledDistance = viewportHeight - timelineTopRelativeToViewport;
-                    
+
                     scrollPercentage = scrolledDistance / totalScrollDistance;
                     scrollPercentage = Math.max(0, Math.min(1, scrollPercentage));
                 }
-                
+
                 // Position des Punktes aktualisieren
                 trackerDot.style.top = (scrollPercentage * 100) + '%';
-                
+
                 // Punkt sichtbar machen, wenn die Timeline im Viewport ist
                 trackerDot.classList.add('visible');
             } else {
@@ -362,10 +362,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 trackerDot.classList.remove('visible');
             }
         }
-        
+
         // Initialisiere die Position des Tracker-Punkts
         updateTrackerPosition();
-        
+
         // Aktualisiere die Position beim Scrollen
         window.addEventListener('scroll', updateTrackerPosition);
         window.addEventListener('resize', updateTrackerPosition);
@@ -374,7 +374,7 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             updateTrackerPosition();
         }, 100);
-        
+
         // Zusätzlicher Timer für verzögerte Initialisierung, um sicherzustellen, dass der Punkt sichtbar ist
         setTimeout(() => {
             if (trackerDot && timelineSection.getBoundingClientRect().top <= window.innerHeight) {
@@ -382,9 +382,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 500);
     }
-    
+
     // Timeline-Animation initialisieren
     animateTimeline();
 });
-
- 

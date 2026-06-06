@@ -149,6 +149,44 @@ body {
     margin-top: clamp(28px, 4vw, 44px);
 }
 
+.deliverables-stage {
+    position: relative;
+    width: 100vw;
+    margin: 0 0 clamp(44px, 7vw, 84px);
+    margin-left: calc(50% - 50vw);
+    aspect-ratio: 1672 / 941;
+    overflow: hidden;
+    border-radius: 0;
+    background: #000000;
+    border: 0;
+    box-shadow: none;
+    isolation: isolate;
+}
+
+.deliverables-stage::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+        linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, #000000 100%),
+        linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 12%, rgba(0, 0, 0, 0) 84%, #000000 100%),
+        radial-gradient(ellipse 88% 74% at 50% 52%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.44) 100%);
+    pointer-events: none;
+}
+
+.deliverables-stage picture,
+.deliverables-stage img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.deliverables-stage img {
+    object-fit: cover;
+    transform-origin: center;
+}
+
 .tool-cloud {
     position: relative;
     display: grid;
@@ -531,6 +569,17 @@ body {
 
     .conversion-card--wide {
         grid-column: auto;
+    }
+
+    .deliverables-stage {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-right: 0;
+        aspect-ratio: 4 / 5;
+    }
+
+    .deliverables-stage img {
+        object-position: center;
     }
 
     .tool-cloud {
