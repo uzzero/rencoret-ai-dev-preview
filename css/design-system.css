@@ -346,6 +346,37 @@ body > header nav ul li a::after {
     display: none !important;
 }
 
+body > header .nav-cta {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 18px;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+    color: #ffffff !important;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: filter 0.25s ease, transform 0.25s ease;
+}
+
+body > header .nav-cta:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    color: #ffffff !important;
+}
+
+.mobile-menu .mobile-menu-cta {
+    justify-content: center;
+    width: 100%;
+    margin: 18px 0 6px;
+    padding: 15px 24px;
+    font-size: 0.95rem;
+}
+
 @media (min-width: 1181px) and (max-width: 1320px) {
     body > header {
         width: min(calc(100% - 40px), 1180px) !important;

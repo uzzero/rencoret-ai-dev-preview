@@ -299,10 +299,15 @@
 
         gtag('event', eventName, eventParams);
 
-        // LinkedIn conversion tracking for specific events
-        if (config.linkedin.enabled && window.lintrk) {
-            if (eventName === 'form_submit' || eventName === 'generate_lead') {
+        // Ad-platform conversions fire only on confirmed leads (success overlay),
+        // not on submit attempts, to avoid double counting
+        if (eventName === 'generate_lead') {
+            if (config.linkedin.enabled && window.lintrk) {
                 window.lintrk('track', { conversion_id: config.linkedin.conversionId });
+            }
+            // Meta Pixel hook: fires automatically once the pixel is installed
+            if (window.fbq) {
+                window.fbq('track', 'Lead');
             }
         }
     };
@@ -363,18 +368,14 @@
             }
         }, true);
 
-        // Track form submit
+        // Track form submit attempt (GA only - the lead conversion fires
+        // via 'generate_lead' once the success overlay is shown)
         contactForm.addEventListener('submit', () => {
             trackEvent('form_submit', {
                 form_name: 'contact_form',
                 form_id: 'contact-form',
-                value: 1 // For LinkedIn conversion tracking
+                value: 1
             });
-
-            // LinkedIn Lead Gen tracking
-            if (config.linkedin.enabled && window.lintrk) {
-                window.lintrk('track', { conversion_id: config.linkedin.conversionId });
-            }
         });
     }
 
@@ -392,7 +393,7 @@
         });
 
         // Track "Projekt starten" buttons specifically
-        document.querySelectorAll('a[href="#kontakt"], a[href="#contact"], button[onclick*="contact"], button[onclick*="kontakt"]').forEach(button => {
+        document.querySelectorAll('a[href="#kontakt"], a[href="#lead-form"], a[href="#contact"], button[onclick*="contact"], button[onclick*="kontakt"]').forEach(button => {
             button.addEventListener('click', function () {
                 trackEvent('start_project_click', {
                     button_text: this.textContent.trim(),

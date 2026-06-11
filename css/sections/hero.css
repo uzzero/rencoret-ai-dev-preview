@@ -91,7 +91,24 @@
 
 .hero__cta-row {
     justify-content: center;
-    margin-bottom: 0;
+    margin-bottom: 14px;
+}
+
+.hero__microcopy {
+    margin: 0 0 10px;
+    color: rgba(255, 255, 255, 0.56);
+    font-size: 0.86rem;
+    line-height: 1.5;
+}
+
+.hero__proof-line {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.5;
+    text-transform: uppercase;
 }
 
 /* Hero visual ------------------------------------------------ */
@@ -212,34 +229,15 @@
     50%      { transform: translateY(-8px); }
 }
 
-.hero__audience-row {
-    display: inline-flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin-top: clamp(28px, 4vw, 52px);
-}
-
-.hero__audience-row span {
-    display: inline-flex;
-    align-items: center;
-    min-height: 36px;
-    padding: 8px 14px;
-    color: rgba(255, 255, 255, 0.72);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.035);
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
 /* Responsive */
 @media (max-width: 768px) {
     .hero.hero--apple {
         --hero-top-offset: 112px;
         padding: var(--hero-top-offset) 0 0;
+        min-height: auto;
+    }
+
+    .hero__inner {
         min-height: auto;
     }
 
@@ -302,6 +300,20 @@
     .hero__cta-row .btn-ghost {
         justify-content: center;
         width: 100%;
+    }
+
+    .hero__microcopy {
+        max-width: 29ch;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 0.78rem;
+    }
+
+    .hero__proof-line {
+        max-width: 32ch;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 0.72rem;
     }
 
     .hero__visual {

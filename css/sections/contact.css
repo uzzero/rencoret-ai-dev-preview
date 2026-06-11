@@ -523,6 +523,10 @@ button[type="submit"]:hover::before {
     overflow: hidden;
 }
 
+#lead-form {
+    scroll-margin-top: 118px;
+}
+
 .contact-card::after {
     content: "";
     position: absolute;
@@ -632,7 +636,7 @@ button[type="submit"]:hover::before {
 
 /* Form card --------------------------------------- */
 .contact-card--form .contact-card__title {
-    margin: 0 0 24px;
+    margin: 0 0 12px;
     font-family: 'Inter Tight', 'Inter', sans-serif;
     font-size: 1.65rem;
     font-weight: 600;
@@ -640,24 +644,112 @@ button[type="submit"]:hover::before {
     color: #ffffff;
 }
 
+.contact-card__lead {
+    max-width: 620px;
+    margin: 0 0 18px;
+    color: var(--text-light);
+    line-height: 1.55;
+    font-size: 0.96rem;
+}
+
+.contact-card__trust-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 24px;
+}
+
+.contact-card__trust-row span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 30px;
+    padding: 7px 11px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.045);
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
 .contact--apple .form-group {
     margin-bottom: 18px;
 }
 
+.contact--apple .form-details {
+    margin: 6px 0 22px;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.028);
+    overflow: hidden;
+}
+
+.contact--apple .form-details summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 54px;
+    padding: 16px 18px;
+    color: rgba(255, 255, 255, 0.78);
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 750;
+    letter-spacing: 0.1em;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+.contact--apple .form-details summary::-webkit-details-marker {
+    display: none;
+}
+
+.contact--apple .form-details summary::after {
+    content: "+";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 26px;
+    height: 26px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.contact--apple .form-details[open] summary {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact--apple .form-details[open] summary::after {
+    content: "-";
+}
+
 .contact--apple .form-section {
-    margin: 8px 0 22px;
-    padding: 22px 0 0;
+    margin: 0;
+    padding: 22px 18px 2px;
     border: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.09);
 }
 
 .contact--apple .form-section legend {
-    padding: 0 12px 0 0;
-    color: rgba(255, 255, 255, 0.72);
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.contact--apple .form-details + .form-group--checkbox {
+    margin-top: 0;
 }
 
 .contact--apple .form-group label {
@@ -672,7 +764,8 @@ button[type="submit"]:hover::before {
 .contact--apple .form-group input[type="text"],
 .contact--apple .form-group input[type="email"],
 .contact--apple .form-group input[type="tel"],
-.contact--apple .form-group textarea {
+.contact--apple .form-group textarea,
+.contact--apple .form-group select {
     width: 100%;
     padding: 14px 16px;
     background: rgba(255, 255, 255, 0.03);
@@ -686,6 +779,23 @@ button[type="submit"]:hover::before {
             appearance: none;
 }
 
+.contact--apple .form-group select {
+    cursor: pointer;
+    background-image:
+        linear-gradient(45deg, transparent 50%, rgba(255, 255, 255, 0.64) 50%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.64) 50%, transparent 50%);
+    background-position:
+        calc(100% - 18px) 50%,
+        calc(100% - 12px) 50%;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+}
+
+.contact--apple .form-group select option {
+    background: #101010;
+    color: #ffffff;
+}
+
 .contact--apple .form-group textarea {
     resize: vertical;
     min-height: 120px;
@@ -693,7 +803,8 @@ button[type="submit"]:hover::before {
 }
 
 .contact--apple .form-group input:focus,
-.contact--apple .form-group textarea:focus {
+.contact--apple .form-group textarea:focus,
+.contact--apple .form-group select:focus {
     outline: none;
     border-color: rgba(255, 140, 66, 0.5);
     background: rgba(255, 255, 255, 0.05);
@@ -744,5 +855,15 @@ button[type="submit"]:hover::before {
 @media (max-width: 480px) {
     .contact-card {
         padding: 28px 22px;
+    }
+
+    .contact-card__trust-row span {
+        font-size: 0.68rem;
+    }
+
+    .contact--apple .form-details summary {
+        align-items: flex-start;
+        font-size: 0.74rem;
+        line-height: 1.35;
     }
 }

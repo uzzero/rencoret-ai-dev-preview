@@ -609,9 +609,10 @@
 
 /* Phone frame --------------------------------------------- */
 .phone-frame {
+    --phone-frame-aspect: 9 / 19.5;
     position: relative;
     width: clamp(260px, 30vw, 360px);
-    aspect-ratio: 9 / 19.5;
+    aspect-ratio: var(--phone-frame-aspect);
     border-radius: clamp(38px, 4.2vw, 54px);
     background:
         linear-gradient(145deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0) 18%),
@@ -717,13 +718,21 @@
     background: #ffffff;
 }
 
+.phone-frame--lebenszeichen {
+    --phone-frame-aspect: 591 / 1280;
+}
+
+.phone-frame--mealply {
+    --phone-frame-aspect: 462 / 1001;
+}
+
 .phone-frame--mealply .phone-frame__screen {
     background: #ffffff;
 }
 
 .phone-frame--mealply .phone-frame__screen img {
     object-fit: contain;
-    object-position: center top;
+    object-position: center;
     background: #ffffff;
 }
 
@@ -754,7 +763,7 @@
 }
 
 .case-card__visual.phone-frame {
-    width: min(64%, 238px);
+    width: min(72%, 268px);
     margin: 0 auto;
     border-radius: 38px;
     padding: 12px;
@@ -927,7 +936,7 @@
     }
 
     .case-card__visual.phone-frame {
-        width: min(100%, 180px);
+        width: min(100%, 210px);
     }
 }
 
@@ -1017,7 +1026,7 @@
     }
 
     .case-card__visual.phone-frame {
-        width: 58%;
+        width: min(88%, 320px);
     }
 }
 
