@@ -523,8 +523,18 @@ button[type="submit"]:hover::before {
     overflow: hidden;
 }
 
+#kontakt,
 #lead-form {
     scroll-margin-top: 118px;
+}
+
+.contact-anchor {
+    display: block;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    overflow: hidden;
+    pointer-events: none;
 }
 
 .contact-card::after {
@@ -849,6 +859,13 @@ button[type="submit"]:hover::before {
 @media (max-width: 900px) {
     .contact-grid {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    #kontakt,
+    #lead-form {
+        scroll-margin-top: 96px;
     }
 }
 

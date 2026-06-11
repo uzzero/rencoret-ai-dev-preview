@@ -4,13 +4,14 @@
 
 .client-logos.client-logos--apple {
     background-color: #000000 !important;
+    margin-top: -1px;
     padding: clamp(40px, 6vw, 80px) 0 clamp(40px, 6vw, 80px);
     text-align: center;
     position: relative;
     z-index: 5;
     overflow: hidden;
-    border-top: 1px solid var(--glass-border);
-    border-bottom: 1px solid var(--glass-border);
+    border-top: 0;
+    border-bottom: 0;
 }
 
 .client-logos--apple .client-logos__heading {

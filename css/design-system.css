@@ -107,8 +107,9 @@ html[data-theme="light"] body {
             box-decoration-break: clone;
     -webkit-text-fill-color: transparent;
             color: transparent;
-    padding-bottom: 0.08em;
-    margin-bottom: -0.08em;
+    line-height: 1.12;
+    padding-bottom: 0.12em;
+    margin-bottom: 0;
 }
 
 .eyebrow {
@@ -135,7 +136,8 @@ section {
     position: relative;
 }
 
-section[id] {
+section[id],
+[data-nav-section][id] {
     scroll-margin-top: 112px;
 }
 
@@ -719,7 +721,8 @@ footer {
 
     section h2 { margin-bottom: 36px; }
 
-    section[id] {
+    section[id],
+    [data-nav-section][id] {
         scroll-margin-top: 92px;
     }
 

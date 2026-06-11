@@ -60,7 +60,11 @@
 
         gsap.registerPlugin(ScrollTrigger);
 
-        if (window.Lenis) {
+        const useLenis = window.Lenis
+            && window.matchMedia('(min-width: 769px)').matches
+            && window.matchMedia('(pointer: fine)').matches;
+
+        if (useLenis) {
             const lenis = new window.Lenis({
                 lerp: 0.08,
                 smoothWheel: true,
@@ -71,6 +75,8 @@
             gsap.ticker.add((time) => lenis.raf(time * 1000));
             gsap.ticker.lagSmoothing(0);
             window.rencoretLenis = lenis;
+        } else {
+            window.rencoretLenis = null;
         }
 
         gsap.utils.toArray('[data-motion="reveal"]').forEach((el) => {

@@ -17,9 +17,20 @@
     display: block;
 }
 
-.hero.hero--apple::before,
-.hero.hero--apple::after {
+.hero.hero--apple::before {
     content: none;
+}
+
+.hero.hero--apple::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    z-index: 2;
+    height: clamp(220px, 22vw, 360px);
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 76%, #000000 100%);
 }
 
 .hero__glow-layer {
@@ -116,7 +127,7 @@
     position: relative;
     width: 100vw;
     max-width: none;
-    margin: clamp(8px, 1.6vw, 22px) 0 clamp(18px, 2.6vw, 34px);
+    margin: clamp(8px, 1.6vw, 22px) 0 0;
     display: flex;
     justify-content: center;
     perspective: 1600px;
@@ -127,11 +138,11 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -1px;
+    bottom: -2px;
     z-index: 6;
-    height: clamp(120px, 13vw, 230px);
+    height: clamp(190px, 19vw, 340px);
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.58) 48%, #000000 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.72) 48%, #000000 88%, #000000 100%);
 }
 
 .hero__visual-frame {
@@ -168,7 +179,7 @@
     pointer-events: none;
     background:
         linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 12%, rgba(0, 0, 0, 0) 86%, #000000 100%),
-        linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.08) 18%, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, 0.08) 62%, rgba(0, 0, 0, 0.56) 82%, rgba(0, 0, 0, 0.88) 94%, #000000 100%),
+        linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.08) 18%, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, 0.16) 58%, rgba(0, 0, 0, 0.72) 76%, #000000 91%, #000000 100%),
         radial-gradient(ellipse 78% 70% at 55% 56%, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 0.26) 72%, #000000 100%);
 }
 

@@ -36,69 +36,139 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', setViewportHeight);
     window.addEventListener('orientationchange', setViewportHeight);
     
-    // Alle Navigation-Links im Header
-    const navLinks = document.querySelectorAll('header nav a[href^="#"]');
+    // Alle Navigation-Links im Header und mobilen Menü
+    const navLinks = document.querySelectorAll('header nav a[href^="#"], .mobile-menu a[href^="#"]');
+    const scrollLinks = document.querySelectorAll('a[href^="#"]');
     const homeLink = document.querySelector('header nav a[href="/"]');
     console.log("Navigation-Links gefunden:", navLinks.length);
 
     function refreshMotion() {
         if (window.ScrollTrigger) {
-            window.ScrollTrigger.refresh();
+            if (!window.matchMedia('(max-width: 768px)').matches) {
+                window.ScrollTrigger.refresh();
+            }
             window.ScrollTrigger.update();
         }
     }
 
     function scrollToPosition(top, behavior = 'smooth') {
-        window.scrollTo({ top, behavior: behavior === 'auto' ? 'auto' : 'smooth' });
+        const nextTop = Math.max(0, Math.round(top));
 
         if (window.rencoretLenis && typeof window.rencoretLenis.scrollTo === 'function') {
-            window.rencoretLenis.scrollTo(top, { immediate: true, force: true });
+            window.rencoretLenis.scrollTo(nextTop, {
+                immediate: true,
+                force: true
+            });
+        } else {
+            window.scrollTo({
+                top: nextTop,
+                behavior: behavior === 'auto' ? 'auto' : 'smooth'
+            });
         }
 
         setTimeout(refreshMotion, 120);
         setTimeout(refreshMotion, 700);
     }
 
+    function getAnchorViewportOffset() {
+        const header = document.querySelector('header');
+        if (!header) return 104;
+
+        const headerRect = header.getBoundingClientRect();
+        const extraGap = window.matchMedia('(max-width: 768px)').matches ? 18 : 24;
+        return Math.max(header.offsetHeight, headerRect.bottom) + extraGap;
+    }
+
+    function getAnchorTarget(targetId) {
+        if (targetId === 'kontakt') {
+            return document.querySelector('.contact-card__details')
+                || document.querySelector('.contact-card--ceo')
+                || document.getElementById('kontakt');
+        }
+
+        return document.getElementById(targetId);
+    }
+
+    function correctScrollToElement(targetElement, desiredViewportTop) {
+        const correction = targetElement.getBoundingClientRect().top - desiredViewportTop;
+
+        if (Math.abs(correction) > 2) {
+            scrollToPosition(window.pageYOffset + correction, 'auto');
+        }
+    }
+
     function scrollToElement(targetElement, behavior = 'smooth') {
-        const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+        refreshMotion();
+
         const windowY = window.pageYOffset;
         const targetPosition = targetElement.getBoundingClientRect().top + windowY;
-        const offsetPosition = Math.max(0, targetPosition - headerHeight - 28);
+        const desiredViewportTop = getAnchorViewportOffset();
+        const offsetPosition = Math.max(0, targetPosition - desiredViewportTop);
 
         scrollToPosition(offsetPosition, behavior);
+
+        const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
+        const correctionDelay = behavior === 'auto' ? 80 : (isMobileViewport ? 1150 : 650);
+        setTimeout(() => correctScrollToElement(targetElement, desiredViewportTop), correctionDelay);
+
+        if (behavior !== 'auto') {
+            setTimeout(() => correctScrollToElement(targetElement, desiredViewportTop), correctionDelay + 500);
+        }
     }
 
     window.rencoretScrollToElement = scrollToElement;
+    window.rencoretGetAnchorTarget = getAnchorTarget;
+
+    function getTargetIdFromHref(href) {
+        if (!href || href === '#') return null;
+
+        try {
+            const url = new URL(href, window.location.href);
+            const currentPath = window.location.pathname || '/';
+
+            if (url.origin !== window.location.origin || url.pathname !== currentPath) {
+                return null;
+            }
+
+            return url.hash ? decodeURIComponent(url.hash.substring(1)) : null;
+        } catch (error) {
+            if (href.charAt(0) === '#') {
+                return decodeURIComponent(href.substring(1));
+            }
+        }
+
+        return null;
+    }
+
+    function isNavigationLink(link) {
+        return Boolean(link.closest('header nav') || link.closest('.mobile-menu'));
+    }
     
-    navLinks.forEach(link => {
+    scrollLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             // Hole die Ziel-ID
-            const targetId = this.getAttribute('href');
-            
-            // Überspringe leere oder # Links
-            if (!targetId || targetId === '#') return;
-            
-            // Finde das Zielelement
-            const targetElementId = targetId.substring(1); // Entferne das führende #
-            const targetElement = document.getElementById(targetElementId);
+            const targetElementId = getTargetIdFromHref(this.getAttribute('href'));
+            const targetElement = targetElementId ? getAnchorTarget(targetElementId) : null;
             
             if (targetElement) {
                 e.preventDefault();
 
-                // Aktive Klasse für alle Links zurücksetzen
-                navLinks.forEach(l => {
-                    l.removeAttribute('aria-current');
-                    l.classList.remove('scrolled-active');
-                });
-                
-                if (homeLink) {
-                    homeLink.removeAttribute('aria-current');
-                    homeLink.classList.remove('scrolled-active');
+                if (isNavigationLink(this)) {
+                    // Aktive Klasse für alle Links zurücksetzen
+                    navLinks.forEach(l => {
+                        l.removeAttribute('aria-current');
+                        l.classList.remove('scrolled-active');
+                    });
+                    
+                    if (homeLink) {
+                        homeLink.removeAttribute('aria-current');
+                        homeLink.classList.remove('scrolled-active');
+                    }
+                    
+                    // Aktive Klasse für den geklickten Link setzen
+                    this.setAttribute('aria-current', 'page');
+                    this.classList.add('scrolled-active');
                 }
-                
-                // Aktive Klasse für den geklickten Link setzen
-                this.setAttribute('aria-current', 'page');
-                this.classList.add('scrolled-active');
 
                 scrollToElement(targetElement);
             }
@@ -136,8 +206,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Aktive Navigation-Items basierend auf der Scroll-Position aktualisieren
     function updateActiveNavigation() {
-        // Alle Abschnitte mit IDs
-        const sections = document.querySelectorAll('section[id]');
+        // Alle navigierbaren Abschnitte mit IDs
+        const sections = document.querySelectorAll('section[id], [data-nav-section][id]');
         const headerHeight = document.querySelector('header').offsetHeight;
         const scrollY = window.pageYOffset;
         const viewportHeight = window.innerHeight;
@@ -177,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const visibleHeight = Math.max(0, visibleBottom - visibleTop);
             
             // Prozentsatz des sichtbaren Bereichs
-            const visiblePercent = visibleHeight / rect.height;
+            const visiblePercent = rect.height > 0 ? visibleHeight / rect.height : 0;
             
             // Gewichteter sichtbarer Bereich (bevorzugt Abschnitte, die mehr sichtbar sind)
             const weightedVisibleArea = visibleHeight * visiblePercent;
@@ -188,6 +258,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 maxVisibleArea = weightedVisibleArea;
             }
         });
+
+        // Bei geklickten Ankern hat das Ziel nahe am Header Vorrang vor großen sichtbaren Bereichen.
+        const desiredViewportTop = getAnchorViewportOffset();
+        let closestAnchor = null;
+        let closestDistance = Infinity;
+
+        navLinks.forEach(link => {
+            const targetId = getTargetIdFromHref(link.getAttribute('href'));
+            const targetElement = targetId ? getAnchorTarget(targetId) : null;
+            if (!targetElement) return;
+
+            const rect = targetElement.getBoundingClientRect();
+            const isInViewport = rect.bottom >= 0 && rect.top <= viewportHeight;
+            if (!isInViewport) return;
+
+            const distance = Math.abs(rect.top - desiredViewportTop);
+            if (distance < closestDistance) {
+                closestDistance = distance;
+                closestAnchor = targetId;
+            }
+        });
+
+        if (closestAnchor && closestDistance <= 180) {
+            currentSection = closestAnchor;
+        }
         
         // Wenn ein sichtbarer Abschnitt gefunden wurde, aktiviere den entsprechenden Link
         if (currentSection) {
@@ -234,7 +329,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function handleHashScroll() {
         if (window.location.hash) {
             const targetId = window.location.hash.substring(1);
-            const targetElement = document.getElementById(targetId);
+            const targetElement = getAnchorTarget(targetId);
             
             if (targetElement) {
                 setTimeout(function() {
@@ -270,7 +365,9 @@ window.addEventListener('load', function() {
         // Mit setTimeout warten, um sicherzustellen, dass die Seite vollständig geladen ist
         setTimeout(() => {
             const targetId = window.location.hash.substring(1);
-            const targetElement = document.getElementById(targetId);
+            const targetElement = window.rencoretGetAnchorTarget
+                ? window.rencoretGetAnchorTarget(targetId)
+                : document.getElementById(targetId);
             
             if (targetElement) {
                 if (window.rencoretScrollToElement) {

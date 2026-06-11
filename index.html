@@ -1230,10 +1230,16 @@
                     lockCount = Math.max(0, lockCount - 1);
                     if (lockCount > 0) return;
 
+                    var shouldRestoreScroll = restoreScrollY !== false;
                     var scrollY = typeof restoreScrollY === 'number' ? restoreScrollY : lockedScrollY;
                     document.documentElement.classList.remove('rencoret-scroll-locked');
                     document.body.classList.remove('rencoret-scroll-locked');
                     document.body.style.removeProperty('top');
+
+                    if (!shouldRestoreScroll) {
+                        return;
+                    }
+
                     restoreScrollPosition(scrollY);
 
                     window.requestAnimationFrame(function () {
@@ -1254,17 +1260,21 @@
             var mobileMenuLinks = document.querySelectorAll('.mobile-menu a');
 
             if (mobileMenuToggle && mobileMenu && mobileMenuOverlay) {
-                function closeMobileMenu() {
+                function closeMobileMenu(options) {
                     if (!mobileMenu.classList.contains('active')) return;
+
+                    var shouldRestoreScroll = !(options && options.restoreScroll === false);
 
                     mobileMenuToggle.classList.remove('active');
                     mobileMenu.classList.remove('active');
                     mobileMenuOverlay.classList.remove('active');
                     mobileMenuToggle.setAttribute('aria-expanded', 'false');
                     if (window.rencoretUnlockScroll) {
-                        window.rencoretUnlockScroll();
+                        window.rencoretUnlockScroll(shouldRestoreScroll ? undefined : false);
                     }
                 }
+
+                window.rencoretCloseMobileMenu = closeMobileMenu;
 
                 // Toggle mobile menu
                 mobileMenuToggle.addEventListener('click', function () {
@@ -1287,7 +1297,11 @@
 
                 // Close mobile menu when clicking links
                 for (var i = 0; i < mobileMenuLinks.length; i++) {
-                    mobileMenuLinks[i].addEventListener('click', closeMobileMenu);
+                    mobileMenuLinks[i].addEventListener('click', function () {
+                        var href = this.getAttribute('href') || '';
+                        var isPageAnchor = href.charAt(0) === '#' && href.length > 1;
+                        closeMobileMenu({ restoreScroll: !isPageAnchor });
+                    });
                 }
 
                 // Close button functionality
@@ -2560,7 +2574,7 @@
 </section>
 
 
-        <section id="kontakt" class="contact contact--apple">
+        <section class="contact contact--apple">
     <span class="glow-aura glow-aura--orange contact__glow contact__glow--a" aria-hidden="true"></span>
     <span class="glow-aura glow-aura--purple contact__glow contact__glow--b" aria-hidden="true"></span>
 
@@ -2577,7 +2591,7 @@
         </div>
 
         <div class="contact-grid" data-motion="reveal">
-            <aside class="contact-card contact-card--ceo">
+            <aside id="kontakt" class="contact-card contact-card--ceo" data-nav-section>
                 <div class="ceo-profile">
                     <div class="ceo-profile__avatar">
                         <picture>
@@ -2615,7 +2629,7 @@
                 </div>
             </aside>
 
-            <div class="contact-card contact-card--form" id="lead-form">
+            <div class="contact-card contact-card--form">
                 <h3 class="contact-card__title" data-i18n="contact.form.heading">90-Tage-MVP-Fit-Check</h3>
                 <p class="contact-card__lead" data-i18n="contact.form.lead">
                     4 kurze Felder reichen. Die Einordnung darunter ist optional und hilft uns, schneller konkret zu antworten.
@@ -2625,6 +2639,7 @@
                     <span data-i18n="contact.form.promise.risk">Risiko-Check</span>
                     <span data-i18n="contact.form.promise.reply">Antwort in 24h</span>
                 </div>
+                <span id="lead-form" class="contact-anchor contact-anchor--lead" aria-hidden="true"></span>
                 <form id="contact-form" name="contact" method="post"
                       action="https://send.pageclip.co/rmZeWRkkpJosrWQBvXmyUqtzTkLkeDll" class="pageclip-form">
                     <input type="hidden" id="landing_page" name="landing_page">
@@ -3403,7 +3418,7 @@
         (function () {
             var stickyCta = document.getElementById('sticky-cta');
             var hero = document.querySelector('.hero');
-            var contact = document.getElementById('kontakt');
+            var contact = document.querySelector('.contact');
             if (!stickyCta || !hero || !('IntersectionObserver' in window)) return;
 
             var heroVisible = true;
