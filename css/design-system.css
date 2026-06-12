@@ -78,7 +78,7 @@ html[data-theme="light"] body {
 .display-xl,
 .display-lg,
 .display-md {
-    font-family: 'Inter Tight', 'Inter', system-ui, sans-serif;
+    font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: 0;
     line-height: 1.06;
@@ -118,7 +118,7 @@ html[data-theme="light"] body {
     text-transform: uppercase;
     letter-spacing: 0.22em;
     font-weight: 500;
-    color: var(--text-muted);
+    color: #8f8f8f;
     margin-bottom: 18px;
 }
 
@@ -570,6 +570,11 @@ html.motion-ready [data-motion="reveal"].is-visible,
 html.motion-ready [data-motion="stagger"] > .is-visible {
     opacity: 1;
     transform: translateY(0) scale(1);
+}
+
+html.motion-ready .hero [data-motion="reveal"] {
+    opacity: 1;
+    transform: none;
 }
 
 /* ---- Footer surface ---- */

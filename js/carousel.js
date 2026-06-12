@@ -263,7 +263,11 @@ function initMobileCarousel() {
 }
 
 // Init on load
-document.addEventListener('DOMContentLoaded', initMobileCarousel);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMobileCarousel, { once: true });
+} else {
+    initMobileCarousel();
+}
 
 // Bei Fenstergrößenänderung nichts tun - Carousel ist responsive durch CSS
 // Wenn später spezifische Updates bei Resize nötig sind, können sie hier ergänzt werden

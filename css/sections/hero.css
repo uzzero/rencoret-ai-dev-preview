@@ -5,7 +5,7 @@
    ===================================================== */
 
 .hero.hero--apple {
-    --hero-top-offset: clamp(160px, 18vh, 190px);
+    --hero-top-offset: 126px;
     background-color: #000000;
     color: var(--text-color);
     text-align: center;
@@ -28,9 +28,9 @@
     right: 0;
     bottom: -1px;
     z-index: 2;
-    height: clamp(220px, 22vw, 360px);
+    height: clamp(150px, 15vw, 240px);
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 76%, #000000 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 88%, #000000 100%);
 }
 
 .hero__glow-layer {
@@ -112,16 +112,6 @@
     line-height: 1.5;
 }
 
-.hero__proof-line {
-    margin: 0;
-    color: rgba(255, 255, 255, 0.42);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    line-height: 1.5;
-    text-transform: uppercase;
-}
-
 /* Hero visual ------------------------------------------------ */
 .hero__visual {
     position: relative;
@@ -140,9 +130,9 @@
     right: 0;
     bottom: -2px;
     z-index: 6;
-    height: clamp(190px, 19vw, 340px);
+    height: clamp(130px, 13vw, 220px);
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.72) 48%, #000000 88%, #000000 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.46) 58%, #000000 94%, #000000 100%);
 }
 
 .hero__visual-frame {
@@ -179,7 +169,7 @@
     pointer-events: none;
     background:
         linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 12%, rgba(0, 0, 0, 0) 86%, #000000 100%),
-        linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.08) 18%, rgba(0, 0, 0, 0) 38%, rgba(0, 0, 0, 0.16) 58%, rgba(0, 0, 0, 0.72) 76%, #000000 91%, #000000 100%),
+        linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.08) 18%, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.1) 66%, rgba(0, 0, 0, 0.46) 84%, #000000 96%, #000000 100%),
         radial-gradient(ellipse 78% 70% at 55% 56%, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 0.26) 72%, #000000 100%);
 }
 
@@ -318,13 +308,6 @@
         margin-left: auto;
         margin-right: auto;
         font-size: 0.78rem;
-    }
-
-    .hero__proof-line {
-        max-width: 32ch;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 0.72rem;
     }
 
     .hero__visual {

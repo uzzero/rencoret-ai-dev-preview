@@ -107,7 +107,7 @@ body {
 
 .conversion-card__index {
     display: inline-block;
-    color: var(--text-muted);
+    color: #8f8f8f;
     font-size: 0.78rem;
     letter-spacing: 0.18em;
     margin-bottom: 28px;
@@ -548,7 +548,7 @@ body {
 
 .offer-card__price {
     color: #ffffff;
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: var(--font-display);
     font-size: clamp(1.35rem, 1.9vw, 1.7rem);
     font-weight: 650;
     line-height: 1.1;
@@ -721,26 +721,32 @@ body {
 
 /* Sticky mobile CTA bar */
 .sticky-cta {
+    --sticky-cta-viewport-shift: 0px;
+    --sticky-cta-bottom-gap: 6px;
     position: fixed;
     left: 0;
     right: 0;
-    bottom: -1px;
+    bottom: 0;
     z-index: 900;
     display: none;
     width: 100%;
-    padding: 10px 16px calc(11px + env(safe-area-inset-bottom, 0px));
-    background: rgba(0, 0, 0, 0.72);
+    padding: 10px calc(16px + env(safe-area-inset-right, 0px)) var(--sticky-cta-bottom-gap) calc(16px + env(safe-area-inset-left, 0px));
+    background: rgba(0, 0, 0, 0.92);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
-    transform: translate3d(0, calc(100% + 2px), 0);
-    transition: transform 0.35s ease;
+    transform: translate3d(0, calc(100% + 8px), 0);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s ease, opacity 0.2s ease;
     box-sizing: border-box;
     will-change: transform;
 }
 
 .sticky-cta.visible {
-    transform: translate3d(0, 0, 0);
+    transform: translate3d(0, var(--sticky-cta-viewport-shift), 0);
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .sticky-cta__button {

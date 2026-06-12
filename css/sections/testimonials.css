@@ -90,7 +90,7 @@
 .testimonial-card > * { position: relative; z-index: 1; }
 
 .testimonial-card__quote-mark {
-    font-family: 'Inter Tight', 'Inter', serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: clamp(4.25rem, 5vw, 5rem);
     line-height: 0.72;
@@ -150,10 +150,10 @@
     display: block;
 }
 
-.testimonial-card__author h4 {
+.testimonial-card__name {
     margin: 0;
     color: #ffffff;
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: var(--font-display);
     font-size: 1.08rem;
     font-weight: 600;
     letter-spacing: 0;

@@ -1,9 +1,9 @@
-# robots.txt für rencoret.eu
+# robots.txt
 User-agent: *
 Allow: /
 
 # Sitemap-Angabe
-Sitemap: https://rencoret.eu/sitemap.xml
+Sitemap: https://uzzero.github.io/rencoret-ai-dev-preview/sitemap.xml
 
 # Disallow technische Verzeichnisse
 Disallow: /cgi-bin/

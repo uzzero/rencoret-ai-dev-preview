@@ -782,7 +782,7 @@ html[data-theme="light"] .timeline::after {
 
 .process--apple .timeline-content h3 {
     color: #ffffff;
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: 0;
     font-size: 1.5rem;

@@ -7,6 +7,8 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log("Navigation-Skript geladen");
+    let lastViewportWidth = window.innerWidth;
+    let viewportHeightRaf = null;
     
     // Dynamische Viewport-Höhe für mobile Browser
     function setViewportHeight() {
@@ -28,13 +30,48 @@ document.addEventListener('DOMContentLoaded', function() {
             hero.style.height = `${exactHeight}px`;
         }
     }
+
+    function shouldSkipViewportHeightResize() {
+        const currentWidth = window.innerWidth;
+        const isTouchLayout = window.matchMedia('(pointer: coarse)').matches || currentWidth <= 768;
+        const widthChanged = Math.abs(currentWidth - lastViewportWidth) >= 2;
+
+        if (!isTouchLayout || widthChanged) {
+            lastViewportWidth = currentWidth;
+            return false;
+        }
+
+        return true;
+    }
+
+    function scheduleViewportHeightUpdate(force) {
+        if (!force && shouldSkipViewportHeightResize()) return;
+
+        if (force) {
+            lastViewportWidth = window.innerWidth;
+        }
+
+        if (viewportHeightRaf) return;
+
+        viewportHeightRaf = window.requestAnimationFrame(() => {
+            viewportHeightRaf = null;
+            setViewportHeight();
+        });
+    }
     
     // Initiale Berechnung
     setViewportHeight();
     
-    // Bei Fenstergrößenänderung neu berechnen
-    window.addEventListener('resize', setViewportHeight);
-    window.addEventListener('orientationchange', setViewportHeight);
+    // Bei Touch-Geräten keine Neuberechnung auf reine Safari-Toolbar-Höhenänderungen.
+    window.addEventListener('resize', function() {
+        scheduleViewportHeightUpdate(false);
+    }, { passive: true });
+
+    window.addEventListener('orientationchange', function() {
+        window.setTimeout(function() {
+            scheduleViewportHeightUpdate(true);
+        }, 120);
+    }, { passive: true });
     
     // Alle Navigation-Links im Header und mobilen Menü
     const navLinks = document.querySelectorAll('header nav a[href^="#"], .mobile-menu a[href^="#"]');

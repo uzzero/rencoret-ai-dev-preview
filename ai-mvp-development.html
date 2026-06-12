@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <style id="initial-theme">
+        html {
+            background-color: #000000;
+        }
+
+        body {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        html.loaded body {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+
+    <title>AI MVP Development | RENCORET AI</title>
+    <meta name="description" content="RENCORET AI baut nutzbare AI MVPs mit Produktoberfläche, Backend, KI-Kernworkflow, Deployment und Launch-Roadmap - fokussiert für Founder und Teams mit validiertem Bedarf.">
+    <meta name="keywords" content="AI MVP Development, KI MVP Entwicklung, AI App Entwicklung, Web App MVP, Flutter, Firebase, Google Cloud, RAG, KI Produktentwicklung">
+    <meta name="author" content="RENCORET AI">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="AI MVP Development | RENCORET AI">
+    <meta property="og:description" content="Von validierter Idee zu einem nutzbaren KI-MVP mit Oberfläche, Backend, KI-Kernworkflow und Launch-Roadmap.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uzzero.github.io/rencoret-ai-dev-preview/ai-mvp-development.html">
+    <meta property="og:image" content="https://uzzero.github.io/rencoret-ai-dev-preview/img/meta/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="RENCORET AI">
+    <meta property="og:locale" content="de_DE">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI MVP Development | RENCORET AI">
+    <meta name="twitter:description" content="Von validierter Idee zu einem nutzbaren KI-MVP mit Oberfläche, Backend, KI-Kernworkflow und Launch-Roadmap.">
+    <meta name="twitter:image" content="https://uzzero.github.io/rencoret-ai-dev-preview/img/meta/og-image.png">
+
+    <link rel="canonical" href="https://uzzero.github.io/rencoret-ai-dev-preview/ai-mvp-development.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "AI MVP Development",
+      "serviceType": "AI MVP Development",
+      "description": "Entwicklung nutzbarer KI-MVPs mit Produktoberfläche, Backend, KI-Kernworkflow, Deployment und Launch-Roadmap.",
+      "url": "https://uzzero.github.io/rencoret-ai-dev-preview/ai-mvp-development.html",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://uzzero.github.io/rencoret-ai-dev-preview/#organization",
+        "name": "RENCORET AI",
+        "url": "https://uzzero.github.io/rencoret-ai-dev-preview"
+      },
+      "areaServed": ["DE", "AT", "CH", "Europe"],
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "EUR",
+        "description": "AI MVP Development für Teams, die aus einer validierten Idee ein nutzbares Produkt bauen wollen."
+      }
+    }
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied'
+        });
+
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    </script>
+
+    <link rel="stylesheet" href="css/ai-mvp-development.68fb8dea680a.css">
+    
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+</head>
+
+<body class="campaign-page campaign-page--ai-mvp">
+        <header>
+        <div class="container">
+            <div class="logo">
+                <a href="./" title="RENCORET AI - Startseite">
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo" class="logo-svg dark-mode-logo" width="220" height="75" fetchpriority="high">
+                </a>
+            </div>
+            <nav aria-label="Kampagnennavigation">
+                <ul>
+                    <li><a href="#pain">Problem</a></li>
+                    <li><a href="#benefits">Nutzen</a></li>
+                    <li><a href="#proof">Proof</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+                <a href="#lead-form" class="nav-cta">MVP-Fit-Check</a>
+                <button class="mobile-menu-toggle" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+        <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu campaign-mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <a href="./" class="mobile-menu-logo" title="RENCORET AI - Startseite">
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo">
+                </a>
+                <button class="mobile-menu-close" aria-label="Menü schließen">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <ul>
+                <li><a href="#pain">Problem</a></li>
+                <li><a href="#benefits">Nutzen</a></li>
+                <li><a href="#proof">Proof</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+
+            <a href="#lead-form" class="cta-button mobile-menu-cta">MVP-Fit-Check</a>
+        </div>
+    </div>
+
+    <main>
+                <section class="hero hero--apple campaign-hero" id="top">
+            <div class="hero__glow-layer" aria-hidden="true">
+                <span class="glow-aura glow-aura--orange hero__glow hero__glow--tl"></span>
+                <span class="glow-aura glow-aura--purple hero__glow hero__glow--br"></span>
+            </div>
+
+            <div class="container-wide hero__inner campaign-hero__inner">
+                <div class="campaign-hero__copy" data-motion="reveal">
+                    <span class="eyebrow campaign-hero__eyebrow">AI MVP Development</span>
+                    <h1 class="display-xxl hero__headline">
+                        <span class="display-line">KI-MVP bauen,</span>
+                        <span class="display-line display-line--accent">ohne Agenturtheater.</span>
+                    </h1>
+                    <p class="hero__lede">Für Founder und Teams mit validiertem Bedarf: Wir entwickeln einen nutzbaren AI MVP mit Oberfläche, Backend, KI-Kernworkflow, Deployment und klarer Roadmap für die nächste Version.</p>
+                    <div class="btn-row hero__cta-row">
+                        <a href="#lead-form" class="cta-button">MVP-Fit-Check anfragen</a>
+                        <a href="#proof" class="btn-ghost">Proof ansehen</a>
+                    </div>
+                    <p class="hero__microcopy">20 Minuten. Scope, Risiko und realistischer Lieferumfang - bevor ein Angebot entsteht.</p>
+                </div>
+
+                <div class="campaign-hero__proof" aria-label="AI MVP Development Eckdaten">
+                    <div>
+                        <strong>90 Tage</strong>
+                        <span>Zielkorridor für den ersten nutzbaren Launch</span>
+                    </div>
+                    <div>
+                        <strong>1 Kernworkflow</strong>
+                        <span>fokussiert statt Feature-Liste ohne Ende</span>
+                    </div>
+                    <div>
+                        <strong>EU-ready</strong>
+                        <span>Architektur mit Datenschutz und Betrieb im Blick</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero__visual campaign-hero__visual" aria-hidden="true">
+                <div class="hero__visual-frame campaign-hero__visual-frame">
+                    <picture>
+                        <source srcset="img/generated/home/hero-product-stage.webp" type="image/webp">
+                        <img class="hero__visual-img campaign-hero__visual-img" src="img/generated/home/hero-product-stage.png" alt="AI Product Workspace mit Roadmap, App-Oberfläche und Deployment-Status" width="1600" height="900" fetchpriority="high">
+                    </picture>
+                </div>
+            </div>
+        </section>
+
+        <section class="client-logos client-logos--apple" aria-label="Kunden und Partner">
+    <div class="container-wide">
+        <h2 class="client-logos__heading" data-i18n="clients.heading">Erfahrung aus Projekten mit Konzernen, Mittelstand und Foundern</h2>
+        <div class="logo-slider-container">
+            <div class="logo-slider">
+                <div class="logo-container">
+                    <img src="img/clients/dhl_group_logo.svg" alt="DHL Group Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container">
+                    <img src="img/clients/sparkasse_logo.svg" alt="Sparkasse Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container">
+                    <img src="img/clients/stiftung_solidaritaet_logo.svg" alt="Stiftung Solidarität Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container">
+                    <img src="img/clients/dmg_mori_logo.svg" alt="DMG MORI Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container">
+                    <img src="img/clients/diebold_nixdorf_logo.svg" alt="Diebold Nixdorf Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/dhl_group_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/sparkasse_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/stiftung_solidaritaet_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/dmg_mori_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/diebold_nixdorf_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="pain" class="campaign-section campaign-section--tight conversion-section conversion-section--apple">
+            <span class="glow-aura glow-aura--orange conversion-section__glow conversion-section__glow--a" aria-hidden="true"></span>
+            <div class="container-wide">
+                            <div class="conversion-section__intro " data-motion="reveal">
+                <span class="eyebrow">Pain Points</span>
+                <h2 class="display-xl conversion-section__heading">
+                    <span class="display-line">Warum KI-MVPs</span>
+                    <span class="display-line display-line--accent">oft stecken bleiben.</span>
+                </h2>
+                <p class="lede">Die Idee ist stark, aber der Weg zum nutzbaren Produkt wird schnell unklar. Diese Risiken räumen wir früh aus.</p>
+            </div>
+
+                <div class="campaign-card-grid" data-motion="stagger">
+                                    <article class="campaign-card ">
+                    <span class="campaign-card__label">Problem 01</span>
+                    <h3>Der Scope wächst schneller als das Budget.</h3>
+                    <p>KI-Produkte scheitern selten an der ersten Demo. Sie scheitern daran, dass zu viele Nebenfunktionen vor dem Kernnutzen gebaut werden.</p>
+                    <ul>
+                        <li>unklare Must-have-Funktionen</li><li>zu viele Plattformen im ersten Schritt</li><li>fehlende Entscheidung, was bewusst nicht gebaut wird</li>
+                    </ul>
+                </article>
+
+                                    <article class="campaign-card campaign-card--featured">
+                    <span class="campaign-card__label">Problem 02</span>
+                    <h3>Der KI-Teil bleibt eine Demo neben dem Produkt.</h3>
+                    <p>Ein Chatfenster allein ist kein Produkt. Der KI-Workflow muss Daten, UI, Backend, Rechte und Fehlerfälle sauber verbinden.</p>
+                    <ul>
+                        <li>keine belastbare Datenanbindung</li><li>keine Validierung von KI-Ausgaben</li><li>kein Plan für Monitoring und Qualität</li>
+                    </ul>
+                </article>
+
+                                    <article class="campaign-card ">
+                    <span class="campaign-card__label">Problem 03</span>
+                    <h3>Nach dem Launch fehlt die Lernschleife.</h3>
+                    <p>Ein MVP muss echte Nutzung messbar machen. Ohne Analytics, Feedback und Roadmap bleibt offen, was als Nächstes verbessert wird.</p>
+                    <ul>
+                        <li>unklare Erfolgskriterien</li><li>kein Event-Tracking für Kernaktionen</li><li>keine Version-2-Entscheidungsgrundlage</li>
+                    </ul>
+                </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="benefits" class="campaign-section conversion-section conversion-section--apple">
+            <span class="glow-aura glow-aura--purple conversion-section__glow conversion-section__glow--b" aria-hidden="true"></span>
+            <div class="container-wide">
+                            <div class="conversion-section__intro " data-motion="reveal">
+                <span class="eyebrow">Benefits</span>
+                <h2 class="display-xl conversion-section__heading">
+                    <span class="display-line">Was nach dem Sprint</span>
+                    <span class="display-line display-line--accent">konkret steht.</span>
+                </h2>
+                <p class="lede">Kein loses Konzept, sondern ein enger erster Produktstand, der Nutzung, Lernen und Weiterentwicklung ermöglicht.</p>
+            </div>
+
+                <div class="campaign-card-grid" data-motion="stagger">
+                                    <article class="campaign-card campaign-card--featured">
+                    <span class="campaign-card__label">Produkt</span>
+                    <h3>Nutzbare Oberfläche statt Klickdummy.</h3>
+                    <p>Web-App, mobile App oder internes Tool mit den wichtigsten Screens, Rollen und Nutzerflüssen für den Kern-Use-Case.</p>
+                    <ul>
+                        <li>responsives UI im bestehenden Markenrahmen</li><li>Authentifizierung und Kernlogik nach Bedarf</li><li>saubere Übergabe der Produktentscheidungen</li>
+                    </ul>
+                </article>
+
+                                    <article class="campaign-card ">
+                    <span class="campaign-card__label">KI-Kern</span>
+                    <h3>Ein Workflow, der real funktioniert.</h3>
+                    <p>LLM, RAG, Klassifikation, Analyse oder Automation werden so eingebettet, dass Nutzen, Grenzen und Fehlerfälle sichtbar werden.</p>
+                    <ul>
+                        <li>Modell- und Tool-Auswahl nach Use Case</li><li>strukturierte Outputs und Guardrails</li><li>Testfälle für Qualität und Kosten</li>
+                    </ul>
+                </article>
+
+                                    <article class="campaign-card ">
+                    <span class="campaign-card__label">Launch</span>
+                    <h3>Deployment und Roadmap inklusive.</h3>
+                    <p>Der MVP wird nicht nur lokal gebaut. Betrieb, Analytics und die nächsten Entscheidungen werden vorbereitet.</p>
+                    <ul>
+                        <li>Cloud-Deployment und Umgebungen</li><li>Basis-Monitoring und Ereignis-Tracking</li><li>Version-2-Roadmap mit Risiken und Aufwand</li>
+                    </ul>
+                </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="proof" class="campaign-section conversion-section conversion-section--apple">
+            <span class="glow-aura glow-aura--mix conversion-section__glow conversion-section__glow--center" aria-hidden="true"></span>
+            <div class="container-wide">
+                            <div class="conversion-section__intro conversion-section__intro--split" data-motion="reveal">
+                <span class="eyebrow">Proof</span>
+                <h2 class="display-xl conversion-section__heading">
+                    <span class="display-line">Senior Engineering</span>
+                    <span class="display-line display-line--accent">für den ersten echten Launch.</span>
+                </h2>
+                <p class="lede">RENCORET AI kombiniert Produktklarheit, moderne KI-Architektur und pragmatische Umsetzung. Der Fokus liegt auf einem MVP, den ein Team wirklich benutzen, messen und weiterentwickeln kann.</p>
+            </div>
+
+                <div class="campaign-proof-band" data-motion="reveal">
+                    <div class="campaign-proof-panel">
+                        <h3>Der Sprint ist auf Nutzbarkeit optimiert, nicht auf Präsentationsfolien.</h3>
+                        <p>Wir reduzieren Scope, bauen den kritischen Workflow sauber und machen Risiken früh sichtbar. So entsteht ein Produktstand, der echte Gespräche mit Nutzern, Investoren oder internen Stakeholdern erlaubt.</p>
+                    </div>
+                    <div class="campaign-proof-panel">
+                        <h3>Technik, die nach dem MVP nicht weggeworfen werden muss.</h3>
+                        <ul class="campaign-proof-list">
+                            <li><strong>Stack</strong><span>Flutter, Web, Firebase, Google Cloud, PostgreSQL, Vektor-Datenbanken und passende LLM-Anbieter.</span></li>
+                            <li><strong>Qualität</strong><span>Reviewbare Architektur, klare Annahmen, Tests für kritische Pfade und nachvollziehbare KI-Outputs.</span></li>
+                            <li><strong>Betrieb</strong><span>Deployment, Monitoring-Basis, Kostenblick und Übergabe der Entscheidungen für die nächste Ausbaustufe.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="campaign-section conversion-section conversion-section--apple">
+            <div class="container-wide">
+                            <div class="conversion-section__intro " data-motion="reveal">
+                <span class="eyebrow">Ablauf</span>
+                <h2 class="display-xl conversion-section__heading">
+                    <span class="display-line">Ein enger Prozess</span>
+                    <span class="display-line display-line--accent">für schnelle Entscheidungen.</span>
+                </h2>
+                <p class="lede">Der Ablauf hält Scope, Risiken und Umsetzung zusammen. Jede Phase erzeugt ein überprüfbares Ergebnis.</p>
+            </div>
+
+                <div class="campaign-step-grid" data-motion="stagger">
+                                    <article class="campaign-step ">
+                    <span class="campaign-step__index">01</span>
+                    <h3>Fit-Check</h3>
+                    <p>Wir prüfen Use Case, Zielnutzer, Datenlage, Budgetrahmen und ob ein MVP in 90 Tagen realistisch ist.</p>
+                </article>
+
+                                    <article class="campaign-step ">
+                    <span class="campaign-step__index">02</span>
+                    <h3>Scope-Schnitt</h3>
+                    <p>Der erste Lieferumfang wird auf einen Kernworkflow reduziert, inklusive Nicht-Zielen und Akzeptanzkriterien.</p>
+                </article>
+
+                                    <article class="campaign-step ">
+                    <span class="campaign-step__index">03</span>
+                    <h3>Build Sprint</h3>
+                    <p>UI, Backend, KI-Integration, Datenflüsse und Deployment entstehen in kurzen Review-Zyklen.</p>
+                </article>
+
+                                    <article class="campaign-step ">
+                    <span class="campaign-step__index">04</span>
+                    <h3>Launch-Roadmap</h3>
+                    <p>Sie erhalten MVP-Stand, Betriebsgrundlage, Messpunkte und eine priorisierte Roadmap für Version 2.</p>
+                </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq campaign-faq conversion-section conversion-section--apple">
+            <span class="glow-aura glow-aura--purple conversion-section__glow conversion-section__glow--b" aria-hidden="true"></span>
+            <div class="container-wide">
+                            <div class="conversion-section__intro " data-motion="reveal">
+                <span class="eyebrow">FAQ</span>
+                <h2 class="display-xl conversion-section__heading">
+                    <span class="display-line">Fragen vor einem</span>
+                    <span class="display-line display-line--accent">AI MVP Development Sprint.</span>
+                </h2>
+                <p class="lede">Die wichtigsten Punkte, bevor Sie Zeit und Budget in den ersten Produktstand geben.</p>
+            </div>
+
+                <div class="faq-list" data-motion="reveal">
+                                    <article class="faq-item" data-faq-item>
+                    <button class="faq-question" id="mvp-faq-q1" aria-expanded="false" aria-controls="mvp-faq-a1" data-faq-trigger>
+                        <span>Ist das ein echter MVP oder nur ein Prototyp?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" id="mvp-faq-a1" role="region" aria-labelledby="mvp-faq-q1" hidden>
+                        <p>Der Sprint zielt auf einen nutzbaren MVP mit Kernworkflow, Backend, KI-Integration und Deployment. Ein Klickdummy kann Teil der Klärung sein, ist aber nicht das Endziel.</p>
+                    </div>
+                </article>
+
+                                    <article class="faq-item" data-faq-item>
+                    <button class="faq-question" id="mvp-faq-q2" aria-expanded="false" aria-controls="mvp-faq-a2" data-faq-trigger>
+                        <span>Was muss vor Projektstart schon klar sein?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" id="mvp-faq-a2" role="region" aria-labelledby="mvp-faq-q2" hidden>
+                        <p>Ideal sind Zielgruppe, Problem, grober Use Case und ein Budgetrahmen. Wenn Scope oder Datenlage noch unscharf sind, starten wir mit einem kleineren Discovery-Schritt.</p>
+                    </div>
+                </article>
+
+                                    <article class="faq-item" data-faq-item>
+                    <button class="faq-question" id="mvp-faq-q3" aria-expanded="false" aria-controls="mvp-faq-a3" data-faq-trigger>
+                        <span>Welche KI-Funktionen können in den MVP?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" id="mvp-faq-a3" role="region" aria-labelledby="mvp-faq-q3" hidden>
+                        <p>Typisch sind RAG-Suche, Assistenten, Dokumentenanalyse, Klassifikation, Empfehlungssysteme oder Automationen. Entscheidend ist, dass ein Kernworkflow klar messbaren Nutzen erzeugt.</p>
+                    </div>
+                </article>
+
+                                    <article class="faq-item" data-faq-item>
+                    <button class="faq-question" id="mvp-faq-q4" aria-expanded="false" aria-controls="mvp-faq-a4" data-faq-trigger>
+                        <span>Können bestehende Systeme angebunden werden?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" id="mvp-faq-a4" role="region" aria-labelledby="mvp-faq-q4" hidden>
+                        <p>Ja, wenn Schnittstellen oder exportierbare Daten vorhanden sind. Integrationen werden im Scope bewusst begrenzt, damit der erste Launch realistisch bleibt.</p>
+                    </div>
+                </article>
+
+                                    <article class="faq-item" data-faq-item>
+                    <button class="faq-question" id="mvp-faq-q5" aria-expanded="false" aria-controls="mvp-faq-a5" data-faq-trigger>
+                        <span>Was passiert nach dem MVP?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" id="mvp-faq-a5" role="region" aria-labelledby="mvp-faq-q5" hidden>
+                        <p>Sie erhalten eine Roadmap mit nächsten Produktentscheidungen, technischen Risiken und sinnvollen Ausbaustufen. Auf Wunsch begleiten wir Betrieb und Weiterentwicklung.</p>
+                    </div>
+                </article>
+
+                </div>
+            </div>
+        </section>
+
+                <section class="campaign-final-cta conversion-section conversion-section--apple">
+            <span class="glow-aura glow-aura--mix conversion-section__glow conversion-section__glow--center" aria-hidden="true"></span>
+            <div class="container-wide">
+                <div class="pre-contact-cta campaign-final-cta__card" data-motion="reveal">
+                    <span class="eyebrow">Nächster Schritt</span>
+                    <h2>Prüfen wir, ob Ihr AI MVP in 90 Tagen sinnvoll machbar ist.</h2>
+                    <p>Im Fit-Check klären wir Kernworkflow, Scope, Risiken, Datenlage und den realistischen ersten Lieferumfang.</p>
+                    <a href="#lead-form" class="cta-button">Kostenlosen MVP-Fit-Check anfragen</a>
+                </div>
+            </div>
+        </section>
+
+                <section class="contact contact--apple campaign-contact">
+            <span class="glow-aura glow-aura--orange contact__glow contact__glow--a" aria-hidden="true"></span>
+            <span class="glow-aura glow-aura--purple contact__glow contact__glow--b" aria-hidden="true"></span>
+
+            <div class="container-wide">
+                <div class="contact__final-cta" data-motion="reveal">
+                    <span class="eyebrow">Kontakt</span>
+                    <h2 class="display-xxl contact__final-heading">
+                        <span class="display-line">Ihr AI MVP.</span>
+                        <span class="display-line display-line--accent">Klar geschnitten.</span>
+                    </h2>
+                    <p class="lede contact__final-lede">Beschreiben Sie kurz die Idee. Wir antworten mit einer ersten Einschätzung zu Scope, Risiko und nächstem Schritt.</p>
+                </div>
+
+                <div class="contact-grid" data-motion="reveal">
+                    <aside id="kontakt" class="contact-card contact-card--ceo" data-nav-section>
+                        <div class="ceo-profile">
+                            <div class="ceo-profile__avatar">
+                                <picture>
+                                    <source srcset="img/team/ricardo-rencoret.webp" type="image/webp">
+                                    <img src="img/team/ricardo-rencoret.jpg" alt="Ricardo Rencoret Nicolás, CEO" loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="ceo-profile__meta">
+                                <h3>Ricardo Rencoret Nicolás</h3>
+                                <p class="ceo-profile__title">CEO &amp; Founder</p>
+                                <p class="ceo-profile__bio">Ihr direkter Ansprechpartner für AI MVP Development, Produktarchitektur und pragmatische Launch-Entscheidungen.</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card__details" itemscope itemtype="http://schema.org/LocalBusiness">
+                            <meta itemprop="name" content="RENCORET AI">
+                            <meta itemprop="url" content="https://uzzero.github.io/rencoret-ai-dev-preview">
+                            <meta itemprop="sameAs" content="https://www.linkedin.com/company/rencoret-ai">
+
+                            <div class="contact-card__detail">
+                                <span class="contact-card__detail-label">E-Mail</span>
+                                <a href="mailto:ricardo@rencoret.dev" itemprop="email">ricardo@rencoret.dev</a>
+                            </div>
+                            <div class="contact-card__detail">
+                                <span class="contact-card__detail-label">Adresse</span>
+                                <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                    <span itemprop="streetAddress">Gerkens Hof 9</span><br>
+                                    <span itemprop="postalCode">33758</span> <span itemprop="addressLocality">Schloß Holte-Stukenbrock</span><br>
+                                    <span itemprop="addressCountry">Deutschland</span>
+                                </address>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <div class="contact-card contact-card--form">
+                        <h3 class="contact-card__title">AI MVP Development Fit-Check</h3>
+                        <p class="contact-card__lead">Vier kurze Felder reichen. Die optionale Einordnung hilft uns, schneller konkret zu antworten.</p>
+                        <div class="contact-card__trust-row" aria-label="Kontaktversprechen">
+                            <span>Scope-Einschätzung</span>
+                            <span>Risiko-Check</span>
+                            <span>Antwort in 24h</span>
+                        </div>
+                        <span id="lead-form" class="contact-anchor contact-anchor--lead" aria-hidden="true"></span>
+                        <form id="contact-form" name="contact" method="post"
+                              action="https://send.pageclip.co/rmZeWRkkpJosrWQBvXmyUqtzTkLkeDll" class="pageclip-form">
+                            <input type="hidden" id="landing_page" name="landing_page">
+                            <input type="hidden" id="utm_source" name="utm_source">
+                            <input type="hidden" id="utm_medium" name="utm_medium">
+                            <input type="hidden" id="utm_campaign" name="utm_campaign">
+                            <input type="hidden" id="utm_content" name="utm_content">
+                            <input type="hidden" id="utm_term" name="utm_term">
+                            <input type="hidden" id="offer_type" name="offer_type" value="ai_mvp_development">
+
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-Mail</label>
+                                <input type="email" id="email" name="email" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefonnummer (optional)</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Beschreiben Sie kurz Ihre MVP-Idee</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                            </div>
+
+                            <details class="form-details">
+                                <summary>Optional: Projekt in 60 Sekunden einordnen</summary>
+                                <fieldset class="form-section form-section--optional">
+                                    <legend>Projekt einordnen (optional)</legend>
+                                    <div class="form-grid form-grid--two">
+                                        <div class="form-group">
+                                            <label for="project_status">Projektstatus</label>
+                                            <select id="project_status" name="project_status">
+                                                <option value="">Bitte auswählen</option>
+                                                <option value="idea">Idee</option>
+                                                <option value="rough_scope">Grober Scope vorhanden</option>
+                                                <option value="prototype">Prototyp vorhanden</option>
+                                                <option value="existing_product">Bestehendes Produkt</option>
+                                                <option value="budget_approved">Finanzierung/Budget freigegeben</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="launch_timeline">Zeitrahmen</label>
+                                            <select id="launch_timeline" name="launch_timeline">
+                                                <option value="">Bitte auswählen</option>
+                                                <option value="asap">So schnell wie möglich</option>
+                                                <option value="0_3_months">0-3 Monate</option>
+                                                <option value="3_6_months">3-6 Monate</option>
+                                                <option value="6_plus_months">6+ Monate</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="target_platform">Zielsystem</label>
+                                            <select id="target_platform" name="target_platform">
+                                                <option value="">Bitte auswählen</option>
+                                                <option value="ios_android">iOS/Android</option>
+                                                <option value="web_app">Web-App</option>
+                                                <option value="internal_app">Interne Anwendung</option>
+                                                <option value="workflow_automation">Workflow-Automation</option>
+                                                <option value="open">Noch offen</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="budget_range">Budgetrahmen</label>
+                                            <select id="budget_range" name="budget_range">
+                                                <option value="">Bitte auswählen</option>
+                                                <option value="open">Noch offen</option>
+                                                <option value="under_15k">Unter 15k</option>
+                                                <option value="15_30k">15k-30k</option>
+                                                <option value="30_75k">30k-75k</option>
+                                                <option value="75k_plus">75k+</option>
+                                                <option value="discuss">Möchte ich im Gespräch klären</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ai_function">Wichtigste KI-Funktion</label>
+                                        <select id="ai_function" name="ai_function">
+                                            <option value="">Bitte auswählen</option>
+                                            <option value="chatbot_assistant">Chatbot/Assistent</option>
+                                            <option value="rag_search">RAG/Wissenssuche</option>
+                                            <option value="automation">Automatisierung</option>
+                                            <option value="image_document_analysis">Bild-/Dokumentenanalyse</option>
+                                            <option value="recommendation">Empfehlungssystem</option>
+                                            <option value="open">Noch offen</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="success_90_days">Erfolg nach dem MVP</label>
+                                        <textarea id="success_90_days" name="success_90_days" rows="3" placeholder="Was muss nach dem ersten Launch funktionieren, damit der MVP für Sie wertvoll ist?"></textarea>
+                                    </div>
+                                </fieldset>
+                            </details>
+
+                            <div class="form-group form-group--checkbox">
+                                <input type="checkbox" id="datenschutz" name="datenschutz" required>
+                                <label for="datenschutz">Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme zu.</label>
+                            </div>
+                            <button type="submit" class="cta-button pageclip-form__submit">
+                                <span>AI MVP Fit-Check anfragen</span>
+                            </button>
+                        </form>
+
+                        <div class="form-success-overlay" id="formSuccessOverlay" aria-hidden="true" role="status" aria-live="polite">
+                            <div class="form-success-content">
+                                <div class="success-checkmark">
+                                    <svg viewBox="0 0 100 100" aria-hidden="true">
+                                        <circle class="checkmark-circle" cx="50" cy="50" r="48" />
+                                        <path class="checkmark-check" d="M30 50 L45 65 L70 35" />
+                                    </svg>
+                                </div>
+                                <h3 class="success-title" id="successTitle">Vielen Dank!</h3>
+                                <p class="success-message">Ihre Anfrage wurde erfolgreich gesendet.</p>
+                                <div class="success-next-steps">Wir melden uns innerhalb von 24 Stunden mit einer ersten Einschätzung zu Scope, Risiko und passendem nächsten Schritt.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>RENCORET AI</h3>
+                <p data-i18n="footer.tagline">App & KI Entwicklung</p>
+            </div>
+            <div class="footer-links">
+                <h4 data-i18n="footer.links.heading">Links</h4>
+                <ul>
+                    <li><a href="impressum.html" data-i18n="footer.links.imprint">Impressum</a></li>
+                    <li><a href="datenschutz.html" data-i18n="footer.links.privacy">Datenschutz</a></li>
+                    <li><button type="button" class="footer-cookie-button" id="cookie-settings" data-i18n="footer.links.cookies">Cookie-Einstellungen</button></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4 data-i18n="footer.contact.heading">Kontakt</h4>
+                <p>ricardo@rencoret.dev</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p data-i18n="footer.copyright">&copy; 2026 RENCORET AI GmbH. Alle Rechte vorbehalten.</p>
+            <p class="footer-credit">
+                Designed &amp; Built by
+                <a class="rencoret-glow" href="https://uzzero.github.io/rencoret-ai-dev-preview" target="_blank" rel="noopener noreferrer">
+                    <span class="ai-glow-inner">RENCORET AI GmbH</span>
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+        <div class="sticky-cta" id="sticky-cta" aria-hidden="true" inert>
+        <a href="#lead-form" class="cta-button sticky-cta__button" tabindex="-1">AI MVP Fit-Check anfragen</a>
+    </div>
+
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <p>Wir verwenden Cookies und Tracking-Technologien, um Ihre Erfahrung zu verbessern und den Erfolg unserer Kampagnen zu messen. Nicht notwendiges Tracking laden wir erst nach Ihrer aktiven Zustimmung. Details finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+            <div class="cookie-buttons">
+                <button id="reject-cookies" class="cookie-btn cookie-btn-reject" type="button">Ablehnen</button>
+                <button id="accept-cookies" class="cookie-btn cookie-btn-accept" type="button">Akzeptieren</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/navigation.js?v=campaign-20260612" defer></script>
+    <script src="js/faq.js?v=campaign-20260612" defer></script>
+    <script src="js/campaign-page.js?v=campaign-20260612" defer></script>
+    <script src="js/analytics.js" defer></script>
+
+</body>
+
+</html>

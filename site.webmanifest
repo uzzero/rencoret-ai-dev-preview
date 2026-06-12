@@ -2,16 +2,17 @@
   "name": "RENCORET AI - AI MVP App Development",
   "short_name": "RENCORET AI",
   "description": "AI-Powered MVP App Development für Startups und Mittelstand in Europa. In 4-8 Wochen von der Idee zur App.",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "lang": "de",
   "icons": [
     {
-      "src": "/img/favicon/android-chrome-192x192.png",
+      "src": "img/favicon/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/img/favicon/android-chrome-512x512.png",
+      "src": "img/favicon/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }

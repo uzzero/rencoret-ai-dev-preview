@@ -29,17 +29,6 @@
             /* Explizit Light Mode */
         }
 
-        /* Verberge den Body bis zur vollständigen Ladung, um ein Flackern zu vermeiden */
-        body {
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-
-        html.loaded body {
-            visibility: visible;
-            opacity: 1;
-        }
     </style>
     <title>RENCORET AI - KI-MVPs, Apps &amp; Web-Produkte in 90 Tagen</title>
     <meta name="description"
@@ -54,8 +43,8 @@
     <meta property="og:description"
         content="KI-MVPs, Apps und Web-Produkte für Founder und Mittelstand - von Discovery über belastbare Architektur bis Launch in 90 Tagen.">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://rencoret.eu">
-    <meta property="og:image" content="https://rencoret.eu/img/meta/og-image.png">
+    <meta property="og:url" content="https://uzzero.github.io/rencoret-ai-dev-preview">
+    <meta property="og:image" content="https://uzzero.github.io/rencoret-ai-dev-preview/img/meta/og-image.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -69,19 +58,15 @@
     <meta name="twitter:title" content="RENCORET AI - KI-MVPs, Apps &amp; Web-Produkte in 90 Tagen">
     <meta name="twitter:description"
         content="KI-MVPs, Apps und Web-Produkte für Founder und Mittelstand - von Discovery über belastbare Architektur bis Launch in 90 Tagen.">
-    <meta name="twitter:image" content="https://rencoret.eu/img/meta/og-image.png">
+    <meta name="twitter:image" content="https://uzzero.github.io/rencoret-ai-dev-preview/img/meta/og-image.png">
 
-    <link rel="canonical" href="https://rencoret.eu">
+    <link rel="canonical" href="https://uzzero.github.io/rencoret-ai-dev-preview">
 
     <!-- Hreflang Tags -->
-    <link rel="alternate" hreflang="de" href="https://rencoret.eu/">
-    <link rel="alternate" hreflang="en" href="https://rencoret.eu/?lang=en">
-    <link rel="alternate" hreflang="es" href="https://rencoret.eu/?lang=es">
-    <link rel="alternate" hreflang="x-default" href="https://rencoret.eu/">
-
-    <!-- Preconnect Hints -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="alternate" hreflang="de" href="https://uzzero.github.io/rencoret-ai-dev-preview/">
+    <link rel="alternate" hreflang="en" href="https://uzzero.github.io/rencoret-ai-dev-preview/?lang=en">
+    <link rel="alternate" hreflang="es" href="https://uzzero.github.io/rencoret-ai-dev-preview/?lang=es">
+    <link rel="alternate" hreflang="x-default" href="https://uzzero.github.io/rencoret-ai-dev-preview/">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -90,11 +75,11 @@
       "@graph": [
         {
           "@type": ["Organization", "ProfessionalService"],
-          "@id": "https://rencoret.eu/#organization",
+          "@id": "https://uzzero.github.io/rencoret-ai-dev-preview/#organization",
           "name": "RENCORET AI",
-          "url": "https://rencoret.eu",
-          "logo": "https://rencoret.eu/img/logo-extended.svg",
-          "image": "https://rencoret.eu/img/meta/og-image.png",
+          "url": "https://uzzero.github.io/rencoret-ai-dev-preview",
+          "logo": "https://uzzero.github.io/rencoret-ai-dev-preview/img/logo-extended.svg",
+          "image": "https://uzzero.github.io/rencoret-ai-dev-preview/img/meta/og-image.png",
           "description": "RENCORET AI entwickelt KI-MVPs, Apps und Web-Produkte für Founder und Mittelstand - von Discovery über Architektur bis Launch in 90 Tagen.",
           "priceRange": "€€€",
           "address": {
@@ -157,12 +142,12 @@
         },
         {
           "@type": "WebSite",
-          "@id": "https://rencoret.eu/#website",
-          "url": "https://rencoret.eu",
+          "@id": "https://uzzero.github.io/rencoret-ai-dev-preview/#website",
+          "url": "https://uzzero.github.io/rencoret-ai-dev-preview",
           "name": "RENCORET AI",
           "inLanguage": ["de", "en", "es"],
           "publisher": {
-             "@id": "https://rencoret.eu/#organization"
+             "@id": "https://uzzero.github.io/rencoret-ai-dev-preview/#organization"
           }
         }
       ]
@@ -182,940 +167,9 @@
             'analytics_storage': 'denied'
         });
     </script>
-
-    <!-- Critical CSS inline -->
-    <style>
-        /* Optimierte CSS-Datei - Ungenutzte Stile entfernt */
-
-        /* Critical CSS für Above-the-fold Inhalte */
-        :root {
-            --primary-color: #948bcf;
-            --secondary-color: #121212;
-            --accent-color: #ff8c42;
-            --light-color: #f8f9fa;
-            --dark-color: #0a0a0a;
-            --text-color: #f8f9fa;
-            --text-light: #b0b0b0;
-            --font-main: 'Inter', sans-serif;
-            --gradient-start: #ff8c42;
-            --gradient-end: #9054f7;
-            --gradient-start-rgb: 255, 140, 66;
-            --gradient-end-rgb: 144, 84, 247;
-            --link-color: #6a5cb8;
-            --link-hover-color: #ff8c42;
-            /* Light Mode (Standard) */
-            --background-color: #f8f9fa;
-            --secondary-background: #ffffff;
-            --text-color: #212121;
-            --text-light: #424242;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --header-background: rgba(255, 255, 255, 0.9);
-            --hero-heading-color: #212121;
-            --hero-subtext-color: #424242;
-            --tagline-color: #555555;
-            --logo-invert: 100%;
-            --cta-button-text: #ffffff;
-            --cta-button-bg: #6a5cb8;
-            --oval-opacity: 0.5;
-        }
-
-        /* Farbverlauf für Hero-Überschrift "MVP-App" */
-        .gradient-text {
-            background: linear-gradient(90deg, #6366F1, #EC4899);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: transparent;
-            display: inline-block;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background-color: #121212;
-                --secondary-background: #1e1e1e;
-                --text-color: #f8f9fa;
-                --text-light: #b0b0b0;
-                --shadow-color: rgba(0, 0, 0, 0.3);
-                --header-background: rgba(10, 10, 10, 0.8);
-                --hero-heading-color: #f8f9fa;
-                --hero-subtext-color: #b0b0b0;
-                --tagline-color: #b0b0b0;
-                --logo-invert: 0%;
-                --cta-button-text: #ffffff;
-                --cta-button-bg: #948bcf;
-                --oval-opacity: 0.3;
-                --link-color: #b69df8;
-                --link-hover-color: #ff9c5d;
-            }
-        }
-
-        html[data-theme="dark"] {
-            --background-color: #121212;
-            --secondary-background: #1e1e1e;
-            --text-color: #f8f9fa;
-            --text-light: #b0b0b0;
-            --shadow-color: rgba(0, 0, 0, 0.3);
-            --header-background: rgba(10, 10, 10, 0.8);
-            --hero-heading-color: #f8f9fa;
-            --hero-subtext-color: #b0b0b0;
-            --tagline-color: #b0b0b0;
-            --logo-invert: 0%;
-            --cta-button-text: #ffffff;
-            --cta-button-bg: #948bcf;
-            --oval-opacity: 0.3;
-            --link-color: #b69df8;
-            --link-hover-color: #ff9c5d;
-        }
-
-        html[data-theme="light"] {
-            --background-color: #f8f9fa;
-            --secondary-background: #ffffff;
-            --text-color: #212121;
-            --text-light: #424242;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --header-background: rgba(255, 255, 255, 0.9);
-            --hero-heading-color: #212121;
-            --hero-subtext-color: #424242;
-            --tagline-color: #555555;
-            --logo-invert: 100%;
-            --cta-button-text: #ffffff;
-            --cta-button-bg: #6a5cb8;
-            --oval-opacity: 0.5;
-            --link-color: #6a5cb8;
-            --link-hover-color: #ff8c42;
-            /* Explizite Gradient-Farben, die mit dem Dark-Modus übereinstimmen */
-            --gradient-start: #ff8c42;
-            --gradient-end: #9054f7;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        /* Globaler Schutz gegen horizontalen Overflow, ohne Desktop-Scroll zu blockieren */
-        html,
-        body {
-            max-width: 100% !important;
-            overflow-x: hidden !important;
-            width: 100% !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            scrollbar-width: auto;
-            -ms-overflow-style: auto;
-        }
-
-        html {
-            overflow-y: auto !important;
-        }
-
-        body {
-            overflow-x: hidden !important;
-            overflow-y: visible !important;
-        }
-
-        html::-webkit-scrollbar,
-        body::-webkit-scrollbar {
-            display: initial;
-            width: initial;
-            background: initial;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-main);
-            line-height: 1.6;
-            background-color: var(--background-color);
-            color: var(--text-color);
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
-
-        /* Sicherstellen, dass Sektionen nicht breiter als der Viewport sind */
-        section {
-            max-width: 100vw;
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background-color: var(--header-background);
-            padding: 20px 0;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
-            overflow: hidden;
-            /* Verhindert Scrollbars im Header */
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo a {
-            color: var(--light-color);
-            text-decoration: none;
-            display: block;
-        }
-
-        .logo-svg {
-            width: 220px;
-            height: 75px;
-            display: block;
-            transition: filter 0.5s ease;
-        }
-
-        /* Ensure logo maintains proper size */
-        .logo {
-            flex-shrink: 0;
-        }
-
-        .logo a {
-            display: block;
-            width: 220px;
-            height: 75px;
-        }
-
-        /* Logo-Anzeige - Nur das Dark-Mode-Logo anzeigen */
-        .light-mode-logo {
-            display: none !important;
-            /* Nie anzeigen, da wir nur Dark Mode verwenden */
-        }
-
-        .dark-mode-logo {
-            display: block !important;
-            /* Immer anzeigen, da wir nur Dark Mode verwenden */
-        }
-
-        /* Dark Mode (System-Einstellung) Erkennung komplett entfernt */
-
-        /* Explizite Theme-Einstellungen - nur Dark Mode beibehalten */
-        html[data-theme="dark"] .light-mode-logo {
-            display: none !important;
-        }
-
-        html[data-theme="dark"] .dark-mode-logo {
-            display: block !important;
-        }
-
-        /* Light Mode CSS-Regeln komplett entfernt */
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-shrink: 0;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            color: var(--text-color);
-            font-weight: 500;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-            text-decoration: none;
-            border-bottom: none;
-        }
-
-        nav ul li a:hover,
-        nav ul li a[aria-current="page"] {
-            color: var(--primary-color);
-        }
-
-        .hero {
-            background-color: var(--secondary-background);
-            color: var(--text-color);
-            text-align: center;
-            padding: 0 0 120px;
-            position: relative;
-            overflow: hidden;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .hero-heading {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            color: var(--hero-heading-color);
-            position: relative;
-            z-index: 10;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            color: var(--hero-subtext-color);
-            position: relative;
-            z-index: 10;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--cta-button-bg);
-            color: var(--cta-button-text);
-            padding: 15px 30px;
-            border-radius: 30px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-            z-index: 10;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        @media (max-width: 768px) {
-            header .container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav {
-                margin-top: 0;
-                width: 100%;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-
-            nav ul {
-                justify-content: center;
-                flex-wrap: wrap;
-                margin-right: 10px;
-            }
-
-            nav ul li {
-                margin: 0 10px 5px;
-            }
-
-            .hero-heading {
-                font-size: 2.5rem;
-            }
-
-            /* Header-Anpassungen für Tablets */
-            header {
-                overflow: hidden;
-            }
-
-            nav {
-                width: 100%;
-                overflow: visible;
-            }
-        }
-
-        @media (max-width: 576px) {
-
-            /* Nur overflow-y verhindern, overflow-x erlauben für Menü */
-            header {
-                max-height: none;
-                /* Verhindert Höhenbegrenzung */
-            }
-
-            /* Logo-Anpassungen für kleinere Bildschirme */
-            .logo-svg {
-                width: 200px;
-                /* Größeres Logo (vorher 180px) */
-                height: 70px;
-                /* Höhere Höhe (vorher 60px) */
-            }
-
-            .logo a {
-                width: 200px;
-                height: 70px;
-            }
-
-            header .container {
-                width: 100%;
-                padding: 0 15px;
-                max-height: none;
-                /* Verhindert Höhenbegrenzung */
-            }
-
-            nav {
-                width: 100%;
-                overflow: visible;
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                width: 100%;
-                overflow: visible;
-                padding-bottom: 5px;
-                /* Extra Platz am unteren Rand */
-                margin-bottom: 10px;
-            }
-
-            nav ul li {
-                margin: 5px 8px;
-            }
-
-            .hero-heading {
-                font-size: 2rem;
-            }
-
-            .container {
-                padding: 0 15px;
-            }
-
-            section {
-                padding-left: 0;
-                padding-right: 0;
-            }
-        }
-
-        /* Theme Toggle Button Styling */
-        .theme-toggle-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-            width: 50px;
-            height: 50px;
-            overflow: visible;
-            pointer-events: auto;
-            margin: 0;
-            padding: 0;
-            box-sizing: content-box;
-            background: transparent;
-            contain: layout style;
-            transform: translateZ(0);
-            will-change: transform;
-        }
-
-        /* Verhindert, dass Theme-Toggle Button Scrollbars verursacht */
-        .theme-toggle {
-            position: relative;
-            /* Statt fixed, weil Container bereits fixed ist */
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            color: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 2px 10px var(--shadow-color);
-            transition: background-color 0.3s ease;
-            margin: 0;
-            /* Entfernt unerwünschte Margins */
-            padding: 0;
-            /* Entfernt unerwünschte Paddings */
-            transform: translateZ(0);
-            /* Hardware-Beschleunigung */
-            will-change: transform;
-            /* Optimiert Rendering */
-            contain: layout style;
-            /* Verbessert Performance */
-        }
-
-        .theme-toggle:hover {
-            background-color: var(--accent-color);
-        }
-
-        /* Projekt-Karten Styling */
-        .project-logo {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .project-logo img {
-            max-width: 180px;
-            height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .project-logo img:hover {
-            transform: scale(1.05);
-        }
-
-
-
-        /* Neon-Tags für Projekttechnologien */
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 25px;
-            justify-content: center;
-        }
-
-        .tag {
-            position: relative;
-            padding: 8px 16px;
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            display: inline-block;
-            color: white;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            transition: all 0.3s ease;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .tag::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            opacity: 0.7;
-            z-index: -1;
-        }
-
-        html[data-theme="dark"] .tag {
-            box-shadow: 0 0 15px rgba(255, 140, 66, 0.35), 0 0 30px rgba(144, 84, 247, 0.25);
-        }
-
-        html[data-theme="light"] .tag {
-            box-shadow: 0 0 12px rgba(255, 140, 66, 0.25), 0 0 24px rgba(144, 84, 247, 0.15);
-        }
-
-        .tag:hover {
-            transform: translateY(-3px);
-        }
-
-        html[data-theme="dark"] .tag:hover {
-            box-shadow: 0 0 20px rgba(255, 140, 66, 0.5), 0 0 40px rgba(144, 84, 247, 0.4);
-        }
-
-        html[data-theme="light"] .tag:hover {
-            box-shadow: 0 0 15px rgba(255, 140, 66, 0.4), 0 0 30px rgba(144, 84, 247, 0.3);
-        }
-
-        /* Logo-spezifische Styles */
-        html[data-theme="dark"] .project-logo img[src*="ikigami"] {
-            background-color: white;
-            border-radius: 12px;
-            padding: 12px;
-            box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
-            filter: brightness(1.5) contrast(1.2);
-        }
-
-        .project-logo img[src*="intown_logo"] {
-            max-height: 80px;
-            width: auto;
-        }
-
-        html[data-theme="light"] .project-logo img[src*="intown_logo"] {
-            background-color: #fe0d40;
-            border-radius: 12px;
-            padding: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        html[data-theme="dark"] .project-logo img[src*="intown_logo"] {
-            background-color: #fe0d40;
-            border-radius: 12px;
-            padding: 10px;
-            box-shadow: 0 0 25px rgba(254, 13, 64, 0.4);
-        }
-
-        .project-logo img[src*="lebenszeichen-app"] {
-            margin: 10px;
-        }
-
-        /* Link-Stile */
-        a {
-            color: var(--link-color);
-            text-decoration: underline;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        a:hover,
-        a:focus {
-            color: var(--link-hover-color);
-            text-decoration: underline;
-        }
-
-        .form-group a {
-            color: var(--link-color);
-            text-decoration: underline;
-            font-weight: 600;
-            border-bottom: 1px solid var(--link-color);
-            padding-bottom: 1px;
-        }
-
-        .form-group a:hover,
-        .form-group a:focus {
-            color: var(--link-hover-color);
-            border-bottom-color: var(--link-hover-color);
-        }
-
-
-
-        /* Animierte Hintergrundform (oval-shape Klassen im Gebrauch) */
-        .hero .oval-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            overflow: hidden;
-        }
-
-        .hero .oval-shape {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
-            opacity: var(--oval-opacity);
-            filter: blur(30px);
-            will-change: transform;
-        }
-
-        .hero .oval-shape:nth-child(1) {
-            width: 40vmin;
-            height: 25vmin;
-            top: 25%;
-            left: 60%;
-        }
-
-        .hero .oval-shape:nth-child(2) {
-            width: 35vmin;
-            height: 20vmin;
-            top: 60%;
-            left: 30%;
-        }
-
-        .hero .oval-shape:nth-child(3) {
-            width: 25vmin;
-            height: 35vmin;
-            top: 40%;
-            left: 45%;
-        }
-
-        /* Tagline-Element im Hero-Bereich */
-        .hero .tagline {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-top: 40px;
-            color: var(--tagline-color);
-            font-weight: 400;
-        }
-
-        /* Kundenlogos-Bereich Styling */
-        .client-logos {
-            padding: 40px 0;
-            background-color: var(--secondary-background);
-            overflow: hidden;
-            /* Verhindert horizontales Scrollen */
-        }
-
-        .client-logos h3 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.5rem;
-            color: var(--text-color);
-        }
-
-        .logo-slider-container {
-            position: relative;
-            max-width: 100%;
-            overflow: hidden;
-            /* Verhindert horizontales Scrollen */
-        }
-
-        .logo-slider {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            /* Erlaubt Umbruch auf mobilen Geräten */
-            gap: 20px;
-            padding: 10px 0;
-        }
-
-        .logo-container {
-            padding: 15px;
-            text-align: center;
-            min-width: 120px;
-            /* Mindestbreite für Logos */
-            max-width: 180px;
-            /* Maximale Breite für Logos */
-        }
-
-        .logo-container img {
-            max-width: 100%;
-            height: auto;
-            object-fit: contain;
-            filter: grayscale(1) opacity(0.7);
-            transition: filter 0.3s ease, transform 0.3s ease;
-        }
-
-        .logo-container img:hover {
-            filter: grayscale(0) opacity(1);
-            transform: scale(1.05);
-        }
-
-        @media (max-width: 768px) {
-            .logo-slider {
-                justify-content: center;
-            }
-
-            .logo-container {
-                padding: 10px;
-                min-width: 100px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .client-logos {
-                padding: 30px 0;
-            }
-
-            .logo-container {
-                min-width: 80px;
-                max-width: 120px;
-            }
-        }
-
-
-        /* Beim Scrollen zur Ankerposition */
-        html {
-            scroll-padding-top: 150px;
-            /* Extra Platz für den Header */
-        }
-
-        /* CEO-Profil Styling */
-        .ceo-profile {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            background-color: var(--secondary-background);
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 5px 15px var(--shadow-color);
-        }
-
-        .ceo-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 60px;
-            object-fit: cover;
-            margin-right: 20px;
-            border: 3px solid var(--primary-color);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-
-        .ceo-details {
-            flex: 1;
-        }
-
-        .ceo-details h4 {
-            font-size: 1.4rem;
-            margin-bottom: 5px;
-            color: var(--text-color);
-            font-weight: 600;
-        }
-
-        .ceo-title {
-            font-size: 1.1rem;
-            color: var(--primary-color);
-            font-weight: 500;
-            letter-spacing: 1px;
-        }
-
-        @media (max-width: 768px) {
-            .ceo-profile {
-                flex-direction: column;
-                text-align: center;
-                padding: 15px;
-            }
-
-            .ceo-image {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-        }
-
-        /* Neues Kontakt-Container Layout */
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 40px;
-            margin-top: 30px;
-        }
-
-        .ceo-profile-container {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: stretch;
-        }
-
-        .contact-form {
-            flex: 2;
-            min-width: 300px;
-        }
-
-        .ceo-profile {
-            display: flex;
-            align-items: center;
-            background-color: var(--secondary-background);
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 5px 15px var(--shadow-color);
-            height: auto;
-            margin-top: 0;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            gap: 30px;
-            border-bottom: 1px solid rgba(150, 150, 150, 0.2);
-            padding-bottom: 20px;
-            margin-bottom: 10px;
-        }
-
-        .contact-info>div {
-            flex: 1;
-            min-width: 250px;
-        }
-
-        @media (max-width: 768px) {
-            .ceo-profile {
-                flex-direction: column;
-                text-align: center;
-                padding: 15px;
-            }
-
-            .ceo-image {
-                margin-right: 0;
-                margin-bottom: 15px;
-            }
-
-            .contact-container {
-                flex-direction: column;
-            }
-
-            .ceo-profile-container {
-                width: 100%;
-            }
-
-            .contact-form {
-                width: 100%;
-            }
-        }
-
-        /* Anpassungen für mobile Geräte - CEO-Profil und Kontaktformular zusammenfassen */
-        @media (max-width: 576px) {
-            .contact-container {
-                flex-direction: column;
-            }
-
-            .ceo-profile-container,
-            .contact-form {
-                width: 100%;
-            }
-
-            /* CEO-Profil in Kontaktformular integrieren - nur auf Mobile */
-            .ceo-profile {
-                border-radius: 16px 16px 0 0;
-                margin-bottom: 0;
-                box-shadow: 0 5px 15px var(--shadow-color);
-            }
-
-            .contact-form {
-                border-radius: 0 0 16px 16px;
-                margin-top: -1px;
-            }
-
-            /* Optionale Verbesserung des visuellen Zusammenhangs */
-            .ceo-profile,
-            .contact-form {
-                border: 1px solid rgba(150, 150, 150, 0.1);
-            }
-        }
-    </style>
-
-    <!-- Asynchrones Laden der CSS-Dateien -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        as="style">
-    <link rel="preload" href="css/styles.css" as="style">
-    <link rel="preload" href="css/theme.css" as="style">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Inter+Tight:wght@500;600;700;800&display=swap">
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/index.0ebcda1d86ed.css">
+    
     <link rel="stylesheet" href="css/print.css" media="print">
-    <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css">
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/language-selector.css">
-    <link rel="stylesheet" href="css/mobile-menu.css?v=dark-apple-20260509-2">
-    <link rel="stylesheet" href="css/sections/hero.css?v=dark-apple-20260509-2">
-    <link rel="stylesheet" href="css/sections/client-logos.css?v=dark-apple-20260509-2">
-    <link rel="stylesheet" href="css/sections/services.css">
-    <link rel="stylesheet" href="css/sections/feature-blocks.css?v=dark-apple-20260509-2">
-    <link rel="stylesheet" href="css/sections/about.css?v=dark-apple-20260509-2">
-    <link rel="stylesheet" href="css/sections/process.css?v=dark-apple-20260509-2">
-    <link rel="stylesheet" href="css/sections/trust.css?v=dark-apple-20260509-2">
-    <link rel="stylesheet" href="css/sections/projects.css?v=dark-apple-20260509-2">
-    <link rel="stylesheet" href="css/sections/testimonials.css?v=dark-apple-20260509-2">
-    <link rel="stylesheet" href="css/sections/contact.css?v=dark-apple-20260509-2">
-    <link rel="stylesheet" href="css/sections/footer.css">
-    <link rel="stylesheet" href="css/cookie-banner.css">
-    <link rel="stylesheet" href="css/design-system.css?v=navbar-20260606">
-    <link rel="stylesheet" href="css/sections/conversion.css?v=conversion-20260605">
 
     <!-- Preload-Polyfill für ältere Browser entfernen, da wir nicht mehr preload verwenden -->
 
@@ -1133,21 +187,30 @@
             // und setzen immer Dark Mode als Standard
             document.documentElement.setAttribute('data-theme', 'dark');
             localStorage.setItem('theme', 'dark');
-
-            // Optimierte Darstellung - Body wird erst angezeigt, wenn HTML geladen ist
-            document.addEventListener('DOMContentLoaded', function () {
-                document.documentElement.classList.add('loaded');
-            });
-
-            // Für noch schnellere Anzeige, falls DOMContentLoaded bereits ausgelöst wurde
-            if (document.readyState === 'interactive' || document.readyState === 'complete') {
-                document.documentElement.classList.add('loaded');
-            }
         })();
     </script>
 
-    <!-- Load translations before page load -->
-    <script src="js/translations.js?v=dark-apple-20260509-2"></script>
+    <script>
+        (function () {
+            var translationsPromise = null;
+
+            window.rencoretLoadTranslations = function () {
+                if (window.languageManager) return Promise.resolve(window.languageManager);
+                if (translationsPromise) return translationsPromise;
+
+                translationsPromise = new Promise(function (resolve, reject) {
+                    var script = document.createElement('script');
+                    script.src = 'js/translations.js?v=dark-apple-20260509-2';
+                    script.async = true;
+                    script.onload = function () { resolve(window.languageManager); };
+                    script.onerror = reject;
+                    document.head.appendChild(script);
+                });
+
+                return translationsPromise;
+            };
+        })();
+    </script>
 
     <!-- Language Selector Script -->
     <script>
@@ -1174,6 +237,30 @@
                 document.addEventListener('keydown', function (e) {
                     if (e.key === 'Escape') {
                         languageSelector.classList.remove('active');
+                        currentLanguage.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+
+            var languageOptions = document.querySelectorAll('[data-lang]');
+            for (var optionIndex = 0; optionIndex < languageOptions.length; optionIndex++) {
+                languageOptions[optionIndex].addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    var selectedLanguage = this.getAttribute('data-lang') || 'de';
+                    if (window.rencoretLoadTranslations) {
+                        window.rencoretLoadTranslations().then(function (manager) {
+                            if (manager && manager.setLanguage) {
+                                manager.setLanguage(selectedLanguage);
+                            }
+                        });
+                    }
+
+                    if (languageSelector) {
+                        languageSelector.classList.remove('active');
+                    }
+
+                    if (currentLanguage) {
                         currentLanguage.setAttribute('aria-expanded', 'false');
                     }
                 });
@@ -1327,11 +414,9 @@
     <header>
         <div class="container">
             <div class="logo">
-                <a href="/" title="RENCORET AI - Startseite">
+                <a href="./" title="RENCORET AI - Startseite">
                     <!-- Aktuelle Logos mit Farbverlauf -->
-                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo" class="logo-svg dark-mode-logo">
-                    <img src="img/logo-extended-light.svg" alt="RENCORET AI MVP APPS Logo"
-                        class="logo-svg light-mode-logo">
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo" class="logo-svg dark-mode-logo" width="220" height="75" fetchpriority="high">
                 </a>
             </div>
             <nav aria-label="Hauptnavigation">
@@ -1367,7 +452,7 @@
     <div class="mobile-menu" id="mobile-menu">
         <div class="mobile-menu-content">
             <div class="mobile-menu-header">
-                <a href="/" class="mobile-menu-logo" title="RENCORET AI - Startseite">
+                <a href="./" class="mobile-menu-logo" title="RENCORET AI - Startseite">
                     <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo">
                 </a>
                 <button class="mobile-menu-close" aria-label="Menü schließen">
@@ -1384,7 +469,6 @@
 
             <a href="#lead-form" class="cta-button mobile-menu-cta" data-i18n="nav.cta">Fit-Check anfragen</a>
 
-            
             <div class="mobile-language-section">
                 <div class="mobile-language-title" data-i18n="nav.language">Sprache</div>
                 <div class="mobile-language-options">
@@ -1405,12 +489,11 @@
         </div>
     </div>
 
-
     <main>
-        <section class="hero hero--apple" data-motion="pin">
+        <section class="hero hero--apple">
     <div class="hero__glow-layer" aria-hidden="true">
-        <span class="glow-aura glow-aura--orange hero__glow hero__glow--tl" data-motion="parallax" data-depth="-0.18"></span>
-        <span class="glow-aura glow-aura--purple hero__glow hero__glow--br" data-motion="parallax" data-depth="0.12"></span>
+        <span class="glow-aura glow-aura--orange hero__glow hero__glow--tl"></span>
+        <span class="glow-aura glow-aura--purple hero__glow hero__glow--br"></span>
         <div class="oval-shapes">
             <div class="oval-shape"></div>
             <div class="oval-shape"></div>
@@ -1419,41 +502,39 @@
     </div>
 
     <div class="container-wide hero__inner">
-        <span class="eyebrow" data-motion="reveal" data-i18n="hero.eyebrow">90-Tage MVP · KI · Made in Germany</span>
+        <span class="eyebrow" data-i18n="hero.eyebrow">90-Tage MVP · KI · Made in Germany</span>
 
-        <h1 class="hero__headline display-xxl" data-motion="reveal">
+        <h1 class="hero__headline display-xxl">
             <span class="display-line" data-i18n="hero.heading.line1">KI-Apps, die genutzt werden.</span>
             <span class="display-line display-line--accent" data-i18n="hero.heading.line2">In 90 Tagen live.</span>
         </h1>
 
-        <p class="hero__lede lede" data-motion="reveal" data-i18n="hero.subheading">
+        <p class="hero__lede lede" data-i18n="hero.subheading">
             RENCORET AI baut App-, Web- und KI-Produkte mit echtem Interface,
             produktivem Backend und klaren Launch-Zielen - schnell genug für MVPs,
             sauber genug für echte Nutzer.
         </p>
 
-        <div class="hero__cta-row btn-row" data-motion="reveal">
+        <div class="hero__cta-row btn-row">
             <a href="#lead-form" class="cta-button" data-i18n="hero.cta">90-Tage-MVP-Fit-Check anfragen</a>
             <a href="#deliverables" class="btn-ghost" data-i18n="hero.secondary_cta">Was nach 90 Tagen steht</a>
         </div>
 
-        <p class="hero__microcopy" data-motion="reveal" data-i18n="hero.microcopy">
+        <p class="hero__microcopy" data-i18n="hero.microcopy">
             Kostenloser 20-Minuten-Check · Antwort innerhalb von 24 Stunden · kein Pitchdeck nötig
         </p>
 
-        <p class="hero__proof-line" data-motion="reveal" data-i18n="hero.proof.line">
-            44 Tage bis zur Launch-Version · 15.000+ Nutzer in Europa
-        </p>
-
-        <div class="hero__visual" data-motion="reveal">
-            <div class="hero__visual-frame" data-motion="stage-scale">
+        <div class="hero__visual">
+            <div class="hero__visual-frame">
                 <picture>
-                    <source srcset="img/generated/home/hero-ai-hand.webp" type="image/webp">
+                    <source
+                        srcset="img/generated/home/hero-ai-hand-640.webp 640w, img/generated/home/hero-ai-hand-960.webp 960w, img/generated/home/hero-ai-hand-1280.webp 1280w, img/generated/home/hero-ai-hand.webp 1536w"
+                        sizes="100vw"
+                        type="image/webp">
                     <img src="img/generated/home/hero-ai-hand.png"
                          alt="RENCORET AI App-Oberfläche auf einem iPhone in Nutzung"
                          class="hero__visual-img"
-                         loading="eager"
-                         fetchpriority="high"
+                         loading="lazy"
                          width="1536"
                          height="1024"
                          onerror="this.parentElement.parentElement.classList.add('is-missing-image')">
@@ -1461,13 +542,12 @@
                 <div class="ai-image-placeholder hero__placeholder" aria-hidden="true">
                     <span>RENCORET AI APP IN USE</span>
                 </div>
-                <span class="hero__visual-glow hero__visual-glow--a" aria-hidden="true" data-motion="parallax" data-depth="0.08"></span>
-                <span class="hero__visual-glow hero__visual-glow--b" aria-hidden="true" data-motion="parallax" data-depth="-0.06"></span>
+                <span class="hero__visual-glow hero__visual-glow--a" aria-hidden="true"></span>
+                <span class="hero__visual-glow hero__visual-glow--b" aria-hidden="true"></span>
             </div>
         </div>
     </div>
 </section>
-
 
         <section class="client-logos client-logos--apple" aria-label="Kunden und Partner">
     <div class="container-wide">
@@ -1509,7 +589,6 @@
     </div>
 </section>
 
-
         <section id="leistungen" class="services services--apple" data-motion="stagger">
     <span class="glow-aura glow-aura--orange services__glow services__glow--a" aria-hidden="true"></span>
     <span class="glow-aura glow-aura--purple services__glow services__glow--b" aria-hidden="true"></span>
@@ -1530,7 +609,10 @@
         <div class="services__showcase" data-motion="reveal">
             <div class="services__showcase-frame" data-motion="stage-scale">
                 <picture>
-                    <source srcset="img/generated/home/ai-workspace-in-use.webp" type="image/webp">
+                    <source
+                        srcset="img/generated/home/ai-workspace-in-use-640.webp 640w, img/generated/home/ai-workspace-in-use-960.webp 960w, img/generated/home/ai-workspace-in-use-1280.webp 1280w, img/generated/home/ai-workspace-in-use.webp 1672w"
+                        sizes="(max-width: 768px) 100vw, 84vw"
+                        type="image/webp">
                     <img src="img/generated/home/ai-workspace-in-use.png"
                          alt="Fotorealistischer Laptop und Smartphone mit RENCORET AI Workspace, Roadmap, RAG Assistant, Deployment Pipeline und AI Sprint Assistant"
                          loading="lazy"
@@ -1557,7 +639,10 @@
                 <div class="feature-block__visual">
                     <div class="feature-block__visual-frame" data-tilt>
                         <picture>
-                            <source srcset="img/generated/home/feature-mvp-in-use.webp" type="image/webp">
+                            <source
+                                srcset="img/generated/home/feature-mvp-in-use-480.webp 480w, img/generated/home/feature-mvp-in-use-720.webp 720w, img/generated/home/feature-mvp-in-use-960.webp 960w, img/generated/home/feature-mvp-in-use-1080.webp 1080w, img/generated/home/feature-mvp-in-use.webp 1448w"
+                                sizes="(max-width: 768px) 88vw, 48vw"
+                                type="image/webp">
                             <img src="img/generated/home/feature-mvp-in-use.png"
                                  alt="Team bespricht einen KI-MVP am Laptop mit dashboardartiger App-Ansicht im echten Einsatz"
                                  loading="lazy"
@@ -1589,7 +674,10 @@
                 <div class="feature-block__visual">
                     <div class="feature-block__visual-frame" data-tilt>
                         <picture>
-                            <source srcset="img/generated/home/feature-ai-integration.webp" type="image/webp">
+                            <source
+                                srcset="img/generated/home/feature-ai-integration-480.webp 480w, img/generated/home/feature-ai-integration-720.webp 720w, img/generated/home/feature-ai-integration-960.webp 960w, img/generated/home/feature-ai-integration-1080.webp 1080w, img/generated/home/feature-ai-integration.webp 1448w"
+                                sizes="(max-width: 768px) 88vw, 48vw"
+                                type="image/webp">
                             <img src="img/generated/home/feature-ai-integration.png"
                                  alt="Tablet- und Laptop-Mockup mit KI-Chat, RAG-Datenquellen, Automationen und DSGVO-Status"
                                  loading="lazy"
@@ -1621,7 +709,10 @@
                 <div class="feature-block__visual">
                     <div class="feature-block__visual-frame" data-tilt>
                         <picture>
-                            <source srcset="img/generated/home/feature-strategy-scale.webp" type="image/webp">
+                            <source
+                                srcset="img/generated/home/feature-strategy-scale-480.webp 480w, img/generated/home/feature-strategy-scale-720.webp 720w, img/generated/home/feature-strategy-scale-960.webp 960w, img/generated/home/feature-strategy-scale-1080.webp 1080w, img/generated/home/feature-strategy-scale.webp 1448w"
+                                sizes="(max-width: 768px) 88vw, 48vw"
+                                type="image/webp">
                             <img src="img/generated/home/feature-strategy-scale.png"
                                  alt="Laptop- und Smartphone-Mockup mit MVP-Roadmap, Feature-Priorisierung, Validierungs-KPIs und Health Score"
                                  loading="lazy"
@@ -1639,7 +730,6 @@
         </div>
     </div>
 </section>
-
 
         <section id="deliverables" class="deliverables conversion-section conversion-section--apple">
     <span class="glow-aura glow-aura--orange conversion-section__glow conversion-section__glow--a" aria-hidden="true"></span>
@@ -1664,7 +754,10 @@
 
         <div class="deliverables-stage" data-motion="stage-scale">
             <picture>
-                <source srcset="img/generated/home/floating-ai-screens.webp" type="image/webp">
+                <source
+                    srcset="img/generated/home/floating-ai-screens-640.webp 640w, img/generated/home/floating-ai-screens-960.webp 960w, img/generated/home/floating-ai-screens-1280.webp 1280w, img/generated/home/floating-ai-screens.webp 1672w"
+                    sizes="(max-width: 768px) 100vw, 84vw"
+                    type="image/webp">
                 <img src="img/generated/home/floating-ai-screens.png"
                      alt="Drei konkrete App-Screens: Mood-Journal, Social Feed und Flight Tracker auf fotorealistischen iPhones"
                      loading="lazy"
@@ -1732,7 +825,6 @@
         </div>
     </div>
 </section>
-
 
         <section id="projekte" class="projects projects--apple">
     <span class="glow-aura glow-aura--orange projects__glow projects__glow--a" aria-hidden="true"></span>
@@ -1940,7 +1032,6 @@
     </div>
 </div>
 
-
         <section id="kundenstimmen" class="testimonials testimonials--apple">
     <span class="glow-aura glow-aura--mix testimonials__glow" aria-hidden="true"></span>
 
@@ -1968,7 +1059,7 @@
                         </picture>
                     </div>
                     <div>
-                        <h4 data-i18n="testimonials.miriam.name">Dr. Miriam von Felbert</h4>
+                        <p class="testimonial-card__name" data-i18n="testimonials.miriam.name">Dr. Miriam von Felbert</p>
                         <p class="testimonial-card__role">
                             <span data-i18n="testimonials.miriam.position">Gründerin</span>
                             ·
@@ -1991,7 +1082,7 @@
                         </picture>
                     </div>
                     <div>
-                        <h4 data-i18n="testimonials.franz.name">Franz Schaible</h4>
+                        <p class="testimonial-card__name" data-i18n="testimonials.franz.name">Franz Schaible</p>
                         <p class="testimonial-card__role">
                             <span data-i18n="testimonials.franz.position">Vorstandsvorsitzender</span>
                             ·
@@ -2014,7 +1105,7 @@
                         </picture>
                     </div>
                     <div>
-                        <h4 data-i18n="testimonials.jacob.name">Jacob Flötotto</h4>
+                        <p class="testimonial-card__name" data-i18n="testimonials.jacob.name">Jacob Flötotto</p>
                         <p class="testimonial-card__role">
                             <span data-i18n="testimonials.jacob.position">Industry Lead Mittelstand</span>
                             ·
@@ -2031,7 +1122,6 @@
         </div>
     </div>
 </section>
-
 
         <section id="prozess" class="process process--apple">
     <span class="glow-aura glow-aura--orange process__glow process__glow--a" aria-hidden="true"></span>
@@ -2113,7 +1203,6 @@
     </div>
 </section>
 
-
         <section id="angebote" class="offers conversion-section conversion-section--apple">
     <span class="glow-aura glow-aura--orange conversion-section__glow conversion-section__glow--a" aria-hidden="true"></span>
 
@@ -2182,7 +1271,6 @@
     </div>
 </section>
 
-
         <section id="ueber-uns" class="about about--apple">
     <span class="glow-aura glow-aura--purple about__glow about__glow--a" aria-hidden="true"></span>
 
@@ -2213,31 +1301,31 @@
         <div class="team-photo team-photo-1">
             <picture>
                 <source srcset="img/about/about-1.webp" type="image/webp">
-                <img src="img/about/about-1.png" alt="Team RENCORET AI">
+                <img src="img/about/about-1.png" alt="Team RENCORET AI" loading="lazy" width="765" height="782">
             </picture>
         </div>
         <div class="team-photo team-photo-3">
             <picture>
                 <source srcset="img/about/about-2.webp" type="image/webp">
-                <img src="img/about/about-2.jpg" alt="Team RENCORET AI">
+                <img src="img/about/about-2.jpg" alt="Team RENCORET AI" loading="lazy" width="1024" height="768">
             </picture>
         </div>
         <div class="team-photo team-photo-2">
             <picture>
                 <source srcset="img/about/about-3.webp" type="image/webp">
-                <img src="img/about/about-3.jpg" alt="Team RENCORET AI">
+                <img src="img/about/about-3.jpg" alt="Team RENCORET AI" loading="lazy" width="1024" height="768">
             </picture>
         </div>
         <div class="team-photo team-photo-4">
             <picture>
                 <source srcset="img/about/about-4.webp" type="image/webp">
-                <img src="img/about/about-4.jpg" alt="Team RENCORET AI">
+                <img src="img/about/about-4.jpg" alt="Team RENCORET AI" loading="lazy" width="1024" height="768">
             </picture>
         </div>
         <div class="team-photo team-photo-5">
             <picture>
                 <source srcset="img/about/about-5.webp" type="image/webp">
-                <img src="img/about/about-5.png" alt="Team RENCORET AI">
+                <img src="img/about/about-5.png" alt="Team RENCORET AI" loading="lazy" width="1024" height="1024">
             </picture>
         </div>
     </div>
@@ -2279,7 +1367,6 @@
         </div>
     </div>
 </section>
-
 
         <section id="tech-stack" class="tech-stack conversion-section conversion-section--apple">
     <span class="glow-aura glow-aura--mix conversion-section__glow conversion-section__glow--center" aria-hidden="true"></span>
@@ -2344,21 +1431,21 @@
         </div>
 
         <div class="tool-cloud" aria-label="Häufige Technologie-Bausteine" data-motion="reveal">
-            <span class="tool-logo tool-logo--feature" style="--float-delay: 0s;" aria-label="Flutter"><img class="tool-logo__image" src="img/tools/flutter.svg" alt="" width="72" height="72"></span>
-            <span class="tool-logo tool-logo--feature" style="--float-delay: -1.2s;" aria-label="Firebase"><img class="tool-logo__image" src="img/tools/firebase.svg" alt="" width="72" height="72"></span>
-            <span class="tool-logo tool-logo--feature" style="--float-delay: -2.4s;" aria-label="Google Cloud"><img class="tool-logo__image" src="img/tools/googlecloud.svg" alt="" width="72" height="72"></span>
-            <span class="tool-logo tool-logo--feature" style="--float-delay: -0.7s;" aria-label="LangChain"><img class="tool-logo__image" src="img/tools/langchain.svg" alt="" width="72" height="72"></span>
-            <span class="tool-logo tool-logo--feature" style="--float-delay: -1.8s;" aria-label="LangGraph"><img class="tool-logo__image" src="img/tools/langgraph.svg" alt="" width="72" height="72"></span>
-            <span class="tool-logo tool-logo--feature" style="--float-delay: -3s;" aria-label="OpenAI"><img class="tool-logo__image" src="img/tools/openai.svg" alt="" width="72" height="72"></span>
-            <span class="tool-logo" style="--float-delay: -1.4s;" aria-label="Gemini"><img class="tool-logo__image" src="img/tools/googlegemini.svg" alt="" width="64" height="64"></span>
-            <span class="tool-logo" style="--float-delay: -2.1s;" aria-label="Anthropic"><img class="tool-logo__image" src="img/tools/anthropic.svg" alt="" width="64" height="64"></span>
-            <span class="tool-logo" style="--float-delay: -0.2s;" aria-label="PostgreSQL"><img class="tool-logo__image" src="img/tools/postgresql.svg" alt="" width="64" height="64"></span>
-            <span class="tool-logo tool-logo--feature" style="--float-delay: -2.7s;" aria-label="Pinecone"><img class="tool-logo__image" src="img/tools/pinecone.svg" alt="" width="72" height="72"></span>
-            <span class="tool-logo" style="--float-delay: -1.6s;" aria-label="Qdrant"><img class="tool-logo__image" src="img/tools/qdrant.svg" alt="" width="64" height="64"></span>
-            <span class="tool-logo tool-logo--feature" style="--float-delay: -3.4s;" aria-label="Weaviate"><img class="tool-logo__image" src="img/tools/weaviate.svg" alt="" width="72" height="72"></span>
-            <span class="tool-logo tool-logo--wide" style="--float-delay: -0.9s;" aria-label="LangSmith"><img class="tool-logo__image" src="img/tools/langsmith.svg" alt="" width="160" height="64"></span>
-            <span class="tool-logo" style="--float-delay: -2.9s;" aria-label="Sentry"><img class="tool-logo__image" src="img/tools/sentry.svg" alt="" width="64" height="64"></span>
-            <span class="tool-logo tool-logo--feature" style="--float-delay: -1.1s;" aria-label="GitHub Actions"><img class="tool-logo__image" src="img/tools/githubactions.svg" alt="" width="72" height="72"></span>
+            <span class="tool-logo tool-logo--feature" role="img" style="--float-delay: 0s;" aria-label="Flutter"><img class="tool-logo__image" src="img/tools/flutter.svg" alt="" width="72" height="72" loading="lazy" decoding="async"></span>
+            <span class="tool-logo tool-logo--feature" role="img" style="--float-delay: -1.2s;" aria-label="Firebase"><img class="tool-logo__image" src="img/tools/firebase.svg" alt="" width="72" height="72" loading="lazy" decoding="async"></span>
+            <span class="tool-logo tool-logo--feature" role="img" style="--float-delay: -2.4s;" aria-label="Google Cloud"><img class="tool-logo__image" src="img/tools/googlecloud.svg" alt="" width="72" height="72" loading="lazy" decoding="async"></span>
+            <span class="tool-logo tool-logo--feature" role="img" style="--float-delay: -0.7s;" aria-label="LangChain"><img class="tool-logo__image" src="img/tools/langchain.svg" alt="" width="72" height="72" loading="lazy" decoding="async"></span>
+            <span class="tool-logo tool-logo--feature" role="img" style="--float-delay: -1.8s;" aria-label="LangGraph"><img class="tool-logo__image" src="img/tools/langgraph.svg" alt="" width="72" height="72" loading="lazy" decoding="async"></span>
+            <span class="tool-logo tool-logo--feature" role="img" style="--float-delay: -3s;" aria-label="OpenAI"><img class="tool-logo__image" src="img/tools/openai.svg" alt="" width="72" height="72" loading="lazy" decoding="async"></span>
+            <span class="tool-logo" role="img" style="--float-delay: -1.4s;" aria-label="Gemini"><img class="tool-logo__image" src="img/tools/googlegemini.svg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+            <span class="tool-logo" role="img" style="--float-delay: -2.1s;" aria-label="Anthropic"><img class="tool-logo__image" src="img/tools/anthropic.svg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+            <span class="tool-logo" role="img" style="--float-delay: -0.2s;" aria-label="PostgreSQL"><img class="tool-logo__image" src="img/tools/postgresql.svg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+            <span class="tool-logo tool-logo--feature" role="img" style="--float-delay: -2.7s;" aria-label="Pinecone"><img class="tool-logo__image" src="img/tools/pinecone.svg" alt="" width="72" height="72" loading="lazy" decoding="async"></span>
+            <span class="tool-logo" role="img" style="--float-delay: -1.6s;" aria-label="Qdrant"><img class="tool-logo__image" src="img/tools/qdrant.svg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+            <span class="tool-logo tool-logo--feature" role="img" style="--float-delay: -3.4s;" aria-label="Weaviate"><img class="tool-logo__image" src="img/tools/weaviate.svg" alt="" width="72" height="72" loading="lazy" decoding="async"></span>
+            <span class="tool-logo tool-logo--wide" role="img" style="--float-delay: -0.9s;" aria-label="LangSmith"><img class="tool-logo__image" src="img/tools/langsmith.svg" alt="" width="160" height="64" loading="lazy" decoding="async"></span>
+            <span class="tool-logo" role="img" style="--float-delay: -2.9s;" aria-label="Sentry"><img class="tool-logo__image" src="img/tools/sentry.svg" alt="" width="64" height="64" loading="lazy" decoding="async"></span>
+            <span class="tool-logo tool-logo--feature" role="img" style="--float-delay: -1.1s;" aria-label="GitHub Actions"><img class="tool-logo__image" src="img/tools/githubactions.svg" alt="" width="72" height="72" loading="lazy" decoding="async"></span>
         </div>
 
         <details class="stack-details" data-motion="reveal">
@@ -2408,7 +1495,6 @@
         </details>
     </div>
 </section>
-
 
         <section id="sicherheit" class="trust trust--apple ai-safety">
     <span class="glow-aura glow-aura--mix trust__glow" aria-hidden="true"></span>
@@ -2476,7 +1562,6 @@
         </div>
     </div>
 </section>
-
 
         <section id="faq" class="faq conversion-section conversion-section--apple">
     <span class="glow-aura glow-aura--purple conversion-section__glow conversion-section__glow--b" aria-hidden="true"></span>
@@ -2573,7 +1658,6 @@
     </div>
 </section>
 
-
         <section class="contact contact--apple">
     <span class="glow-aura glow-aura--orange contact__glow contact__glow--a" aria-hidden="true"></span>
     <span class="glow-aura glow-aura--purple contact__glow contact__glow--b" aria-hidden="true"></span>
@@ -2611,7 +1695,7 @@
 
                 <div class="contact-card__details" itemscope itemtype="http://schema.org/LocalBusiness">
                     <meta itemprop="name" content="RENCORET AI">
-                    <meta itemprop="url" content="https://rencoret.eu">
+                    <meta itemprop="url" content="https://uzzero.github.io/rencoret-ai-dev-preview">
                     <meta itemprop="sameAs" content="https://www.linkedin.com/company/rencoret-ai">
 
                     <div class="contact-card__detail">
@@ -2789,7 +1873,7 @@
             <p data-i18n="footer.copyright">&copy; 2026 RENCORET AI GmbH. Alle Rechte vorbehalten.</p>
             <p class="footer-credit">
                 Designed &amp; Built by
-                <a class="rencoret-glow" href="https://rencoret.eu" target="_blank" rel="noopener noreferrer">
+                <a class="rencoret-glow" href="https://uzzero.github.io/rencoret-ai-dev-preview" target="_blank" rel="noopener noreferrer">
                     <span class="ai-glow-inner">RENCORET AI GmbH</span>
                 </a>
             </p>
@@ -2797,16 +1881,53 @@
     </div>
 </footer>
 
-
     <!-- Haupt-Skripte -->
-    <script src="vendor/gsap/gsap.min.js"></script>
-    <script src="vendor/gsap/ScrollTrigger.min.js"></script>
-    <script src="vendor/lenis/lenis.min.js"></script>
-    <script src="js/motion.js?v=dark-apple-20260509-2"></script>
-    <script src="js/scroll-animations.js"></script>
-    <script src="js/carousel.js"></script>
-    <script src="js/navigation.js?v=dark-apple-20260509-2"></script>
-    <script src="js/faq.js?v=conversion-20260605"></script>
+    <script src="js/navigation.js?v=mobile-cta-20260612" defer></script>
+    <script src="js/faq.js?v=conversion-20260605" defer></script>
+    <script>
+        (function () {
+            var enhancementScripts = [
+                'vendor/gsap/gsap.min.js',
+                'vendor/gsap/ScrollTrigger.min.js',
+                'vendor/lenis/lenis.min.js',
+                'js/motion.js?v=dark-apple-20260509-2',
+                'js/scroll-animations.js',
+                'js/carousel.js'
+            ];
+            var enhancementPromise = null;
+
+            function loadScript(src) {
+                return new Promise(function (resolve, reject) {
+                    var script = document.createElement('script');
+                    script.src = src;
+                    script.async = false;
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    document.body.appendChild(script);
+                });
+            }
+
+            function loadEnhancements() {
+                if (enhancementPromise) return enhancementPromise;
+
+                enhancementPromise = enhancementScripts.reduce(function (chain, src) {
+                    return chain.then(function () { return loadScript(src); });
+                }, Promise.resolve());
+
+                return enhancementPromise;
+            }
+
+            ['pointerdown', 'touchstart', 'keydown', 'scroll'].forEach(function (eventName) {
+                window.addEventListener(eventName, loadEnhancements, { once: true, passive: true });
+            });
+
+            window.addEventListener('load', function () {
+                window.setTimeout(loadEnhancements, 6000);
+            }, { once: true });
+
+            window.rencoretLoadEnhancements = loadEnhancements;
+        })();
+    </script>
 
     <!-- Modal Dialog Functionality -->
     <script>
@@ -2965,8 +2086,8 @@
             if (header && heroSection) {
                 if (heroSection.classList.contains('hero--apple')) {
                     const headerBottom = Math.ceil(header.getBoundingClientRect().bottom);
-                    const extraSpace = window.innerWidth < 768 ? 26 : 8;
-                    const minOffset = window.innerWidth < 768 ? 104 : 106;
+                    const extraSpace = window.innerWidth < 768 ? 26 : 24;
+                    const minOffset = window.innerWidth < 768 ? 104 : 126;
                     const nextOffset = Math.max(minOffset, headerBottom + extraSpace);
 
                     heroSection.style.setProperty('--hero-top-offset', nextOffset + 'px');
@@ -2992,10 +2113,49 @@
             }
         }
 
-        // Führe die Anpassung nur bei Änderung der Fenstergröße aus
-        window.addEventListener('resize', adjustHeroSpacing);
-        // Beim Laden der Seite auch einmal ausführen
-        window.addEventListener('load', adjustHeroSpacing);
+        let lastHeroSpacingWidth = window.innerWidth;
+        let heroSpacingRaf = null;
+
+        function shouldSkipHeroSpacingResize() {
+            const currentWidth = window.innerWidth;
+            const isTouchLayout = window.matchMedia('(pointer: coarse)').matches || currentWidth <= 768;
+            const widthChanged = Math.abs(currentWidth - lastHeroSpacingWidth) >= 2;
+
+            if (!isTouchLayout || widthChanged) {
+                lastHeroSpacingWidth = currentWidth;
+                return false;
+            }
+
+            return true;
+        }
+
+        function scheduleAdjustHeroSpacing(force) {
+            if (!force && shouldSkipHeroSpacingResize()) return;
+
+            if (force) {
+                lastHeroSpacingWidth = window.innerWidth;
+            }
+
+            if (heroSpacingRaf) return;
+
+            heroSpacingRaf = window.requestAnimationFrame(function () {
+                heroSpacingRaf = null;
+                adjustHeroSpacing();
+            });
+        }
+
+        // Führe die Anpassung nur bei echten Breiten-/Orientierungsänderungen aus.
+        window.addEventListener('resize', function () {
+            scheduleAdjustHeroSpacing(false);
+        }, { passive: true });
+
+        window.addEventListener('orientationchange', function () {
+            window.setTimeout(function () {
+                scheduleAdjustHeroSpacing(true);
+            }, 120);
+        }, { passive: true });
+
+        // Initiale Hero-Abstände kommen aus CSS; dynamisch nur bei echten Viewport-Änderungen nachziehen.
     </script>
 
     <!-- Strukturierte Daten für Suchmaschinen -->
@@ -3004,8 +2164,8 @@
         "@context": "http://schema.org",
         "@type": "Organization",
         "name": "RENCORET AI",
-        "url": "https://rencoret.eu",
-        "logo": "https://rencoret.eu/img/logo-extended.svg",
+        "url": "https://uzzero.github.io/rencoret-ai-dev-preview",
+        "logo": "https://uzzero.github.io/rencoret-ai-dev-preview/img/logo-extended.svg",
         "sameAs": [
             "https://www.linkedin.com/company/rencoret-ai",
             "https://github.com/rencoret-ai"
@@ -3035,61 +2195,61 @@
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://rencoret.eu"
+                "item": "https://uzzero.github.io/rencoret-ai-dev-preview"
             },
             {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "Leistungen",
-                "item": "https://rencoret.eu/#leistungen"
+                "item": "https://uzzero.github.io/rencoret-ai-dev-preview/#leistungen"
             },
             {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Lieferumfang",
-                "item": "https://rencoret.eu/#deliverables"
+                "item": "https://uzzero.github.io/rencoret-ai-dev-preview/#deliverables"
             },
             {
                 "@type": "ListItem",
                 "position": 4,
                 "name": "Tech Stack",
-                "item": "https://rencoret.eu/#tech-stack"
+                "item": "https://uzzero.github.io/rencoret-ai-dev-preview/#tech-stack"
             },
             {
                 "@type": "ListItem",
                 "position": 5,
                 "name": "Über uns",
-                "item": "https://rencoret.eu/#ueber-uns"
+                "item": "https://uzzero.github.io/rencoret-ai-dev-preview/#ueber-uns"
             },
             {
                 "@type": "ListItem",
                 "position": 6,
                 "name": "Prozess",
-                "item": "https://rencoret.eu/#prozess"
+                "item": "https://uzzero.github.io/rencoret-ai-dev-preview/#prozess"
             },
             {
                 "@type": "ListItem",
                 "position": 7,
                 "name": "Sicherheit",
-                "item": "https://rencoret.eu/#sicherheit"
+                "item": "https://uzzero.github.io/rencoret-ai-dev-preview/#sicherheit"
             },
             {
                 "@type": "ListItem",
                 "position": 8,
                 "name": "Projekte",
-                "item": "https://rencoret.eu/#projekte"
+                "item": "https://uzzero.github.io/rencoret-ai-dev-preview/#projekte"
             },
             {
                 "@type": "ListItem",
                 "position": 9,
                 "name": "FAQ",
-                "item": "https://rencoret.eu/#faq"
+                "item": "https://uzzero.github.io/rencoret-ai-dev-preview/#faq"
             },
             {
                 "@type": "ListItem",
                 "position": 10,
                 "name": "Kontakt",
-                "item": "https://rencoret.eu/#kontakt"
+                "item": "https://uzzero.github.io/rencoret-ai-dev-preview/#kontakt"
             }
         ]
     }
@@ -3168,13 +2328,9 @@
     }
     </script>
 
-    <!-- Pageclip -->
-    <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
-
     <!-- Custom Form Success Handler -->
     <script>
-        // Wait for Pageclip to be loaded
-        window.addEventListener('load', function () {
+        document.addEventListener('DOMContentLoaded', function () {
             const form = document.querySelector('.pageclip-form');
             const overlay = document.getElementById('formSuccessOverlay');
             const successTitle = document.getElementById('successTitle');
@@ -3204,6 +2360,10 @@
 
                 // Listen for Pageclip success event
                 form.addEventListener('submit', function (e) {
+                    if (window.rencoretLoadPageclip) {
+                        window.rencoretLoadPageclip();
+                    }
+
                     // Get the name from the form
                     const nameInput = document.getElementById('name');
                     const nameValue = nameInput ? nameInput.value.split(' ')[0] : '';
@@ -3290,6 +2450,64 @@
         });
     </script>
 
+    <!-- Pageclip only matters when the contact form is near use. -->
+    <script>
+        (function () {
+            var pageclipPromise = null;
+
+            function loadPageclip() {
+                if (pageclipPromise) return pageclipPromise;
+
+                pageclipPromise = new Promise(function (resolve, reject) {
+                    var existingScript = document.querySelector('script[data-pageclip-script]');
+                    if (existingScript) {
+                        existingScript.addEventListener('load', resolve, { once: true });
+                        existingScript.addEventListener('error', reject, { once: true });
+                        return;
+                    }
+
+                    var script = document.createElement('script');
+                    script.src = 'https://s.pageclip.co/v1/pageclip.js';
+                    script.charset = 'utf-8';
+                    script.async = true;
+                    script.dataset.pageclipScript = 'true';
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    document.head.appendChild(script);
+                });
+
+                return pageclipPromise;
+            }
+
+            function initPageclipLazyLoad() {
+                var form = document.querySelector('.pageclip-form');
+                if (!form) return;
+
+                form.addEventListener('focusin', loadPageclip, { once: true });
+                form.addEventListener('pointerenter', loadPageclip, { once: true });
+
+                if ('IntersectionObserver' in window) {
+                    var observer = new IntersectionObserver(function (entries) {
+                        if (entries.some(function (entry) { return entry.isIntersecting; })) {
+                            observer.disconnect();
+                            loadPageclip();
+                        }
+                    }, { rootMargin: '900px 0px' });
+
+                    observer.observe(form);
+                }
+            }
+
+            window.rencoretLoadPageclip = loadPageclip;
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initPageclipLazyLoad, { once: true });
+            } else {
+                initPageclipLazyLoad();
+            }
+        })();
+    </script>
+
     <!-- Fix für mobile Scrollprobleme -->
     <script>
         // Sofort ausführbare Funktion für schnellere Initialisierung
@@ -3367,52 +2585,82 @@
                 }
             }
 
+            let lastIOSFixWidth = window.innerWidth;
+            let iosFixRaf = null;
+
+            function scheduleFixIOSScrolling(force) {
+                const currentWidth = window.innerWidth;
+                const isTouchLayout = window.matchMedia('(pointer: coarse)').matches || currentWidth <= 768;
+                const widthChanged = Math.abs(currentWidth - lastIOSFixWidth) >= 2;
+
+                if (!force && isTouchLayout && !widthChanged) return;
+
+                lastIOSFixWidth = currentWidth;
+
+                if (iosFixRaf) return;
+
+                iosFixRaf = window.requestAnimationFrame(function () {
+                    iosFixRaf = null;
+                    fixIOSScrolling();
+                });
+            }
+
             // Fix sofort ausführen
             fixIOSScrolling();
 
-            // Auch bei Größenänderung ausführen
-            window.addEventListener('resize', fixIOSScrolling);
+            // iOS feuert Resize auch beim Ein-/Ausblenden der Browserleiste.
+            // Deshalb reagieren wir auf Touch-Geräten nur bei echten Breitenwechseln.
+            window.addEventListener('resize', function () {
+                scheduleFixIOSScrolling(false);
+            }, { passive: true });
+
+            window.addEventListener('orientationchange', function () {
+                window.setTimeout(function () {
+                    scheduleFixIOSScrolling(true);
+                }, 120);
+            }, { passive: true });
 
             // Einmalig nach DOMContentLoaded ausführen
             if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', fixIOSScrolling);
+                document.addEventListener('DOMContentLoaded', function () {
+                    scheduleFixIOSScrolling(true);
+                });
             }
         })();
     </script>
 
     <!-- Optimierte Seiteninitialisierung -->
     <script>
-        // DOMContentLoaded abwarten, damit alle Elemente verfügbar sind
-        document.addEventListener('DOMContentLoaded', function () {
-            // Body sofort sichtbar machen
-            document.documentElement.classList.add('loaded');
+        (function () {
+            function initializePage() {
+                // Statusklasse für nachgelagerte UI-Logik setzen.
+                requestAnimationFrame(function () {
+                    document.documentElement.classList.add('loaded');
+                });
 
-            // Kein Theme-Toggle mehr erzeugen, da wir immer im Dark Mode bleiben
+                // Force translation update after a short delay
+                setTimeout(() => {
+                    if (window.languageManager) {
+                        window.languageManager.updatePageContent();
+                        window.languageManager.updateLanguageSelector();
+                    }
+                }, 200);
+            }
 
-            // Initialisiere alle wichtigen Layout-Anpassungen
-            adjustHeroSpacing();
-
-            // Force translation update after a short delay
-            setTimeout(() => {
-                if (window.languageManager) {
-                    window.languageManager.updatePageContent();
-                    window.languageManager.updateLanguageSelector();
-                }
-            }, 200);
-        });
-
-        // Für noch schnellere initiale Anzeige
-        if (document.readyState === 'interactive' || document.readyState === 'complete') {
-            document.documentElement.classList.add('loaded');
-        }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initializePage, { once: true });
+            } else {
+                initializePage();
+            }
+        })();
     </script>
 
     <!-- Analytics & Tracking -->
     <script src="js/analytics.js" defer></script>
 
     <!-- Sticky Mobile CTA -->
-    <div class="sticky-cta" id="sticky-cta" aria-hidden="true">
-        <a href="#lead-form" class="cta-button sticky-cta__button" data-i18n="stickycta.button">Kostenlosen Fit-Check anfragen</a>
+    <div class="sticky-cta" id="sticky-cta" aria-hidden="true" inert>
+        <a href="#lead-form" class="cta-button sticky-cta__button" data-i18n="stickycta.button" tabindex="-1">Kostenlosen Fit-Check anfragen</a>
     </div>
     <script>
         (function () {
@@ -3420,29 +2668,106 @@
             var hero = document.querySelector('.hero');
             var contact = document.querySelector('.contact');
             if (!stickyCta || !hero || !('IntersectionObserver' in window)) return;
+            var stickyCtaButton = stickyCta.querySelector('.sticky-cta__button');
 
             var heroVisible = true;
             var contactVisible = false;
+            var updateRaf = null;
+            var viewportRaf = null;
+            var viewportShift = 0;
 
-            function update() {
-                var show = !heroVisible && !contactVisible && window.innerWidth < 768;
+            function isMobileCta() {
+                return window.innerWidth < 768;
+            }
+
+            function setViewportShift(nextShift) {
+                viewportShift = nextShift;
+                stickyCta.style.setProperty('--sticky-cta-viewport-shift', nextShift + 'px');
+            }
+
+            function getVisibleViewportHeight() {
+                return window.visualViewport ? window.visualViewport.height : window.innerHeight;
+            }
+
+            function syncVisualViewport() {
+                viewportRaf = null;
+
+                if (!isMobileCta() || !stickyCta.classList.contains('visible')) {
+                    setViewportShift(0);
+                    return;
+                }
+
+                var measuredElement = stickyCta.querySelector('.sticky-cta__button') || stickyCta;
+                var rect = measuredElement.getBoundingClientRect();
+                var targetGap = parseFloat(getComputedStyle(stickyCta).getPropertyValue('--sticky-cta-bottom-gap')) || 0;
+                var visibleGap = Math.round(getVisibleViewportHeight() - rect.bottom);
+                var nextShift = Math.max(0, Math.min(80, viewportShift + visibleGap - targetGap));
+
+                if (Math.abs(nextShift - viewportShift) >= 1) {
+                    setViewportShift(nextShift);
+                }
+            }
+
+            function scheduleViewportSync() {
+                if (viewportRaf) return;
+
+                viewportRaf = window.requestAnimationFrame(syncVisualViewport);
+            }
+
+            function setStickyCtaVisibility(show) {
                 stickyCta.classList.toggle('visible', show);
                 stickyCta.setAttribute('aria-hidden', show ? 'false' : 'true');
+
+                if (show) {
+                    stickyCta.removeAttribute('inert');
+                    if (stickyCtaButton) stickyCtaButton.removeAttribute('tabindex');
+                    return;
+                }
+
+                stickyCta.setAttribute('inert', '');
+                if (stickyCtaButton) stickyCtaButton.setAttribute('tabindex', '-1');
+            }
+
+            function update() {
+                updateRaf = null;
+
+                var show = !heroVisible && !contactVisible && isMobileCta();
+                setStickyCtaVisibility(show);
+
+                if (show) {
+                    scheduleViewportSync();
+                    window.setTimeout(scheduleViewportSync, 380);
+                } else {
+                    setViewportShift(0);
+                }
+            }
+
+            function scheduleUpdate() {
+                if (updateRaf) return;
+
+                updateRaf = window.requestAnimationFrame(update);
             }
 
             new IntersectionObserver(function (entries) {
                 heroVisible = entries[entries.length - 1].isIntersecting;
-                update();
+                scheduleUpdate();
             }, { threshold: 0.05 }).observe(hero);
 
             if (contact) {
                 new IntersectionObserver(function (entries) {
                     contactVisible = entries[entries.length - 1].isIntersecting;
-                    update();
+                    scheduleUpdate();
                 }, { threshold: 0.05 }).observe(contact);
             }
 
-            window.addEventListener('resize', update);
+            window.addEventListener('resize', scheduleUpdate, { passive: true });
+
+            if (window.visualViewport) {
+                window.visualViewport.addEventListener('resize', scheduleViewportSync, { passive: true });
+                window.visualViewport.addEventListener('scroll', scheduleViewportSync, { passive: true });
+            }
+
+            scheduleUpdate();
         })();
     </script>
 

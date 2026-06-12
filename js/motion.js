@@ -208,12 +208,18 @@
         ScrollTrigger.refresh();
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
+    function initMotion() {
         if (!canAnimate) {
             initFallbackMotion();
             return;
         }
 
         initGsapMotion();
-    });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMotion, { once: true });
+    } else {
+        initMotion();
+    }
 })();

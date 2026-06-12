@@ -64,6 +64,9 @@
         // Get landing page type for segmentation
         getLandingPageType() {
             const path = window.location.pathname;
+            if (path.includes('/ai-mvp-development')) return 'ai_mvp_development';
+            if (path.includes('/internal-ai-assistant-rag')) return 'internal_ai_assistant_rag';
+            if (path.includes('/ai-automation-sprint')) return 'ai_automation_sprint';
             if (path.includes('/founder')) return 'founder';
             if (path.includes('/mittelstand')) return 'mittelstand';
             return 'main';

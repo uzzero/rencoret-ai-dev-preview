@@ -1191,8 +1191,6 @@ Object.assign(translations.de, {
     "hero.cta": "90-Tage-MVP-Fit-Check anfragen",
     "hero.secondary_cta": "Was nach 90 Tagen steht",
     "hero.microcopy": "Kostenloser 20-Minuten-Check · Antwort innerhalb von 24 Stunden · kein Pitchdeck nötig",
-    "hero.proof.line": "44 Tage bis zur Launch-Version · 15.000+ Nutzer in Europa",
-
     "services.heading.line1": "Apps, gebaut für echten Mehrwert.",
     "services.heading.line2": "Mit KI im Kern.",
     "services.intro": "Drei Produktmomente tragen den Sprint: ein nutzbares Interface, ein KI-Use-Case mit echtem Nutzen und ein Scope, der in 90 Tagen hält.",
@@ -1352,7 +1350,6 @@ Object.assign(translations.en, {
     "hero.cta": "Request MVP fit check",
     "hero.secondary_cta": "What stands after 90 days",
     "hero.microcopy": "Free 20-minute check · reply within 24 hours · no pitch deck needed",
-    "hero.proof.line": "44 days to launch version · 15,000+ users in Europe",
     "services.intro": "Three product moments carry the sprint: a usable interface, one AI use case with real value, and a scope that holds in 90 days.",
     "services.ai_mvp.title": "MVPs that feel ready to use.",
     "services.ai_mvp.description": "App or web app, backend, and the one user path that needs to be tested.",
@@ -1495,7 +1492,6 @@ Object.assign(translations.es, {
     "hero.cta": "Solicitar fit-check MVP",
     "hero.secondary_cta": "Qué queda tras 90 días",
     "hero.microcopy": "Check gratuito de 20 minutos · respuesta en 24 horas · sin pitch deck",
-    "hero.proof.line": "44 días hasta la versión de lanzamiento · 15.000+ usuarios en Europa",
     "services.intro": "Tres momentos de producto sostienen el sprint: una interfaz usable, un caso de uso de IA con valor real y un scope que aguanta 90 días.",
     "services.ai_mvp.title": "MVPs que se sienten listos para usar.",
     "services.ai_mvp.description": "App o web app, backend y la ruta de usuario que debe probarse.",
@@ -1809,9 +1805,15 @@ function LanguageManager() {
             var link = document.createElement('link');
             link.rel = 'alternate';
             link.hreflang = lang;
-            link.href = 'https://rencoret.eu' + (lang !== 'de' ? '?lang=' + lang : '');
+            link.href = 'https://uzzero.github.io/rencoret-ai-dev-preview' + (lang !== 'de' ? '?lang=' + lang : '');
             head.appendChild(link);
         }
+
+        var defaultLink = document.createElement('link');
+        defaultLink.rel = 'alternate';
+        defaultLink.hreflang = 'x-default';
+        defaultLink.href = 'https://uzzero.github.io/rencoret-ai-dev-preview/';
+        head.appendChild(defaultLink);
     }
 
     this.updateLanguageSelector = function () {

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <style id="initial-theme">
+        html {
+            background-color: #000000;
+        }
+
+        body {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        html.loaded body {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+
+    <title>Internal AI Assistant / RAG | RENCORET AI</title>
+    <meta name="description" content="RENCORET AI entwickelt interne KI-Assistenten und RAG-Systeme, die Wissen aus Dokumenten, Tools und Datenquellen auffindbar machen - mit Quellenbezug, Rollenlogik und Evaluation.">
+    <meta name="keywords" content="Internal AI Assistant, RAG Entwicklung, KI Assistent intern, Wissenssuche, Retrieval Augmented Generation, Enterprise AI, Chatbot, KI Wissensmanagement">
+    <meta name="author" content="RENCORET AI">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Internal AI Assistant / RAG | RENCORET AI">
+    <meta property="og:description" content="Interne KI-Assistenten und RAG-Systeme für Teams, die Wissen schneller finden, prüfen und nutzen wollen.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://uzzero.github.io/rencoret-ai-dev-preview/internal-ai-assistant-rag.html">
+    <meta property="og:image" content="https://uzzero.github.io/rencoret-ai-dev-preview/img/meta/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="RENCORET AI">
+    <meta property="og:locale" content="de_DE">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Internal AI Assistant / RAG | RENCORET AI">
+    <meta name="twitter:description" content="Interne KI-Assistenten und RAG-Systeme für Teams, die Wissen schneller finden, prüfen und nutzen wollen.">
+    <meta name="twitter:image" content="https://uzzero.github.io/rencoret-ai-dev-preview/img/meta/og-image.png">
+
+    <link rel="canonical" href="https://uzzero.github.io/rencoret-ai-dev-preview/internal-ai-assistant-rag.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Internal AI Assistant / RAG",
+      "serviceType": "Internal AI Assistant and RAG Development",
+      "description": "Entwicklung interner KI-Assistenten und RAG-Systeme mit Datenanbindung, Rollenlogik, Quellenbezug, Evaluation und sicherem Rollout.",
+      "url": "https://uzzero.github.io/rencoret-ai-dev-preview/internal-ai-assistant-rag.html",
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://uzzero.github.io/rencoret-ai-dev-preview/#organization",
+        "name": "RENCORET AI",
+        "url": "https://uzzero.github.io/rencoret-ai-dev-preview"
+      },
+      "areaServed": ["DE", "AT", "CH", "Europe"],
+      "offers": {
+        "@type": "Offer",
+        "availability": "https://schema.org/InStock",
+        "priceCurrency": "EUR",
+        "description": "Interner KI-Assistent und RAG-System für Teams mit verteiltem Wissen, Dokumenten und wiederkehrenden Fragen."
+      }
+    }
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied'
+        });
+
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    </script>
+
+    <link rel="stylesheet" href="css/internal-ai-assistant-rag.68fb8dea680a.css">
+    
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+</head>
+
+<body class="campaign-page campaign-page--rag">
+        <header>
+        <div class="container">
+            <div class="logo">
+                <a href="./" title="RENCORET AI - Startseite">
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo" class="logo-svg dark-mode-logo" width="220" height="75" fetchpriority="high">
+                </a>
+            </div>
+            <nav aria-label="Kampagnennavigation">
+                <ul>
+                    <li><a href="#pain">Problem</a></li>
+                    <li><a href="#benefits">Nutzen</a></li>
+                    <li><a href="#proof">Proof</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+                <a href="#lead-form" class="nav-cta">RAG-Fit-Check</a>
+                <button class="mobile-menu-toggle" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+        <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu campaign-mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <a href="./" class="mobile-menu-logo" title="RENCORET AI - Startseite">
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo">
+                </a>
+                <button class="mobile-menu-close" aria-label="Menü schließen">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <ul>
+                <li><a href="#pain">Problem</a></li>
+                <li><a href="#benefits">Nutzen</a></li>
+                <li><a href="#proof">Proof</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+
+            <a href="#lead-form" class="cta-button mobile-menu-cta">RAG-Fit-Check</a>
+        </div>
+    </div>
+
+    <main>
+                <section class="hero hero--apple campaign-hero" id="top">
+            <div class="hero__glow-layer" aria-hidden="true">
+                <span class="glow-aura glow-aura--orange hero__glow hero__glow--tl"></span>
+                <span class="glow-aura glow-aura--purple hero__glow hero__glow--br"></span>
+            </div>
+
+            <div class="container-wide hero__inner campaign-hero__inner">
+                <div class="campaign-hero__copy" data-motion="reveal">
+                    <span class="eyebrow campaign-hero__eyebrow">Internal AI Assistant / RAG</span>
+                    <h1 class="display-xxl hero__headline">
+                        <span class="display-line">Internes Wissen,</span>
+                        <span class="display-line display-line--accent">endlich abrufbar.</span>
+                    </h1>
+                    <p class="hero__lede">Für Teams mit verteilten Dokumenten, Tools und wiederkehrenden Fragen: Wir entwickeln einen internen KI-Assistenten mit RAG, Quellenbezug, Rollenlogik und überprüfbarer Antwortqualität.</p>
+                    <div class="btn-row hero__cta-row">
+                        <a href="#lead-form" class="cta-button">RAG-Fit-Check anfragen</a>
+                        <a href="#proof" class="btn-ghost">Proof ansehen</a>
+                    </div>
+                    <p class="hero__microcopy">20 Minuten. Datenlage, Suchqualität, Risiken und sinnvoller Pilot-Scope.</p>
+                </div>
+
+                <div class="campaign-hero__proof" aria-label="Internal AI Assistant / RAG Eckdaten">
+                    <div>
+                        <strong>RAG Pilot</strong>
+                        <span>mit echten Dokumenten statt Demo-Daten</span>
+                    </div>
+                    <div>
+                        <strong>Quellenbezug</strong>
+                        <span>Antworten nachvollziehbar und prüfbar machen</span>
+                    </div>
+                    <div>
+                        <strong>Rollenlogik</strong>
+                        <span>Zugriffe und Datenflüsse bewusst schneiden</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero__visual campaign-hero__visual" aria-hidden="true">
+                <div class="hero__visual-frame campaign-hero__visual-frame">
+                    <picture>
+                        <source srcset="img/generated/home/ai-workspace-in-use.webp" type="image/webp">
+                        <img class="hero__visual-img campaign-hero__visual-img" src="img/generated/home/ai-workspace-in-use.png" alt="Interner KI-Assistent mit Chat, Datenquellen, RAG-Suche und Antwortprüfung" width="1600" height="900" fetchpriority="high">
+                    </picture>
+                </div>
+            </div>
+        </section>
+
+        <section class="client-logos client-logos--apple" aria-label="Kunden und Partner">
+    <div class="container-wide">
+        <h2 class="client-logos__heading" data-i18n="clients.heading">Erfahrung aus Projekten mit Konzernen, Mittelstand und Foundern</h2>
+        <div class="logo-slider-container">
+            <div class="logo-slider">
+                <div class="logo-container">
+                    <img src="img/clients/dhl_group_logo.svg" alt="DHL Group Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container">
+                    <img src="img/clients/sparkasse_logo.svg" alt="Sparkasse Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container">
+                    <img src="img/clients/stiftung_solidaritaet_logo.svg" alt="Stiftung Solidarität Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container">
+                    <img src="img/clients/dmg_mori_logo.svg" alt="DMG MORI Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container">
+                    <img src="img/clients/diebold_nixdorf_logo.svg" alt="Diebold Nixdorf Logo" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/dhl_group_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/sparkasse_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/stiftung_solidaritaet_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/dmg_mori_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+                <div class="logo-container" aria-hidden="true">
+                    <img src="img/clients/diebold_nixdorf_logo.svg" alt="" loading="lazy" width="120" height="60">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="pain" class="campaign-section campaign-section--tight conversion-section conversion-section--apple">
+            <span class="glow-aura glow-aura--orange conversion-section__glow conversion-section__glow--a" aria-hidden="true"></span>
+            <div class="container-wide">
+                            <div class="conversion-section__intro " data-motion="reveal">
+                <span class="eyebrow">Pain Points</span>
+                <h2 class="display-xl conversion-section__heading">
+                    <span class="display-line">Warum interne KI-Assistenten</span>
+                    <span class="display-line display-line--accent">oft enttäuschen.</span>
+                </h2>
+                <p class="lede">Ein RAG-Assistent ist nur so gut wie Datenzugang, Retrieval, Rollenmodell und Evaluation. Genau dort entstehen die meisten Risiken.</p>
+            </div>
+
+                <div class="campaign-card-grid" data-motion="stagger">
+                                    <article class="campaign-card ">
+                    <span class="campaign-card__label">Problem 01</span>
+                    <h3>Wissen liegt in zu vielen Silos.</h3>
+                    <p>PDFs, Wikis, Tickets, CRM, Laufwerke und E-Mails enthalten wertvolle Antworten, aber niemand weiß sicher, welche Quelle aktuell ist.</p>
+                    <ul>
+                        <li>lange Suchzeiten für Standardfragen</li><li>veraltete Dokumente werden weiterverwendet</li><li>Experten werden für gleiche Fragen blockiert</li>
+                    </ul>
+                </article>
+
+                                    <article class="campaign-card campaign-card--featured">
+                    <span class="campaign-card__label">Problem 02</span>
+                    <h3>Der Assistent klingt gut, ist aber nicht belastbar.</h3>
+                    <p>Ohne sauberes Retrieval, Quellenbezug und Tests produziert ein Chatbot plausible Antworten, die im Arbeitsalltag schwer zu vertrauen sind.</p>
+                    <ul>
+                        <li>keine Antwort mit belastbaren Quellen</li><li>Halluzinationen bei Wissenslücken</li><li>keine Messung von Trefferqualität</li>
+                    </ul>
+                </article>
+
+                                    <article class="campaign-card ">
+                    <span class="campaign-card__label">Problem 03</span>
+                    <h3>Datenschutz und Rechte werden zu spät geklärt.</h3>
+                    <p>Interne Assistenten dürfen nicht alles jedem zeigen. Rollen, Datenflüsse und Hosting müssen vor dem Pilot sauber geschnitten werden.</p>
+                    <ul>
+                        <li>unklare Zugriffsrechte</li><li>sensibler Kontext in falschen Prompts</li><li>kein Plan für Audit und Löschung</li>
+                    </ul>
+                </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="benefits" class="campaign-section conversion-section conversion-section--apple">
+            <span class="glow-aura glow-aura--purple conversion-section__glow conversion-section__glow--b" aria-hidden="true"></span>
+            <div class="container-wide">
+                            <div class="conversion-section__intro " data-motion="reveal">
+                <span class="eyebrow">Benefits</span>
+                <h2 class="display-xl conversion-section__heading">
+                    <span class="display-line">Was Ihr Team</span>
+                    <span class="display-line display-line--accent">danach nutzen kann.</span>
+                </h2>
+                <p class="lede">Ein fokussierter Assistent, der echte Quellen durchsucht, Antworten nachvollziehbar macht und als Pilot kontrolliert ausgerollt werden kann.</p>
+            </div>
+
+                <div class="campaign-card-grid" data-motion="stagger">
+                                    <article class="campaign-card campaign-card--featured">
+                    <span class="campaign-card__label">Retrieval</span>
+                    <h3>RAG auf echten Unternehmensdaten.</h3>
+                    <p>Wir verbinden ausgewählte Quellen, schneiden Dokumente sinnvoll, bauen Embeddings und prüfen, ob die Suche die richtigen Stellen findet.</p>
+                    <ul>
+                        <li>Datenquellen und Index-Strategie</li><li>Chunking, Metadaten und Aktualisierung</li><li>Qualitätschecks für Suchtreffer</li>
+                    </ul>
+                </article>
+
+                                    <article class="campaign-card ">
+                    <span class="campaign-card__label">Assistant</span>
+                    <h3>Antworten mit Kontext und Quellen.</h3>
+                    <p>Der Assistent beantwortet definierte Fragenklassen, zeigt Quellen an und bleibt bei unsicheren Fällen kontrolliert.</p>
+                    <ul>
+                        <li>Assistenten-UI für Pilotnutzer</li><li>Quellenanzeige und Rückfragen</li><li>Guardrails gegen unsichere Antworten</li>
+                    </ul>
+                </article>
+
+                                    <article class="campaign-card ">
+                    <span class="campaign-card__label">Rollout</span>
+                    <h3>Evaluation statt Bauchgefühl.</h3>
+                    <p>Sie erhalten Testsets, Feedbackschleifen und Metriken, damit Qualität, Nutzen und Risiken vor einem breiteren Rollout sichtbar sind.</p>
+                    <ul>
+                        <li>goldene Fragen und Antwortkriterien</li><li>Feedback für falsche oder fehlende Antworten</li><li>Roadmap für Datenquellen und Rechte</li>
+                    </ul>
+                </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="proof" class="campaign-section conversion-section conversion-section--apple">
+            <span class="glow-aura glow-aura--mix conversion-section__glow conversion-section__glow--center" aria-hidden="true"></span>
+            <div class="container-wide">
+                            <div class="conversion-section__intro " data-motion="reveal">
+                <span class="eyebrow">Proof</span>
+                <h2 class="display-xl conversion-section__heading">
+                    <span class="display-line">RAG ist Engineering,</span>
+                    <span class="display-line display-line--accent">nicht nur Prompting.</span>
+                </h2>
+                <p class="lede">Wir behandeln den Assistenten wie ein internes Produkt: Datenmodell, Zugriff, Antwortqualität, Monitoring und Nutzerfeedback gehören von Anfang an zusammen.</p>
+            </div>
+
+                <div class="campaign-proof-band" data-motion="reveal">
+                    <div class="campaign-proof-panel">
+                        <h3>Der erste Pilot beantwortet bewusst weniger Fragen, dafür verlässlicher.</h3>
+                        <p>Wir schneiden Use Cases, Datenquellen und Nutzergruppen eng. Das erhöht die Chance, dass der Assistent im echten Arbeitsalltag Vertrauen aufbaut, statt als weitere Demo zu verschwinden.</p>
+                    </div>
+                    <div class="campaign-proof-panel">
+                        <h3>Technische Leitplanken für kontrollierte Nutzung.</h3>
+                        <ul class="campaign-proof-list">
+                            <li><strong>Retrieval</strong><span>Vektor-Suche, Metadaten, Re-Ranking und Quellenfilter passend zur Datenlage.</span></li>
+                            <li><strong>Governance</strong><span>Rollen, Datenflüsse, Logging und bewusst gewählte Modell- und Hosting-Optionen.</span></li>
+                            <li><strong>Evaluation</strong><span>Testfragen, Trefferqualität, Nutzerfeedback und Monitoring für Antwortfehler.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process" class="campaign-section conversion-section conversion-section--apple">
+            <div class="container-wide">
+                            <div class="conversion-section__intro " data-motion="reveal">
+                <span class="eyebrow">Ablauf</span>
+                <h2 class="display-xl conversion-section__heading">
+                    <span class="display-line">Vom Datencheck</span>
+                    <span class="display-line display-line--accent">zum belastbaren Pilot.</span>
+                </h2>
+                <p class="lede">Der Ablauf reduziert Risiko, bevor die Lösung breiter ausgerollt wird.</p>
+            </div>
+
+                <div class="campaign-step-grid" data-motion="stagger">
+                                    <article class="campaign-step ">
+                    <span class="campaign-step__index">01</span>
+                    <h3>Daten- und Use-Case-Check</h3>
+                    <p>Wir prüfen Quellen, Dokumenttypen, Nutzergruppen, Rechte und die wichtigsten Fragenklassen.</p>
+                </article>
+
+                                    <article class="campaign-step ">
+                    <span class="campaign-step__index">02</span>
+                    <h3>Retrieval-Prototyp</h3>
+                    <p>Index, Chunking, Metadaten und Suchqualität werden mit echten Beispielen getestet.</p>
+                </article>
+
+                                    <article class="campaign-step ">
+                    <span class="campaign-step__index">03</span>
+                    <h3>Assistant Build</h3>
+                    <p>UI, Antwortlogik, Quellenanzeige, Guardrails und Feedback werden zum Pilot verbunden.</p>
+                </article>
+
+                                    <article class="campaign-step ">
+                    <span class="campaign-step__index">04</span>
+                    <h3>Evaluation und Rollout-Plan</h3>
+                    <p>Sie erhalten Qualitätsmessung, Risikoübersicht und eine Roadmap für weitere Quellen und Nutzergruppen.</p>
+                </article>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="faq campaign-faq conversion-section conversion-section--apple">
+            <span class="glow-aura glow-aura--purple conversion-section__glow conversion-section__glow--b" aria-hidden="true"></span>
+            <div class="container-wide">
+                            <div class="conversion-section__intro " data-motion="reveal">
+                <span class="eyebrow">FAQ</span>
+                <h2 class="display-xl conversion-section__heading">
+                    <span class="display-line">Fragen vor einem</span>
+                    <span class="display-line display-line--accent">Internal AI Assistant / RAG Pilot.</span>
+                </h2>
+                <p class="lede">Die wichtigsten Entscheidungen vor einem internen Assistenten.</p>
+            </div>
+
+                <div class="faq-list" data-motion="reveal">
+                                    <article class="faq-item" data-faq-item>
+                    <button class="faq-question" id="rag-faq-q1" aria-expanded="false" aria-controls="rag-faq-a1" data-faq-trigger>
+                        <span>Welche Datenquellen können angebunden werden?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" id="rag-faq-a1" role="region" aria-labelledby="rag-faq-q1" hidden>
+                        <p>Typisch sind PDFs, Wikis, Helpdesks, Notion, Confluence, Google Drive, SharePoint, Datenbanken oder interne APIs. Wir starten mit wenigen Quellen, die für den Pilot hohen Nutzen haben.</p>
+                    </div>
+                </article>
+
+                                    <article class="faq-item" data-faq-item>
+                    <button class="faq-question" id="rag-faq-q2" aria-expanded="false" aria-controls="rag-faq-a2" data-faq-trigger>
+                        <span>Wie geht ihr mit Berechtigungen um?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" id="rag-faq-a2" role="region" aria-labelledby="rag-faq-q2" hidden>
+                        <p>Zugriffsrechte werden im Scope geklärt. Je nach System arbeiten wir mit getrennten Indizes, Metadatenfiltern, Nutzerrollen oder bewusst begrenzten Pilotdaten.</p>
+                    </div>
+                </article>
+
+                                    <article class="faq-item" data-faq-item>
+                    <button class="faq-question" id="rag-faq-q3" aria-expanded="false" aria-controls="rag-faq-a3" data-faq-trigger>
+                        <span>Wie verhindert ihr falsche Antworten?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" id="rag-faq-a3" role="region" aria-labelledby="rag-faq-q3" hidden>
+                        <p>Wir kombinieren gutes Retrieval, Quellenanzeige, Antwortregeln, Testsets und Feedback. Kritische Workflows können zusätzlich Human Review oder Eskalation bekommen.</p>
+                    </div>
+                </article>
+
+                                    <article class="faq-item" data-faq-item>
+                    <button class="faq-question" id="rag-faq-q4" aria-expanded="false" aria-controls="rag-faq-a4" data-faq-trigger>
+                        <span>Ist EU-Hosting möglich?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" id="rag-faq-a4" role="region" aria-labelledby="rag-faq-q4" hidden>
+                        <p>Ja, je nach Architektur und Modellwahl kann EU-Hosting berücksichtigt werden. Datenflüsse und Anbieteroptionen werden vor dem Pilot transparent entschieden.</p>
+                    </div>
+                </article>
+
+                                    <article class="faq-item" data-faq-item>
+                    <button class="faq-question" id="rag-faq-q5" aria-expanded="false" aria-controls="rag-faq-a5" data-faq-trigger>
+                        <span>Wie lange dauert ein erster Pilot?</span>
+                        <span class="faq-icon" aria-hidden="true"></span>
+                    </button>
+                    <div class="faq-answer" id="rag-faq-a5" role="region" aria-labelledby="rag-faq-q5" hidden>
+                        <p>Das hängt von Datenlage, Integrationen und Rollenmodell ab. Ein fokussierter Pilot ist oft in wenigen Wochen realistisch, wenn Quellen und Fragenklassen klar begrenzt sind.</p>
+                    </div>
+                </article>
+
+                </div>
+            </div>
+        </section>
+
+                <section class="campaign-final-cta conversion-section conversion-section--apple">
+            <span class="glow-aura glow-aura--mix conversion-section__glow conversion-section__glow--center" aria-hidden="true"></span>
+            <div class="container-wide">
+                <div class="pre-contact-cta campaign-final-cta__card" data-motion="reveal">
+                    <span class="eyebrow">Nächster Schritt</span>
+                    <h2>Klären wir, ob ein interner KI-Assistent mit Ihren Daten sinnvoll pilotierbar ist.</h2>
+                    <p>Im Fit-Check prüfen wir Quellen, Rechte, Fragenklassen, Risiken und den kleinsten belastbaren Pilot-Scope.</p>
+                    <a href="#lead-form" class="cta-button">Kostenlosen RAG-Fit-Check anfragen</a>
+                </div>
+            </div>
+        </section>
+
+                <section class="contact contact--apple campaign-contact">
+            <span class="glow-aura glow-aura--orange contact__glow contact__glow--a" aria-hidden="true"></span>
+            <span class="glow-aura glow-aura--purple contact__glow contact__glow--b" aria-hidden="true"></span>
+
+            <div class="container-wide">
+                <div class="contact__final-cta" data-motion="reveal">
+                    <span class="eyebrow">Kontakt</span>
+                    <h2 class="display-xxl contact__final-heading">
+                        <span class="display-line">Ihr interner Assistent.</span>
+                        <span class="display-line display-line--accent">Mit belastbarer Suche.</span>
+                    </h2>
+                    <p class="lede contact__final-lede">Beschreiben Sie kurz Datenquellen und typische Fragen. Wir antworten mit einer ersten Einschätzung zu Pilot-Scope, Risiko und nächstem Schritt.</p>
+                </div>
+
+                <div class="contact-grid" data-motion="reveal">
+                    <aside id="kontakt" class="contact-card contact-card--ceo" data-nav-section>
+                        <div class="ceo-profile">
+                            <div class="ceo-profile__avatar">
+                                <picture>
+                                    <source srcset="img/team/ricardo-rencoret.webp" type="image/webp">
+                                    <img src="img/team/ricardo-rencoret.jpg" alt="Ricardo Rencoret Nicolás, CEO" loading="lazy">
+                                </picture>
+                            </div>
+                            <div class="ceo-profile__meta">
+                                <h3>Ricardo Rencoret Nicolás</h3>
+                                <p class="ceo-profile__title">CEO &amp; Founder</p>
+                                <p class="ceo-profile__bio">Ihr direkter Ansprechpartner für interne KI-Assistenten, RAG-Architektur und kontrollierte Pilot-Rollouts.</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-card__details" itemscope itemtype="http://schema.org/LocalBusiness">
+                            <meta itemprop="name" content="RENCORET AI">
+                            <meta itemprop="url" content="https://uzzero.github.io/rencoret-ai-dev-preview">
+                            <meta itemprop="sameAs" content="https://www.linkedin.com/company/rencoret-ai">
+
+                            <div class="contact-card__detail">
+                                <span class="contact-card__detail-label">E-Mail</span>
+                                <a href="mailto:ricardo@rencoret.dev" itemprop="email">ricardo@rencoret.dev</a>
+                            </div>
+                            <div class="contact-card__detail">
+                                <span class="contact-card__detail-label">Adresse</span>
+                                <address itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                                    <span itemprop="streetAddress">Gerkens Hof 9</span><br>
+                                    <span itemprop="postalCode">33758</span> <span itemprop="addressLocality">Schloß Holte-Stukenbrock</span><br>
+                                    <span itemprop="addressCountry">Deutschland</span>
+                                </address>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <div class="contact-card contact-card--form">
+                        <h3 class="contact-card__title">Internal AI Assistant / RAG Fit-Check</h3>
+                        <p class="contact-card__lead">Vier kurze Felder reichen. Die optionale Einordnung hilft uns, Datenlage und Pilot-Scope schneller einzuschätzen.</p>
+                        <div class="contact-card__trust-row" aria-label="Kontaktversprechen">
+                            <span>Datenquellen-Check</span>
+                            <span>RAG-Risiko-Check</span>
+                            <span>Antwort in 24h</span>
+                        </div>
+                        <span id="lead-form" class="contact-anchor contact-anchor--lead" aria-hidden="true"></span>
+                        <form id="contact-form" name="contact" method="post"
+                              action="https://send.pageclip.co/rmZeWRkkpJosrWQBvXmyUqtzTkLkeDll" class="pageclip-form">
+                            <input type="hidden" id="landing_page" name="landing_page">
+                            <input type="hidden" id="utm_source" name="utm_source">
+                            <input type="hidden" id="utm_medium" name="utm_medium">
+                            <input type="hidden" id="utm_campaign" name="utm_campaign">
+                            <input type="hidden" id="utm_content" name="utm_content">
+                            <input type="hidden" id="utm_term" name="utm_term">
+                            <input type="hidden" id="offer_type" name="offer_type" value="internal_ai_assistant_rag">
+
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-Mail</label>
+                                <input type="email" id="email" name="email" required aria-required="true">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Telefonnummer (optional)</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Welche internen Fragen oder Datenquellen soll der Assistent abdecken?</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                            </div>
+
+                            <details class="form-details">
+                                <summary>Optional: Projekt in 60 Sekunden einordnen</summary>
+                                <fieldset class="form-section form-section--optional">
+                                    <legend>Projekt einordnen (optional)</legend>
+                                    <div class="form-grid form-grid--two">
+                                        <div class="form-group">
+                                            <label for="project_status">Projektstatus</label>
+                                            <select id="project_status" name="project_status">
+                                                <option value="">Bitte auswählen</option>
+                                                <option value="idea">Idee</option>
+                                                <option value="rough_scope">Grober Scope vorhanden</option>
+                                                <option value="prototype">Prototyp vorhanden</option>
+                                                <option value="existing_product">Bestehendes Produkt</option>
+                                                <option value="budget_approved">Finanzierung/Budget freigegeben</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="launch_timeline">Zeitrahmen</label>
+                                            <select id="launch_timeline" name="launch_timeline">
+                                                <option value="">Bitte auswählen</option>
+                                                <option value="asap">So schnell wie möglich</option>
+                                                <option value="0_3_months">0-3 Monate</option>
+                                                <option value="3_6_months">3-6 Monate</option>
+                                                <option value="6_plus_months">6+ Monate</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="target_platform">Zielsystem</label>
+                                            <select id="target_platform" name="target_platform">
+                                                <option value="">Bitte auswählen</option>
+                                                <option value="ios_android">iOS/Android</option>
+                                                <option value="web_app">Web-App</option>
+                                                <option value="internal_app">Interne Anwendung</option>
+                                                <option value="workflow_automation">Workflow-Automation</option>
+                                                <option value="open">Noch offen</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="budget_range">Budgetrahmen</label>
+                                            <select id="budget_range" name="budget_range">
+                                                <option value="">Bitte auswählen</option>
+                                                <option value="open">Noch offen</option>
+                                                <option value="under_15k">Unter 15k</option>
+                                                <option value="15_30k">15k-30k</option>
+                                                <option value="30_75k">30k-75k</option>
+                                                <option value="75k_plus">75k+</option>
+                                                <option value="discuss">Möchte ich im Gespräch klären</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="ai_function">Wichtigste KI-Funktion</label>
+                                        <select id="ai_function" name="ai_function">
+                                            <option value="">Bitte auswählen</option>
+                                            <option value="chatbot_assistant">Chatbot/Assistent</option>
+                                            <option value="rag_search">RAG/Wissenssuche</option>
+                                            <option value="automation">Automatisierung</option>
+                                            <option value="image_document_analysis">Bild-/Dokumentenanalyse</option>
+                                            <option value="recommendation">Empfehlungssystem</option>
+                                            <option value="open">Noch offen</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="success_90_days">Erfolg des Pilot</label>
+                                        <textarea id="success_90_days" name="success_90_days" rows="3" placeholder="Welche Fragen sollte der Assistent im Pilot verlässlich beantworten können?"></textarea>
+                                    </div>
+                                </fieldset>
+                            </details>
+
+                            <div class="form-group form-group--checkbox">
+                                <input type="checkbox" id="datenschutz" name="datenschutz" required>
+                                <label for="datenschutz">Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme zu.</label>
+                            </div>
+                            <button type="submit" class="cta-button pageclip-form__submit">
+                                <span>RAG-Fit-Check anfragen</span>
+                            </button>
+                        </form>
+
+                        <div class="form-success-overlay" id="formSuccessOverlay" aria-hidden="true" role="status" aria-live="polite">
+                            <div class="form-success-content">
+                                <div class="success-checkmark">
+                                    <svg viewBox="0 0 100 100" aria-hidden="true">
+                                        <circle class="checkmark-circle" cx="50" cy="50" r="48" />
+                                        <path class="checkmark-check" d="M30 50 L45 65 L70 35" />
+                                    </svg>
+                                </div>
+                                <h3 class="success-title" id="successTitle">Vielen Dank!</h3>
+                                <p class="success-message">Ihre Anfrage wurde erfolgreich gesendet.</p>
+                                <div class="success-next-steps">Wir melden uns innerhalb von 24 Stunden mit einer ersten Einschätzung zu Datenlage, Pilot-Scope und sinnvollem nächsten Schritt.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>RENCORET AI</h3>
+                <p data-i18n="footer.tagline">App & KI Entwicklung</p>
+            </div>
+            <div class="footer-links">
+                <h4 data-i18n="footer.links.heading">Links</h4>
+                <ul>
+                    <li><a href="impressum.html" data-i18n="footer.links.imprint">Impressum</a></li>
+                    <li><a href="datenschutz.html" data-i18n="footer.links.privacy">Datenschutz</a></li>
+                    <li><button type="button" class="footer-cookie-button" id="cookie-settings" data-i18n="footer.links.cookies">Cookie-Einstellungen</button></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4 data-i18n="footer.contact.heading">Kontakt</h4>
+                <p>ricardo@rencoret.dev</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p data-i18n="footer.copyright">&copy; 2026 RENCORET AI GmbH. Alle Rechte vorbehalten.</p>
+            <p class="footer-credit">
+                Designed &amp; Built by
+                <a class="rencoret-glow" href="https://uzzero.github.io/rencoret-ai-dev-preview" target="_blank" rel="noopener noreferrer">
+                    <span class="ai-glow-inner">RENCORET AI GmbH</span>
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+        <div class="sticky-cta" id="sticky-cta" aria-hidden="true" inert>
+        <a href="#lead-form" class="cta-button sticky-cta__button" tabindex="-1">RAG-Fit-Check anfragen</a>
+    </div>
+
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <p>Wir verwenden Cookies und Tracking-Technologien, um Ihre Erfahrung zu verbessern und den Erfolg unserer Kampagnen zu messen. Nicht notwendiges Tracking laden wir erst nach Ihrer aktiven Zustimmung. Details finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+            <div class="cookie-buttons">
+                <button id="reject-cookies" class="cookie-btn cookie-btn-reject" type="button">Ablehnen</button>
+                <button id="accept-cookies" class="cookie-btn cookie-btn-accept" type="button">Akzeptieren</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/navigation.js?v=campaign-20260612" defer></script>
+    <script src="js/faq.js?v=campaign-20260612" defer></script>
+    <script src="js/campaign-page.js?v=campaign-20260612" defer></script>
+    <script src="js/analytics.js" defer></script>
+
+</body>
+
+</html>

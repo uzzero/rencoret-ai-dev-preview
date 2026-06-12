@@ -171,7 +171,7 @@
 }
 
 .about--apple .stats-strip .stat-number {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: var(--font-display);
     font-size: 5rem;
     font-weight: 700;
     line-height: 1;
@@ -186,7 +186,7 @@
 }
 
 .about--apple .stats-strip .stat-suffix {
-    font-family: 'Inter Tight', 'Inter', sans-serif;
+    font-family: var(--font-display);
     font-size: 3rem;
     font-weight: 700;
     background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));

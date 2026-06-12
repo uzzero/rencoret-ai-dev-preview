@@ -5,7 +5,23 @@
  * die mit der Klasse 'fade-in' markiert sind, sobald sie im Viewport sichtbar werden.
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+function runWhenReady(callback) {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', callback, { once: true });
+  } else {
+    callback();
+  }
+}
+
+function runAfterLoad(callback) {
+  if (document.readyState === 'complete') {
+    callback();
+  } else {
+    window.addEventListener('load', callback, { once: true });
+  }
+}
+
+runWhenReady(() => {
   // Alle Elemente mit der Klasse 'fade-in' auswählen
   const fadeElements = document.querySelectorAll('.fade-in');
 
@@ -39,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Optional: Animation beim ersten Laden verzögert starten
-window.addEventListener('load', () => {
+runAfterLoad(() => {
   // Kurze Verzögerung hinzufügen, damit die Seite erst vollständig geladen ist
   setTimeout(() => {
     // Elemente im ersten Viewport direkt sichtbar machen
@@ -49,7 +65,7 @@ window.addEventListener('load', () => {
   }, 300);
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+runWhenReady(function() {
     // Prüfen, ob wir uns auf einem mobilen Gerät befinden (vereinfachte Erkennung)
     const isMobile = window.innerWidth < 768;
 
