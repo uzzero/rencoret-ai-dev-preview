@@ -1,16 +1,6 @@
 # robots.txt
+# preview build: keep this preview/development output out of search indexes.
 User-agent: *
-Allow: /
+Disallow: /
 
-# Sitemap-Angabe
-Sitemap: https://uzzero.github.io/rencoret-ai-dev-preview/sitemap.xml
-
-# Disallow technische Verzeichnisse
-Disallow: /cgi-bin/
-Disallow: /search
-Disallow: /temp/
-Disallow: /admin/
-
-# CSS und JS sollten crawlbar sein für SEO
-# Disallow: /css/
-# Disallow: /js/
+# HTML pages also include: <meta name="robots" content="noindex, nofollow">

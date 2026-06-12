@@ -26,7 +26,7 @@
     <meta name="description" content="RENCORET AI baut nutzbare AI MVPs mit Produktoberfläche, Backend, KI-Kernworkflow, Deployment und Launch-Roadmap - fokussiert für Founder und Teams mit validiertem Bedarf.">
     <meta name="keywords" content="AI MVP Development, KI MVP Entwicklung, AI App Entwicklung, Web App MVP, Flutter, Firebase, Google Cloud, RAG, KI Produktentwicklung">
     <meta name="author" content="RENCORET AI">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex, nofollow">
 
     <meta property="og:title" content="AI MVP Development | RENCORET AI">
     <meta property="og:description" content="Von validierter Idee zu einem nutzbaren KI-MVP mit Oberfläche, Backend, KI-Kernworkflow und Launch-Roadmap.">
@@ -84,7 +84,7 @@
         localStorage.setItem('theme', 'dark');
     </script>
 
-    <link rel="stylesheet" href="css/ai-mvp-development.68fb8dea680a.css">
+    <link rel="stylesheet" href="css/ai-mvp-development.1d5e0f08abca.css">
     
     <link rel="stylesheet" href="css/print.css" media="print">
 
@@ -537,48 +537,85 @@
                             <input type="hidden" id="utm_term" name="utm_term">
                             <input type="hidden" id="offer_type" name="offer_type" value="ai_mvp_development">
 
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" required aria-required="true">
-                            </div>
-                            <div class="form-group">
-                                <label for="email">E-Mail</label>
-                                <input type="email" id="email" name="email" required aria-required="true">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Telefonnummer (optional)</label>
-                                <input type="tel" id="phone" name="phone">
+                            <div class="form-grid form-grid--two">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" name="name" required aria-required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Geschäftliche E-Mail</label>
+                                    <input type="email" id="email" name="email" required aria-required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company">Unternehmen</label>
+                                    <input type="text" id="company" name="company" required aria-required="true">
+                                </div>
+                                <div class="form-group">
+                                    <label for="role_function">Rolle/Funktion</label>
+                                    <input type="text" id="role_function" name="role_function" required aria-required="true">
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label for="message">Beschreiben Sie kurz Ihre MVP-Idee</label>
                                 <textarea id="message" name="message" rows="4" required></textarea>
                             </div>
 
+                            <div class="form-grid form-grid--two">
+                                <div class="form-group">
+                                    <label for="project_status">Projektstatus</label>
+                                    <select id="project_status" name="project_status" required aria-required="true">
+                                        <option value="">Bitte auswählen</option>
+                                        <option value="idea">Idee</option>
+                                        <option value="rough_scope">Grober Scope vorhanden</option>
+                                        <option value="prototype">Prototyp vorhanden</option>
+                                        <option value="existing_product">Bestehendes Produkt</option>
+                                        <option value="budget_approved">Finanzierung/Budget freigegeben</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="launch_timeline">Gewünschter Launch-Zeitraum</label>
+                                    <select id="launch_timeline" name="launch_timeline" required aria-required="true">
+                                        <option value="">Bitte auswählen</option>
+                                        <option value="asap">So schnell wie möglich</option>
+                                        <option value="0_3_months">0-3 Monate</option>
+                                        <option value="3_6_months">3-6 Monate</option>
+                                        <option value="6_plus_months">6+ Monate</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="budget_range">Budgetrahmen</label>
+                                    <select id="budget_range" name="budget_range" required aria-required="true">
+                                        <option value="">Bitte auswählen</option>
+                                        <option value="under_8k">Unter 8k</option>
+                                        <option value="8_15k">8k–15k</option>
+                                        <option value="15_30k">15k–30k</option>
+                                        <option value="30_75k">30k–75k</option>
+                                        <option value="75k_plus">75k+</option>
+                                        <option value="discuss">Möchte ich im Gespräch klären</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ai_function">Wichtigste KI-/Produktfunktion</label>
+                                    <select id="ai_function" name="ai_function" required aria-required="true">
+                                        <option value="">Bitte auswählen</option>
+                                        <option value="chatbot_assistant">Chatbot/Assistent</option>
+                                        <option value="rag_search">RAG/Wissenssuche</option>
+                                        <option value="automation">Automatisierung</option>
+                                        <option value="image_document_analysis">Bild-/Dokumentenanalyse</option>
+                                        <option value="recommendation">Empfehlungssystem</option>
+                                        <option value="open">Noch offen</option>
+                                    </select>
+                                </div>
+                            </div>
+
                             <details class="form-details">
-                                <summary>Optional: Projekt in 60 Sekunden einordnen</summary>
+                                <summary>Optional: Telefon und technische Einordnung ergänzen</summary>
                                 <fieldset class="form-section form-section--optional">
-                                    <legend>Projekt einordnen (optional)</legend>
+                                    <legend>Optionale Ergänzungen</legend>
                                     <div class="form-grid form-grid--two">
                                         <div class="form-group">
-                                            <label for="project_status">Projektstatus</label>
-                                            <select id="project_status" name="project_status">
-                                                <option value="">Bitte auswählen</option>
-                                                <option value="idea">Idee</option>
-                                                <option value="rough_scope">Grober Scope vorhanden</option>
-                                                <option value="prototype">Prototyp vorhanden</option>
-                                                <option value="existing_product">Bestehendes Produkt</option>
-                                                <option value="budget_approved">Finanzierung/Budget freigegeben</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="launch_timeline">Zeitrahmen</label>
-                                            <select id="launch_timeline" name="launch_timeline">
-                                                <option value="">Bitte auswählen</option>
-                                                <option value="asap">So schnell wie möglich</option>
-                                                <option value="0_3_months">0-3 Monate</option>
-                                                <option value="3_6_months">3-6 Monate</option>
-                                                <option value="6_plus_months">6+ Monate</option>
-                                            </select>
+                                            <label for="phone">Telefonnummer (optional)</label>
+                                            <input type="tel" id="phone" name="phone">
                                         </div>
                                         <div class="form-group">
                                             <label for="target_platform">Zielsystem</label>
@@ -591,30 +628,6 @@
                                                 <option value="open">Noch offen</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="budget_range">Budgetrahmen</label>
-                                            <select id="budget_range" name="budget_range">
-                                                <option value="">Bitte auswählen</option>
-                                                <option value="open">Noch offen</option>
-                                                <option value="under_15k">Unter 15k</option>
-                                                <option value="15_30k">15k-30k</option>
-                                                <option value="30_75k">30k-75k</option>
-                                                <option value="75k_plus">75k+</option>
-                                                <option value="discuss">Möchte ich im Gespräch klären</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="ai_function">Wichtigste KI-Funktion</label>
-                                        <select id="ai_function" name="ai_function">
-                                            <option value="">Bitte auswählen</option>
-                                            <option value="chatbot_assistant">Chatbot/Assistent</option>
-                                            <option value="rag_search">RAG/Wissenssuche</option>
-                                            <option value="automation">Automatisierung</option>
-                                            <option value="image_document_analysis">Bild-/Dokumentenanalyse</option>
-                                            <option value="recommendation">Empfehlungssystem</option>
-                                            <option value="open">Noch offen</option>
-                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="success_90_days">Erfolg nach dem MVP</label>

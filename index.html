@@ -36,7 +36,7 @@
     <meta name="keywords"
         content="KI MVP, AI MVP, App Entwicklung, Flutter Entwicklung, Firebase, Google Cloud, LangChain, LangGraph, RAG, KI Entwicklung, Web App Entwicklung">
     <meta name="author" content="RENCORET AI">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="noindex, nofollow">
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="RENCORET AI - KI-MVPs, Apps &amp; Web-Produkte in 90 Tagen">
@@ -505,14 +505,13 @@
         <span class="eyebrow" data-i18n="hero.eyebrow">90-Tage MVP · KI · Made in Germany</span>
 
         <h1 class="hero__headline display-xxl">
-            <span class="display-line" data-i18n="hero.heading.line1">KI-Apps, die genutzt werden.</span>
-            <span class="display-line display-line--accent" data-i18n="hero.heading.line2">In 90 Tagen live.</span>
+            <span class="display-line" data-i18n="hero.heading.line1">Nutzbare KI-MVPs, Apps und Web-Produkte.</span>
+            <span class="display-line display-line--accent" data-i18n="hero.heading.line2">Mit klarem Launch-Ziel.</span>
         </h1>
 
         <p class="hero__lede lede" data-i18n="hero.subheading">
             RENCORET AI baut App-, Web- und KI-Produkte mit echtem Interface,
-            produktivem Backend und klaren Launch-Zielen - schnell genug für MVPs,
-            sauber genug für echte Nutzer.
+            produktivem Backend und einem Scope, der in rund 90 Tagen testbar werden kann.
         </p>
 
         <div class="hero__cta-row btn-row">
@@ -744,7 +743,7 @@
             </h2>
             <p class="lede" data-i18n="deliverables.intro">
                 Nach 90 Tagen steht ein MVP, der angefasst, getestet und weiterentwickelt werden kann:
-                Produktoberfläche, Backend, KI-Use-Case und klare Lernziele.
+                App-/Web-Oberfläche, Backend, KI-Use-Case und klare Lernziele.
             </p>
             <p class="conversion-section__note" data-i18n="deliverables.note">
                 Das Ziel ist ein Produktmoment, den Nutzer verstehen:
@@ -1241,11 +1240,11 @@
                     App oder Web-App, Backend, KI-Kernworkflow, Deployment, Analytics und Launch-Roadmap.
                 </p>
                 <ul>
-                    <li data-i18n="offers.mvp.item1">Produktoberfläche &amp; Backend</li>
+                    <li data-i18n="offers.mvp.item1">App-/Web-Oberfläche &amp; Backend</li>
                     <li data-i18n="offers.mvp.item2">KI-Kernworkflow &amp; Deployment</li>
                     <li data-i18n="offers.mvp.item3">Analytics &amp; Version-2-Roadmap</li>
                 </ul>
-                <a href="#lead-form" class="cta-button offer-card__cta" data-i18n="offers.mvp.cta">Fit-Check anfragen</a>
+                <a href="ki-mvp-entwickeln-lassen.html" class="cta-button offer-card__cta" data-i18n="offers.mvp.cta">KI-MVP Landingpage ansehen</a>
             </article>
             <article class="offer-card">
                 <span class="offer-card__label" data-i18n="offers.scale.label">Für Produkte nach dem ersten Launch</span>
@@ -1716,7 +1715,7 @@
             <div class="contact-card contact-card--form">
                 <h3 class="contact-card__title" data-i18n="contact.form.heading">90-Tage-MVP-Fit-Check</h3>
                 <p class="contact-card__lead" data-i18n="contact.form.lead">
-                    4 kurze Felder reichen. Die Einordnung darunter ist optional und hilft uns, schneller konkret zu antworten.
+                    Kurze Angaben zu Idee, Rolle, Zeitrahmen und Budget reichen, damit wir den Fit konkreter prüfen können.
                 </p>
                 <div class="contact-card__trust-row" aria-label="Kontaktversprechen">
                     <span data-i18n="contact.form.promise.scope">Scope-Einschätzung</span>
@@ -1733,48 +1732,85 @@
                     <input type="hidden" id="utm_content" name="utm_content">
                     <input type="hidden" id="utm_term" name="utm_term">
 
-                    <div class="form-group">
-                        <label for="name" data-i18n="contact.form.name">Name</label>
-                        <input type="text" id="name" name="name" required aria-required="true">
-                    </div>
-                    <div class="form-group">
-                        <label for="email" data-i18n="contact.form.email">E-Mail</label>
-                        <input type="email" id="email" name="email" required aria-required="true">
-                    </div>
-                    <div class="form-group">
-                        <label for="phone" data-i18n="contact.form.phone">Telefonnummer (optional)</label>
-                        <input type="tel" id="phone" name="phone">
+                    <div class="form-grid form-grid--two">
+                        <div class="form-group">
+                            <label for="name" data-i18n="contact.form.name">Name</label>
+                            <input type="text" id="name" name="name" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-i18n="contact.form.email">Geschäftliche E-Mail</label>
+                            <input type="email" id="email" name="email" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="company" data-i18n="contact.form.company">Unternehmen</label>
+                            <input type="text" id="company" name="company" required aria-required="true">
+                        </div>
+                        <div class="form-group">
+                            <label for="role_function" data-i18n="contact.form.role_function">Rolle/Funktion</label>
+                            <input type="text" id="role_function" name="role_function" required aria-required="true">
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="message" data-i18n="contact.form.message">Beschreiben Sie kurz Ihre MVP-Idee</label>
                         <textarea id="message" name="message" rows="4" required></textarea>
                     </div>
 
+                    <div class="form-grid form-grid--two">
+                        <div class="form-group">
+                            <label for="project_status" data-i18n="contact.form.project_status">Projektstatus</label>
+                            <select id="project_status" name="project_status" required aria-required="true">
+                                <option value="" data-i18n="contact.form.select_placeholder">Bitte auswählen</option>
+                                <option value="idea" data-i18n="contact.form.project_status.idea">Idee</option>
+                                <option value="rough_scope" data-i18n="contact.form.project_status.rough_scope">Grober Scope vorhanden</option>
+                                <option value="prototype" data-i18n="contact.form.project_status.prototype">Prototyp vorhanden</option>
+                                <option value="existing_product" data-i18n="contact.form.project_status.existing_product">Bestehendes Produkt</option>
+                                <option value="budget_approved" data-i18n="contact.form.project_status.budget_approved">Finanzierung/Budget freigegeben</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="launch_timeline" data-i18n="contact.form.launch_timeline">Gewünschter Launch-Zeitraum</label>
+                            <select id="launch_timeline" name="launch_timeline" required aria-required="true">
+                                <option value="" data-i18n="contact.form.select_placeholder">Bitte auswählen</option>
+                                <option value="asap" data-i18n="contact.form.launch_timeline.asap">So schnell wie möglich</option>
+                                <option value="0_3_months" data-i18n="contact.form.launch_timeline.0_3">0-3 Monate</option>
+                                <option value="3_6_months" data-i18n="contact.form.launch_timeline.3_6">3-6 Monate</option>
+                                <option value="6_plus_months" data-i18n="contact.form.launch_timeline.6_plus">6+ Monate</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget_range" data-i18n="contact.form.budget_range">Budgetrahmen</label>
+                            <select id="budget_range" name="budget_range" required aria-required="true">
+                                <option value="" data-i18n="contact.form.select_placeholder">Bitte auswählen</option>
+                                <option value="under_8k" data-i18n="contact.form.budget_range.under_8">Unter 8k</option>
+                                <option value="8_15k" data-i18n="contact.form.budget_range.8_15">8k–15k</option>
+                                <option value="15_30k" data-i18n="contact.form.budget_range.15_30">15k–30k</option>
+                                <option value="30_75k" data-i18n="contact.form.budget_range.30_75">30k–75k</option>
+                                <option value="75k_plus" data-i18n="contact.form.budget_range.75_plus">75k+</option>
+                                <option value="discuss" data-i18n="contact.form.budget_range.discuss">Möchte ich im Gespräch klären</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="ai_function" data-i18n="contact.form.ai_function">Wichtigste KI-/Produktfunktion</label>
+                            <select id="ai_function" name="ai_function" required aria-required="true">
+                                <option value="" data-i18n="contact.form.select_placeholder">Bitte auswählen</option>
+                                <option value="chatbot_assistant" data-i18n="contact.form.ai_function.chatbot">Chatbot/Assistent</option>
+                                <option value="rag_search" data-i18n="contact.form.ai_function.rag">RAG/Wissenssuche</option>
+                                <option value="automation" data-i18n="contact.form.ai_function.automation">Automatisierung</option>
+                                <option value="image_document_analysis" data-i18n="contact.form.ai_function.documents">Bild-/Dokumentenanalyse</option>
+                                <option value="recommendation" data-i18n="contact.form.ai_function.recommendation">Empfehlungssystem</option>
+                                <option value="open" data-i18n="contact.form.ai_function.open">Noch offen</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <details class="form-details">
-                        <summary data-i18n="contact.form.details_summary">Optional: Projekt in 60 Sekunden einordnen</summary>
+                        <summary data-i18n="contact.form.details_summary">Optional: Telefon und technische Einordnung ergänzen</summary>
                         <fieldset class="form-section form-section--optional">
-                            <legend data-i18n="contact.form.optional_group">Projekt einordnen (optional)</legend>
+                            <legend data-i18n="contact.form.optional_group">Optionale Ergänzungen</legend>
                             <div class="form-grid form-grid--two">
                                 <div class="form-group">
-                                    <label for="project_status" data-i18n="contact.form.project_status">Projektstatus</label>
-                                    <select id="project_status" name="project_status">
-                                        <option value="" data-i18n="contact.form.select_placeholder">Bitte auswählen</option>
-                                        <option value="idea" data-i18n="contact.form.project_status.idea">Idee</option>
-                                        <option value="rough_scope" data-i18n="contact.form.project_status.rough_scope">Grober Scope vorhanden</option>
-                                        <option value="prototype" data-i18n="contact.form.project_status.prototype">Prototyp vorhanden</option>
-                                        <option value="existing_product" data-i18n="contact.form.project_status.existing_product">Bestehendes Produkt</option>
-                                        <option value="budget_approved" data-i18n="contact.form.project_status.budget_approved">Finanzierung/Budget freigegeben</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="launch_timeline" data-i18n="contact.form.launch_timeline">Launch-Zeitraum</label>
-                                    <select id="launch_timeline" name="launch_timeline">
-                                        <option value="" data-i18n="contact.form.select_placeholder">Bitte auswählen</option>
-                                        <option value="asap" data-i18n="contact.form.launch_timeline.asap">So schnell wie möglich</option>
-                                        <option value="0_3_months" data-i18n="contact.form.launch_timeline.0_3">0-3 Monate</option>
-                                        <option value="3_6_months" data-i18n="contact.form.launch_timeline.3_6">3-6 Monate</option>
-                                        <option value="6_plus_months" data-i18n="contact.form.launch_timeline.6_plus">6+ Monate</option>
-                                    </select>
+                                    <label for="phone" data-i18n="contact.form.phone">Telefonnummer (optional)</label>
+                                    <input type="tel" id="phone" name="phone">
                                 </div>
                                 <div class="form-group">
                                     <label for="target_platform" data-i18n="contact.form.target_platform">Zielplattform</label>
@@ -1783,33 +1819,10 @@
                                         <option value="ios_android" data-i18n="contact.form.target_platform.mobile">iOS/Android</option>
                                         <option value="web_app" data-i18n="contact.form.target_platform.web">Web-App</option>
                                         <option value="internal_app" data-i18n="contact.form.target_platform.internal">Interne Anwendung</option>
+                                        <option value="workflow_automation" data-i18n="contact.form.target_platform.workflow">Workflow-Automation</option>
                                         <option value="open" data-i18n="contact.form.target_platform.open">Noch offen</option>
                                     </select>
                                 </div>
-                                <div class="form-group">
-                                    <label for="budget_range" data-i18n="contact.form.budget_range">Budgetrahmen</label>
-                                    <select id="budget_range" name="budget_range">
-                                        <option value="" data-i18n="contact.form.select_placeholder">Bitte auswählen</option>
-                                        <option value="open" data-i18n="contact.form.budget_range.open">Noch offen</option>
-                                        <option value="under_15k" data-i18n="contact.form.budget_range.under_15">Unter 15k</option>
-                                        <option value="15_30k" data-i18n="contact.form.budget_range.15_30">15k-30k</option>
-                                        <option value="30_75k" data-i18n="contact.form.budget_range.30_75">30k-75k</option>
-                                        <option value="75k_plus" data-i18n="contact.form.budget_range.75_plus">75k+</option>
-                                        <option value="discuss" data-i18n="contact.form.budget_range.discuss">Möchte ich im Gespräch klären</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="ai_function" data-i18n="contact.form.ai_function">Wichtigste KI-Funktion</label>
-                                <select id="ai_function" name="ai_function">
-                                    <option value="" data-i18n="contact.form.select_placeholder">Bitte auswählen</option>
-                                    <option value="chatbot_assistant" data-i18n="contact.form.ai_function.chatbot">Chatbot/Assistent</option>
-                                    <option value="rag_search" data-i18n="contact.form.ai_function.rag">RAG/Wissenssuche</option>
-                                    <option value="automation" data-i18n="contact.form.ai_function.automation">Automatisierung</option>
-                                    <option value="image_document_analysis" data-i18n="contact.form.ai_function.documents">Bild-/Dokumentenanalyse</option>
-                                    <option value="recommendation" data-i18n="contact.form.ai_function.recommendation">Empfehlungssystem</option>
-                                    <option value="open" data-i18n="contact.form.ai_function.open">Noch offen</option>
-                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="success_90_days" data-i18n="contact.form.success_90_days">Erfolg nach 90 Tagen</label>
@@ -2775,7 +2788,7 @@
     <div id="cookie-banner" class="cookie-banner" style="display: none;">
         <div class="cookie-content">
             <p>Wir verwenden Cookies und Tracking-Technologien, um Ihre Erfahrung zu verbessern und den Erfolg unserer
-                LinkedIn-Kampagnen zu messen. Nicht notwendiges Tracking laden wir erst nach Ihrer aktiven Zustimmung.
+                Kampagnen zu messen. Nicht notwendiges Tracking laden wir erst nach Ihrer aktiven Zustimmung.
                 Details finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
             <div class="cookie-buttons">
                 <button id="reject-cookies" class="cookie-btn cookie-btn-reject" type="button">Ablehnen</button>
