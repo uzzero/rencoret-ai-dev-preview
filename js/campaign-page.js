@@ -192,28 +192,14 @@
         var formErrorMessage = document.getElementById('formErrorMessage');
         if (!form) return;
 
-        var params = new URLSearchParams(window.location.search);
-        var hiddenFieldValues = {
-            landing_page: window.location.pathname + window.location.search,
-            utm_source: params.get('utm_source') || '',
-            utm_medium: params.get('utm_medium') || '',
-            utm_campaign: params.get('utm_campaign') || '',
-            utm_content: params.get('utm_content') || '',
-            utm_term: params.get('utm_term') || '',
-            referrer: document.referrer || ''
-        };
-
-        Object.keys(hiddenFieldValues).forEach(function (fieldName) {
-            var field = document.getElementById(fieldName);
-            if (field) {
-                field.value = hiddenFieldValues[fieldName];
-            }
-        });
+        populateAttributionFields(form);
 
         var formDetails = form.querySelector('.form-details');
         if (formDetails) {
             formDetails.open = false;
         }
+
+        initCalendarCta();
 
         form.addEventListener('submit', function () {
             hideSubmissionError();
@@ -254,6 +240,7 @@
         function showSuccessOverlay() {
             var submitterName = sessionStorage.getItem('formSubmitterName') || '';
             hideSubmissionError();
+            initCalendarCta();
 
             if (window.trackEvent) {
                 window.trackEvent('generate_lead', {
@@ -270,6 +257,10 @@
             }
 
             if (overlay) {
+                if (overlay.parentElement !== document.body) {
+                    document.body.appendChild(overlay);
+                }
+
                 overlay.setAttribute('aria-hidden', 'false');
                 overlay.classList.add('active');
 
@@ -277,19 +268,90 @@
                 if (focusTarget) {
                     focusTarget.setAttribute('tabindex', '-1');
                     window.requestAnimationFrame(function () {
+                        var targetRect = focusTarget.getBoundingClientRect();
+                        var targetTop = targetRect.top + (window.scrollY || window.pageYOffset || 0) - Math.max(24, (window.innerHeight - targetRect.height) / 2);
+
                         focusTarget.focus({ preventScroll: true });
+
+                        if (window.rencoretLenis && typeof window.rencoretLenis.scrollTo === 'function') {
+                            window.rencoretLenis.scrollTo(Math.max(0, targetTop), { immediate: true, force: true });
+                        }
+
+                        window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
                     });
                 }
             }
 
-            if (window.trackEvent) {
-                window.trackEvent('form_success', {
-                    event_category: 'contact',
-                    event_label: 'campaign_request'
-                });
+            sessionStorage.removeItem('formSubmitterName');
+        }
+
+        function populateAttributionFields(targetForm) {
+            if (window.rencoretLeadAttribution && typeof window.rencoretLeadAttribution.populateForm === 'function') {
+                window.rencoretLeadAttribution.populateForm(targetForm);
+                return;
             }
 
-            sessionStorage.removeItem('formSubmitterName');
+            var params = new URLSearchParams(window.location.search);
+            var hiddenFieldValues = {
+                landing_page: window.location.pathname + window.location.search,
+                utm_source: params.get('utm_source') || '',
+                utm_medium: params.get('utm_medium') || '',
+                utm_campaign: params.get('utm_campaign') || '',
+                utm_content: params.get('utm_content') || '',
+                utm_term: params.get('utm_term') || '',
+                referrer: document.referrer || '',
+                first_seen_at: new Date().toISOString()
+            };
+
+            Object.keys(hiddenFieldValues).forEach(function (fieldName) {
+                var field = targetForm.elements[fieldName];
+                if (field && typeof field.value !== 'undefined') {
+                    field.value = hiddenFieldValues[fieldName];
+                }
+            });
+        }
+
+        function getSafeCalendarUrl(rawUrl) {
+            var value = String(rawUrl || '').trim();
+            if (!value) return '';
+
+            try {
+                var parsed = new URL(value);
+                if (parsed.protocol === 'https:') {
+                    return parsed.href;
+                }
+            } catch (error) {
+                return '';
+            }
+
+            return '';
+        }
+
+        function initCalendarCta() {
+            var calendarBlock = document.querySelector('[data-calendar-url]');
+            if (!calendarBlock) return;
+
+            var safeUrl = getSafeCalendarUrl(calendarBlock.getAttribute('data-calendar-url'));
+            var calendarLink = calendarBlock.querySelector('[data-calendar-link]');
+            var fallback = calendarBlock.querySelector('[data-calendar-fallback]');
+
+            calendarBlock.setAttribute('data-calendar-state', safeUrl ? 'configured' : 'missing');
+
+            if (calendarLink) {
+                if (safeUrl) {
+                    calendarLink.href = safeUrl;
+                    calendarLink.hidden = false;
+                    calendarLink.removeAttribute('aria-disabled');
+                } else {
+                    calendarLink.hidden = true;
+                    calendarLink.removeAttribute('href');
+                    calendarLink.setAttribute('aria-disabled', 'true');
+                }
+            }
+
+            if (fallback) {
+                fallback.hidden = Boolean(safeUrl);
+            }
         }
 
         function showSubmissionError() {

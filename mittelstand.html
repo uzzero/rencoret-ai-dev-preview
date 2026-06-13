@@ -21,15 +21,15 @@
             opacity: 1;
         }
     </style>
-    <title>KI für den Mittelstand | RENCORET AI - Von Überforderung zum Wettbewerbsvorteil</title>
+    <title>KI-Strategie für den Mittelstand | RENCORET AI</title>
     <meta name="description"
-        content="Die Technologie rast, Ihr Unternehmen darf nicht stillstehen. Wir verwandeln KI-Überforderung in Ihren strategischen Wettbewerbsvorteil.">
+        content="RENCORET AI unterstützt mittelständische Unternehmen dabei, KI-Use-Cases zu priorisieren, Prozesse zu bewerten und einen umsetzbaren Einstieg zu planen.">
     <meta name="robots" content="noindex, nofollow">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Sie wissen, dass Sie müssen. | RENCORET AI">
+    <meta property="og:title" content="KI-Strategie für den Mittelstand | RENCORET AI">
     <meta property="og:description"
-        content="Wir verwandeln KI-Überforderung in Ihren strategischen Wettbewerbsvorteil. Für den deutschen Mittelstand.">
+        content="KI-Use-Cases priorisieren, Prozesse bewerten und einen umsetzbaren Einstieg planen.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://uzzero.github.io/rencoret-ai-dev-preview/mittelstand.html">
     <meta property="og:image" content="https://uzzero.github.io/rencoret-ai-dev-preview/img/meta/og-image.png">
@@ -40,9 +40,9 @@
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="KI für den Mittelstand | RENCORET AI">
+    <meta name="twitter:title" content="KI-Strategie für den Mittelstand | RENCORET AI">
     <meta name="twitter:description"
-        content="Wir verwandeln KI-Überforderung in Ihren strategischen Wettbewerbsvorteil. Für den deutschen Mittelstand.">
+        content="KI-Use-Cases priorisieren, Prozesse bewerten und einen umsetzbaren Einstieg planen.">
     <meta name="twitter:image" content="https://uzzero.github.io/rencoret-ai-dev-preview/img/meta/og-image.png">
 
     <link rel="canonical" href="https://uzzero.github.io/rencoret-ai-dev-preview/mittelstand.html">
@@ -59,7 +59,7 @@
         "url": "https://uzzero.github.io/rencoret-ai-dev-preview"
       },
       "name": "KI-Strategieberatung für den Mittelstand",
-      "description": "Strategische Beratung zur Implementierung von Künstlicher Intelligenz in mittelständischen Unternehmen zur Prozessoptimierung und Wettbewerbsfähigkeit.",
+      "description": "Strategische Beratung für mittelständische Unternehmen, um KI-Use-Cases zu priorisieren, Prozesse zu bewerten und Pilotprojekte planbar zu machen.",
       "offers": {
         "@type": "Offer",
         "priceCurrency": "EUR",
@@ -557,7 +557,6 @@
     <!-- Preconnect Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://s.pageclip.co/v1/pageclip.css">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
@@ -583,7 +582,7 @@
         <div class="container">
             <div class="logo">
                 <a href="./" title="RENCORET AI">
-                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo" class="logo-svg">
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo" class="logo-svg" width="220" height="88">
                 </a>
             </div>
             <nav style="margin-left: auto;">
@@ -609,11 +608,9 @@
                 <div class="oval-shape"></div>
             </div>
             <div class="hero-content">
-                <h1 class="hero-headline">Sie wissen, dass Sie müssen.<br><span class="hero-headline-emphasis">Wir
-                        zeigen Ihnen, wie.</span></h1>
-                <p class="hero-subheadline">Die Technologie rast, Ihr Unternehmen darf nicht stillstehen. Ob interne
-                    Prozessoptimierung oder neue Geschäftsmodelle: Wir verwandeln KI-Überforderung in Ihren
-                    strategischen Wettbewerbsvorteil.</p>
+                <h1 class="hero-headline">KI-Strategie für den Mittelstand.</h1>
+                <p class="hero-subheadline">Wir identifizieren konkrete KI-Use-Cases, priorisieren Prozesse und planen
+                    einen umsetzbaren Einstieg mit Risiken, Datenlage und Betrieb im Blick.</p>
                 <a href="#kontakt" class="cta-button">Strategiegespräch buchen</a>
             </div>
         </section>
@@ -716,6 +713,10 @@
                 <input type="hidden" name="utm_medium" id="utm_medium">
                 <input type="hidden" name="utm_campaign" id="utm_campaign">
                 <input type="hidden" name="utm_content" id="utm_content">
+                <input type="hidden" name="utm_term" id="utm_term">
+                <input type="hidden" name="landing_page" id="landing_page">
+                <input type="hidden" name="referrer" id="referrer">
+                <input type="hidden" name="first_seen_at" id="first_seen_at">
                 <button type="submit" class="form-submit pageclip-form__submit">
                     <span>Strategiegespräch anfragen</span>
                 </button>
@@ -743,60 +744,78 @@
 
     <!-- Pageclip -->
     <script src="https://s.pageclip.co/v1/pageclip.js" charset="utf-8"></script>
+    <script src="js/lead-attribution.js"></script>
 
     <!-- UTM Parameter Capture -->
     <script>
         (function () {
-            // Capture UTM parameters
-            const params = new URLSearchParams(window.location.search);
-            const utmFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
-
-            utmFields.forEach(field => {
-                const value = params.get(field);
-                const input = document.getElementById(field);
-                if (input && value) {
-                    input.value = value;
-                }
-            });
-
-            // Store in sessionStorage for cross-page tracking
+            const form = document.getElementById('mittelstand-contact-form');
+            const attribution = window.rencoretLeadAttribution && typeof window.rencoretLeadAttribution.populateForm === 'function'
+                ? window.rencoretLeadAttribution.populateForm(form)
+                : populateCurrentAttribution(form);
             const campaignData = {
-                utm_source: params.get('utm_source') || 'direct',
-                utm_medium: params.get('utm_medium') || '',
-                utm_campaign: params.get('utm_campaign') || '',
-                utm_content: params.get('utm_content') || '',
-                landing_page: '/mittelstand',
-                timestamp: new Date().toISOString()
+                utm_source: attribution.utm_source || 'direct',
+                utm_medium: attribution.utm_medium || '',
+                utm_campaign: attribution.utm_campaign || '',
+                utm_content: attribution.utm_content || '',
+                utm_term: attribution.utm_term || '',
+                landing_page: attribution.landing_page || '/mittelstand',
+                referrer: attribution.referrer || '',
+                first_seen_at: attribution.first_seen_at || '',
+                timestamp: attribution.first_seen_at || new Date().toISOString()
             };
 
-            if (params.get('utm_source')) {
-                sessionStorage.setItem('campaign_data', JSON.stringify(campaignData));
+            try {
+                if (!sessionStorage.getItem('campaign_data')) {
+                    sessionStorage.setItem('campaign_data', JSON.stringify(campaignData));
+                }
+            } catch (error) {
+                // Attribution storage is best-effort and must not block form usage.
             }
 
-            // Track page view with campaign data
-            if (window.gtag) {
-                gtag('event', 'landing_page_view', {
-                    page_type: 'mittelstand',
-                    ...campaignData
-                });
+            window.rencoretLandingPageContext = campaignData;
+
+            function populateCurrentAttribution(targetForm) {
+                const params = new URLSearchParams(window.location.search);
+                const data = {
+                    utm_source: params.get('utm_source') || '',
+                    utm_medium: params.get('utm_medium') || '',
+                    utm_campaign: params.get('utm_campaign') || '',
+                    utm_content: params.get('utm_content') || '',
+                    utm_term: params.get('utm_term') || '',
+                    landing_page: window.location.pathname + window.location.search,
+                    referrer: document.referrer || '',
+                    first_seen_at: new Date().toISOString()
+                };
+
+                if (targetForm && targetForm.elements) {
+                    Object.keys(data).forEach(function (fieldName) {
+                        const field = targetForm.elements[fieldName];
+                        if (field && typeof field.value !== 'undefined') {
+                            field.value = data[fieldName];
+                        }
+                    });
+                }
+
+                return data;
             }
         })();
 
         // Track form submission
         document.getElementById('mittelstand-contact-form').addEventListener('submit', function () {
-            if (window.gtag) {
-                const campaignData = JSON.parse(sessionStorage.getItem('campaign_data') || '{}');
-                gtag('event', 'generate_lead', {
+            if (window.RencoretAnalytics && typeof window.RencoretAnalytics.trackEvent === 'function') {
+                let campaignData = {};
+                try {
+                    campaignData = JSON.parse(sessionStorage.getItem('campaign_data') || '{}');
+                } catch (error) {
+                    campaignData = {};
+                }
+                window.RencoretAnalytics.trackEvent('generate_lead', {
                     event_category: 'conversion',
                     event_label: 'mittelstand_landing_page',
                     landing_page: '/mittelstand',
                     ...campaignData
                 });
-            }
-
-            // LinkedIn conversion tracking
-            if (window.lintrk) {
-                lintrk('track', { conversion_id: '22644914' });
             }
         });
     </script>
@@ -812,8 +831,8 @@
                 Kampagnen zu messen. Nicht notwendiges Tracking laden wir erst nach Ihrer aktiven Zustimmung.
                 Details finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
             <div class="cookie-buttons">
-                <button id="reject-cookies" class="cookie-btn cookie-btn-reject">Ablehnen</button>
-                <button id="accept-cookies" class="cookie-btn cookie-btn-accept">Akzeptieren</button>
+                <button id="reject-cookies" class="cookie-btn cookie-btn-reject" type="button">Ablehnen</button>
+                <button id="accept-cookies" class="cookie-btn cookie-btn-accept" type="button">Akzeptieren</button>
             </div>
         </div>
     </div>

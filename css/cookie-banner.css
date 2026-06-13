@@ -89,6 +89,7 @@ html > body > .cookie-banner {
 
 .cookie-btn {
     padding: 10px 24px;
+    min-height: 44px;
     border: none;
     border-radius: 25px;
     font-size: 14px;

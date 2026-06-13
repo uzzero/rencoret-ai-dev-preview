@@ -94,7 +94,10 @@ footer::before {
 }
 
 .footer-cookie-button {
-    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 6px 0;
     color: var(--footer-link-color);
     background: transparent;
     border: 0;

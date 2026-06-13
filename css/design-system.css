@@ -252,6 +252,23 @@ section h2 {
     align-items: center;
 }
 
+a:focus-visible,
+button:focus-visible,
+.cta-button:focus-visible,
+.btn-ghost:focus-visible,
+.nav-cta:focus-visible,
+.mobile-menu-toggle:focus-visible,
+.mobile-menu-close:focus-visible {
+    outline: 3px solid rgba(255, 140, 66, 0.78) !important;
+    outline-offset: 4px !important;
+    box-shadow: 0 0 0 6px rgba(144, 84, 247, 0.22) !important;
+}
+
+.mobile-menu-toggle:focus-visible,
+.mobile-menu-close:focus-visible {
+    border-radius: 999px;
+}
+
 /* ---- Floating pill navigation ---- */
 body > header {
     position: fixed !important;
@@ -688,8 +705,8 @@ footer {
         right: 12px !important;
         transform: none !important;
         flex: none;
-        width: 38px !important;
-        height: 38px !important;
+        width: 44px !important;
+        height: 44px !important;
         margin-right: 0 !important;
         border-radius: 50%;
         align-items: center;
@@ -792,7 +809,7 @@ footer {
     body > header nav {
         margin-left: auto;
         padding: 0 !important;
-        width: 38px !important;
+        width: 44px !important;
         height: 68px !important;
         gap: 0 !important;
         flex: 0 0 auto;
@@ -827,8 +844,8 @@ footer {
         right: 12px !important;
         transform: none !important;
         flex: none;
-        width: 38px !important;
-        height: 38px !important;
+        width: 44px !important;
+        height: 44px !important;
         margin-right: 0 !important;
         border-radius: 50%;
         align-items: center;

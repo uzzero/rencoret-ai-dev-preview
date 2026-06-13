@@ -292,11 +292,17 @@ button[type="submit"]:hover::before {
     justify-content: center;
     z-index: 1000;
     padding: 40px;
+    overflow-y: auto;
     animation: overlayFadeIn 0.5s ease-out forwards;
 }
 
 .form-success-overlay.active {
     display: flex;
+    position: fixed;
+    inset: 0;
+    width: auto;
+    height: auto;
+    border-radius: 0;
 }
 
 .form-success-overlay[aria-hidden="true"] {
@@ -373,6 +379,47 @@ button[type="submit"]:hover::before {
     animation: fadeInUp 0.5s ease-out 1.6s forwards;
 }
 
+.success-calendar {
+    margin-top: 18px;
+    padding: 18px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    opacity: 0;
+    animation: fadeInUp 0.5s ease-out 1.8s forwards;
+}
+
+.success-calendar__heading {
+    margin: 0 0 8px;
+    color: var(--text-color);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+.success-calendar__copy,
+.success-calendar__fallback {
+    margin: 0;
+    color: var(--text-light);
+    font-size: 0.9rem;
+    line-height: 1.55;
+}
+
+.success-calendar__button {
+    display: inline-flex;
+    margin-top: 14px;
+    min-height: 42px;
+    padding: 0 18px;
+    font-size: 0.9rem;
+}
+
+.success-calendar[data-calendar-state="configured"] .success-calendar__fallback {
+    display: none;
+}
+
+.success-calendar[data-calendar-state="missing"] .success-calendar__copy {
+    display: none;
+}
+
 /* Keyframe Animations */
 @keyframes overlayFadeIn {
     from {
@@ -446,6 +493,15 @@ button[type="submit"]:hover::before {
     .success-next-steps {
         font-size: 0.9rem;
         padding: 12px 15px;
+    }
+
+    .success-calendar {
+        padding: 14px;
+    }
+
+    .success-calendar__button {
+        width: 100%;
+        justify-content: center;
     }
 }
 /* =====================================================
@@ -684,6 +740,18 @@ button[type="submit"]:hover::before {
     letter-spacing: 0.1em;
     line-height: 1.1;
     text-transform: uppercase;
+}
+
+.form-required-note {
+    margin: 0 0 18px;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 0.82rem;
+    line-height: 1.5;
+}
+
+.contact--apple .form-label--required::after {
+    content: " *";
+    color: var(--gradient-start);
 }
 
 .contact--apple .form-group {

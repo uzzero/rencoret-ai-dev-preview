@@ -125,10 +125,13 @@
 
 /* Details Button Styling */
 .details-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--cta-button-bg);
     color: var(--cta-button-text);
     padding: 12px 30px;
+    min-height: 44px;
     border-radius: 30px;
     font-weight: 600;
     text-transform: uppercase;
@@ -817,7 +820,8 @@
     margin-top: auto;
     text-transform: none;
     letter-spacing: 0.01em;
-    padding: 10px 0;
+    padding: 10px 4px;
+    min-height: 44px;
     border-radius: 0;
     background: transparent;
     color: #ffffff;

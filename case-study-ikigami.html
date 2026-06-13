@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <style id="initial-theme">
+        html {
+            background-color: #000000;
+        }
+
+        body {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        html.loaded body {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+
+    <title>Ikigami Case Study | KI-Mentor App | RENCORET AI</title>
+    <meta name="description" content="Case Study zu Ikigami: launchfähige Mobile App mit Reflexionsflow, Meditation, gespeicherten Erkenntnissen und KI-Mentor in einem 44-Tage-Sprint.">
+    <meta name="keywords" content="Ikigami Case Study, KI Mentor App, Mobile App Entwicklung, KI MVP, RENCORET AI">
+    <meta name="author" content="RENCORET AI">
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta property="og:title" content="Ikigami Case Study | RENCORET AI">
+    <meta property="og:description" content="Wie Ikigami eine persönliche Coaching-Methode als geführte Mobile App mit KI-Mentor verfügbar macht.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://uzzero.github.io/rencoret-ai-dev-preview/case-study-ikigami.html">
+    <meta property="og:image" content="https://uzzero.github.io/rencoret-ai-dev-preview/img/meta/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="RENCORET AI">
+    <meta property="og:locale" content="de_DE">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ikigami Case Study | RENCORET AI">
+    <meta name="twitter:description" content="Wie Ikigami eine persönliche Coaching-Methode als geführte Mobile App mit KI-Mentor verfügbar macht.">
+    <meta name="twitter:image" content="https://uzzero.github.io/rencoret-ai-dev-preview/img/meta/og-image.png">
+
+    <link rel="canonical" href="https://uzzero.github.io/rencoret-ai-dev-preview/case-study-ikigami.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Ikigami Case Study",
+      "description": "Launchfähige Mobile App mit Reflexionsflow, Meditation, gespeicherten Erkenntnissen und KI-Mentor.",
+      "url": "https://uzzero.github.io/rencoret-ai-dev-preview/case-study-ikigami.html",
+      "image": "https://uzzero.github.io/rencoret-ai-dev-preview/img/projects/ikigami-app.png",
+      "about": "KI-Mentor App",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://uzzero.github.io/rencoret-ai-dev-preview/#organization",
+        "name": "RENCORET AI",
+        "url": "https://uzzero.github.io/rencoret-ai-dev-preview"
+      },
+      "inLanguage": "de"
+    }
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied'
+        });
+
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    </script>
+
+    <link rel="stylesheet" href="css/case-study-ikigami.11b07a75971c.css">
+    
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+</head>
+
+<body class="campaign-page case-study-page case-study-page--ikigami">
+        <header>
+        <div class="container">
+            <div class="logo">
+                <a href="./" title="RENCORET AI - Startseite">
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo" class="logo-svg dark-mode-logo" width="220" height="75" fetchpriority="high">
+                </a>
+            </div>
+            <nav aria-label="Case-Study-Navigation">
+                <ul>
+                    <li><a href="./#projekte">Proof</a></li>
+                    <li><a href="ki-mvp-entwickeln-lassen.html">KI-MVP</a></li>
+                    <li><a href="internal-ai-assistant-rag.html">RAG</a></li>
+                    <li><a href="./#kontakt">Kontakt</a></li>
+                </ul>
+                <a href="#lead-form" class="nav-cta">Fit-Check anfragen</a>
+                <button class="mobile-menu-toggle" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+        <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu campaign-mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <a href="./" class="mobile-menu-logo" title="RENCORET AI - Startseite">
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo" width="220" height="88">
+                </a>
+                <button class="mobile-menu-close" aria-label="Menü schließen">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <ul>
+                <li><a href="./#projekte">Proof</a></li>
+                <li><a href="ki-mvp-entwickeln-lassen.html">KI-MVP</a></li>
+                <li><a href="internal-ai-assistant-rag.html">RAG</a></li>
+                <li><a href="./#kontakt">Kontakt</a></li>
+            </ul>
+
+            <a href="#lead-form" class="cta-button mobile-menu-cta">Fit-Check anfragen</a>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero hero--apple case-hero" id="top">
+            <div class="container-wide">
+                <div class="case-hero__grid">
+                    <div class="case-hero__content" data-motion="reveal">
+                        <div class="case-kicker"><a href="./#projekte">Proof</a><span>/</span><span>Case Study</span></div>
+                        <h1>Ikigami: KI-Mentor für Reflexion und Fokus.</h1>
+                        <p class="case-hero__lede">Ikigami übersetzt eine persönliche Coaching-Methode in einen geführten App-Flow: Reflexion, Meditation, gespeicherte Erkenntnisse und ein KI-Mentor begleiten Nutzer:innen durch den Prozess.</p>
+                        <dl class="case-hero__facts">
+                            <div>
+                                <dt>Produkt</dt>
+                                <dd>Mobile App</dd>
+                            </div>
+                            <div>
+                                <dt>KI-Funktion</dt>
+                                <dd>KI-Mentor</dd>
+                            </div>
+                            <div>
+                                <dt>Ergebnis</dt>
+                                <dd>44-Tage-Sprint</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="case-hero__visual" data-motion="stage-scale">
+                        <picture class="case-device">
+                            <source srcset="img/projects/ikigami-app.webp" type="image/webp">
+                            <img src="img/projects/ikigami-app.png" alt="Ikigami App Screen mit KI-Mentor und Reflexionsflow" width="1078" height="2398" loading="eager" fetchpriority="high">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="container-wide">
+                <div class="case-section__intro" data-motion="reveal">
+                    <span class="eyebrow">Kontext</span>
+                    <h2>Aus Methode wurde ein ruhiger Produktflow.</h2>
+                    <p>Die App wurde für Dr. Miriam von Felbert entwickelt und verbindet meditative Pausen, intuitive Bedienung und KI-gestützte Orientierung zu einem persönlichen Produktmoment.</p>
+                </div>
+                <div class="case-panel-grid" data-motion="stagger">
+                    <article class="case-panel">
+                        <dl>
+                            <dt>Problem</dt>
+                            <dd>Eine persönliche Coaching-Methode sollte als intuitive App mit Reflexion, Meditation und KI-Begleitung verfügbar werden.</dd>
+                        </dl>
+                    </article>
+                    <article class="case-panel">
+                        <dl>
+                            <dt>Lösung</dt>
+                            <dd>Consumer-App mit KI-Mentor, gespeicherten Erkenntnissen und klar geführten Nutzerpfaden.</dd>
+                        </dl>
+                    </article>
+                    <article class="case-panel">
+                        <dl>
+                            <dt>Scope</dt>
+                            <dd>Mobile App, Reflexionsflow, Meditation, gespeicherte Erkenntnisse und KI-Dialog im Nutzerpfad.</dd>
+                        </dl>
+                    </article>
+                    <article class="case-panel">
+                        <dl>
+                            <dt>Nachweis</dt>
+                            <dd>Launchfähige App in einem 44-Tage-Sprint.</dd>
+                        </dl>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section case-section--compact">
+            <div class="container-wide">
+                <div class="case-proof">
+                    <div class="case-proof__image" data-motion="reveal">
+                        <picture>
+                            <source srcset="img/projects/ikigami-app.webp" type="image/webp">
+                            <img src="img/projects/ikigami-app.png" alt="Ikigami App Oberfläche mit Reflexions- und KI-Mentor-Elementen" width="1078" height="2398" loading="lazy">
+                        </picture>
+                    </div>
+                    <div data-motion="reveal">
+                        <div class="case-section__intro">
+                            <span class="eyebrow">Produkt- und Technik-Scope</span>
+                            <h2>KI als Begleitung im Flow, nicht als separate Demo.</h2>
+                            <p>Die vorhandenen Projektinformationen zeigen eine App, in der KI-Begleitung, gespeicherte Erkenntnisse und klare Nutzerpfade zusammenwirken. Der Fokus bleibt auf einem verständlichen Consumer-Erlebnis.</p>
+                        </div>
+                        <dl class="case-proof-list">
+                            <div>
+                                <dt>Interface</dt>
+                                <dd>Geführte mobile Oberfläche für Reflexion, Meditation und persönliche Entwicklung.</dd>
+                            </div>
+                            <div>
+                                <dt>KI</dt>
+                                <dd>KI-Mentor als Orientierung innerhalb des Produktpfads.</dd>
+                            </div>
+                            <div>
+                                <dt>Quelle im Bestand</dt>
+                                <dd>Projektkarte, Modal, KI-MVP-Landingpage und vorhandene Ikigami-Projektgrafik.</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="container-wide">
+                <div class="case-section__intro" data-motion="reveal">
+                    <span class="eyebrow">Weitere Proofs</span>
+                    <h2>Verwandte Produktbeispiele.</h2>
+                </div>
+                <div class="case-link-grid" data-motion="stagger">
+                    <a class="case-link-card" href="case-study-mealply.html">
+                        <span>AI-Rezepte</span>
+                        <strong>Mealply Case Study ansehen</strong>
+                    </a>
+                    <a class="case-link-card" href="case-study-lebenszeichen.html">
+                        <span>Sicherheits-App</span>
+                        <strong>Lebenszeichen-App Case Study ansehen</strong>
+                    </a>
+                    <a class="case-link-card" href="ki-mvp-entwickeln-lassen.html#proof">
+                        <span>Service</span>
+                        <strong>KI-MVP-Angebot mit Proof ansehen</strong>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-next" id="lead-form">
+            <div class="container-wide">
+                <div class="case-next__panel" data-motion="reveal">
+                    <div class="case-next__content">
+                        <span class="eyebrow">Nächster Schritt</span>
+                        <h2>Prüfen wir, ob Ihr KI-MVP ähnlich klar geschnitten werden kann.</h2>
+                        <p>Im Fit-Check klären wir Kernworkflow, KI-Funktion, Scope, Risiken und den realistischen ersten Lieferumfang.</p>
+                        <div class="case-next__actions">
+                            <a href="ki-mvp-entwickeln-lassen.html#lead-form" class="cta-button">KI-MVP Fit-Check anfragen</a>
+                            <a href="./#projekte" class="btn-ghost">Zurück zu allen Proofs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>RENCORET AI</h3>
+                <p data-i18n="footer.tagline">App & KI Entwicklung</p>
+            </div>
+            <div class="footer-links">
+                <h4 data-i18n="footer.links.heading">Links</h4>
+                <ul>
+                    <li><a href="impressum.html" data-i18n="footer.links.imprint">Impressum</a></li>
+                    <li><a href="datenschutz.html" data-i18n="footer.links.privacy">Datenschutz</a></li>
+                    <li><button type="button" class="footer-cookie-button" id="cookie-settings" data-i18n="footer.links.cookies">Cookie-Einstellungen</button></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4 data-i18n="footer.contact.heading">Kontakt</h4>
+                <p><a href="mailto:hello@rencoret.ai">hello@rencoret.ai</a></p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p data-i18n="footer.copyright">&copy; 2026 RENCORET AI GmbH. Alle Rechte vorbehalten.</p>
+            <p class="footer-credit">
+                Designed &amp; Built by
+                <a class="rencoret-glow" href="https://uzzero.github.io/rencoret-ai-dev-preview" target="_blank" rel="noopener noreferrer">
+                    <span class="ai-glow-inner">RENCORET AI GmbH</span>
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+        <div class="sticky-cta" id="sticky-cta" aria-hidden="true" inert>
+        <a href="#lead-form" class="cta-button sticky-cta__button" tabindex="-1">Fit-Check anfragen</a>
+    </div>
+
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <p>Wir verwenden Cookies und Tracking-Technologien, um Nutzung, Conversion-Messung und Remarketing auszuwerten. Nicht notwendiges Tracking laden wir erst nach Ihrer aktiven Zustimmung. Details finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+            <div class="cookie-buttons">
+                <button id="reject-cookies" class="cookie-btn cookie-btn-reject" type="button">Ablehnen</button>
+                <button id="accept-cookies" class="cookie-btn cookie-btn-accept" type="button">Akzeptieren</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/navigation.js?v=search-readiness-20260613" defer></script>
+    <script src="js/lead-attribution.js" defer></script>
+    <script src="js/faq.js?v=campaign-20260612" defer></script>
+    <script src="js/campaign-page.js?v=campaign-20260612" defer></script>
+    <script src="js/analytics.js" defer></script>
+
+</body>
+
+</html>

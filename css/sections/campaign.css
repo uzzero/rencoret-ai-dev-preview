@@ -256,6 +256,18 @@
     text-transform: uppercase;
 }
 
+.campaign-proof-links {
+    justify-content: center;
+    margin-top: clamp(22px, 3.4vw, 42px);
+}
+
+.campaign-proof-links .btn-ghost,
+.campaign-proof-links .cta-button {
+    min-height: 48px;
+    padding: 14px 22px;
+    font-size: 0.92rem;
+}
+
 .campaign-step-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     counter-reset: campaign-step;
@@ -864,6 +876,10 @@
     .campaign-step-grid {
         gap: 14px;
     }
+
+    .campaign-proof-links {
+        justify-content: flex-start;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1038,6 +1054,15 @@
         height: 25vh;
         min-height: 178px;
         opacity: 0.32;
+    }
+
+    .campaign-proof-links .btn-ghost,
+    .campaign-proof-links .cta-button,
+    body.campaign-page--ki-mvp-paid .mvp-case-details__actions .btn-ghost,
+    body.campaign-page--ki-mvp-paid .mvp-case-details__actions .cta-button {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
     }
 
     .mvp-visual-story {
@@ -1316,6 +1341,17 @@ body.campaign-page--ki-mvp-paid .mvp-case-card__link:focus {
     border-bottom-color: currentColor;
 }
 
+body.campaign-page--ki-mvp-paid .mvp-case-card__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    margin-top: 18px;
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-card__links .mvp-case-card__link {
+    margin-top: 0;
+}
+
 body.campaign-page--ki-mvp-paid .mvp-case-detail-stack {
     display: grid;
     gap: 14px;
@@ -1407,6 +1443,10 @@ body.campaign-page--ki-mvp-paid .mvp-case-facts dd {
 
 body.campaign-page--ki-mvp-paid .mvp-case-details__cta {
     justify-self: start;
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-details__actions {
+    align-items: flex-start;
 }
 
 body.campaign-page--ki-mvp-paid .mvp-case-card__body .tag-pill {

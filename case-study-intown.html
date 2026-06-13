@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
+    <style id="initial-theme">
+        html {
+            background-color: #000000;
+        }
+
+        body {
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        html.loaded body {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+
+    <title>InTown Case Study | Voting-Plattform | RENCORET AI</title>
+    <meta name="description" content="Case Study zu InTown: Voting-Plattform für lokale Gastronomieangebote mit Community-Abstimmung, 150+ Restaurants, 15.000 Nutzern und späterer Akquisition.">
+    <meta name="keywords" content="InTown Case Study, Voting App, Gastronomie Plattform, Mobile Web App, RENCORET AI">
+    <meta name="author" content="RENCORET AI">
+    <meta name="robots" content="noindex, nofollow">
+
+    <meta property="og:title" content="InTown Case Study | RENCORET AI">
+    <meta property="og:description" content="Wie InTown lokale Gastronomieangebote abstimmbar machte und Restaurants mit einer aktiven lokalen Community verband.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://uzzero.github.io/rencoret-ai-dev-preview/case-study-intown.html">
+    <meta property="og:image" content="https://uzzero.github.io/rencoret-ai-dev-preview/img/meta/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="RENCORET AI">
+    <meta property="og:locale" content="de_DE">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="InTown Case Study | RENCORET AI">
+    <meta name="twitter:description" content="Wie InTown lokale Gastronomieangebote abstimmbar machte und Restaurants mit einer aktiven lokalen Community verband.">
+    <meta name="twitter:image" content="https://uzzero.github.io/rencoret-ai-dev-preview/img/meta/og-image.png">
+
+    <link rel="canonical" href="https://uzzero.github.io/rencoret-ai-dev-preview/case-study-intown.html">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "InTown Case Study",
+      "description": "Voting-Plattform für lokale Gastronomieangebote, Community-Abstimmung und lokale Angebotsentdeckung.",
+      "url": "https://uzzero.github.io/rencoret-ai-dev-preview/case-study-intown.html",
+      "image": "https://uzzero.github.io/rencoret-ai-dev-preview/img/projects/intown-app.png",
+      "about": "Voting-Plattform",
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://uzzero.github.io/rencoret-ai-dev-preview/#organization",
+        "name": "RENCORET AI",
+        "url": "https://uzzero.github.io/rencoret-ai-dev-preview"
+      },
+      "inLanguage": "de"
+    }
+    </script>
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied'
+        });
+
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+    </script>
+
+    <link rel="stylesheet" href="css/case-study-intown.11b07a75971c.css">
+    
+    <link rel="stylesheet" href="css/print.css" media="print">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+</head>
+
+<body class="campaign-page case-study-page case-study-page--intown">
+        <header>
+        <div class="container">
+            <div class="logo">
+                <a href="./" title="RENCORET AI - Startseite">
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo" class="logo-svg dark-mode-logo" width="220" height="75" fetchpriority="high">
+                </a>
+            </div>
+            <nav aria-label="Case-Study-Navigation">
+                <ul>
+                    <li><a href="./#projekte">Proof</a></li>
+                    <li><a href="ki-mvp-entwickeln-lassen.html">KI-MVP</a></li>
+                    <li><a href="internal-ai-assistant-rag.html">RAG</a></li>
+                    <li><a href="./#kontakt">Kontakt</a></li>
+                </ul>
+                <a href="#lead-form" class="nav-cta">Fit-Check anfragen</a>
+                <button class="mobile-menu-toggle" aria-label="Menü öffnen" aria-controls="mobile-menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+        <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu campaign-mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <a href="./" class="mobile-menu-logo" title="RENCORET AI - Startseite">
+                    <img src="img/logo-extended.svg" alt="RENCORET AI MVP APPS Logo" width="220" height="88">
+                </a>
+                <button class="mobile-menu-close" aria-label="Menü schließen">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <ul>
+                <li><a href="./#projekte">Proof</a></li>
+                <li><a href="ki-mvp-entwickeln-lassen.html">KI-MVP</a></li>
+                <li><a href="internal-ai-assistant-rag.html">RAG</a></li>
+                <li><a href="./#kontakt">Kontakt</a></li>
+            </ul>
+
+            <a href="#lead-form" class="cta-button mobile-menu-cta">Fit-Check anfragen</a>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero hero--apple case-hero" id="top">
+            <div class="container-wide">
+                <div class="case-hero__grid">
+                    <div class="case-hero__content" data-motion="reveal">
+                        <div class="case-kicker"><a href="./#projekte">Proof</a><span>/</span><span>Case Study</span></div>
+                        <h1>InTown: lokale Gastronomieangebote abstimmbar machen.</h1>
+                        <p class="case-hero__lede">InTown machte lokale Angebote abstimmbar: Nutzer:innen nominieren Deals, Restaurants erhalten Sichtbarkeit, die Community entscheidet.</p>
+                        <dl class="case-hero__facts">
+                            <div>
+                                <dt>Produkt</dt>
+                                <dd>Mobile/Web-Plattform</dd>
+                            </div>
+                            <div>
+                                <dt>Umfeld</dt>
+                                <dd>Lokale Gastronomie</dd>
+                            </div>
+                            <div>
+                                <dt>Nachweis</dt>
+                                <dd>150+ Restaurants</dd>
+                            </div>
+                        </dl>
+                    </div>
+                    <div class="case-hero__visual" data-motion="stage-scale">
+                        <picture class="case-device case-device--landscape">
+                            <source srcset="img/projects/intown-app.webp" type="image/webp">
+                            <img src="img/projects/intown-app.png" alt="InTown Voting-App für lokale Gastronomie" width="945" height="532" loading="eager" fetchpriority="high">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="container-wide">
+                <div class="case-section__intro" data-motion="reveal">
+                    <span class="eyebrow">Kontext</span>
+                    <h2>Ein lokaler Markt als Community-Produkt.</h2>
+                    <p>Das Projekt wurde von der Sparkasse Bielefeld und Google gefördert und später akquiriert. Die vorhandenen Projektinformationen nennen 150+ Restaurants und 15.000 Nutzer.</p>
+                </div>
+                <div class="case-panel-grid" data-motion="stagger">
+                    <article class="case-panel">
+                        <dl>
+                            <dt>Problem</dt>
+                            <dd>Lokale Restaurants und Nutzer brauchten einen einfachen Weg, Nachfrage nach Angeboten sichtbar zu machen.</dd>
+                        </dl>
+                    </article>
+                    <article class="case-panel">
+                        <dl>
+                            <dt>Lösung</dt>
+                            <dd>Voting-Plattform für nominierte Gastro-Angebote, Community-Abstimmung und lokale Angebotsentdeckung.</dd>
+                        </dl>
+                    </article>
+                    <article class="case-panel">
+                        <dl>
+                            <dt>Scope</dt>
+                            <dd>Mobile/Web-Plattform für lokale Angebote, Nominierungen und Abstimmungen.</dd>
+                        </dl>
+                    </article>
+                    <article class="case-panel">
+                        <dl>
+                            <dt>Nachweis</dt>
+                            <dd>150+ Restaurants, 15.000 Nutzer und spätere Akquisition.</dd>
+                        </dl>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section case-section--compact">
+            <div class="container-wide">
+                <div class="case-proof">
+                    <div class="case-proof__image" data-motion="reveal">
+                        <picture>
+                            <source srcset="img/projects/intown-app.webp" type="image/webp">
+                            <img src="img/projects/intown-app.png" alt="InTown App Oberfläche mit Voting-Elementen für lokale Gastronomie" width="945" height="532" loading="lazy">
+                        </picture>
+                    </div>
+                    <div data-motion="reveal">
+                        <div class="case-section__intro">
+                            <span class="eyebrow">Produkt- und Technik-Scope</span>
+                            <h2>Nachfrage, Angebot und Abstimmung in einem Produktpfad.</h2>
+                            <p>InTown zeigt einen Produktfall, in dem Nutzeraktionen, lokale Anbieter und Angebotsentdeckung zusammengeführt wurden.</p>
+                        </div>
+                        <dl class="case-proof-list">
+                            <div>
+                                <dt>Community</dt>
+                                <dd>Nutzer:innen nominieren Deals und stimmen über lokale Angebote ab.</dd>
+                            </div>
+                            <div>
+                                <dt>Anbieter</dt>
+                                <dd>Restaurants erhalten Sichtbarkeit innerhalb eines lokalen Produktkontexts.</dd>
+                            </div>
+                            <div>
+                                <dt>Quelle im Bestand</dt>
+                                <dd>Projektkarte, Modal, vorhandenes Projektbild und Übersetzungsdaten.</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-section">
+            <div class="container-wide">
+                <div class="case-section__intro" data-motion="reveal">
+                    <span class="eyebrow">Weitere Proofs</span>
+                    <h2>Verwandte Produktbeispiele.</h2>
+                </div>
+                <div class="case-link-grid" data-motion="stagger">
+                    <a class="case-link-card" href="case-study-lebenszeichen.html">
+                        <span>Sicherheits-App</span>
+                        <strong>Lebenszeichen-App Case Study ansehen</strong>
+                    </a>
+                    <a class="case-link-card" href="case-study-mealply.html">
+                        <span>AI-Rezepte</span>
+                        <strong>Mealply Case Study ansehen</strong>
+                    </a>
+                    <a class="case-link-card" href="ai-mvp-development.html#proof">
+                        <span>Service</span>
+                        <strong>AI MVP Development ansehen</strong>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-next" id="lead-form">
+            <div class="container-wide">
+                <div class="case-next__panel" data-motion="reveal">
+                    <div class="case-next__content">
+                        <span class="eyebrow">Nächster Schritt</span>
+                        <h2>Prüfen wir Ihren Plattform- oder Marketplace-MVP.</h2>
+                        <p>Im Fit-Check klären wir Zielnutzer, Anbieterlogik, Kernworkflow, Scope und einen realistischen ersten Produktstand.</p>
+                        <div class="case-next__actions">
+                            <a href="ai-mvp-development.html#lead-form" class="cta-button">AI MVP Fit-Check anfragen</a>
+                            <a href="./#projekte" class="btn-ghost">Zurück zu allen Proofs</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h3>RENCORET AI</h3>
+                <p data-i18n="footer.tagline">App & KI Entwicklung</p>
+            </div>
+            <div class="footer-links">
+                <h4 data-i18n="footer.links.heading">Links</h4>
+                <ul>
+                    <li><a href="impressum.html" data-i18n="footer.links.imprint">Impressum</a></li>
+                    <li><a href="datenschutz.html" data-i18n="footer.links.privacy">Datenschutz</a></li>
+                    <li><button type="button" class="footer-cookie-button" id="cookie-settings" data-i18n="footer.links.cookies">Cookie-Einstellungen</button></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4 data-i18n="footer.contact.heading">Kontakt</h4>
+                <p><a href="mailto:hello@rencoret.ai">hello@rencoret.ai</a></p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p data-i18n="footer.copyright">&copy; 2026 RENCORET AI GmbH. Alle Rechte vorbehalten.</p>
+            <p class="footer-credit">
+                Designed &amp; Built by
+                <a class="rencoret-glow" href="https://uzzero.github.io/rencoret-ai-dev-preview" target="_blank" rel="noopener noreferrer">
+                    <span class="ai-glow-inner">RENCORET AI GmbH</span>
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+        <div class="sticky-cta" id="sticky-cta" aria-hidden="true" inert>
+        <a href="#lead-form" class="cta-button sticky-cta__button" tabindex="-1">Fit-Check anfragen</a>
+    </div>
+
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+        <div class="cookie-content">
+            <p>Wir verwenden Cookies und Tracking-Technologien, um Nutzung, Conversion-Messung und Remarketing auszuwerten. Nicht notwendiges Tracking laden wir erst nach Ihrer aktiven Zustimmung. Details finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+            <div class="cookie-buttons">
+                <button id="reject-cookies" class="cookie-btn cookie-btn-reject" type="button">Ablehnen</button>
+                <button id="accept-cookies" class="cookie-btn cookie-btn-accept" type="button">Akzeptieren</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/navigation.js?v=search-readiness-20260613" defer></script>
+    <script src="js/lead-attribution.js" defer></script>
+    <script src="js/faq.js?v=campaign-20260612" defer></script>
+    <script src="js/campaign-page.js?v=campaign-20260612" defer></script>
+    <script src="js/analytics.js" defer></script>
+
+</body>
+
+</html>

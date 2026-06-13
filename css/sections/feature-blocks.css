@@ -141,6 +141,17 @@
     margin: 0;
 }
 
+.feature-block__actions {
+    margin-top: 26px;
+}
+
+.feature-block__actions .btn-ghost,
+.feature-block__actions .cta-button {
+    min-height: 48px;
+    padding: 14px 22px;
+    font-size: 0.92rem;
+}
+
 .feature-block__visual {
     position: relative;
     width: 100%;
@@ -296,5 +307,16 @@
     .feature-block__visual-frame {
         --feature-visual-radius: 20px;
         aspect-ratio: 5 / 4;
+    }
+
+    .feature-block__actions {
+        width: 100%;
+    }
+
+    .feature-block__actions .btn-ghost,
+    .feature-block__actions .cta-button {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
     }
 }
