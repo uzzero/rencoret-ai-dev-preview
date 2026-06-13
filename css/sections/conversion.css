@@ -599,6 +599,7 @@ main {
 .qualification {
     padding: clamp(82px, 10vw, 132px) 0;
     background: #000000;
+    scroll-margin-top: 118px;
 }
 
 .qualification .conversion-section__intro--split {
@@ -855,6 +856,10 @@ main {
 }
 
 @media (max-width: 768px) {
+    .qualification {
+        scroll-margin-top: 96px;
+    }
+
     .sticky-cta {
         display: block;
     }

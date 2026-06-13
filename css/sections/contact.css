@@ -571,6 +571,7 @@ button[type="submit"]:hover::before {
     box-shadow:
         0 0 0 2px rgba(255, 140, 66, 0.18),
         0 0 30px rgba(144, 84, 247, 0.4);
+    margin-inline: auto;
 }
 
 .ceo-profile__avatar img {
