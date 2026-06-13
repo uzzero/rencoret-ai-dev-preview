@@ -43,19 +43,19 @@
 
 .hero__glow {
     position: absolute;
-    width: clamp(420px, 55vw, 880px);
-    height: clamp(420px, 55vw, 880px);
+    width: min(clamp(420px, 55vw, 880px), 100vw);
+    height: min(clamp(420px, 55vw, 880px), 100vw);
     opacity: 0.5;
 }
 
 .hero__glow--tl {
-    top: -25%;
-    left: -15%;
+    top: 0;
+    left: 0;
 }
 
 .hero__glow--br {
-    bottom: -30%;
-    right: -15%;
+    right: 0;
+    bottom: 0;
 }
 
 /* keep existing oval shapes but soften them and push to background */

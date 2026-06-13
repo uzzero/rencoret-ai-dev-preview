@@ -851,6 +851,21 @@ button[type="submit"]:hover::before {
     text-decoration: underline;
 }
 
+.contact--apple .form-error-message {
+    margin: -4px 0 18px;
+    padding: 14px 16px;
+    border: 1px solid rgba(255, 112, 88, 0.42);
+    border-radius: var(--radius-md);
+    background: rgba(255, 112, 88, 0.1);
+    color: #ffd8d1;
+    font-size: 0.92rem;
+    line-height: 1.45;
+}
+
+.contact--apple .form-error-message[hidden] {
+    display: none;
+}
+
 .contact--apple .pageclip-form__submit {
     width: 100%;
     justify-content: center;
@@ -866,6 +881,14 @@ button[type="submit"]:hover::before {
     #kontakt,
     #lead-form {
         scroll-margin-top: 96px;
+    }
+
+    .contact--apple .form-group input[type="text"],
+    .contact--apple .form-group input[type="email"],
+    .contact--apple .form-group input[type="tel"],
+    .contact--apple .form-group textarea,
+    .contact--apple .form-group select {
+        font-size: 1rem;
     }
 }
 

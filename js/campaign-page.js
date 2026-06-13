@@ -189,6 +189,7 @@
         var form = document.querySelector('.pageclip-form');
         var overlay = document.getElementById('formSuccessOverlay');
         var successTitle = document.getElementById('successTitle');
+        var formErrorMessage = document.getElementById('formErrorMessage');
         if (!form) return;
 
         var params = new URLSearchParams(window.location.search);
@@ -198,7 +199,8 @@
             utm_medium: params.get('utm_medium') || '',
             utm_campaign: params.get('utm_campaign') || '',
             utm_content: params.get('utm_content') || '',
-            utm_term: params.get('utm_term') || ''
+            utm_term: params.get('utm_term') || '',
+            referrer: document.referrer || ''
         };
 
         Object.keys(hiddenFieldValues).forEach(function (fieldName) {
@@ -214,6 +216,8 @@
         }
 
         form.addEventListener('submit', function () {
+            hideSubmissionError();
+
             if (window.rencoretLoadPageclip) {
                 window.rencoretLoadPageclip();
             }
@@ -233,6 +237,11 @@
 
                 if (form.classList.contains('pageclip-form--success')) {
                     showSuccessOverlay();
+                    return;
+                }
+
+                if (form.classList.contains('pageclip-form--error') || form.classList.contains('pageclip-form--failure')) {
+                    showSubmissionError();
                 }
             });
         });
@@ -244,6 +253,7 @@
 
         function showSuccessOverlay() {
             var submitterName = sessionStorage.getItem('formSubmitterName') || '';
+            hideSubmissionError();
 
             if (window.trackEvent) {
                 window.trackEvent('generate_lead', {
@@ -280,6 +290,21 @@
             }
 
             sessionStorage.removeItem('formSubmitterName');
+        }
+
+        function showSubmissionError() {
+            if (!formErrorMessage) return;
+
+            formErrorMessage.hidden = false;
+            formErrorMessage.classList.add('active');
+            formErrorMessage.focus({ preventScroll: true });
+        }
+
+        function hideSubmissionError() {
+            if (!formErrorMessage) return;
+
+            formErrorMessage.hidden = true;
+            formErrorMessage.classList.remove('active');
         }
     }
 
@@ -335,7 +360,7 @@
 
     function initStickyCta() {
         var stickyCta = document.getElementById('sticky-cta');
-        var hero = document.querySelector('.hero');
+        var hero = document.querySelector('.hero, .ki-mvp-hero');
         var contact = document.querySelector('.contact');
         if (!stickyCta || !hero || !('IntersectionObserver' in window)) return;
 
@@ -388,6 +413,34 @@
         scheduleUpdate();
     }
 
+    function initCaseDetails() {
+        var details = document.querySelectorAll('details.mvp-case-details');
+        if (!details.length) return;
+
+        function openCaseDetails(id) {
+            if (!id) return;
+
+            var target = document.getElementById(id);
+            if (!target || !target.matches('details.mvp-case-details')) return;
+
+            target.open = true;
+        }
+
+        document.querySelectorAll('a[href^="#case-"]').forEach(function (link) {
+            link.addEventListener('click', function () {
+                openCaseDetails((link.getAttribute('href') || '').substring(1));
+            });
+        });
+
+        window.addEventListener('hashchange', function () {
+            openCaseDetails(window.location.hash.substring(1));
+        });
+
+        if (window.location.hash) {
+            openCaseDetails(window.location.hash.substring(1));
+        }
+    }
+
     function initMobileOverflowGuard() {
         function applyGuard() {
             document.documentElement.style.overflowX = 'hidden';
@@ -410,6 +463,7 @@
         initForm();
         initPageclipLazyLoad();
         initStickyCta();
+        initCaseDetails();
         initMobileOverflowGuard();
     });
 })();

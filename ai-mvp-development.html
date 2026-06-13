@@ -84,7 +84,7 @@
         localStorage.setItem('theme', 'dark');
     </script>
 
-    <link rel="stylesheet" href="css/ai-mvp-development.1d5e0f08abca.css">
+    <link rel="stylesheet" href="css/ai-mvp-development.702260efdb1c.css">
     
     <link rel="stylesheet" href="css/print.css" media="print">
 
@@ -505,7 +505,7 @@
 
                             <div class="contact-card__detail">
                                 <span class="contact-card__detail-label">E-Mail</span>
-                                <a href="mailto:ricardo@rencoret.dev" itemprop="email">ricardo@rencoret.dev</a>
+                                <a href="mailto:hello@rencoret.ai" itemprop="email">hello@rencoret.ai</a>
                             </div>
                             <div class="contact-card__detail">
                                 <span class="contact-card__detail-label">Adresse</span>
@@ -535,6 +535,7 @@
                             <input type="hidden" id="utm_campaign" name="utm_campaign">
                             <input type="hidden" id="utm_content" name="utm_content">
                             <input type="hidden" id="utm_term" name="utm_term">
+                            <input type="hidden" id="referrer" name="referrer">
                             <input type="hidden" id="offer_type" name="offer_type" value="ai_mvp_development">
 
                             <div class="form-grid form-grid--two">
@@ -640,6 +641,9 @@
                                 <input type="checkbox" id="datenschutz" name="datenschutz" required>
                                 <label for="datenschutz">Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und stimme zu.</label>
                             </div>
+                            <p class="form-error-message" id="formErrorMessage" role="alert" aria-live="assertive" tabindex="-1" hidden>
+                                Die Anfrage konnte gerade nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie an hello@rencoret.ai.
+                            </p>
                             <button type="submit" class="cta-button pageclip-form__submit">
                                 <span>AI MVP Fit-Check anfragen</span>
                             </button>
@@ -682,7 +686,7 @@
             </div>
             <div class="footer-contact">
                 <h4 data-i18n="footer.contact.heading">Kontakt</h4>
-                <p>ricardo@rencoret.dev</p>
+                <p><a href="mailto:hello@rencoret.ai">hello@rencoret.ai</a></p>
             </div>
         </div>
         <div class="copyright">
@@ -703,7 +707,7 @@
 
     <div id="cookie-banner" class="cookie-banner" style="display: none;">
         <div class="cookie-content">
-            <p>Wir verwenden Cookies und Tracking-Technologien, um Ihre Erfahrung zu verbessern und den Erfolg unserer Kampagnen zu messen. Nicht notwendiges Tracking laden wir erst nach Ihrer aktiven Zustimmung. Details finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+            <p>Wir verwenden Cookies und Tracking-Technologien, um Nutzung, Conversion-Messung und Remarketing auszuwerten. Nicht notwendiges Tracking laden wir erst nach Ihrer aktiven Zustimmung. Details finden Sie in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
             <div class="cookie-buttons">
                 <button id="reject-cookies" class="cookie-btn cookie-btn-reject" type="button">Ablehnen</button>
                 <button id="accept-cookies" class="cookie-btn cookie-btn-accept" type="button">Akzeptieren</button>
@@ -711,7 +715,7 @@
         </div>
     </div>
 
-    <script src="js/navigation.js?v=campaign-20260612" defer></script>
+    <script src="js/navigation.js?v=search-readiness-20260613" defer></script>
     <script src="js/faq.js?v=campaign-20260612" defer></script>
     <script src="js/campaign-page.js?v=campaign-20260612" defer></script>
     <script src="js/analytics.js" defer></script>

@@ -5,9 +5,14 @@ body {
     overflow-x: clip;
 }
 
+main {
+    overflow-x: clip;
+}
+
 @supports not (overflow: clip) {
     html,
-    body {
+    body,
+    main {
         overflow-x: hidden;
     }
 }

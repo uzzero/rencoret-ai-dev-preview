@@ -1316,6 +1316,99 @@ body.campaign-page--ki-mvp-paid .mvp-case-card__link:focus {
     border-bottom-color: currentColor;
 }
 
+body.campaign-page--ki-mvp-paid .mvp-case-detail-stack {
+    display: grid;
+    gap: 14px;
+    max-width: 980px;
+    margin: clamp(28px, 4vw, 44px) auto 0;
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-details {
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.028);
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-details summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 58px;
+    padding: 16px 18px;
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 750;
+    letter-spacing: 0.1em;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-details summary::-webkit-details-marker {
+    display: none;
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-details summary::after {
+    content: "+";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 26px;
+    height: 26px;
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1rem;
+    line-height: 1;
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-details[open] summary {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-details[open] summary::after {
+    content: "-";
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-details__content {
+    display: grid;
+    gap: 22px;
+    padding: 22px 18px 24px;
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-facts {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-facts div {
+    display: grid;
+    grid-template-columns: minmax(92px, 0.28fr) minmax(0, 1fr);
+    gap: 16px;
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-facts dt {
+    color: rgba(255, 255, 255, 0.48);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-facts dd {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+    line-height: 1.58;
+}
+
+body.campaign-page--ki-mvp-paid .mvp-case-details__cta {
+    justify-self: start;
+}
+
 body.campaign-page--ki-mvp-paid .mvp-case-card__body .tag-pill {
     padding: 5px 11px;
     color: rgba(255, 255, 255, 0.62);
@@ -1491,6 +1584,11 @@ body.campaign-page--ki-mvp-paid .mvp-pricing-card__details .cta-button {
 
     body.campaign-page--ki-mvp-paid .mvp-case-card__body {
         padding: 22px;
+    }
+
+    body.campaign-page--ki-mvp-paid .mvp-case-facts div {
+        grid-template-columns: 1fr;
+        gap: 4px;
     }
 
     body.campaign-page--ki-mvp-paid .mvp-pricing-card {

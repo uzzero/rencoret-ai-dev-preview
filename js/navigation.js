@@ -134,6 +134,33 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
+    function getCorrectionDelays(behavior, targetElement) {
+        const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
+        const isLeadForm = targetElement && targetElement.id === 'lead-form';
+
+        if (behavior === 'auto') {
+            return isMobileViewport && isLeadForm
+                ? [80, 300, 900, 1800, 3200]
+                : [80, 300];
+        }
+
+        if (isMobileViewport && isLeadForm) {
+            return [350, 900, 1600, 2600, 4200];
+        }
+
+        if (isMobileViewport) {
+            return [650, 1150, 1800];
+        }
+
+        return [650, 1150];
+    }
+
+    function scheduleScrollCorrections(targetElement, desiredViewportTop, behavior) {
+        getCorrectionDelays(behavior, targetElement).forEach(delay => {
+            setTimeout(() => correctScrollToElement(targetElement, desiredViewportTop), delay);
+        });
+    }
+
     function scrollToElement(targetElement, behavior = 'smooth') {
         refreshMotion();
 
@@ -143,14 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const offsetPosition = Math.max(0, targetPosition - desiredViewportTop);
 
         scrollToPosition(offsetPosition, behavior);
-
-        const isMobileViewport = window.matchMedia('(max-width: 768px)').matches;
-        const correctionDelay = behavior === 'auto' ? 80 : (isMobileViewport ? 1150 : 650);
-        setTimeout(() => correctScrollToElement(targetElement, desiredViewportTop), correctionDelay);
-
-        if (behavior !== 'auto') {
-            setTimeout(() => correctScrollToElement(targetElement, desiredViewportTop), correctionDelay + 500);
-        }
+        scheduleScrollCorrections(targetElement, desiredViewportTop, behavior);
     }
 
     window.rencoretScrollToElement = scrollToElement;
@@ -181,35 +201,49 @@ document.addEventListener('DOMContentLoaded', function() {
         return Boolean(link.closest('header nav') || link.closest('.mobile-menu'));
     }
     
+    function handleAnchorClick(link, event) {
+        const targetElementId = getTargetIdFromHref(link.getAttribute('href'));
+        const targetElement = targetElementId ? getAnchorTarget(targetElementId) : null;
+
+        if (!targetElement) return false;
+
+        event.preventDefault();
+        event.rencoretAnchorHandled = true;
+
+        if (isNavigationLink(link)) {
+            // Aktive Klasse für alle Links zurücksetzen
+            navLinks.forEach(l => {
+                l.removeAttribute('aria-current');
+                l.classList.remove('scrolled-active');
+            });
+
+            if (homeLink) {
+                homeLink.removeAttribute('aria-current');
+                homeLink.classList.remove('scrolled-active');
+            }
+
+            // Aktive Klasse für den geklickten Link setzen
+            link.setAttribute('aria-current', 'page');
+            link.classList.add('scrolled-active');
+        }
+
+        scrollToElement(targetElement);
+        return true;
+    }
+
     scrollLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            // Hole die Ziel-ID
-            const targetElementId = getTargetIdFromHref(this.getAttribute('href'));
-            const targetElement = targetElementId ? getAnchorTarget(targetElementId) : null;
-            
-            if (targetElement) {
-                e.preventDefault();
-
-                if (isNavigationLink(this)) {
-                    // Aktive Klasse für alle Links zurücksetzen
-                    navLinks.forEach(l => {
-                        l.removeAttribute('aria-current');
-                        l.classList.remove('scrolled-active');
-                    });
-                    
-                    if (homeLink) {
-                        homeLink.removeAttribute('aria-current');
-                        homeLink.classList.remove('scrolled-active');
-                    }
-                    
-                    // Aktive Klasse für den geklickten Link setzen
-                    this.setAttribute('aria-current', 'page');
-                    this.classList.add('scrolled-active');
-                }
-
-                scrollToElement(targetElement);
-            }
+            handleAnchorClick(this, e);
         });
+    });
+
+    document.addEventListener('click', function(e) {
+        if (e.rencoretAnchorHandled) return;
+
+        const link = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+        if (!link || !document.contains(link)) return;
+
+        handleAnchorClick(link, e);
     });
 
     // Home-Link-Klick-Handler
