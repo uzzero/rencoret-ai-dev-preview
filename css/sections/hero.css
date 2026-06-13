@@ -121,6 +121,40 @@
     display: flex;
     justify-content: center;
     perspective: 1600px;
+    isolation: isolate;
+}
+
+.hero__visual::before {
+    content: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: calc(-1 * clamp(42px, 3.8vw, 74px));
+    z-index: 1;
+    height: clamp(42px, 3.8vw, 74px);
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.78) 68%, #000000 100%);
+}
+
+@media (min-width: 769px) {
+    .hero__glow {
+        width: clamp(420px, 55vw, 880px);
+        height: clamp(420px, 55vw, 880px);
+    }
+
+    .hero__glow--tl {
+        top: -25%;
+        left: -15%;
+    }
+
+    .hero__glow--br {
+        right: -15%;
+        bottom: -30%;
+    }
+
+    .hero__visual::before {
+        content: "";
+    }
 }
 
 .hero__visual::after {
@@ -137,6 +171,7 @@
 
 .hero__visual-frame {
     position: relative;
+    z-index: 2;
     width: 100%;
     aspect-ratio: 16 / 9;
     border-radius: 0;
@@ -171,6 +206,16 @@
         linear-gradient(90deg, #000000 0%, rgba(0, 0, 0, 0) 12%, rgba(0, 0, 0, 0) 86%, #000000 100%),
         linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0.08) 18%, rgba(0, 0, 0, 0) 42%, rgba(0, 0, 0, 0.1) 66%, rgba(0, 0, 0, 0.46) 84%, #000000 96%, #000000 100%),
         radial-gradient(ellipse 78% 70% at 55% 56%, rgba(0, 0, 0, 0) 48%, rgba(0, 0, 0, 0.26) 72%, #000000 100%);
+}
+
+html.motion-ready .hero.hero--apple .hero__visual[data-motion="reveal"] {
+    opacity: 0;
+    transform: translateY(44px) scale(0.985);
+}
+
+html.motion-ready .hero.hero--apple .hero__visual[data-motion="reveal"].is-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 /* Show the placeholder only if the image fails to load */
